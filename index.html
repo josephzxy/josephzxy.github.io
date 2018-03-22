@@ -211,7 +211,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/03/22/hello-world/">Hello World</a>
+          <a class="post-link" href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/"></a>
         
       </h1>
 
@@ -233,15 +233,19 @@
         
 
         
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+          <p>##Hexo + GitHub 搭建博客打开出现404</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6" alt="404"></p>
+<p>Hexo + GitHub 搭建博客打开出现404的原因可能有以下几种：</p>
+<ol>
+<li><strong>repo的名字不是“用户名.github.io”</strong>。在GitHub上搭建博客实质上是利用了GitHub Pages功能，所以仓库的名称必须遵循以上原则，也就是一个账号只能有一个这样的仓库。</li>
+<li><p>如果你打算使用自己的域名来打开博客且已经设置好域名解析, 则可能是</p>
+<p> <strong><code>source</code>目录下没有添加<code>CNAME</code>文件或格式不正确</strong>。</p>
+<p> 正确做法：在<code>hexo项目目录/source/</code>下添加CNAME文件，并且写入自己的域名。保存后重新在hexo项目目录下（必须在这个目录下才能执行hexo命令，否则报错）执行</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  //generate</span><br><span class="line">hexo d  //deploy</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>- **注意：`CNAME`无后缀名且全部大写**
+</code></pre><p>   同时自己博客对应repo的<code>setting</code>-&gt;<code>custom-domain</code>一项，要检查是否有改为自己的域名。（一般执行<code>hexo d</code>后该项会自动填写）</p>
 
         
       
