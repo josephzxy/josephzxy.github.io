@@ -40,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/2018/03/22/Mac 命令行alias用法记录/"/>
+<link rel="canonical" href="http://xingye.us/2018/03/23/Hexo + GitHub 搭建博客记录/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -217,7 +217,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          2018-03-22
+          2018-03-23
         </span>
         
         
@@ -229,37 +229,26 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mac-命令行alias用法记录"><span class="toc-text">Mac 命令行alias用法记录</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hexo-GitHub-搭建博客记录"><span class="toc-text">Hexo + GitHub 搭建博客记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo-博客搭建"><span class="toc-text">Hexo 博客搭建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于custom-domain"><span class="toc-text">关于custom-domain</span></a></li></ol></li></ol></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h1 id="Mac-命令行alias用法记录"><a href="#Mac-命令行alias用法记录" class="headerlink" title="Mac 命令行alias用法记录"></a>Mac 命令行alias用法记录</h1><a id="more"></a>
-<p>alias的用法如下：</p>
-<ol>
-<li><p>首先打开<code>~/.bash_profile</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim ~/.bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>加入</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias your_cmd=&apos;your_cmd()&#123;cmd_1; cmd_2;....&#125;;your_cmd&apos;  #记得命令中间以分号隔开</span><br></pre></td></tr></table></figure>
-<p> 比如下面这个例子（一键发布hexo博客）</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias post_blog=&apos;post_blog()&#123; cd /Users/joseph/work/blog;hexo clean;hexo g;hexo d;&#125;;post_blog&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>最后记得<code>source</code> </p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>-<br>附：关于Mac中环境变量配置文件的区别</p>
-<p>（摘录自<a href="https://blog.csdn.net/u010416101/article/details/54618621）" target="_blank" rel="noopener">https://blog.csdn.net/u010416101/article/details/54618621）</a></p>
-<p>其配置文件的优先级如下所示：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>/etc/profile</code> （建议不修改这个文件 ） 全局（公有）配置，不管是哪个用户，登录时都会读取该文件。</li>
-<li><code>/etc/bashrc</code> （一般在这个文件中添加系统级环境变量） 全局（公有）配置，bash shell执行时，不管是何种方式，都会读取此文件。</li>
-<li><code>~/.bash_profile</code> （一般在这个文件中添加用户级环境变量） 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次!</li>
-</ul>
+        <h1 id="Hexo-GitHub-搭建博客记录"><a href="#Hexo-GitHub-搭建博客记录" class="headerlink" title="Hexo + GitHub 搭建博客记录"></a>Hexo + GitHub 搭建博客记录</h1><h3 id="Hexo-博客搭建"><a href="#Hexo-博客搭建" class="headerlink" title="Hexo 博客搭建"></a>Hexo 博客搭建</h3><p>hexo博客的具体搭建步骤参照吴润老师的教程</p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></p>
+<h3 id="关于custom-domain"><a href="#关于custom-domain" class="headerlink" title="关于custom-domain"></a>关于custom-domain</h3><p>之前本来想用在阿里云买的域名，但是无论怎么设置解析都无法访问到自己的博客，后来网上查了资料才发现，从某一个时刻开始，阿里云未实名认证的域名停止解析了。</p>
+<p><a href="https://www.zhihu.com/question/48862651" target="_blank" rel="noopener">注册局设置暂停解析（serverHold），域名解析遇到这个问题如何解决？</a></p>
+<p>去阿里云的控制台查了下自己的域名，发现的确被停止解析了。随后上传了一下自己的身份资料，但是似乎不能立即恢复解析。</p>
+<blockquote>
+<p>后记：实名后大概24小时之后会恢复解析</p>
+</blockquote>
+<p>在知乎上看了些资料后决定去买国外服务商提供的域名。</p>
+<p><a href="https://www.zhihu.com/question/19551906" target="_blank" rel="noopener">现在去哪里买 .com 域名最便宜？</a></p>
+<p>最终选择了<a href="https://www.namecheap.com/" target="_blank" rel="noopener">namecheap</a>购买域名，配合<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>DNS解析。</p>
+<p>ps. 因为买的是.us域名，看网上说namecheap自带的basicDNS在国内可能会被墙，博主目前在香港，试了下似乎也访问不了，不知道为什么…</p>
+<p>配置CloudFlare的时候选择0元的个人套餐，然后按照指示填写主机记录，（如果不太清楚怎么填可以参考<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">吴润老师的教程</a>），最后会生成两条DNS解析服务器的地址，把它们替换掉namecheap控制台那里的DNS就可以了。</p>
 
       
     </div>
@@ -275,7 +264,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://xingye.us/2018/03/22/Mac 命令行alias用法记录/">http://xingye.us/2018/03/22/Mac 命令行alias用法记录/</a>
+      <a href="http://xingye.us/2018/03/23/Hexo + GitHub 搭建博客记录/">http://xingye.us/2018/03/23/Hexo + GitHub 搭建博客记录/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -297,14 +286,8 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/03/23/Hexo + GitHub 搭建博客记录/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default"></span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/">
+      <a class="next" href="/2018/03/22/Mac 命令行alias用法记录/">
         <span class="next-text nav-default"></span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
@@ -417,8 +400,8 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://xingye.us/2018/03/22/Mac 命令行alias用法记录/';
-        this.page.identifier = '2018/03/22/Mac 命令行alias用法记录/';
+        this.page.url = 'http://xingye.us/2018/03/23/Hexo + GitHub 搭建博客记录/';
+        this.page.identifier = '2018/03/23/Hexo + GitHub 搭建博客记录/';
         this.page.title = '';
     };
     (function() {
