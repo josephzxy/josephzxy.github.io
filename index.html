@@ -221,7 +221,8 @@
         
           <hr>
 <p>title: C++ ‘\n’, “\n”和endl的区别</p>
-<h2 id="tags-C"><a href="#tags-C" class="headerlink" title="tags: [C++]"></a>tags: [C++]</h2>
+<h2 id="tags-C"><a href="#tags-C" class="headerlink" title="tags: [C++]"></a>tags: [C++]</h2><p>摘自<a href="http://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">KgdBukn的笔记</a>, 略有改动</p>
+<p><code>&#39;\n&#39;</code> 表示一个换行符<br><code>&quot;\n&quot;</code> 表示内容为一个换行符的字符串。<br><code>std::endl</code> 是流操作子，输出一个换行符，并立即刷新缓冲区。</p>
           <div class="read-more">
             <a href="/2018/03/28/C++ '\n', "\n"和endl的区别/" class="read-more-link">Read more..</a>
           </div>
@@ -447,23 +448,14 @@
       
         
         
+          
+        
 
         
-          <a id="more"></a>
-<h3 id="Hexo-博客搭建"><a href="#Hexo-博客搭建" class="headerlink" title="Hexo 博客搭建"></a>Hexo 博客搭建</h3><p>hexo博客的具体搭建步骤参照吴润老师的教程</p>
-<p><a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></p>
-<h3 id="关于custom-domain"><a href="#关于custom-domain" class="headerlink" title="关于custom-domain"></a>关于custom-domain</h3><p>之前本来想用在阿里云买的域名，但是无论怎么设置解析都无法访问到自己的博客，后来网上查了资料才发现，从某一个时刻开始，阿里云未实名认证的域名停止解析了。</p>
-<p><a href="https://www.zhihu.com/question/48862651" target="_blank" rel="noopener">注册局设置暂停解析（serverHold），域名解析遇到这个问题如何解决？</a></p>
-<p>去阿里云的控制台查了下自己的域名，发现的确被停止解析了。随后上传了一下自己的身份资料，但是似乎不能立即恢复解析。</p>
-<blockquote>
-<p>后记：实名后大概24小时之后会恢复解析</p>
-</blockquote>
-<p>在知乎上看了些资料后决定去买国外服务商提供的域名。</p>
-<p><a href="https://www.zhihu.com/question/19551906" target="_blank" rel="noopener">现在去哪里买 .com 域名最便宜？</a></p>
-<p>最终选择了<a href="https://www.namecheap.com/" target="_blank" rel="noopener">namecheap</a>购买域名，配合<a href="https://www.cloudflare.com/" target="_blank" rel="noopener">CloudFlare</a>DNS解析。</p>
-<p>ps. 因为买的是.us域名，看网上说namecheap自带的basicDNS在国内可能会被墙，博主目前在香港，试了下似乎也访问不了，不知道为什么…</p>
-<p>配置CloudFlare的时候选择0元的个人套餐，然后按照指示填写主机记录，（如果不太清楚怎么填可以参考<a href="https://zhuanlan.zhihu.com/p/26625249" target="_blank" rel="noopener">吴润老师的教程</a>），最后会生成两条DNS解析服务器的地址，把它们替换掉namecheap控制台那里的DNS就可以了。</p>
-
+          <p>简要记录自己搭建博客的过程</p>
+          <div class="read-more">
+            <a href="/2018/03/23/Hexo + GitHub 搭建博客记录/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -563,22 +555,14 @@
       
         
         
+          
+        
 
         
-          <a id="more"></a>
-<p><img src="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6" width="400" height="400" alt="404" align="center"></p>
-<p>Hexo + GitHub 搭建博客打开出现404的原因可能有以下几种：</p>
-<ol>
-<li><strong>repo的名字不是“用户名.github.io”</strong>。在GitHub上搭建博客实质上是利用了GitHub Pages功能，所以仓库的名称必须遵循以上原则，也就是一个账号只能有一个这样的仓库。</li>
-<li><p>如果你打算使用自己的域名来打开博客且已经设置好域名解析, 则可能是</p>
-<p> <strong><code>source</code>目录下没有添加<code>CNAME</code>文件或格式不正确</strong>。</p>
-<p> 正确做法：在<code>hexo项目目录/source/</code>下添加CNAME文件，并且写入自己的域名。保存后重新在hexo项目目录下（必须在这个目录下才能执行hexo命令，否则报错）执行</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  //generate</span><br><span class="line">hexo d  //deploy</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>- **注意：`CNAME`无后缀名且全部大写**
-</code></pre><p>   同时自己博客对应repo的<code>setting</code>-&gt;<code>custom-domain</code>一项，要检查是否有改为自己的域名。（一般执行<code>hexo d</code>后该项会自动填写）</p>
-
+          <p>-<br>
+          <div class="read-more">
+            <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
