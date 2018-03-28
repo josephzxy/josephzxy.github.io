@@ -17,12 +17,10 @@
 
 
 
-  <meta name="description" content="C++ 中单引号和双引号的区别"/>
+  <meta name="description" content="tags"/>
 
 
 
-
-  <meta name="keywords" content="C++, 兴业的博客" />
 
 
 
@@ -42,7 +40,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/2018/03/28/C++ 中单引号和双引号的区别/"/>
+<link rel="canonical" href="http://xingye.us/tags/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -79,7 +77,7 @@
 
 
 
-    <title> C++ 中单引号和双引号的区别 - 兴业的博客 </title>
+    <title> tags - 兴业的博客 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -190,115 +188,11 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  
   <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          C++ 中单引号和双引号的区别
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
     <div class="post-content">
       
-        <p>单引号代表<code>char</code>类型，即单个字符<br>双引号是字符串类型</p>
-<a id="more"></a>
-<p>C++ 中字符串又分为</p>
-<pre><code>- C风格字符串
-- C++ 引入的 string 类类型
-</code></pre><blockquote>
-<p>关于C++字符串可参考 <a href="http://www.runoob.com/cplusplus/cpp-strings.html" target="_blank" rel="noopener">C++ 字符串-菜鸟教程</a></p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	char c = &apos;a&apos;; </span><br><span class="line">	char ca[] = &quot;a&quot;; //C风格字符串</span><br><span class="line">	string str = &quot;a&quot;; //C++ 引入的 string 类类型</span><br><span class="line">	</span><br><span class="line">    cout &lt;&lt; sizeof(&apos;a&apos;) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; sizeof(&quot;a&quot;) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; sizeof(str) &lt;&lt;endl;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>最终输出的结果为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
-<p>因为</p>
-<ul>
-<li><code>&#39;a&#39;</code>代表一个字符，只占一个字节</li>
-<li><code>&quot;a&quot;</code>相当于<code>{&#39;a&#39;, &#39;\0&#39;}</code> 占两个字节， 其中<code>\0</code>(null字符)代表<strong>字符串</strong>的结尾，如果没有<code>&#39;\0&#39;</code>就变成了<strong>字符数组</strong></li>
-</ul>
-<blockquote>
-<p>顾名思义，字符数组就是每个元素都是单个字符(<code>char</code>类型）的数组</p>
-</blockquote>
-<p>那为什么string类型的占8个字节呢？<br>查了一下发现<strong>g++的版本不同会使得string所占的字节数也不同</strong></p>
-<blockquote>
-<p>在g++ 4.8.4中string占8个字节，在g++5.4.0中string占32个字节</p>
-</blockquote>
-
-      
     </div>
-
-    
-      
-      
-
-  <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <a href="http://xingye.us">Beloved Joseph</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="http://xingye.us/2018/03/28/C++ 中单引号和双引号的区别/">http://xingye.us/2018/03/28/C++ 中单引号和双引号的区别/</a>
-    </p>
-    <p class="copyright-item">
-      <span>License: </span>
-      
-      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
-  </div>
-
-
-
-      
-      
-    
-
-    
-      <footer class="post-footer">
-        
-          <div class="post-tags">
-            
-              <a href="/tags/C/">C++</a>
-            
-          </div>
-        
-        
-        
-  <nav class="post-nav">
-    
-      <a class="prev" href="/2018/03/28/C++ '\n', "\n"和endl的区别/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default"></span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
-    
-    
-      <a class="next" href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/">
-        <span class="next-text nav-default"></span>
-        <span class="prev-text nav-mobile">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
-  </nav>
-
-      </footer>
-    
-
   </article>
-
 
           </div>
           
@@ -394,9 +288,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://xingye.us/2018/03/28/C++ 中单引号和双引号的区别/';
-        this.page.identifier = '2018/03/28/C++ 中单引号和双引号的区别/';
-        this.page.title = 'C++ 中单引号和双引号的区别';
+        this.page.url = 'http://xingye.us/tags/index.html';
+        this.page.identifier = 'tags/index.html';
+        this.page.title = 'tags';
     };
     (function() {
     var d = document, s = d.createElement('script');
