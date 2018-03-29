@@ -195,6 +195,146 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/03/28/关于 C++ typedef 的几点说明/"></a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <hr>
+<p>title: 关于 C++ typedef 的几点说明</p>
+<h2 id="tags-C"><a href="#tags-C" class="headerlink" title="tags: [C++]"></a>tags: [C++]</h2><p>   摘自<a href="http://www.runoob.com/cplusplus/cpp-data-types.html" target="_blank" rel="noopener">knight的笔记</a></p>
+<ul>
+<li>typedef 可以声明各种类型名，但不能用来定义变量。用 typedef 可以声明数组类型、字符串类型，使用比较方便。</li>
+<li><p>用typedef只是对已经存在的类型增加一个类型名，而没有创造新的类型。</p>
+</li>
+<li><p>当在不同源文件中用到同一类型数据（尤其是像数组、指针、结构体、共用体等类型数据）时，常用 typedef 声明一些数据类型，把它们单独放在一个头文件中，然后在需要用到它们的文件中用 ＃include 命令把它们包含进来，以提高编程效率。</p>
+</li>
+<li>使用 typedef 有利于程序的通用与移植。有时程序会依赖于硬件特性，用 typedef 便于移植。</li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html" target="_blank" rel="noopener">eric的笔记</a></p>
+          <div class="read-more">
+            <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/C++ 中的#if...#endif注释/">C++ 中的#if...#endif注释</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h1 id="待整理"><a href="#待整理" class="headerlink" title="待整理"></a>待整理</h1><p>摘自<a href="http://www.runoob.com/cplusplus/cpp-comments.html" target="_blank" rel="noopener">春风十里的笔记</a></p>
+<p>块注释符（/<em>…</em>/）是不可以嵌套使用的。</p>
+<p>此外，我们还可以使用 #if 0 … #endif 来实现注释，且可以实现嵌套，格式为：</p>
+<p>#if 0<br>   code</p>
+<p>#endif<br>你可以把 #if 0 改成 #if 1 来执行 code 的代码。</p>
+<p>这种形式对程序调试也可以帮助，测试时使用 #if 1 来执行测试代码，发布后使用 #if 0 来屏蔽测试代码。</p>
+<p>#if 后可以是任意的条件语句。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/">本地Markdown编辑器编写Hexo博客注意事项总结</a>
         
       </h1>
@@ -222,51 +362,6 @@
           <h2 id="关于Tags和Archives等标签的启用"><a href="#关于Tags和Archives等标签的启用" class="headerlink" title="关于Tags和Archives等标签的启用"></a>关于Tags和Archives等标签的启用</h2><p>具体可参考<br> <a href="https://www.zhihu.com/question/29017171" target="_blank" rel="noopener">hexo 下的分类和表签无法显示，怎么解决？- 知乎</a></p>
           <div class="read-more">
             <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/28/C++ '\n', "\n"和endl的区别/">C++ 中'\n', "\n" 和 &的用法和区别</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">KgdBukn的笔记</a>, 略有改动</p>
-<p><code>&#39;\n&#39;</code> 表示一个换行符<br><code>&quot;\n&quot;</code> 表示内容为一个换行符的字符串。<br><code>std::endl</code> 是流操作子，输出一个换行符，并立即刷新缓冲区。</p>
-          <div class="read-more">
-            <a href="/2018/03/28/C++ '\n', "\n"和endl的区别/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -543,55 +638,16 @@
   </article>
 
     
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/">Hexo + GitHub 搭建博客打开出现404</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-22
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><img src="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6" width="400" height="400" alt="404" align="center"></p>
-          <div class="read-more">
-            <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
   </section>
 
   
   <nav class="pagination">
     
+    
+      <a class="next" href="/page/2/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 

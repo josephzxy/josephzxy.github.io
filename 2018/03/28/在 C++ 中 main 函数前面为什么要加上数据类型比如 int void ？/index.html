@@ -17,10 +17,12 @@
 
 
 
-  <meta name="description" content="Python/Web Developer/机器学习/PM learner/"/>
+  <meta name="description" content="在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？"/>
 
 
 
+
+  <meta name="keywords" content="C++, 兴业的博客" />
 
 
 
@@ -40,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/archives/2018/"/>
+<link rel="canonical" href="http://xingye.us/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -77,11 +79,7 @@
 
 
 
-    <title>
-  
-    Archives - 兴业的博客
-  
-</title>
+    <title> 在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？ - 兴业的博客 </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -193,240 +191,111 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html" target="_blank" rel="noopener">eric的笔记</a></p>
+<a id="more"></a>
+<p>main函数的返回值是返回给主调进程，使主调进程得知被调用程序的运行结果。</p>
+<p>标准规范中规定main函数的返回值为int，一般约定返回0值时代表程序运行无错误，其它值均为错误号，但该约定并非强制。</p>
+<p>如果程序的运行结果不需要返回给主调进程，或程序开发人员确认该状态并不重要，比如所有出错信息均在程序中有明确提示的情况下，可以不写main函数的返回值。在一些检查不是很严格的编译器中，比如VC, VS等，void类型的main是允许的。不过在一些检查严格的编译器下，比如g++, 则要求main函数的返回值必须为int型。</p>
+<p>所以在编程时，<strong>区分程序运行结果并以int型返回，是一个良好的编程习惯</strong>。</p>
+
+      
+    </div>
+
     
       
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            11 Posts In Total
-          </span>
-        </div>
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Beloved Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">http://xingye.us/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
       
     
 
     
-      
+      <footer class="post-footer">
         
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/C/">C++</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="archive-post-link">
-            
-          </a>
-        </span>
-      </div>
+        
+        
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="archive-post-link">
-            在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/C++ 中的#if...#endif注释/" class="archive-post-link">
-            C++ 中的#if...#endif注释
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="archive-post-link">
-            本地Markdown编辑器编写Hexo博客注意事项总结
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/C++ 中单引号和双引号的区别/" class="archive-post-link">
-            C++ 中单引号和双引号的区别
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-27
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/" class="archive-post-link">
-            战略层，范围层，结构层，框架层，表现层
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/26/C++ * 和 &的用法和区别/" class="archive-post-link">
-            C++ * 和 &的用法和区别
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/" class="archive-post-link">
-            Hexo 博客 Even 主题添加Disqus评论区
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/23/Hexo + GitHub 搭建博客记录/" class="archive-post-link">
-            Hexo + GitHub 搭建博客记录
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/22/Mac 命令行alias用法记录/" class="archive-post-link">
-            Mac 命令行alias用法记录
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
+      <a class="prev" href="/2018/03/28/关于 C++ typedef 的几点说明/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default"></span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
     
-      <a class="next" href="/archives/2018/page/2/">
-        <span class="next-text">Next</span>
+      <a class="next" href="/2018/03/28/C++ 中的#if...#endif注释/">
+        <span class="next-text nav-default">C++ 中的#if...#endif注释</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -505,6 +374,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/';
+        this.page.identifier = '2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/';
+        this.page.title = '在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     
