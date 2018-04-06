@@ -195,6 +195,54 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/04/06/Python中的switch...case实现/"></a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-06
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <hr>
+<p>title: Python中的switch…case实现</p>
+<h2 id="tags-Python"><a href="#tags-Python" class="headerlink" title="tags: [Python]"></a>tags: [Python]</h2><p>Python与C++不同，并没有提供switch…case语句。</p>
+<p>Python 官方文档大概的意思是，你可以用<code>if..elif..elif..else</code>来实现同样的功能，所以似乎就没必要加入switch…case了。</p>
+<p>参考：<a href="https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python" target="_blank" rel="noopener">官方文档-Why isn’t there a switch or case statement in Python?</a></p>
+<p>如果一定要实现，可以采用如下的方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case1</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case2</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case3</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">switch = &#123; <span class="comment">#dict</span></span><br><span class="line">    <span class="number">1</span>:case1,</span><br><span class="line">    <span class="number">2</span>:case2,</span><br><span class="line">    <span class="number">3</span>:case3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">switch[case](arg)</span><br></pre></td></tr></table></figure>
+<p>代码实现参考<a href="">知乎-徐辰的回答-Python中为什么没有switch语法结构，有什么代替方案吗？</a></p>
+<p>因为<strong>Python中一切皆对象</strong>，所以函数名(e.g. case1)其实是一个指向该函数对象的指针, 所以可以直接写入到switch这个dict中。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/03/28/关于 C++ typedef 的几点说明/">关于C++ typedef 的几点说明</a>
         
       </h1>
@@ -577,50 +625,6 @@
           <p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>搭建的博客不同主题添加评论区的方法会略有不同，具体可参考各主题自身的文档。</p>
           <div class="read-more">
             <a href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/23/Hexo + GitHub 搭建博客记录/">Hexo + GitHub 搭建博客记录</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-23
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>简要记录自己搭建博客的过程</p>
-          <div class="read-more">
-            <a href="/2018/03/23/Hexo + GitHub 搭建博客记录/" class="read-more-link">Read more..</a>
           </div>
         
       
