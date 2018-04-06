@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xingye.us">
-  <title>Tag: C++ | Joseph&#39;s Blog</title>
+  <title>Python中staticmethod和classmethod的区别 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Joseph&#39;s Blog">
-<meta property="og:url" content="http://xingye.us/tags/C/index.html">
+  <meta name="description" content="个人理解:  staticmethod: 静态方法 可以没有任何参数 无法访问类变量和实例变量   classmethod: 类方法 第一个参数必须是类本身，即cls 可以访问类变量">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python中staticmethod和classmethod的区别">
+<meta property="og:url" content="http://xingye.us/2018/04/03/Python中staticmethod 和classmethod的区别/index.html">
 <meta property="og:site_name" content="Joseph&#39;s Blog">
+<meta property="og:description" content="个人理解:  staticmethod: 静态方法 可以没有任何参数 无法访问类变量和实例变量   classmethod: 类方法 第一个参数必须是类本身，即cls 可以访问类变量">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-04-06T08:40:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joseph&#39;s Blog">
+<meta name="twitter:title" content="Python中staticmethod和classmethod的区别">
+<meta name="twitter:description" content="个人理解:  staticmethod: 静态方法 可以没有任何参数 无法访问类变量和实例变量   classmethod: 类方法 第一个参数必须是类本身，即cls 可以访问类变量">
   
     <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
@@ -134,250 +139,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Python中staticmethod 和classmethod的区别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Python中staticmethod和classmethod的区别
+    </h1>
+  
+
+        
+        <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/" class="archive-article-date">
+  	<time datetime="2018-04-03T07:29:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>个人理解:</p>
+<ul>
+<li><strong>staticmethod:</strong><ul>
+<li>静态方法</li>
+<li>可以没有任何参数</li>
+<li>无法访问<strong>类变量</strong>和<strong>实例变量</strong></li>
+</ul>
+</li>
+<li><strong>classmethod:</strong><ul>
+<li>类方法</li>
+<li>第一个参数必须是类本身，即<code>cls</code></li>
+<li>可以访问<strong>类变量</strong></li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h4 id="英文解释"><a href="#英文解释" class="headerlink" title="英文解释"></a>英文解释</h4><p><a href="https://stackoverflow.com/questions/12179271/meaning-of-classmethod-and-staticmethod-for-beginner/12179325#12179325" target="_blank" rel="noopener">oop - Python @classmethod and @staticmethod for beginner?</a></p>
+<blockquote>
+<p>@classmethod means: when this method is called, we pass the class as the first argument instead of the instance of that class (as we normally do with methods). This means you can use the class and its properties inside that method rather than a particular instance.</p>
+<p>@staticmethod means: when this method is called, we don’t pass an instance of the class to it (as we normally do with methods). This means you can put a function inside a class but you can’t access the instance of that class (this is useful when your method does not use the instance).</p>
+</blockquote>
+<p>我们来看个小例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">kls</span>:</span></span><br><span class="line"></span><br><span class="line">    class_var = <span class="string">"I am class var"</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">staticm</span><span class="params">()</span>:</span></span><br><span class="line">        print(class_var)<span class="comment">#这里会报错</span></span><br><span class="line">    </span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">classm</span><span class="params">(cls)</span>:</span>  <span class="comment"># 注意这里，第一个参数必须以cls开头</span></span><br><span class="line">        print(cls.class_var)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#普通实例方法    </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">instancem</span><span class="params">(self)</span>:</span> <span class="comment"># 注意这里，第一个参数必须以self开头</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/28/关于 C++ typedef 的几点说明/">关于C++ typedef 的几点说明</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2018/04/03/Python中staticmethod 和classmethod的区别/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2018/04/06/Python中的switch...case实现/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Python中switch...case的实现
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/03/28/关于 C++ typedef 的几点说明/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于C++ typedef 的几点说明</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#英文解释"><span class="toc-number">1.</span> <span class="toc-text">英文解释</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/28/C++ 中的#if...#endif注释/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/28/C++ 中的#if...#endif注释/">C++ 中的#if...#endif注释</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/" class="archive-article-date">
-  	<time datetime="2018-03-28T02:38:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/">C++ 中&#39;\n&#39; &#34;\n&#34; 和 &amp;的用法和区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/28/C++ 中单引号和双引号的区别/" class="archive-article-date">
-  	<time datetime="2018-03-28T02:07:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/28/C++ 中单引号和双引号的区别/">C++ 中单引号和双引号的区别</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/26/C++ * 和 &的用法和区别/" class="archive-article-date">
-  	<time datetime="2018-03-26T13:36:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/26/C++ * 和 &的用法和区别/">C++ * 和 &amp;的用法和区别</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -400,9 +345,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
