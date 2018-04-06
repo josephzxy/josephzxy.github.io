@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xingye.us">
-  <title>Python中switch...case的实现 | Joseph Chu</title>
+  <title>Python中switch...case的实现 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Python与C++不同，并没有提供switch…case语句。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python中switch...case的实现">
 <meta property="og:url" content="http://xingye.us/2018/04/06/Python中的switch...case实现/index.html">
-<meta property="og:site_name" content="Joseph Chu">
+<meta property="og:site_name" content="Joseph&#39;s Blog">
 <meta property="og:description" content="Python与C++不同，并没有提供switch…case语句。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-06T07:47:33.000Z">
+<meta property="og:updated_time" content="2018-04-06T08:08:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python中switch...case的实现">
 <meta name="twitter:description" content="Python与C++不同，并没有提供switch…case语句。">
   
-    <link rel="alternative" href="/atom.xml" title="Joseph Chu" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -185,7 +185,7 @@
 <p>参考：<a href="https://docs.python.org/2/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python" target="_blank" rel="noopener">官方文档-Why isn’t there a switch or case statement in Python?</a></p>
 <p>如果一定要实现，可以采用如下的方式</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case1</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case2</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">case3</span><span class="params">(somearg)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">    </span><br><span class="line">switch = &#123; <span class="comment">#dict</span></span><br><span class="line">    <span class="number">1</span>:case1,</span><br><span class="line">    <span class="number">2</span>:case2,</span><br><span class="line">    <span class="number">3</span>:case3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">switch[case](arg)</span><br></pre></td></tr></table></figure>
-<p>代码实现参考<a href="">知乎-徐辰的回答-Python中为什么没有switch语法结构，有什么代替方案吗？</a></p>
+<p>代码实现参考<a href="https://www.zhihu.com/question/21123544" target="_blank" rel="noopener">知乎-徐辰的回答-Python中为什么没有switch语法结构，有什么代替方案吗？</a></p>
 <p>因为<strong>Python中一切皆对象</strong>，所以函数名(e.g. case1)其实是一个指向该函数对象的指针, 所以可以直接写入到switch这个dict中。</p>
 
       
@@ -423,7 +423,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -431,7 +431,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color4">Mac</a>
               </li>
              
               <li class="article-tag-list-item">
