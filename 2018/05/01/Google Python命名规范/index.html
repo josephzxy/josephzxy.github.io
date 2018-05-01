@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xingye.us">
-  <title>Hexo + GitHub 搭建博客打开出现404 | Joseph&#39;s Blog</title>
+  <title>Google Python命名规范 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Hexo">
+  <meta name="description" content="12345678910module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_VAR_NAME, instance_var_name, function_parameter_name, local_var_name.">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo + GitHub 搭建博客打开出现404">
-<meta property="og:url" content="http://xingye.us/2018/03/22/Hexo + GitHub 搭建博客打开出现404/index.html">
+<meta property="og:title" content="Google Python命名规范">
+<meta property="og:url" content="http://xingye.us/2018/05/01/Google Python命名规范/index.html">
 <meta property="og:site_name" content="Joseph&#39;s Blog">
+<meta property="og:description" content="12345678910module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_VAR_NAME, instance_var_name, function_parameter_name, local_var_name.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6">
-<meta property="og:updated_time" content="2018-03-28T14:57:35.000Z">
+<meta property="og:updated_time" content="2018-05-01T11:33:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo + GitHub 搭建博客打开出现404">
-<meta name="twitter:image" content="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6">
+<meta name="twitter:title" content="Google Python命名规范">
+<meta name="twitter:description" content="12345678910module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_VAR_NAME, instance_var_name, function_parameter_name, local_var_name.">
   
     <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
@@ -138,39 +139,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Hexo + GitHub 搭建博客打开出现404" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Google Python命名规范" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo + GitHub 搭建博客打开出现404
+      Google Python命名规范
     </h1>
   
 
         
-        <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" class="archive-article-date">
-  	<time datetime="2018-03-22T11:21:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
+        <a href="/2018/05/01/Google Python命名规范/" class="archive-article-date">
+  	<time datetime="2018-05-01T11:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6" width="400" height="400" alt="404" align="center"></p>
-<a id="more"></a>
-<p>Hexo + GitHub 搭建博客打开出现404的原因可能有以下几种：</p>
-<ol>
-<li><strong>repo的名字不是“用户名.github.io”</strong>。在GitHub上搭建博客实质上是利用了GitHub Pages功能，所以仓库的名称必须遵循以上原则，也就是一个账号只能有一个这样的仓库。</li>
-<li><p>如果你打算使用自己的域名来打开博客且已经设置好域名解析, 则可能是</p>
-<p> <strong><code>source</code>目录下没有添加<code>CNAME</code>文件或格式不正确</strong>。</p>
-<p> 正确做法：在<code>hexo项目目录/source/</code>下添加CNAME文件，并且写入自己的域名。保存后重新在hexo项目目录下（必须在这个目录下才能执行hexo命令，否则报错）执行</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g  //generate</span><br><span class="line">hexo d  //deploy</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<pre><code>- **注意：`CNAME`无后缀名且全部大写**
-</code></pre><p>   同时自己博客对应repo的<code>setting</code>-&gt;<code>custom-domain</code>一项，要检查是否有改为自己的域名。（一般执行<code>hexo d</code>后该项会自动填写）</p>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module_name, </span><br><span class="line">package_name, </span><br><span class="line">ClassName, </span><br><span class="line">method_name, </span><br><span class="line">ExceptionName, </span><br><span class="line">function_name, </span><br><span class="line">GLOBAL_VAR_NAME, </span><br><span class="line">instance_var_name, </span><br><span class="line">function_parameter_name, </span><br><span class="line">local_var_name.</span><br></pre></td></tr></table></figure>
 
       
 
@@ -184,7 +173,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
       		
 		</ul>
@@ -240,7 +229,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2018/05/01/Google Python命名规范/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -254,15 +243,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/22/Mac 命令行alias用法记录/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Mac 命令行alias用法记录
-        
-      </div>
-    </a>
   
+    <a href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2018年网易PM599产培生-云计算领域 面试总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
