@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://xingye.us">
   <title>原码、反码、补码 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
+  <meta name="description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#正数数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#正数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
 <meta name="keywords" content="CS 101">
 <meta property="og:type" content="article">
 <meta property="og:title" content="原码、反码、补码">
 <meta property="og:url" content="http://xingye.us/2017/11/23/原码、反码、补码/index.html">
 <meta property="og:site_name" content="Joseph&#39;s Blog">
-<meta property="og:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
+<meta property="og:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#正数数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#正数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-20T07:39:58.000Z">
+<meta property="og:updated_time" content="2018-05-20T07:40:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原码、反码、补码">
-<meta name="twitter:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
+<meta name="twitter:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#正数数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#正数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
   
     <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
@@ -171,11 +171,11 @@
 <ul>
 <li>反码 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#整数反码=原码</span><br><span class="line">#负数反码=符号位（最高位）不变，其余各位取反</span><br><span class="line">00000001 # 1</span><br><span class="line">11111110 # -1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#正数数反码=原码</span><br><span class="line">#负数反码=符号位（最高位）不变，其余各位取反</span><br><span class="line">00000001 # 1</span><br><span class="line">11111110 # -1</span><br></pre></td></tr></table></figure>
 <ul>
 <li>补码</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#整数补码=原码</span><br><span class="line">#负数补码=符号位不变，其余各位取反，然后加1</span><br><span class="line">00000001 # 1</span><br><span class="line">11111111 # -1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#正数补码=原码</span><br><span class="line">#负数补码=符号位不变，其余各位取反，然后加1</span><br><span class="line">00000001 # 1</span><br><span class="line">11111111 # -1</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
 <li>为了使计算机只有加法运算，所以符号位也要参与运算，就出现了<strong>反码</strong>。</li>
@@ -436,19 +436,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">个人总结</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
