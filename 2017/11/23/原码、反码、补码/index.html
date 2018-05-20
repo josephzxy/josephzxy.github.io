@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Joseph&#39;s Blog">
 <meta property="og:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-05-20T05:24:35.000Z">
+<meta property="og:updated_time" content="2018-05-20T07:39:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原码、反码、补码">
 <meta name="twitter:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
@@ -179,7 +179,7 @@
 <a id="more"></a>
 <h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
 <li>为了使计算机只有加法运算，所以符号位也要参与运算，就出现了<strong>反码</strong>。</li>
-<li>反码会导致+0，-0, 所以就有了补码，用原来-0的补码来表示-128</li>
+<li>反码会导致+0，-0, 所以就有了补码，用原来-0的反码来表示-128</li>
 </ul>
 <h4 id="表示范围"><a href="#表示范围" class="headerlink" title="表示范围"></a>表示范围</h4><ul>
 <li>反码 ： [-127, 127]</li>
@@ -436,19 +436,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">C++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color5">个人总结</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">分布式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,7 +460,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
