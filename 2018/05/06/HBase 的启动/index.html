@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xingye.us">
-  <title>Joseph&#39;s Blog</title>
+  <title>HBase 的启动 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Joseph&#39;s Blog">
-<meta property="og:url" content="http://xingye.us/index.html">
+  <meta name="description" content="HBase 的启动start-hbase.sh这个会启动整个hbase，包括master, regionserver, zookeeper 如果要单独启动master和regionserver，可参考以下方式 在regionServer上 hbase-daemon.sh start regionserver 在master上执行：hbase-daemon.sh start master">
+<meta name="keywords" content="Hadoop,HBase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HBase 的启动">
+<meta property="og:url" content="http://xingye.us/2018/05/06/HBase 的启动/index.html">
 <meta property="og:site_name" content="Joseph&#39;s Blog">
+<meta property="og:description" content="HBase 的启动start-hbase.sh这个会启动整个hbase，包括master, regionserver, zookeeper 如果要单独启动master和regionserver，可参考以下方式 在regionServer上 hbase-daemon.sh start regionserver 在master上执行：hbase-daemon.sh start master">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-05-20T05:42:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joseph&#39;s Blog">
+<meta name="twitter:title" content="HBase 的启动">
+<meta name="twitter:description" content="HBase 的启动start-hbase.sh这个会启动整个hbase，包括master, regionserver, zookeeper 如果要单独启动master和regionserver，可参考以下方式 在regionServer上 hbase-daemon.sh start regionserver 在master上执行：hbase-daemon.sh start master">
   
     <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
@@ -134,20 +139,22 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-HBase 的启动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-HBase 的启动" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/06/HBase 的启动/">HBase 的启动</a>
+    <h1 class="article-title" itemprop="name">
+      HBase 的启动
     </h1>
   
 
         
+    <span class="archive-article-date">
+      阅读量 <span id="busuanzi_value_page_pv"></span>
+    </span>
+
         
         <a href="/2018/05/06/HBase 的启动/" class="archive-article-date">
   	<time datetime="2018-05-06T03:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-06</time>
@@ -187,16 +194,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/06/HBase 的启动/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2018/05/06/HBase 的启动/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/01/Google Python命名规范/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Google Python命名规范</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -211,727 +277,48 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Google Python命名规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/01/Google Python命名规范/">Google Python命名规范</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/05/01/Google Python命名规范/" class="archive-article-date">
-  	<time datetime="2018-05-01T11:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module_name, </span><br><span class="line">package_name, </span><br><span class="line">ClassName, </span><br><span class="line">method_name, </span><br><span class="line">ExceptionName, </span><br><span class="line">function_name, </span><br><span class="line">GLOBAL_VAR_NAME, </span><br><span class="line">instance_var_name, </span><br><span class="line">function_parameter_name, </span><br><span class="line">local_var_name.</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/05/01/Google Python命名规范/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase-的启动"><span class="toc-number">1.</span> <span class="toc-text">HBase 的启动</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-Python 引用上级目录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/Python 引用上级目录/">Python 引用上级目录</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/04/30/Python 引用上级目录/" class="archive-article-date">
-  	<time datetime="2018-04-30T09:34:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近项目中需要用到与当前脚本所在目录同级的另一个目录下的文件，大概目录结构如下</p>
-        
-          <a class="article-more-a" href="/2018/04/30/Python 引用上级目录/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/30/Python 引用上级目录/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-2018年网易PM599产培生-云计算领域 面试总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">2018年网易PM599产培生-云计算领域 面试总结</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/" class="archive-article-date">
-  	<time datetime="2018-04-30T06:14:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。</p>
-<p>今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。</p>
-<p>今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在的云计算领域大概有40人左右，最后拿到Offer是一位很厉害的南大小姐姐。</p>
-<p>下面大概总结一下自己的面试经过，写的比较松散，还请见谅。</p>
-        
-          <a class="article-more-a" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">个人总结</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python中的switch...case实现" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/06/Python中的switch...case实现/">Python中switch...case的实现</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/04/06/Python中的switch...case实现/" class="archive-article-date">
-  	<time datetime="2018-04-06T07:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-06</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Python与C++不同，并没有提供switch…case语句。</p>
-        
-          <a class="article-more-a" href="/2018/04/06/Python中的switch...case实现/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/06/Python中的switch...case实现/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python中staticmethod 和classmethod的区别" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/04/03/Python中staticmethod 和classmethod的区别/">Python中staticmethod和classmethod的区别</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/" class="archive-article-date">
-  	<time datetime="2018-04-03T07:29:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>个人理解:</p>
-<ul>
-<li><strong>staticmethod:</strong><ul>
-<li>静态方法</li>
-<li>可以没有任何参数</li>
-<li>无法访问<strong>类变量</strong>和<strong>实例变量</strong></li>
-</ul>
-</li>
-<li><strong>classmethod:</strong><ul>
-<li>类方法</li>
-<li>第一个参数必须是类本身，即<code>cls</code></li>
-<li>可以访问<strong>类变量</strong></li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/04/03/Python中staticmethod 和classmethod的区别/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/04/03/Python中staticmethod 和classmethod的区别/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于 C++ typedef 的几点说明" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/关于 C++ typedef 的几点说明/">关于C++ typedef 的几点说明</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:31:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>   摘自<a href="http://www.runoob.com/cplusplus/cpp-data-types.html" target="_blank" rel="noopener">knight的笔记</a></p>
-        
-          <a class="article-more-a" href="/2018/03/28/关于 C++ typedef 的几点说明/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/28/关于 C++ typedef 的几点说明/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:28:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html" target="_blank" rel="noopener">eric的笔记</a></p>
-        
-          <a class="article-more-a" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-C++ 中的#if...#endif注释" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/C++ 中的#if...#endif注释/">C++ 中的#if...#endif注释</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/03/28/C++ 中的#if...#endif注释/" class="archive-article-date">
-  	<time datetime="2018-03-28T09:14:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-comments.html" target="_blank" rel="noopener">春风十里的笔记</a></p>
-<p>块注释符（/<em>…</em>/）是不可以嵌套使用的。</p>
-<p>此外，我们还可以使用 <code>#if 0 ... #endif</code> 来实现注释，且可以实现嵌套。</p>
-        
-          <a class="article-more-a" href="/2018/03/28/C++ 中的#if...#endif注释/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/28/C++ 中的#if...#endif注释/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-本地Markdown编辑器编写Hexo博客注意事项总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/">本地Markdown编辑器编写Hexo博客注意事项总结</a>
-    </h1>
-  
-
-        
-        
-        <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="archive-article-date">
-  	<time datetime="2018-03-28T03:26:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>具体可参考<br> <a href="https://www.zhihu.com/question/29017171" target="_blank" rel="noopener">hexo 下的分类和表签无法显示，怎么解决？- 知乎</a></p>
-        
-          <a class="article-more-a" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+    <section id="comments">
+      <div id="disqus_thread"></div>
+        <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'https://xingye-us-1.disqus.com/admin/install/subscription/'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </section>
+  
+
   
 
 
@@ -965,8 +352,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
