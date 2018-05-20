@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://xingye.us">
-  <title>C++ * 和 &amp;的用法和区别 | Joseph&#39;s Blog</title>
+  <title>原码、反码、补码 | Joseph&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在C++里，每一个变量都在内存中对应着一个地址。如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。">
-<meta name="keywords" content="C++">
+  <meta name="description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
+<meta name="keywords" content="CS 101">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ * 和 &amp;的用法和区别">
-<meta property="og:url" content="http://xingye.us/2018/03/26/C++ * 和 &的用法和区别/index.html">
+<meta property="og:title" content="原码、反码、补码">
+<meta property="og:url" content="http://xingye.us/2017/11/23/原码、反码、补码/index.html">
 <meta property="og:site_name" content="Joseph&#39;s Blog">
-<meta property="og:description" content="在C++里，每一个变量都在内存中对应着一个地址。如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。">
+<meta property="og:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-03-28T03:25:37.000Z">
+<meta property="og:updated_time" content="2018-05-20T05:24:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ * 和 &amp;的用法和区别">
-<meta name="twitter:description" content="在C++里，每一个变量都在内存中对应着一个地址。如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。">
+<meta name="twitter:title" content="原码、反码、补码">
+<meta name="twitter:description" content="原码  123#很直观的，以8位表示一个数00000001 # 110000001 # -1  反码   1234#整数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1  补码  1234#整数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1">
   
     <link rel="alternative" href="/atom.xml" title="Joseph&#39;s Blog" type="application/atom+xml">
   
@@ -139,14 +139,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-C++ * 和 &amp;的用法和区别" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-原码、反码、补码" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      C++ * 和 &amp;的用法和区别
+      原码、反码、补码
     </h1>
   
 
@@ -156,20 +156,35 @@
     </span>
 
         
-        <a href="/2018/03/26/C++ * 和 &的用法和区别/" class="archive-article-date">
-  	<time datetime="2018-03-26T13:36:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-26</time>
+        <a href="/2017/11/23/原码、反码、补码/" class="archive-article-date">
+  	<time datetime="2017-11-23T12:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在C++里，每一个变量都在内存中对应着一个地址。<br>如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。</p>
+        <ul>
+<li>原码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#很直观的，以8位表示一个数</span><br><span class="line">00000001 # 1</span><br><span class="line">10000001 # -1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>反码 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#整数反码=原码</span><br><span class="line">#负数反码=符号位（最高位）不变，其余各位取反</span><br><span class="line">00000001 # 1</span><br><span class="line">11111110 # -1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>补码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#整数补码=原码</span><br><span class="line">#负数补码=符号位不变，其余各位取反，然后加1</span><br><span class="line">00000001 # 1</span><br><span class="line">11111111 # -1</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p><strong><code>*</code>适用于指针类型，用于取指针所指向的值</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    int *p;</span><br><span class="line">    *p = 1;</span><br><span class="line">    std::cout &lt;&lt; *p &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    std::cout &lt;&lt; p;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">//1</span><br><span class="line">//0x7fff5c4afaf8</span><br></pre></td></tr></table></figure>
-<p><strong><code>&amp;</code> 相反，用于取变量的地址</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">    int v = 1;</span><br><span class="line">    std::cout &lt;&lt; &amp;v &lt;&lt; &quot;\n&quot;;</span><br><span class="line">    std::cout &lt;&lt; v;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">//0x7fff56cb9ad8</span><br><span class="line">//1</span><br></pre></td></tr></table></figure>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><ul>
+<li>为了使计算机只有加法运算，所以符号位也要参与运算，就出现了<strong>反码</strong>。</li>
+<li>反码会导致+0，-0, 所以就有了补码，用原来-0的补码来表示-128</li>
+</ul>
+<h4 id="表示范围"><a href="#表示范围" class="headerlink" title="表示范围"></a>表示范围</h4><ul>
+<li>反码 ： [-127, 127]</li>
+<li>补码 ： [-128, 127]</li>
+</ul>
 
       
 
@@ -183,7 +198,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">CS 101</a>
         		</li>
       		
 		</ul>
@@ -239,7 +254,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2018/03/26/C++ * 和 &的用法和区别/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://xingye.us/2017/11/23/原码、反码、补码/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,20 +268,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          战略层，范围层，结构层，框架层，表现层
+          Hexo + GitHub 搭建博客打开出现404
         
       </div>
     </a>
   
-  
-    <a href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo 博客 Even 主题添加Disqus评论区</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -291,7 +301,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#原理"><span class="toc-number">1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#表示范围"><span class="toc-number">2.</span> <span class="toc-text">表示范围</span></a></li></ol>
                     </div>
                 </span>
             </div>
