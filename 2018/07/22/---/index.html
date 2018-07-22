@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="Github上无法在Web端解决的conflicts的解决方法"/>
 
 
+
+
+  <meta name="keywords" content="Github, Joseph Chu's Blog" />
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/archives/2018/04/"/>
+<link rel="canonical" href="http://xingye.us/2018/07/22/---/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -75,11 +79,7 @@
 
 
 
-    <title>
-  
-    Archives - Joseph Chu's Blog
-  
-</title>
+    <title> Github上无法在Web端解决的conflicts的解决方法 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -191,115 +191,107 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Github上无法在Web端解决的conflicts的解决方法
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-22
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>在此记录下师兄教我的方法</p>
+<blockquote>
+<p>你需要基于你的feature branch checkout出一个 integration branch，然后merge staging到你的这个新的integration branch 把conflicts解决 然后从哪个integration branch开一个pr到staging</p>
+<p>integration branch 的名字为</p>
+</blockquote>
+<blockquote>
+<p>integration/feature branch的名字</p>
+</blockquote>
+
+      
+    </div>
+
     
       
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            24 Posts In Total
-          </span>
-        </div>
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/07/22/---/">http://xingye.us/2018/07/22/---/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
       
     
 
     
-      
+      <footer class="post-footer">
         
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/Github/">Github</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-30
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/30/Python 引用上级目录/" class="archive-post-link">
-            Python 引用上级目录
-          </a>
-        </span>
-      </div>
+        
+        
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-30
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/" class="archive-post-link">
-            2018年网易PM599产培生-云计算领域 面试总结
-          </a>
-        </span>
-      </div>
     
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-06
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/06/Python中的switch...case实现/" class="archive-post-link">
-            Python中switch...case的实现
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-03
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/" class="archive-post-link">
-            Python中staticmethod和classmethod的区别
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2018/07/21/Python和opencv实现仿github默认头像/">
+        <span class="next-text nav-default">Python和opencv实现仿github默认头像</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -378,6 +370,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/07/22/---/';
+        this.page.identifier = '2018/07/22/---/';
+        this.page.title = 'Github上无法在Web端解决的conflicts的解决方法';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     
