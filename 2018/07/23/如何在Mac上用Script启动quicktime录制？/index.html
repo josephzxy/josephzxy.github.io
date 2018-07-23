@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="如何在Mac上用Script启动quicktime录制？"/>
 
 
+
+
+  <meta name="keywords" content="Mac, Joseph Chu's Blog" />
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/archives/2018/page/2/"/>
+<link rel="canonical" href="http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -75,11 +79,7 @@
 
 
 
-    <title>
-  
-    Archives - Joseph Chu's Blog
-  
-</title>
+    <title> 如何在Mac上用Script启动quicktime录制？ - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -191,237 +191,113 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          如何在Mac上用Script启动quicktime录制？
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-23
+        </span>
+        
+        
+      </div>
+    </header>
+
     
+    
+
+    <div class="post-content">
+      
+        <p>1）创建AppleScript文件，输入一下代码并保存。如<code>QTRecord.scpt</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span></span><br><span class="line">     <span class="built_in">activate</span></span><br><span class="line">     start (new movie recording)</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+<p>2)在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript QTRecord.scpt</span><br></pre></td></tr></table></figure>
+<p>3）或者也可以一句话搞定以上两步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e &apos;tell application &quot;QuickTime Player&quot; to activate&apos; -e &apos;tell application &quot;QuickTime Player&quot; to start (new movie recording)&apos;</span><br></pre></td></tr></table></figure>
+<p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
+<a id="more"></a>
+<p>======分割线======</p>
+<p>这几天为了解决录制视频同时记录开始录制的时间戳这个需求，倒腾了不少解决方案，之前也想过用命令行打开QuickTime进行录制，但是忘了还有AppleScript，而且竟然4行就搞定了（捂脸…心痛一下我的时间）。在这里大概记录一下之前试过的方法。</p>
+<p>1.<a href="https://www.cnblogs.com/xiaomm/p/6325955.html" target="_blank" rel="noopener">OpenCV Python 录制视频</a></p>
+<ol>
+<li><a href="https://github.com/josephzxy/ffmpeg_video_recorder" target="_blank" rel="noopener">python包装ffmpeg实现视频录制</a></li>
+</ol>
+
+      
+    </div>
 
     
       
-        
-        
+      
 
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/">http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
         
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/Mac/">Mac</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-06
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/06/Python中的switch...case实现/" class="archive-post-link">
-            Python中switch...case的实现
-          </a>
-        </span>
-      </div>
-    
-      
         
         
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            04-03
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/" class="archive-post-link">
-            Python中staticmethod和classmethod的区别
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="archive-post-link">
-            关于C++ typedef 的几点说明
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="archive-post-link">
-            在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/C++ 中的#if...#endif注释/" class="archive-post-link">
-            C++ 中的#if...#endif注释
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="archive-post-link">
-            本地Markdown编辑器编写Hexo博客注意事项总结
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/" class="archive-post-link">
-            C++ 中'\n' "\n" 和 &的用法和区别
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-28
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/28/C++ 中单引号和双引号的区别/" class="archive-post-link">
-            C++ 中单引号和双引号的区别
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-27
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/" class="archive-post-link">
-            战略层，范围层，结构层，框架层，表现层
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/26/C++ * 和 &的用法和区别/" class="archive-post-link">
-            C++ * 和 &的用法和区别
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
-    
-      <a class="prev" href="/archives/2018/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
+  <nav class="post-nav">
     
     
-      <a class="next" href="/archives/2018/page/3/">
-        <span class="next-text">Next</span>
+      <a class="next" href="/2018/07/23/Flask调用自己定义的api/">
+        <span class="next-text nav-default">Flask调用自己定义的api</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -500,6 +376,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/';
+        this.page.identifier = '2018/07/23/如何在Mac上用Script启动quicktime录制？/';
+        this.page.title = '如何在Mac上用Script启动quicktime录制？';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     
