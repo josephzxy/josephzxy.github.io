@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="什么是A, B, C类网络？"/>
 
 
+
+
+  <meta name="keywords" content="Network, Joseph Chu's Blog" />
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/archives/2018/"/>
+<link rel="canonical" href="http://xingye.us/2018/07/24/什么是A, B, C类网络？/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -75,11 +79,7 @@
 
 
 
-    <title>
-  
-    Archives - Joseph Chu's Blog
-  
-</title>
+    <title> 什么是A, B, C类网络？ - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -191,240 +191,107 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          什么是A, B, C类网络？
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-24
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>首先要知道什么是IP地址的<strong>前缀</strong>(prefix)，或者说网络部分。</p>
+<blockquote>
+<p>在形如<code>a.b.c.d/x</code>的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。</p>
+</blockquote>
+<p><code>/x</code>是<a href="http://xingye.us/2018/07/24/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81/">子网掩码</a>的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。</p>
+<p><code>a.b.c.d/x</code>这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。</p>
+<p>在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。<strong>具有8, 16或24比特子网地址的子网被称为A, B, C类网络</strong>。</p>
+<p>A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。</p>
+
+      
+    </div>
+
     
       
-        <div class="archive-title">
-          <span class="archive-post-counter">
-            28 Posts In Total
-          </span>
-        </div>
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/07/24/什么是A, B, C类网络？/">http://xingye.us/2018/07/24/什么是A, B, C类网络？/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
       
     
 
     
-      
+      <footer class="post-footer">
         
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/Network/">Network</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-24
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/24/什么是A, B, C类网络？/" class="archive-post-link">
-            什么是A, B, C类网络？
-          </a>
-        </span>
-      </div>
-    
-      
         
         
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-24
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/24/子网掩码/" class="archive-post-link">
-            子网掩码
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" class="archive-post-link">
-            如何在Mac上用Script启动quicktime录制？
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/23/Flask调用自己定义的api/" class="archive-post-link">
-            Flask调用自己定义的api
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/" class="archive-post-link">
-            Github上无法在Web端解决的conflicts的解决方法
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            07-21
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="archive-post-link">
-            Python和opencv实现仿github默认头像
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            05-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/05/26/Python注释规范/" class="archive-post-link">
-            Python注释规范
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            05-06
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/05/06/HBase 的启动/" class="archive-post-link">
-            HBase 的启动
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            05-06
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/05/06/HBase shell 无法使用/" class="archive-post-link">
-            HBase shell 无法使用
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            05-01
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/05/01/Google Python命名规范/" class="archive-post-link">
-            Google Python命名规范
-          </a>
-        </span>
-      </div>
-    
-  </section>
-
-  
-  <nav class="pagination">
+  <nav class="post-nav">
     
     
-      <a class="next" href="/archives/2018/page/2/">
-        <span class="next-text">Next</span>
+      <a class="next" href="/2018/07/24/子网掩码/">
+        <span class="next-text nav-default">子网掩码</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -503,6 +370,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/07/24/什么是A, B, C类网络？/';
+        this.page.identifier = '2018/07/24/什么是A, B, C类网络？/';
+        this.page.title = '什么是A, B, C类网络？';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     
