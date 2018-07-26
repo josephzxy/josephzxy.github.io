@@ -239,10 +239,11 @@
 </ul>
 </li>
 </ul>
-<pre><code>&gt;/etc/nginx/sites-available 这个文件夹一般在你需要建立和管理多个站点的时候非常有用，可以帮助你更好的组织不同的项目。你需要在这里添加你的nginx配置文件并将他们链接至 sites-enabled 目录下。命令如下：
-
+<blockquote>
+<p>/etc/nginx/sites-available 这个文件夹一般在你需要建立和管理多个站点的时候非常有用，可以帮助你更好的组织不同的项目。你需要在这里添加你的nginx配置文件并将他们链接至 sites-enabled 目录下。命令如下：</p>
+</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /etc/nginx/sites-available/dotcom /etc/nginx/sites-enabled/dotcom</span><br></pre></td></tr></table></figure>
-</code></pre><h2 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h2><p>nginx 配置文件有自己的一套语法，但是很简单，很像css的语法。先指定变量名，然后在花括号内编写指令。最顶层是 server。</p>
+<h2 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h2><p>nginx 配置文件有自己的一套语法，但是很简单，很像css的语法。先指定变量名，然后在花括号内编写指令。最顶层是 server。</p>
 <p>基本语法可参照<a href="https://blog.csdn.net/david_xtd/article/details/16967837" target="_blank" rel="noopener">写给Web开发人员看的Nginx介绍</a></p>
 <p>常用配置项的用法可参照<a href="http://blog.51cto.com/blief/1739178" target="_blank" rel="noopener">Nginx基础入门之proxy反向代理常用配置项说明</a></p>
 <p>下面列出一个自己配置时可用的方案。</p>
