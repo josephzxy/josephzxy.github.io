@@ -193,6 +193,61 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/07/29/正则表达式知识点记录/">正则表达式知识点记录</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-29
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在这里记录一下最近学习到的Python正则表达是的知识点</p>
+<p>正则表达式是什么？</p>
+<blockquote>
+<p>正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
+</blockquote>
+<p>通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
+<li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+          <div class="read-more">
+            <a href="/2018/07/29/正则表达式知识点记录/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/07/27/记一次flask单元测试的编写/">记一次flask单元测试的编写</a>
         
       </h1>
@@ -599,50 +654,6 @@
 <p>知道了这些以后，我们就可以着手开始做了。</p>
           <div class="read-more">
             <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/26/Python注释规范/">Python注释规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-26
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def function(arg1, arg2...):</span><br><span class="line">    &quot;&quot;&quot; [Brief description of function]</span><br><span class="line">    </span><br><span class="line">    [Detailed description of function]</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        [arg1]: [Description of arg1]</span><br><span class="line">        [arg2]: [Description of arg2]</span><br><span class="line">        ...</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        [Description of returns]</span><br><span class="line">        For example:</span><br><span class="line">        </span><br><span class="line">        [Example of returns]</span><br><span class="line">        </span><br><span class="line">        [Any supplementary description of returns]</span><br><span class="line">    </span><br><span class="line">    Raises:</span><br><span class="line">        [exception_type]: [description of exception]</span><br><span class="line">    </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/05/26/Python注释规范/" class="read-more-link">Read more..</a>
           </div>
         
       
