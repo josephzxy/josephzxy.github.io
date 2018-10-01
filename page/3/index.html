@@ -193,6 +193,190 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/07/21/Python和opencv实现仿github默认头像/">Python和opencv实现仿github默认头像</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-21
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先我们需要知道Github默认头像的一些参数。</p>
+<blockquote>
+<ul>
+<li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
+<li>GitHub默认头像是左右对称的</li>
+<li>GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]</li>
+</ul>
+</blockquote>
+<p>知道了这些以后，我们就可以着手开始做了。</p>
+          <div class="read-more">
+            <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/05/26/Python注释规范/">Python注释规范</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-26
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def function(arg1, arg2...):</span><br><span class="line">    &quot;&quot;&quot; [Brief description of function]</span><br><span class="line">    </span><br><span class="line">    [Detailed description of function]</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        [arg1]: [Description of arg1]</span><br><span class="line">        [arg2]: [Description of arg2]</span><br><span class="line">        ...</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        [Description of returns]</span><br><span class="line">        For example:</span><br><span class="line">        </span><br><span class="line">        [Example of returns]</span><br><span class="line">        </span><br><span class="line">        [Any supplementary description of returns]</span><br><span class="line">    </span><br><span class="line">    Raises:</span><br><span class="line">        [exception_type]: [description of exception]</span><br><span class="line">    </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/05/26/Python注释规范/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/05/06/HBase 的启动/">HBase 的启动</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-06
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h1 id="HBase-的启动"><a href="#HBase-的启动" class="headerlink" title="HBase 的启动"></a>HBase 的启动</h1><p><code>start-hbase.sh</code><br>这个会启动整个hbase，包括master, regionserver, zookeeper</p>
+<p>如果要单独启动master和regionserver，可参考以下方式</p>
+<p>在regionServer上 <code>hbase-daemon.sh start regionserver</code></p>
+<p>在master上执行：<code>hbase-daemon.sh start master</code></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/05/06/HBase shell 无法使用/">HBase shell 无法使用</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-06
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt; list</span><br><span class="line">TABLE</span><br><span class="line"></span><br><span class="line">ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</span><br><span class="line">    at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:1869)</span><br><span class="line">    at org.apache.hadoop.hbase.master.MasterRpcServices.getTableDescriptors(MasterRpcServices.java:775)</span><br><span class="line">    at org.apache.hadoop.hbase.protobuf.generated.MasterProtos$MasterService$2.callBlockingMethod(MasterProtos.java:42402)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:2031)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:107)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor.consumerLoop(RpcExecutor.java:130)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor$1.run(RpcExecutor.java:107)</span><br><span class="line">    at java.lang.Thread.run(Thread.java:744)</span><br><span class="line"></span><br><span class="line">Here is some help for this command:</span><br><span class="line">List all tables in hbase. Optional regular expression parameter could</span><br><span class="line">be used to filter the output. Examples:</span><br><span class="line">  hbase&gt; list</span><br><span class="line">  hbase&gt; list &apos;abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:.*&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>出现这种问题的原因是因为多台节点的时间不同步，导致节点之间的连接时间超时</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>通过 <code>ntpdate 0.cn.pool.ntp.org</code> 命令使各个节点的时间跟网络时间同步</li>
+<li>通过<code>data -s</code>命令手动调整节点时间</li>
+</ol>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/05/01/Google Python命名规范/">Google Python命名规范</a>
         
       </h1>
@@ -453,185 +637,6 @@
           <p>   摘自<a href="http://www.runoob.com/cplusplus/cpp-data-types.html" target="_blank" rel="noopener">knight的笔记</a></p>
           <div class="read-more">
             <a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html" target="_blank" rel="noopener">eric的笔记</a></p>
-          <div class="read-more">
-            <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/28/C++ 中的#if...#endif注释/">C++ 中的#if...#endif注释</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-comments.html" target="_blank" rel="noopener">春风十里的笔记</a></p>
-<p>块注释符（/<em>…</em>/）是不可以嵌套使用的。</p>
-<p>此外，我们还可以使用 <code>#if 0 ... #endif</code> 来实现注释，且可以实现嵌套。</p>
-          <div class="read-more">
-            <a href="/2018/03/28/C++ 中的#if...#endif注释/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/">本地Markdown编辑器编写Hexo博客注意事项总结</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>具体可参考<br> <a href="https://www.zhihu.com/question/29017171" target="_blank" rel="noopener">hexo 下的分类和表签无法显示，怎么解决？- 知乎</a></p>
-          <div class="read-more">
-            <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/">C++ 中'\n' "\n" 和 &的用法和区别</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-28
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">KgdBukn的笔记</a>, 略有改动</p>
-<p><code>&#39;\n&#39;</code> 表示一个换行符<br><code>&quot;\n&quot;</code> 表示内容为一个换行符的字符串。<br><code>std::endl</code> 是流操作子，输出一个换行符，并立即刷新缓冲区。</p>
-          <div class="read-more">
-            <a href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/" class="read-more-link">Read more..</a>
           </div>
         
       

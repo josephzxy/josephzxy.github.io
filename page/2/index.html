@@ -193,6 +193,199 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/10/卷积后输出大小计算公式/">卷积后输出大小计算公式</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-10
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ul>
+<li>输入图片大小 W×W</li>
+<li>Filter大小 F×F</li>
+<li>步长 S</li>
+<li>Padding的像素数 P</li>
+<li>输出图片大小为 N×N</li>
+</ul>
+<p>则有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N = (W − F + 2P )/S+1</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/29/正则表达式知识点记录/">正则表达式知识点记录</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-29
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在这里记录一下最近学习到的Python正则表达是的知识点</p>
+<p>正则表达式是什么？</p>
+<blockquote>
+<p>正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
+</blockquote>
+<p>通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
+<li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+          <div class="read-more">
+            <a href="/2018/07/29/正则表达式知识点记录/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/27/记一次flask单元测试的编写/">记一次flask单元测试的编写</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>记录一些自己写单元测试时的点</p>
+          <div class="read-more">
+            <a href="/2018/07/27/记一次flask单元测试的编写/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/27/Pytest 使用总结/">Pytest 使用总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
+<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/07/27/Pytest 使用总结/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/07/26/Nginx 使用总结/">Nginx 使用总结</a>
         
       </h1>
@@ -457,190 +650,6 @@
 <blockquote>
 <p>integration/feature branch的名字</p>
 </blockquote>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/21/Python和opencv实现仿github默认头像/">Python和opencv实现仿github默认头像</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-21
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先我们需要知道Github默认头像的一些参数。</p>
-<blockquote>
-<ul>
-<li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
-<li>GitHub默认头像是左右对称的</li>
-<li>GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]</li>
-</ul>
-</blockquote>
-<p>知道了这些以后，我们就可以着手开始做了。</p>
-          <div class="read-more">
-            <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/26/Python注释规范/">Python注释规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-26
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def function(arg1, arg2...):</span><br><span class="line">    &quot;&quot;&quot; [Brief description of function]</span><br><span class="line">    </span><br><span class="line">    [Detailed description of function]</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        [arg1]: [Description of arg1]</span><br><span class="line">        [arg2]: [Description of arg2]</span><br><span class="line">        ...</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        [Description of returns]</span><br><span class="line">        For example:</span><br><span class="line">        </span><br><span class="line">        [Example of returns]</span><br><span class="line">        </span><br><span class="line">        [Any supplementary description of returns]</span><br><span class="line">    </span><br><span class="line">    Raises:</span><br><span class="line">        [exception_type]: [description of exception]</span><br><span class="line">    </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/05/26/Python注释规范/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/06/HBase 的启动/">HBase 的启动</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-06
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h1 id="HBase-的启动"><a href="#HBase-的启动" class="headerlink" title="HBase 的启动"></a>HBase 的启动</h1><p><code>start-hbase.sh</code><br>这个会启动整个hbase，包括master, regionserver, zookeeper</p>
-<p>如果要单独启动master和regionserver，可参考以下方式</p>
-<p>在regionServer上 <code>hbase-daemon.sh start regionserver</code></p>
-<p>在master上执行：<code>hbase-daemon.sh start master</code></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/06/HBase shell 无法使用/">HBase shell 无法使用</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-06
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt; list</span><br><span class="line">TABLE</span><br><span class="line"></span><br><span class="line">ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</span><br><span class="line">    at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:1869)</span><br><span class="line">    at org.apache.hadoop.hbase.master.MasterRpcServices.getTableDescriptors(MasterRpcServices.java:775)</span><br><span class="line">    at org.apache.hadoop.hbase.protobuf.generated.MasterProtos$MasterService$2.callBlockingMethod(MasterProtos.java:42402)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:2031)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:107)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor.consumerLoop(RpcExecutor.java:130)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor$1.run(RpcExecutor.java:107)</span><br><span class="line">    at java.lang.Thread.run(Thread.java:744)</span><br><span class="line"></span><br><span class="line">Here is some help for this command:</span><br><span class="line">List all tables in hbase. Optional regular expression parameter could</span><br><span class="line">be used to filter the output. Examples:</span><br><span class="line">  hbase&gt; list</span><br><span class="line">  hbase&gt; list &apos;abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:.*&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>出现这种问题的原因是因为多台节点的时间不同步，导致节点之间的连接时间超时</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
-<li>通过 <code>ntpdate 0.cn.pool.ntp.org</code> 命令使各个节点的时间跟网络时间同步</li>
-<li>通过<code>data -s</code>命令手动调整节点时间</li>
-</ol>
 
         
       
