@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Pytest 使用总结 - undefined
+        
+    </title>
+
+    <link rel="canonical" href="http://xingye.us/2018/07/27/Pytest 使用总结/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Joseph Chu&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/about/">about</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://xingye.us/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/undefined')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                    </div>
+                    <h1>Pytest 使用总结</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Joseph on
+                        2018-07-27
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
+<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="pytest基本用法"><a href="#pytest基本用法" class="headerlink" title="pytest基本用法"></a>pytest基本用法</h2><h3 id="单个测试"><a href="#单个测试" class="headerlink" title="单个测试"></a>单个测试</h3><p>我们来看一个小例子</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># func.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(x)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x+<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_answer</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">assert</span> func(<span class="number">3</span>) == <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>在<code>func.py</code>所在目录下启动pytest</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest func.py</span><br></pre></td></tr></table></figure>
+<p>得到结果</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">joseph@MacBook-Pro  ~/work/lab/pytesttest  pytest func.py</span><br><span class="line">============================= test session starts ==============================</span><br><span class="line">platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.5.4, pluggy-0.6.0</span><br><span class="line">rootdir: /Users/joseph/work/lab/pytesttest, inifile:</span><br><span class="line">collected 1 item</span><br><span class="line"></span><br><span class="line">func.py F                                                                [100%]</span><br><span class="line"></span><br><span class="line">=================================== FAILURES ===================================</span><br><span class="line">_________________________________ test_answer __________________________________</span><br><span class="line"></span><br><span class="line">    def test_answer():</span><br><span class="line"><span class="meta">&gt;</span>       assert func(3) == 5</span><br><span class="line">E       assert 4 == 5</span><br><span class="line">E        +  where 4 = func(3)</span><br><span class="line"></span><br><span class="line">func.py:5: AssertionError</span><br><span class="line">=========================== 1 failed in 0.06 seconds ===========================</span><br></pre></td></tr></table></figure>
+<p>由此可以看出</p>
+<ul>
+<li>单个测试时，可以在命令行直接以<code>pytest 要测试的.py</code>的方式来执行测试。文件名无需<code>test_</code>开头</li>
+<li>执行测试时，会自动执行文件中的<code>test_</code>开头的方法</li>
+<li>在测试方法中，可以直接使用<code>assert</code>，而无需像<code>unittest</code>一样记住许多类似于<code>assertEquals()</code>之类的方法。</li>
+</ul>
+<h3 id="多个测试"><a href="#多个测试" class="headerlink" title="多个测试"></a>多个测试</h3><p>多个测试时可以直接在当前目录下执行命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pytest</span><br></pre></td></tr></table></figure>
+<p>会自动寻找并执行<strong>当前目录及其包含的子目录下所有以<code>test_</code>为前缀或者以<code>_test</code>为后缀的文件</strong>。也就是遵循<a href="https://docs.pytest.org/en/latest/goodpractices.html#test-discovery" target="_blank" rel="noopener">standard test discovery rules</a></p>
+<h3 id="对Exception的assert"><a href="#对Exception的assert" class="headerlink" title="对Exception的assert"></a>对<code>Exception</code>的<code>assert</code></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">raise</span> SystemExit(<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_mytest</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">with</span> pytest.raises(SystemExit):</span><br><span class="line">        f()</span><br></pre></td></tr></table></figure>
+<p>在<code>test_mytest</code>函数中，断言函数<code>f</code>会抛出<code>SystemExit</code>异常。</p>
+<h3 id="将多个test整合到一个类里"><a href="#将多个test整合到一个类里" class="headerlink" title="将多个test整合到一个类里"></a>将多个test整合到一个类里</h3><p>比如这样</p>
+<pre><code>class TestClass:
+
+    def test_one(self):
+        x = &apos;this&apos;
+        assert &apos;h&apos; in x
+
+    def test_two(self)：
+        x = &apos;hello&apos;
+        assert hasattr(x, &apos;check&apos;)
+</code></pre><ul>
+<li>无需继承任何子类</li>
+<li>可以直接在命令行用<code>pytest</code>执行，遵循<a href="https://docs.pytest.org/en/latest/goodpractices.html#test-discovery" target="_blank" rel="noopener">standard test discovery rules</a></li>
+</ul>
+<h2 id="pytest进阶"><a href="#pytest进阶" class="headerlink" title="pytest进阶"></a>pytest进阶</h2><h3 id="fixtures"><a href="#fixtures" class="headerlink" title="fixtures"></a>fixtures</h3><p>更多可参考</p>
+<ul>
+<li><a href="https://www.jianshu.com/p/54b0f4016300" target="_blank" rel="noopener">Pytest高级进阶之Fixture</a></li>
+<li><a href="https://blog.csdn.net/huitailang1991/article/details/74053781" target="_blank" rel="noopener">pytest的fixture</a></li>
+</ul>
+<p>这里记录一种常见的用法。</p>
+<p>我们在<code>unittest</code>中可以用<code>setUp()</code>和<code>tearDown()</code>来实现测试环境的构造和析构。</p>
+<p>比如一个测试数据库中取出的数据是否正确的类，<code>setUp()</code>中可以写连接数据库的代码，<code>tearDown()</code>中可以写释放数据库连接的代码。在执行每个测试方法时，<code>setUp()</code>和<code>tearDown()</code>都会分别在开始和结尾处执行，这样在测试方法中就可以专注于测试逻辑，而无需在每一个测试函数中都写一次连接和释放代码。</p>
+<p>那我们在<code>pytest</code>中怎么实现呢？</p>
+<p>答案就是运用fixture</p>
+<p>比如我们每个测试方法都需要一个SMTP类的实例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># test_func.py</span></span><br><span class="line"><span class="keyword">import</span> pytest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里scope='function'代表每个测试方法都会执行一侧fixture</span></span><br><span class="line"><span class="meta">@pytest.fixture(scope='function')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_instance</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 每个测试方法执行前都会执行包括yield在内之前的代码，相当于setUp()</span></span><br><span class="line">    smtp = smtplib.SMTP(<span class="string">"smtp.gmail.com"</span>)</span><br><span class="line">    <span class="keyword">yield</span> smtp  <span class="comment"># provide the fixture value</span></span><br><span class="line">    <span class="comment"># 每次完成当前scope，即在本例中，</span></span><br><span class="line">    <span class="comment"># 测试方法执行完毕后，会执行下面的代码</span></span><br><span class="line">    <span class="comment"># 就相当于tearDown()</span></span><br><span class="line">    print(<span class="string">"teardown smtp"</span>)</span><br><span class="line">    smtp.close()</span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_method_1</span><span class="params">(get_instance)</span>:</span></span><br><span class="line">    <span class="comment"># 在这里传入的 get_instance 其实就是 get_instance函数的返回值</span></span><br><span class="line">    ins = get_instance</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">assert</span> isinstance(ins, MyClass)</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<h2 id="pytest常用参数"><a href="#pytest常用参数" class="headerlink" title="pytest常用参数"></a>pytest常用参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest -q test.py  # quiet reporting mode. 减少输出信息。</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://docs.pytest.org/en/latest/index.html" target="_blank" rel="noopener">pytest官方文档</a></li>
+<li><a href="https://blog.csdn.net/huitailang1991/article/details/74053781" target="_blank" rel="noopener">pytest的fixture</a></li>
+<li><a href="https://www.jianshu.com/p/54b0f4016300" target="_blank" rel="noopener">Pytest高级进阶之Fixture</a></li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/07/27/记一次flask单元测试的编写/" data-toggle="tooltip" data-placement="top" title="记一次flask单元测试的编写">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/07/26/Nginx 使用总结/" data-toggle="tooltip" data-placement="top" title="Nginx 使用总结">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Joseph Chu&#39;s Blog 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://xingye.us/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://xingye.us/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

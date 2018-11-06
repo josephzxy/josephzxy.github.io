@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          2018年网易PM599产培生-云计算领域 面试总结 - undefined
+        
+    </title>
+
+    <link rel="canonical" href="http://xingye.us/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/hux-blog.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Joseph Chu&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                        <li>
+                            <a href="/about/">about</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://xingye.us/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/undefined')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#个人总结" title="个人总结">个人总结</a>
+                        
+                    </div>
+                    <h1>2018年网易PM599产培生-云计算领域 面试总结</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by Joseph on
+                        2018-04-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。</p>
+<p>今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。</p>
+<p>今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在的云计算领域大概有40人左右，最后拿到Offer是一位很厉害的南大小姐姐。</p>
+<p>下面大概总结一下自己的面试经过，写的比较松散，还请见谅。</p>
+<a id="more"></a>
+<h3 id="面试形式："><a href="#面试形式：" class="headerlink" title="面试形式："></a>面试形式：</h3><ul>
+<li>群面</li>
+<li>一面</li>
+<li>二面</li>
+<li>HR面</li>
+</ul>
+<p>个人感觉网易产培的面试似乎与传统技术岗的一面基础面，二面boss面，三面hr面的流程有些不一样，<strong>应该是就所有的面试成绩进行综合考量。</strong>最后进入hr面的人数还是明显远远最后拿offer的人数。一二面的面试官可能也是交替的，即有可能你二面的面试官同时也是其他人一面的面试官。</p>
+<h3 id="群面"><a href="#群面" class="headerlink" title="群面"></a>群面</h3><p>群面是在一个小房间里，小组内共7个人大家分开坐在一张会议桌边，每个人面前有两张纸，需要自己带笔，大家会把其中一张纸折成三折，做成自己的名牌。</p>
+<p>房间的另一头坐着两位面试官，一男一女，都不苟言笑。另外也还有一位年轻的小姐姐负责组织群面的进行。</p>
+<h5 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h5><p>IaaS: (若干IaaS的例子)<br>PaaS: 负载均衡…(若干PaaS的例子)</p>
+<p><strong>为网易云设计一套支付系统</strong></p>
+<p>要求设计: (大概是这样的)</p>
+<ul>
+<li>支付流程</li>
+<li>支付形态</li>
+</ul>
+<h5 id="流程：（大概是这样的）"><a href="#流程：（大概是这样的）" class="headerlink" title="流程：（大概是这样的）"></a>流程：（大概是这样的）</h5><ul>
+<li>5分钟独立审题</li>
+<li>35分钟讨论</li>
+<li>推举一人进行5分钟的总结</li>
+<li>3分钟面试官提问</li>
+<li>5分钟各人阐述自己在这次小组讨论中发挥的作用</li>
+</ul>
+<p>面试题的底部有写</p>
+<blockquote>
+<p>这次群面不考察群面中的角色，考察每个人的思维和观点。</p>
+</blockquote>
+<h5 id="通过率"><a href="#通过率" class="headerlink" title="通过率"></a>通过率</h5><p>7进4</p>
+<h5 id="个人感受"><a href="#个人感受" class="headerlink" title="个人感受"></a>个人感受</h5><p>在群面中还是要明确自己的定位是什么，这样才能保证你在整个讨论中发挥的连贯，而且也可以提前准备后面需要阐述的自己的作用。</p>
+<p>虽然是第一次群面，但是还好之前也有看过些关于群面的东西，对于角色和流程大概了解些，所以在群面开始时就很明确自己不当leader，而是充当一个概括总结，辅助leader的角色。</p>
+<p>我对自己在这次群面中的定位的描述是，尝试把控整体进度，抓住问题的重点，把一些过于发散的讨论做概括和收拢，提示大家我们现在讨论所处的阶段，推进讨论的进行。</p>
+<blockquote>
+<p>重点还是在于你能不能提出比较<strong>新且切题</strong>的观点，话说的多却杂乱，或者说话太少都不太好。</p>
+</blockquote>
+<p>记得之前看一位去年拿到网易产培Offer的学长的分享，他列出了产品经理很重要的三个特质</p>
+<ul>
+<li>谦逊</li>
+<li>分析</li>
+<li>沟通</li>
+</ul>
+<p><a href="https://www.zhihu.com/question/57221166/answer/159897764" target="_blank" rel="noopener">如何看待网易今年刚推出的PM599产培生？ - 诺弥的回答 - 知乎</a></p>
+<p>个人理解是产品经理一定不能是一个爱出风头很强势的人，<strong>应该是一个谦虚，好相处，好沟通，却又有自己的主见和独立思考，能够成为整个团队的粘合剂，为着整个团队有担当的人</strong>。</p>
+<p>当然，<strong>记得带简历</strong> （我们组有一位小哥哥群面表现还不错，但是没有带简历，很遗憾地没通过群面）</p>
+<h3 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h3><p>我一面的面试官是一位微胖的中年大叔，听口音像湖北人，感觉相处起来还比较轻松。</p>
+<p>一面主要集中在对项目经历的考察，聊了简历上的项目是干嘛的，你在里面的角色，给出一个你得到需求后，实现需求的例子，自己对云计算领域的产品经理的理解，是否有云产品的使用经历，如何用的，拿来干嘛，问得很细。</p>
+<p>印象较深刻的一个问题是对云计算领域产品经理的理解，然后我就说把现有的云资源进行整合，得到新的解决方案。大叔笑了笑，表示你刚才说的这个需要很深厚的技术功底，实际上云计算产品经理的日常更多是横向的，竞品分析呀…blabla(具体的忘记了)</p>
+<blockquote>
+<p>原来网易云计算领域的产品经理日常不需要写代码</p>
+</blockquote>
+<p>整个面试过程比较轻松，有说有笑，感觉整个过程中我们俩说的话差不多多。就这样通过了一面。</p>
+<p>最后我问了面试官两个问题</p>
+<h5 id="Q-网易云在面对如此多的友商的情况下，它的策略是什么？"><a href="#Q-网易云在面对如此多的友商的情况下，它的策略是什么？" class="headerlink" title="Q: 网易云在面对如此多的友商的情况下，它的策略是什么？"></a>Q: 网易云在面对如此多的友商的情况下，它的策略是什么？</h5><p>A: 其实一个公司之所以会去做云计算，一个很可能的原因是它的计算资源有剩余。比如亚马逊做黑五，阿里做双十一，这些活动之后多出来的计算资源怎么办呢？就卖出去。这里的市场竞争没有那么激烈，不会说你做大了，我就没市场了，网易仍然有自己的市场份额。</p>
+<h5 id="Q-那作为云计算领域的产品经理，很明显他和内容方向的产品不一样，他最重要的特质应该是什么呢？"><a href="#Q-那作为云计算领域的产品经理，很明显他和内容方向的产品不一样，他最重要的特质应该是什么呢？" class="headerlink" title="Q: 那作为云计算领域的产品经理，很明显他和内容方向的产品不一样，他最重要的特质应该是什么呢？"></a>Q: 那作为云计算领域的产品经理，很明显他和内容方向的产品不一样，他最重要的特质应该是什么呢？</h5><p>A: <strong>取舍</strong>。（后面说了很多可惜记不太清了）</p>
+<h3 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h3><p>我二面的面试官是一位女面试官，有些严肃，有点小小的压力面的感觉。</p>
+<p>二面的考察侧重点就变成了个人在团队中的组织协调能力。</p>
+<p>二面遇到的其中几个问题</p>
+<ul>
+<li>你认为云计算产品经理应有的特质是什么？然后要求举例说明。</li>
+<li>之前是否有云产品的使用经历？</li>
+<li>你在团队中协调队员的例子，发生了什么问题，你做了什么，达到了怎样的效果。</li>
+</ul>
+<blockquote>
+<p>果然沟通和担当对于产品经理来说是很重要的，</p>
+</blockquote>
+<p>二面结束后仍然问了面试官网易云面对友商竞争的策略。</p>
+<p>面试官表示，网易云会找准自己的目标用户群体，针对特定的用户群体进行推广。</p>
+<h5 id="个人总结"><a href="#个人总结" class="headerlink" title="个人总结"></a>个人总结</h5><p>首先要有好的心理素质，不需要怕面试官，认真听懂并努力get到面试官想问的点，可以适当放慢语速，给自己一点思考时间，组织好自己的语言。因为有些问题可能不是可以立即回答上来的。</p>
+<p>面试官会根据你的经历去问，也会问的很细，实在不会就很坦诚地表示不会好了，一定不要编。</p>
+<h3 id="HR面"><a href="#HR面" class="headerlink" title="HR面"></a>HR面</h3><p>HR面和一二面不太一样的一个地方就是，HR小姐姐让我坐旁边，而不是像一二面那样坐在面试官对面，估计是为了更好地观察我的表情还有其他表现来评估我这个人。</p>
+<blockquote>
+<p>HR主要考察的侧重点在于人的综合素质而不是某一方面的能力</p>
+</blockquote>
+<p>HR主要问了如下几个问题，后面括号里的是我后来反思中对这些问题潜台词的解读</p>
+<ul>
+<li>为什么想做产品经理？（是否有目标，对自己的目标是否明确和坚定）</li>
+<li>研究生的课题，是否有自己的想法？（创造性思维）</li>
+<li>是否有关注什么新技术？ (是否拥抱变化，跟紧时代)</li>
+<li>简历上的项目，在其中的角色，项目是干什么的？（是否明确自己在团队中的角色以及自己现在所做的）</li>
+</ul>
+<h5 id="个人总结-1"><a href="#个人总结-1" class="headerlink" title="个人总结"></a>个人总结</h5><p>个人感觉HR面的重点在于稳住且认真对待，然后就是实诚，其他只要不犯什么很明显的错误就好了。</p>
+<p>-</p>
+<p>最后附上一段来自15年拿到阿里产品经理Offer的学长的话吧，共勉。</p>
+<blockquote>
+<p>1.如果你要做产品，一定一定要思考清楚为什么，一定要在决定做那个方向之前尝试多个不同的方向，然后再选。很多人就是啥都不会，啥也不懂，《人人都是产品经理》都还没看完，都没真正做过什么项目就想去应聘产品经理，虽说这个世界需要很多很多的产品经理，但是大家也一定要想清楚再决定，最好是能够加入某个团队或者自己组建团队去做自己喜欢的产品，有了一定的体会做产品这一行才有人要。</p>
+<p>2.对技术大家尽量还是要懂一些比较好，至少要了解流行的各种技术他们的特点，他们能做的事情，毕竟产品经理是一个团队里的万金油，如果啥也不懂，也没多少竞争力。</p>
+<p>3.保持敏锐的视角和嗅觉，对于最新出现的思想一定不要排斥，而要去深入了解，不要把自己闭塞在一个小圈子里。</p>
+<p>4.多读书，多码字</p>
+</blockquote>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/04/30/Python 引用上级目录/" data-toggle="tooltip" data-placement="top" title="Python 引用上级目录">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/04/06/Python中的switch...case实现/" data-toggle="tooltip" data-placement="top" title="Python中switch...case的实现">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Joseph Chu&#39;s Blog 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://xingye.us/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://xingye.us/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
