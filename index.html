@@ -87,14 +87,14 @@
 
                         
                         <li>
-                            <a href="/about/">about</a>
+                            <a href="/categories/">categories</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/about/">about</a>
                         </li>
                         
                     
@@ -181,6 +181,32 @@
 
 <div class="post-preview">
 
+    <a href="/2018/10/01/pandas-dataframe_usage/">
+        <h2 class="post-title">
+            Pandas中 DataFrame的使用
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            读取行DataFrame读取行可以通过以下两种索引
+
+行标签索引 df.loc[&quot;one&quot;]
+行号索引 df.iloc[0]
+
+行标签索引可以在创建DataFrame的时候指定，如12345import pandas as pdd=[[1,2,3,4],[5,6,7,8]]index=["one","two"]df=pd.DataFrame(d, index=index)......
+        </div>
+    </a>
+    <p class="post-meta">
+        Posted by Joseph on
+        2018-10-01
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/10/01/requests-basic-usage/">
         <h2 class="post-title">
             requests 库基本用法
@@ -219,32 +245,6 @@ get，就是本地向服务器索取的意思，服务器检查请求头（reque
             pandas可以用read_html()函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。
 比如说有table html代码如下
 1&lt;table class="table1"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;th colspan="1" rowspan="2"&gt;Station&lt;/th&gt; &......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-10-01
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/10/01/pandas-dataframe_usage/">
-        <h2 class="post-title">
-            Pandas中 DataFrame的使用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            读取行DataFrame读取行可以通过以下两种索引
-
-行标签索引 df.loc[&quot;one&quot;]
-行号索引 df.iloc[0]
-
-行标签索引可以在创建DataFrame的时候指定，如12345import pandas as pdd=[[1,2,3,4],[5,6,7,8]]index=["one","two"]df=pd.DataFrame(d, index=index)......
         </div>
     </a>
     <p class="post-meta">
