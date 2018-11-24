@@ -1,635 +1,1782 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<!-- Head tag -->
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
-        
-          
-        
-    </title>
-
-    <link rel="canonical" href="http://xingye.us/page/3/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joseph Chu&#39;s Blog">
+<meta property="og:url" content="http://xingye.us/page/3/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xingye.us/page/3/"/>
+
+
+
+
+
+  <title>Joseph Chu's Blog</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+  
+  
+    
+  
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Joseph Chu&#39;s Blog</a>
-        </div>
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">about</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Joseph Chu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <!-- /.container -->
+      
+        <p class="site-subtitle">Worry Less, Do More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Joseph Chu&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Worry Less, Do More</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 
 
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/21/Python和opencv实现仿github默认头像/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/21/Python和opencv实现仿github默认头像/" itemprop="url">Python和opencv实现仿github默认头像</a></h1>
         
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <div class="post-meta">
+          <span class="post-time">
             
-                <!-- Main Content -->
-
-
-<div class="post-preview">
-
-    <a href="/2018/07/21/Python和opencv实现仿github默认头像/">
-        <h2 class="post-title">
-            Python和opencv实现仿github默认头像
-        </h2>
-        <h3 class="post-subtitle">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-21T21:54:24+08:00">
+                2018-07-21
+              </time>
             
-        </h3>
-        <div class="post-content-preview">
-            思路首先我们需要知道Github默认头像的一些参数。
 
+            
 
-GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。
-GitHub默认头像是左右对称的
-GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]
+            
+          </span>
 
+          
 
-知道了这些以后，我们就可以着手开始做了。
+          
+            
+          
 
-这里我们用numpy来构建......
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-21
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/26/Python注释规范/">
-        <h2 class="post-title">
-            Python注释规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            函数注释1234567891011121314151617181920212223def function(arg1, arg2...):    &quot;&quot;&quot; [Brief description of function]        [Detailed description of function]        Args:        [arg1]: [De......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-05-26
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/06/HBase 的启动/">
-        <h2 class="post-title">
-            HBase 的启动
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            HBase 的启动start-hbase.sh这个会启动整个hbase，包括master, regionserver, zookeeper
-如果要单独启动master和regionserver，可参考以下方式
-在regionServer上 hbase-daemon.sh start regionserver
-在master上执行：hbase-daemon.sh start master
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-05-06
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/06/HBase shell 无法使用/">
-        <h2 class="post-title">
-            HBase shell 无法使用
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            报错信息1234567891011121314151617181920hbase(main):001:0&gt; listTABLEERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing    at org.apache.hadoop.hbase.master.HMaster.checkInitia......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-05-06
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/05/01/Google Python命名规范/">
-        <h2 class="post-title">
-            Google Python命名规范
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            12345678910module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_VAR_NAME, instance_var_name, function_parameter_name, local_var_name.
-...
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-05-01
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/30/Python 引用上级目录/">
-        <h2 class="post-title">
-            Python 引用上级目录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            最近项目中需要用到与当前脚本所在目录同级的另一个目录下的文件，大概目录结构如下
-
-12345codes/    |--muodule_a/        |--a.py    |--muodule_b/        |--b.py
-换句话说就是，a.py希望能调用到b.py
-试了一些网上的方法，一个比较有效的方法是在脚本的开头将上级目录添加至sys.path
-1234import syss......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-04-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">
-        <h2 class="post-title">
-            2018年网易PM599产培生-云计算领域 面试总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。
-今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。
-今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-04-30
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/06/Python中的switch...case实现/">
-        <h2 class="post-title">
-            Python中switch...case的实现
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Python与C++不同，并没有提供switch…case语句。
-
-Python 官方文档大概的意思是，你可以用if..elif..elif..else来实现同样的功能，所以似乎就没必要加入switch…case了。
-参考：官方文档-Why isn’t there a switch or case statement in Python?
-如果一定要实现，可以采用如下的方式
-12345678......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-04-06
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/">
-        <h2 class="post-title">
-            Python中staticmethod和classmethod的区别
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            个人理解:
-
-staticmethod:
-静态方法
-可以没有任何参数
-无法访问类变量和实例变量
-
-
-classmethod:
-类方法
-第一个参数必须是类本身，即cls
-可以访问类变量
-
-
-
-
-英文解释oop - Python @classmethod and @staticmethod for beginner?
-
-@classmethod means: when this method i......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-04-03
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/03/28/关于 C++ typedef 的几点说明/">
-        <h2 class="post-title">
-            关于C++ typedef 的几点说明
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-               摘自knight的笔记
-
-
-typedef 可以声明各种类型名，但不能用来定义变量。用 typedef 可以声明数组类型、字符串类型，使用比较方便。
-用typedef只是对已经存在的类型增加一个类型名，而没有创造新的类型。
-
-当在不同源文件中用到同一类型数据（尤其是像数组、指针、结构体、共用体等类型数据）时，常用 typedef 声明一些数据类型，把它们单独放在一个头文件中，然后在需要......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-03-28
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
+      </header>
     
-        <li class="previous">
-            <a href="/page/2/">&larr; Newer Posts</a>
-        </li>
+
     
     
-        <li class="next">
-            <a href="/page/4/">Older Posts &rarr;</a>
-        </li>
     
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先我们需要知道Github默认头像的一些参数。</p>
+<blockquote>
+<ul>
+<li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
+<li>GitHub默认头像是左右对称的</li>
+<li>GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]</li>
 </ul>
-
-
-
-                <!-- 如果开启评论功能 -->
-                
-
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Friends Blog -->
-                
-            </div>
+</blockquote>
+<p>知道了这些以后，我们就可以着手开始做了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/21/Python和opencv实现仿github默认头像/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/05/26/Python注释规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/26/Python注释规范/" itemprop="url">Python注释规范</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-26T19:33:02+08:00">
+                2018-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def function(arg1, arg2...):</span><br><span class="line">    &quot;&quot;&quot; [Brief description of function]</span><br><span class="line">    </span><br><span class="line">    [Detailed description of function]</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        [arg1]: [Description of arg1]</span><br><span class="line">        [arg2]: [Description of arg2]</span><br><span class="line">        ...</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        [Description of returns]</span><br><span class="line">        For example:</span><br><span class="line">        </span><br><span class="line">        [Example of returns]</span><br><span class="line">        </span><br><span class="line">        [Any supplementary description of returns]</span><br><span class="line">    </span><br><span class="line">    Raises:</span><br><span class="line">        [exception_type]: [description of exception]</span><br><span class="line">    </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/26/Python注释规范/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/05/06/HBase 的启动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/HBase 的启动/" itemprop="url">HBase 的启动</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T11:27:12+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="HBase-的启动"><a href="#HBase-的启动" class="headerlink" title="HBase 的启动"></a>HBase 的启动</h1><p><code>start-hbase.sh</code><br>这个会启动整个hbase，包括master, regionserver, zookeeper</p>
+<p>如果要单独启动master和regionserver，可参考以下方式</p>
+<p>在regionServer上 <code>hbase-daemon.sh start regionserver</code></p>
+<p>在master上执行：<code>hbase-daemon.sh start master</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/05/06/HBase shell 无法使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/06/HBase shell 无法使用/" itemprop="url">HBase shell 无法使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-06T11:21:30+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt; list</span><br><span class="line">TABLE</span><br><span class="line"></span><br><span class="line">ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</span><br><span class="line">    at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:1869)</span><br><span class="line">    at org.apache.hadoop.hbase.master.MasterRpcServices.getTableDescriptors(MasterRpcServices.java:775)</span><br><span class="line">    at org.apache.hadoop.hbase.protobuf.generated.MasterProtos$MasterService$2.callBlockingMethod(MasterProtos.java:42402)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:2031)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:107)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor.consumerLoop(RpcExecutor.java:130)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor$1.run(RpcExecutor.java:107)</span><br><span class="line">    at java.lang.Thread.run(Thread.java:744)</span><br><span class="line"></span><br><span class="line">Here is some help for this command:</span><br><span class="line">List all tables in hbase. Optional regular expression parameter could</span><br><span class="line">be used to filter the output. Examples:</span><br><span class="line">  hbase&gt; list</span><br><span class="line">  hbase&gt; list &apos;abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:.*&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>出现这种问题的原因是因为多台节点的时间不同步，导致节点之间的连接时间超时</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
+<li>通过 <code>ntpdate 0.cn.pool.ntp.org</code> 命令使各个节点的时间跟网络时间同步</li>
+<li>通过<code>data -s</code>命令手动调整节点时间</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/05/01/Google Python命名规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/01/Google Python命名规范/" itemprop="url">Google Python命名规范</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-01T19:31:23+08:00">
+                2018-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module_name, </span><br><span class="line">package_name, </span><br><span class="line">ClassName, </span><br><span class="line">method_name, </span><br><span class="line">ExceptionName, </span><br><span class="line">function_name, </span><br><span class="line">GLOBAL_VAR_NAME, </span><br><span class="line">instance_var_name, </span><br><span class="line">function_parameter_name, </span><br><span class="line">local_var_name.</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/04/30/Python 引用上级目录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/30/Python 引用上级目录/" itemprop="url">Python 引用上级目录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T17:34:45+08:00">
+                2018-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近项目中需要用到与当前脚本所在目录同级的另一个目录下的文件，大概目录结构如下</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/30/Python 引用上级目录/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/" itemprop="url">2018年网易PM599产培生-云计算领域 面试总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-30T14:14:39+08:00">
+                2018-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。</p>
+<p>今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。</p>
+<p>今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在的云计算领域大概有40人左右，最后拿到Offer是一位很厉害的南大小姐姐。</p>
+<p>下面大概总结一下自己的面试经过，写的比较松散，还请见谅。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/04/06/Python中的switch...case实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/06/Python中的switch...case实现/" itemprop="url">Python中switch...case的实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-06T15:29:46+08:00">
+                2018-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Python与C++不同，并没有提供switch…case语句。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/06/Python中的switch...case实现/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/04/03/Python中staticmethod 和classmethod的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/04/03/Python中staticmethod 和classmethod的区别/" itemprop="url">Python中staticmethod和classmethod的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T15:29:41+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>个人理解:</p>
+<ul>
+<li><strong>staticmethod:</strong><ul>
+<li>静态方法</li>
+<li>可以没有任何参数</li>
+<li>无法访问<strong>类变量</strong>和<strong>实例变量</strong></li>
+</ul>
+</li>
+<li><strong>classmethod:</strong><ul>
+<li>类方法</li>
+<li>第一个参数必须是类本身，即<code>cls</code></li>
+<li>可以访问<strong>类变量</strong></li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/04/03/Python中staticmethod 和classmethod的区别/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/03/28/关于 C++ typedef 的几点说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/03/28/关于 C++ typedef 的几点说明/" itemprop="url">关于C++ typedef 的几点说明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-28T17:31:52+08:00">
+                2018-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>   摘自<a href="http://www.runoob.com/cplusplus/cpp-data-types.html" target="_blank" rel="noopener">knight的笔记</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/03/28/关于 C++ typedef 的几点说明/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Joseph</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joseph</span>
+
+  
 </div>
 
 
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Joseph Chu&#39;s Blog 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
 
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+  <span class="post-meta-divider">|</span>
 
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://xingye.us/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
 
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-<!-- Google Analytics -->
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-<!-- Side Catalog -->
 
 
 
 
 
-<!-- Image to hack wechat -->
-<img src="http://xingye.us/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
-
 </html>

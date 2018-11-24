@@ -1,642 +1,1795 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<!-- Head tag -->
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
-        
-          
-        
-    </title>
-
-    <link rel="canonical" href="http://xingye.us/page/2/">
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/hux-blog.min.css">
-
-    <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/css/highlight.css">
-
-    <!-- Custom Fonts -->
-    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
-    <!-- Hux change font-awesome CDN to qiniu -->
-    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
-    <!-- Hux Delete, sad but pending in China
-    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
-    css'>
-    -->
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-    <!-- ga & ba script hoook -->
-    <script></script>
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joseph Chu&#39;s Blog">
+<meta property="og:url" content="http://xingye.us/page/2/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xingye.us/page/2/"/>
+
+
+
+
+
+  <title>Joseph Chu's Blog</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
-<!-- hack iOS CSS :active style -->
-<body ontouchstart="">
+  
+  
+    
+  
 
-    <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Joseph Chu&#39;s Blog</a>
-        </div>
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- Known Issue, found by Hux:
-            <nav>'s height woule be hold on by its content.
-            so, when navbar scale out, the <nav> will cover tags.
-            also mask any touch event of tags, unfortunately.
-        -->
-        <div id="huxblog_navbar">
-            <div class="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-                    
-
-                        
-                        <li>
-                            <a href="/categories/">categories</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/about/">about</a>
-                        </li>
-                        
-                    
-
-                        
-                        <li>
-                            <a href="/tags/">tags</a>
-                        </li>
-                        
-                    
-                    
-                </ul>
-            </div>
-        </div>
-        <!-- /.navbar-collapse -->
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Joseph Chu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <!-- /.container -->
+      
+        <p class="site-subtitle">Worry Less, Do More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
 </nav>
-<script>
-    // Drop Bootstarp low-performance Navbar
-    // Use customize navbar with high-quality material design animation
-    // in high-perf jank-free CSS3 implementation
-    var $body   = document.body;
-    var $toggle = document.querySelector('.navbar-toggle');
-    var $navbar = document.querySelector('#huxblog_navbar');
-    var $collapse = document.querySelector('.navbar-collapse');
-
-    $toggle.addEventListener('click', handleMagic)
-    function handleMagic(e){
-        if ($navbar.className.indexOf('in') > 0) {
-        // CLOSE
-            $navbar.className = " ";
-            // wait until animation end.
-            setTimeout(function(){
-                // prevent frequently toggle
-                if($navbar.className.indexOf('in') < 0) {
-                    $collapse.style.height = "0px"
-                }
-            },400)
-        }else{
-        // OPEN
-            $collapse.style.height = "auto"
-            $navbar.className += " in";
-        }
-    }
-</script>
-
-
-    <!-- Main Content -->
-    <!-- Page Header -->
-<header class="intro-header" style="background-image: url('/')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Joseph Chu&#39;s Blog</h1>
-                    <!--<hr class="small">-->
-                    <span class="subheading">Worry Less, Do More</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
 
 
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/08/10/卷积后输出大小计算公式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/10/卷积后输出大小计算公式/" itemprop="url">卷积后输出大小计算公式</a></h1>
         
 
-<!-- USE SIDEBAR -->
-    <!-- Post Container -->
-            <div class="
-                col-lg-8 col-lg-offset-1
-                col-md-8 col-md-offset-1
-                col-sm-12
-                col-xs-12
-                post-container
-            ">
+        <div class="post-meta">
+          <span class="post-time">
             
-                <!-- Main Content -->
-
-
-<div class="post-preview">
-
-    <a href="/2018/08/10/卷积后输出大小计算公式/">
-        <h2 class="post-title">
-            卷积后输出大小计算公式
-        </h2>
-        <h3 class="post-subtitle">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-10T16:13:19+08:00">
+                2018-08-10
+              </time>
             
-        </h3>
-        <div class="post-content-preview">
-            
-输入图片大小 W×W
-Filter大小 F×F
-步长 S
-Padding的像素数 P
-输出图片大小为 N×N
 
-则有
-1N = (W − F + 2P )/S+1
-...
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
         </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-08-10
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/29/正则表达式知识点记录/">
-        <h2 class="post-title">
-            正则表达式知识点记录
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            在这里记录一下最近学习到的Python正则表达是的知识点
-正则表达式是什么？
-
-正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。
-
-通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。
-基础
-Python 中正则表达式模块是re，只要import re就好
-最简单的正则表达式就是我们想要匹配......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-29
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/27/记一次flask单元测试的编写/">
-        <h2 class="post-title">
-            记一次flask单元测试的编写
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            记录一些自己写单元测试时的点
-
-关键代码1234567891011121314151617181920212223242526272829303132333435363738from datetime import datetime, timedeltaimport pytestfrom app import create_app, dbfrom app.models import User......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/27/Pytest 使用总结/">
-        <h2 class="post-title">
-            Pytest 使用总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。
-pytest的安装1pip3 install -U pytest
-1pytest --version # 查看版本
-
-pytest基本用法单个测试我们来看一个小例子
-123456# func.pydef func(x):    return x+1def test_answer():    assert func(3) =......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-27
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/26/Nginx 使用总结/">
-        <h2 class="post-title">
-            Nginx 使用总结
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            花了两天的时间终于用nginx+gunicorn部署好自己的microblog项目，中间遇到了大大小小的坑，在这里做一下记录。
-
-nginx的安装通过如下命令安装nginx
-1sudo apt-get install nginx
-安装完成后输入如下命令
-1sudo service nginx start
-在浏览器里面访问localhost，如果能看到welcome to nginx就说明安装......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-26
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/24/什么是A, B, C类网络？/">
-        <h2 class="post-title">
-            什么是A, B, C类网络？
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            首先要知道什么是IP地址的前缀(prefix)，或者说网络部分。
-
-在形如a.b.c.d/x的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。
-
-/x是子网掩码的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。
-a.b.c.d/x这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。
-在C......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-24
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/24/子网掩码/">
-        <h2 class="post-title">
-            子网掩码
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            
-子网掩码（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。
-
-
-预备知识
-IPv4地址一般按照点分十进制记法书写，
-  193.32.216.9对应的二进制记法是11000001 00100000 11011000 00001001
-
-主机与物理链路之间的边界叫做接口(interface)。路由器与它的任意一条链路之间的边界也叫做接口。路由器有多个接口，每个接......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-24
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/">
-        <h2 class="post-title">
-            如何在Mac上用Script启动quicktime录制？
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            1）创建AppleScript文件，输入一下代码并保存。如QTRecord.scpt
-1234tell application "QuickTime Player"     activate     start (new movie recording) end tell
-2)在终端执行
-1osascript QTRecord.scpt
-3）或者也可以一句话搞定以上两步
-1osascript......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/23/Flask调用自己定义的api/">
-        <h2 class="post-title">
-            Flask调用自己定义的api
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            最近自己的做的一个项目flask_microblog里面有一个需求，就是要以api调用的形式显示用户的头像。
-最初时为了简单，直接调用了Gravatr的api，就像这样。
-12def avatar(self):   return 'https://www.gravatar.com/avatar/6b541a0a667f5558208aad7309c22936'
-后来为了实现GitHub风格的......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-23
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/">
-        <h2 class="post-title">
-            Github上无法在Web端解决的conflicts的解决方法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            在此记录下师兄教我的方法
-
-你需要基于你的feature branch checkout出一个 integration branch，然后merge staging到你的这个新的integration branch 把conflicts解决 然后从哪个integration branch开一个pr到staging
-integration branch 的名字为
-
-
-integration/f......
-        </div>
-    </a>
-    <p class="post-meta">
-        Posted by Joseph on
-        2018-07-22
-    </p>
-
-</div>
-<hr>
-
-
-
-<!-- Pager -->
-
-<ul class="pager">
+      </header>
     
-        <li class="previous">
-            <a href="/">&larr; Newer Posts</a>
-        </li>
+
     
     
-        <li class="next">
-            <a href="/page/3/">Older Posts &rarr;</a>
-        </li>
     
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>输入图片大小 W×W</li>
+<li>Filter大小 F×F</li>
+<li>步长 S</li>
+<li>Padding的像素数 P</li>
+<li>输出图片大小为 N×N</li>
 </ul>
+<p>则有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N = (W − F + 2P )/S+1</span><br></pre></td></tr></table></figure>
 
-
-
-                <!-- 如果开启评论功能 -->
-                
-
-            </div>
-    <!-- Sidebar Container -->
-            <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-                <!-- Featured Tags -->
-                
-
-                <!-- Short About -->
-                <section class="visible-md visible-lg">
-                    <hr><h5><a href="/about/">ABOUT ME</a></h5>
-                    <div class="short-about">
-
-                        
-
-                        
-
-                        <!-- SNS Link -->
-                        <ul class="list-inline">
-                            
-                            
-                            
-
-                            
-
-                            
-
-                            
-                            
-                            
-                            
-                        </ul>
-                    </div>
-                </section>
-                
-                <!-- Friends Blog -->
-                
-            </div>
+          
         
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/29/正则表达式知识点记录/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/29/正则表达式知识点记录/" itemprop="url">正则表达式知识点记录</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-29T08:51:40+08:00">
+                2018-07-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在这里记录一下最近学习到的Python正则表达是的知识点</p>
+<p>正则表达式是什么？</p>
+<blockquote>
+<p>正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
+</blockquote>
+<p>通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
+<li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/29/正则表达式知识点记录/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/27/记一次flask单元测试的编写/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/27/记一次flask单元测试的编写/" itemprop="url">记一次flask单元测试的编写</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-27T15:14:25+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>记录一些自己写单元测试时的点</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/27/记一次flask单元测试的编写/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/27/Pytest 使用总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/27/Pytest 使用总结/" itemprop="url">Pytest 使用总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-27T09:55:35+08:00">
+                2018-07-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
+<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/27/Pytest 使用总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/26/Nginx 使用总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/26/Nginx 使用总结/" itemprop="url">Nginx 使用总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-26T11:23:41+08:00">
+                2018-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>花了两天的时间终于用nginx+gunicorn部署好自己的<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">microblog</a>项目，中间遇到了大大小小的坑，在这里做一下记录。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/26/Nginx 使用总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/24/什么是A, B, C类网络？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/什么是A, B, C类网络？/" itemprop="url">什么是A, B, C类网络？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T19:51:02+08:00">
+                2018-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>首先要知道什么是IP地址的<strong>前缀</strong>(prefix)，或者说网络部分。</p>
+<blockquote>
+<p>在形如<code>a.b.c.d/x</code>的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。</p>
+</blockquote>
+<p><code>/x</code>是<a href="http://xingye.us/2018/07/24/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81/">子网掩码</a>的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。</p>
+<p><code>a.b.c.d/x</code>这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。</p>
+<p>在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。<strong>具有8, 16或24比特子网地址的子网被称为A, B, C类网络</strong>。</p>
+<p>A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/24/子网掩码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/24/子网掩码/" itemprop="url">子网掩码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-24T19:21:53+08:00">
+                2018-07-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><strong>子网掩码</strong>（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/24/子网掩码/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" itemprop="url">如何在Mac上用Script启动quicktime录制？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-23T19:24:30+08:00">
+                2018-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1）创建AppleScript文件，输入一下代码并保存。如<code>QTRecord.scpt</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span></span><br><span class="line">     <span class="built_in">activate</span></span><br><span class="line">     start (new movie recording)</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+<p>2)在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript QTRecord.scpt</span><br></pre></td></tr></table></figure>
+<p>3）或者也可以一句话搞定以上两步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e &apos;tell application &quot;QuickTime Player&quot; to activate&apos; -e &apos;tell application &quot;QuickTime Player&quot; to start (new movie recording)&apos;</span><br></pre></td></tr></table></figure>
+<p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/23/Flask调用自己定义的api/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/23/Flask调用自己定义的api/" itemprop="url">Flask调用自己定义的api</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-23T12:53:45+08:00">
+                2018-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近自己的做的一个项目<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">flask_microblog</a>里面有一个需求，就是要以api调用的形式显示用户的头像。</p>
+<p>最初时为了简单，直接调用了Gravatr的api，就像这样。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">avatar</span><span class="params">(self)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">'https://www.gravatar.com/avatar/6b541a0a667f5558208aad7309c22936'</span></span><br></pre></td></tr></table></figure>
+<p>后来为了实现<a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">GitHub风格的默认头像</a>功能，就自己写了个简单的api，就像这样</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/23/Flask调用自己定义的api/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/" itemprop="url">Github上无法在Web端解决的conflicts的解决方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-22T19:45:05+08:00">
+                2018-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在此记录下师兄教我的方法</p>
+<blockquote>
+<p>你需要基于你的feature branch checkout出一个 integration branch，然后merge staging到你的这个新的integration branch 把conflicts解决 然后从哪个integration branch开一个pr到staging</p>
+<p>integration branch 的名字为</p>
+</blockquote>
+<blockquote>
+<p>integration/feature branch的名字</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Joseph</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joseph</span>
+
+  
 </div>
 
 
-    <!-- Footer -->
-    <!-- Footer -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <ul class="list-inline text-center">
-                
-                
-                
-
-                
-
-                
-
-                
-
-                
-
-                </ul>
-                <p class="copyright text-muted">
-                    Copyright &copy; Joseph Chu&#39;s Blog 2018 
-                    <br>
-                    Theme by <a href="http://huangxuan.me">Hux</a> 
-                    <span style="display: inline-block; margin: 0 5px;">
-                        <i class="fa fa-heart"></i>
-                    </span> 
-                    Ported by <a href="http://blog.kaijun.rocks">Kaijun</a> | 
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="91px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
-                    </iframe>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- jQuery -->
-<script src="/js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script src="/js/hux-blog.min.js"></script>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
 
-<!-- 
-     Because of the native support for backtick-style fenced code blocks 
-     right within the Markdown is landed in Github Pages, 
-     From V1.6, There is no need for Highlight.js, 
-     so Huxblog drops it officially.
-
-     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
-     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
--->
-<!--
-    <script>
-        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
-            hljs.initHighlightingOnLoad();
-        })
-    </script>
-    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
--->
+  <span class="post-meta-divider">|</span>
 
 
-<!-- jquery.tagcloud.js -->
-<script>
-    // only load tagcloud.js in tag.html
-    if($('#tag_cloud').length !== 0){
-        async("http://xingye.us/js/jquery.tagcloud.js",function(){
-            $.fn.tagcloud.defaults = {
-                //size: {start: 1, end: 1, unit: 'em'},
-                color: {start: '#bbbbee', end: '#0085a1'},
-            };
-            $('#tag_cloud a').tagcloud();
-        })
-    }
-</script>
 
-<!--fastClick.js -->
-<script>
-    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
-        var $nav = document.querySelector("nav");
-        if($nav) FastClick.attach($nav);
-    })
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
-<!-- Google Analytics -->
-
-
-
-
-<!-- Baidu Tongji -->
-
-
-<!-- Side Catalog -->
 
 
 
 
 
-<!-- Image to hack wechat -->
-<img src="http://xingye.us/img/icon_wechat.png" width="0" height="0" />
-<!-- Migrate from head to bottom, no longer block render and still work -->
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
-
 </html>
