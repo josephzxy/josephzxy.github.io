@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="[CI / CD] Continuous Integration / Continuous Delivery"/>
+
+
+
+
+  <meta name="keywords" content="DevOps, Joseph Chu's Blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joseph Chu's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://xingye.us/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> [CI / CD] Continuous Integration / Continuous Delivery - Joseph Chu's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Joseph Chu's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about/">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Joseph Chu's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          [CI / CD] Continuous Integration / Continuous Delivery
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-04
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1，CI-CD持续集成-持续部署"><span class="toc-text">1，CI/CD持续集成/持续部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#与DevOps的关系"><span class="toc-text">与DevOps的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#与持续部署的关系"><span class="toc-text">与持续部署的关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、项目版本迭代控制-、"><span class="toc-text">2、项目版本迭代控制:、</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-SVN服务器："><span class="toc-text">2.1 SVN服务器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-CVS服务器："><span class="toc-text">2.2 CVS服务器：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-GIt-github："><span class="toc-text">2.3 GIt/github：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>敏捷软件开发（英语：Agile software development），又称敏捷开发，是一种从1990年代开始逐渐引起广泛关注的一些新型软件开发方法，是一种应对快速变化的需求的一种软件开发能力。它们的具体名称、理念、过程、术语都不尽相同，相对于“非敏捷”，更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发过程中人的作用。</p>
+<a id="more"></a>
+<h2 id="1，CI-CD持续集成-持续部署"><a href="#1，CI-CD持续集成-持续部署" class="headerlink" title="1，CI/CD持续集成/持续部署"></a>1，CI/CD持续集成/持续部署</h2><p>   持续集成(Continuous integration)是一种软件开发实践，即团队开发成员经常集成它们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。</p>
+<p>   持续部署（continuous deployment）是通过自动化的构建、测试和部署循环来快速交付高质量的产品。某种程度上代表了一个开发团队工程化的程度，毕竟快速运转的互联网公司人力成本会高于机器，投资机器优化开发流程化相对也提高了人的效率，让 engineering productivity 最大化。</p>
+<p>   持续交付（英语：Continuous delivery，缩写为 CD），是一种软件工程手法，让软件产品的产出过程在一个短周期内完成，以保证软件可以稳定、持续的保持在随时可以释出的状况。它的目标在于让软件的建置、测试与释出变得更快以及更频繁。这种方式可以减少软件开发的成本与时间，减少风险。</p>
+<h3 id="与DevOps的关系"><a href="#与DevOps的关系" class="headerlink" title="与DevOps的关系"></a>与DevOps的关系</h3><p>持续交付与DevOps的含义很相似，所以经常被混淆。但是它们是不同的两个概念。DevOps的范围更广，它以文化变迁为中心，特别是软件交付过程所涉及的多个团队之间的合作（开发、运维、QA、管理部门等），并且将软件交付的过程自动化。另壹方面，持续交付是壹种自动化交付的手段，关注点在于将不同的过程集中起来，并且更快、更频繁地执行这些过程。因此，DevOps可以是持续交付的壹个产物，持续交付直接汇入DevOps；</p>
+<h3 id="与持续部署的关系"><a href="#与持续部署的关系" class="headerlink" title="与持续部署的关系"></a>与持续部署的关系</h3><p>有时候，持续交付也与持续部署混淆。持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。</p>
+<h2 id="2、项目版本迭代控制-、"><a href="#2、项目版本迭代控制-、" class="headerlink" title="2、项目版本迭代控制:、"></a>2、项目版本迭代控制:、</h2><p>现有的版本控制工具，如 Github、GitLab、SVN、CVS 等主流工具..</p>
+<p>构建及测试:通过 Jenkins 实现自动构建和测试,还有商业软件BAMBOO来持续集成。这个收费的。免费就用Jenkins..</p>
+<p>交付:以Docker镜像形式进行交付，提交至镜像仓库；</p>
+<h3 id="2-1-SVN服务器："><a href="#2-1-SVN服务器：" class="headerlink" title="2.1 SVN服务器："></a>2.1 SVN服务器：</h3><p>Subversion是一个版本控制系统，相对于的RCS、CVS，采用了分支管理系统，它的设计目标就是取代CVS。互联网上免费的版本控制服务多基于Subversion。</p>
+<p>Subversion的版本库可以通过网络访问，从而使用户可以在不同的电脑上进行操作。从某种程度上来说，允许用户在各自的空间里修改和管理同一组数据可以促进团队协作。因为修改不再是单线进行（单线进行也就是必须一个一个进行），开发进度会进展迅速。此外，由于所有的工作都已版本化，也就不必担心由于错误的更改而影响软件质量—如果出现不正确的更改，只要撤销那一次更改操作即可。某些版本控制系统本身也是软件配置管理系统（SCM），这种系统经过精巧的设计，专门用来管理源代码树，并且具备许多与软件开发有关的特性——比如对编程语言的支持或者提供程序构建工具。不过Subversion并不是这样的系统，它是一个通用系统，可以管理任何类型的文件集。</p>
+<h3 id="2-2-CVS服务器："><a href="#2-2-CVS服务器：" class="headerlink" title="2.2 CVS服务器："></a>2.2 CVS服务器：</h3><p>CVS（Concurrent Versions System）版本控制系统是一种GNU软件包，主要用于在多人开发环境下源码的维护。Concurrent有并发的、协作的、一致的等含义。实际上CVS可以维护任意文档的开发和使用，例如共享文件的编辑修改，而不仅仅局限于程序设计。CVS维护的文件类型可以是文本类型也可以是二进制类型。CVS用Copy-Modify-Merge（拷贝、修改、合并）变化表支持对文件的同时访问和修改。它明确地将源文件的存储和用户的工作空间独立开来，并使其并行操作。CVS基于客户端/服务器的行为使其可容纳多个用户。这一特性使得CVS成为位于不同地点的人同时处理数据文件（特别是程序的源代码）时的首选。</p>
+<p>所有重要的免费软件项目都使用CVS作为其程序员之间的中心点，以便能够综合各程序员的改进和更改。这些项目包括GNOME、KDE、THE GIMP和Wine等。</p>
+<h3 id="2-3-GIt-github："><a href="#2-3-GIt-github：" class="headerlink" title="2.3 GIt/github："></a>2.3 GIt/github：</h3><pre><code>GIT （分布式版本控制系统）
+</code></pre><p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。</p>
+<p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了 Git 上。</p>
+<p>gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。</p>
+<p>gitHub于2008年4月10日正式上线，除了git代码仓库托管及基本的 Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://blog.csdn.net/qq_32261399/article/details/76651376" target="_blank" rel="noopener">CI/CD持续集成/持续部署 敏捷开发</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/">http://xingye.us/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/DevOps/">DevOps</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/10/01/requests-basic-usage/">
+        <span class="next-text nav-default">requests 库基本用法</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:isaacchuh@hotmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/josephzxy" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joseph</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/';
+        this.page.identifier = '2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/';
+        this.page.title = '[CI / CD] Continuous Integration / Continuous Delivery';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
