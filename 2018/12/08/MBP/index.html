@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="Pandas中 DataFrame的使用"/>
+  <meta name="description" content="MBP利用 Time Machine 进行备份记录"/>
 
 
 
 
-  <meta name="keywords" content="Python Packages, Joseph Chu's Blog" />
+  <meta name="keywords" content="Mac, Joseph Chu's Blog" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/2018/10/01/pandas-dataframe_usage/"/>
+<link rel="canonical" href="http://xingye.us/2018/12/08/MBP/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -79,7 +79,7 @@
 
 
 
-    <title> Pandas中 DataFrame的使用 - Joseph Chu's Blog </title>
+    <title> MBP利用 Time Machine 进行备份记录 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -195,13 +195,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Pandas中 DataFrame的使用
+          MBP利用 Time Machine 进行备份记录
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-10-01
+          2018-12-08
         </span>
         
         
@@ -213,27 +213,27 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#读取行"><span class="toc-text">读取行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取列"><span class="toc-text">读取列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataFrame转成list"><span class="toc-text">DataFrame转成list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-材料准备"><span class="toc-text">0x00 材料准备</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01开始备份？"><span class="toc-text">0x01开始备份？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-中断备份"><span class="toc-text">0x02 中断备份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-从备份中恢复"><span class="toc-text">0x03 从备份中恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0xFF-参考"><span class="toc-text">0xFF 参考</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
-<ul>
-<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
-<li>行号索引 <code>df.iloc[0]</code></li>
+        <p>简单记录几个点，供自己日后参考</p>
+<h2 id="0x00-材料准备"><a href="#0x00-材料准备" class="headerlink" title="0x00 材料准备"></a>0x00 材料准备</h2><ul>
+<li>一台<code>exFAT</code>格式的移动硬盘，建议容量为MBP容量的两倍左右</li>
 </ul>
-<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
-<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
-<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
-<p>列名可以通过<code>df.columns</code>获取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
+<h2 id="0x01开始备份？"><a href="#0x01开始备份？" class="headerlink" title="0x01开始备份？"></a>0x01开始备份？</h2><blockquote>
+<p>注意：在lauchpad里面点击TimeMachine是不能开始备份的，只能进行恢复。</p>
+</blockquote>
+<p>首先插入硬盘，在<code>System Preference</code>里面选择<code>Time Machine</code>，勾选<code>Back Up Automatically</code>，再在<code>Select Disk</code>里面选择刚插入的硬盘，然后Mac就会在两分钟后自动开始备份。</p>
+<h2 id="0x02-中断备份"><a href="#0x02-中断备份" class="headerlink" title="0x02 中断备份"></a>0x02 中断备份</h2><p>在Time Machine的界面里点击右边的叉号就好，下次备份时会自动接续上次备份。</p>
+<h2 id="0x03-从备份中恢复"><a href="#0x03-从备份中恢复" class="headerlink" title="0x03 从备份中恢复"></a>0x03 从备份中恢复</h2><p>可直接参考mac<a href="https://support.apple.com/zh-cn/HT203981" target="_blank" rel="noopener">官方文档</a></p>
+<h2 id="0xFF-参考"><a href="#0xFF-参考" class="headerlink" title="0xFF 参考"></a>0xFF 参考</h2><ul>
+<li><a href="https://support.apple.com/zh-cn/HT201250" target="_blank" rel="noopener">使用“时间机器”备份您的 Mac
+</a></li>
+<li><a href="https://support.apple.com/zh-cn/HT203981" target="_blank" rel="noopener">从备份恢复 Mac</a></li>
 </ul>
 
       
@@ -250,7 +250,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://xingye.us/2018/10/01/pandas-dataframe_usage/">http://xingye.us/2018/10/01/pandas-dataframe_usage/</a>
+      <a href="http://xingye.us/2018/12/08/MBP/">http://xingye.us/2018/12/08/MBP/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -270,7 +270,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Python-Packages/">Python Packages</a>
+              <a href="/tags/Mac/">Mac</a>
             
           </div>
         
@@ -278,15 +278,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">[CI / CD] Continuous Integration / Continuous Delivery</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2018/10/01/requests-basic-usage/">
-        <span class="next-text nav-default">requests 库基本用法</span>
+      <a class="next" href="/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/">
+        <span class="next-text nav-default">[CI / CD] Continuous Integration / Continuous Delivery</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -393,9 +387,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://xingye.us/2018/10/01/pandas-dataframe_usage/';
-        this.page.identifier = '2018/10/01/pandas-dataframe_usage/';
-        this.page.title = 'Pandas中 DataFrame的使用';
+        this.page.url = 'http://xingye.us/2018/12/08/MBP/';
+        this.page.identifier = '2018/12/08/MBP/';
+        this.page.title = 'MBP利用 Time Machine 进行备份记录';
     };
     (function() {
     var d = document, s = d.createElement('script');

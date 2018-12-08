@@ -193,6 +193,54 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/16/MySQL存储过程/">MySQL存储过程</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>更多基础知识可参考<a href="https://www.cnblogs.com/mark-chan/p/5384139.html" target="_blank" rel="noopener">MySQL存储过程</a>，很棒很详细的入门文章。</p>
+<blockquote>
+<p>SQL 语句需要先编译然后执行，而存储过程(Stored Procedure)是一组为了完成特定工程的SQL语句集，经编译后存储在数据库中，用户通过制定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。</p>
+</blockquote>
+<p>个人感觉存储过程增强了兼容性。实现相对复杂的功能（比如返回一组数据，然后遍历结果集），之前可能要用python操作mysql来实现。但是利用存储过程可以写成一组代码，使用者可以直接复制粘贴到MySQL shell或者客户端来使用。</p>
+          <div class="read-more">
+            <a href="/2018/08/16/MySQL存储过程/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/15/Python 常用内置库/">Python3 常用内置库</a>
         
       </h1>
@@ -602,53 +650,6 @@
 <p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
           <div class="read-more">
             <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/23/Flask调用自己定义的api/">Flask调用自己定义的api</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-23
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最近自己的做的一个项目<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">flask_microblog</a>里面有一个需求，就是要以api调用的形式显示用户的头像。</p>
-<p>最初时为了简单，直接调用了Gravatr的api，就像这样。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">avatar</span><span class="params">(self)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">'https://www.gravatar.com/avatar/6b541a0a667f5558208aad7309c22936'</span></span><br></pre></td></tr></table></figure>
-<p>后来为了实现<a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">GitHub风格的默认头像</a>功能，就自己写了个简单的api，就像这样</p>
-          <div class="read-more">
-            <a href="/2018/07/23/Flask调用自己定义的api/" class="read-more-link">Read more..</a>
           </div>
         
       
