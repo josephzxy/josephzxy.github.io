@@ -114,6 +114,15 @@
         </li>
       </a>
     
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
       <a href="/tags">
         <li class="mobile-menu-item">
           
@@ -158,6 +167,15 @@
             
             
               Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
             
           </a>
         </li>
@@ -229,7 +247,7 @@
 <p>在<code>func.py</code>所在目录下启动pytest</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest func.py</span><br></pre></td></tr></table></figure>
 <p>得到结果</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">joseph@MacBook-Pro  ~/work/lab/pytesttest  pytest func.py</span><br><span class="line">============================= test session starts ==============================</span><br><span class="line">platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.5.4, pluggy-0.6.0</span><br><span class="line">rootdir: /Users/joseph/work/lab/pytesttest, inifile:</span><br><span class="line">collected 1 item</span><br><span class="line"></span><br><span class="line">func.py F                                                                [100%]</span><br><span class="line"></span><br><span class="line">=================================== FAILURES ===================================</span><br><span class="line">_________________________________ test_answer __________________________________</span><br><span class="line"></span><br><span class="line">    def test_answer():</span><br><span class="line"><span class="meta">&gt;</span>       assert func(3) == 5</span><br><span class="line">E       assert 4 == 5</span><br><span class="line">E        +  where 4 = func(3)</span><br><span class="line"></span><br><span class="line">func.py:5: AssertionError</span><br><span class="line">=========================== 1 failed in 0.06 seconds ===========================</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">joseph@MacBook-Pro  ~/work/lab/pytesttest  pytest func.py</span><br><span class="line">============================= test session starts ==============================</span><br><span class="line">platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.5.4, pluggy-0.6.0</span><br><span class="line">rootdir: /Users/joseph/work/lab/pytesttest, inifile:</span><br><span class="line">collected 1 item</span><br><span class="line"></span><br><span class="line">func.py F                                                                [100%]</span><br><span class="line"></span><br><span class="line">=================================== FAILURES ===================================</span><br><span class="line">_________________________________ test_answer __________________________________</span><br><span class="line"></span><br><span class="line">    def test_answer():</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">       assert func(3) == 5</span></span><br><span class="line">E       assert 4 == 5</span><br><span class="line">E        +  where 4 = func(3)</span><br><span class="line"></span><br><span class="line">func.py:5: AssertionError</span><br><span class="line">=========================== 1 failed in 0.06 seconds ===========================</span><br></pre></td></tr></table></figure>
 <p>由此可以看出</p>
 <ul>
 <li>单个测试时，可以在命令行直接以<code>pytest 要测试的.py</code>的方式来执行测试。文件名无需<code>test_</code>开头</li>

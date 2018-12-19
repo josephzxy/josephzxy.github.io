@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Python logging模块使用"/>
+
+
+
+
+  <meta name="keywords" content="Python, 日志, Joseph Chu's Blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joseph Chu's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://xingye.us/2018/12/19/Python-logging模块使用/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Python logging模块使用 - Joseph Chu's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Joseph Chu's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about/">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Joseph Chu's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Python logging模块使用
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-19
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Python模块用法/">Python模块用法</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#basicConfig的参数"><span class="toc-text">basicConfig的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#level"><span class="toc-text">level</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#format"><span class="toc-text">format</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多更详细用法请参考"><span class="toc-text">更多更详细用法请参考</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging <span class="comment"># 导入logging模块</span></span><br><span class="line">logging.basicConfig( <span class="comment"># 配置logging模块</span></span><br><span class="line">	level=logging.INFO,</span><br><span class="line">	format=<span class="string">'%(asctime)s  %(levelname)s  %(message)s'</span>,</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 用法1：使用默认logger</span></span><br><span class="line">logging.info(<span class="string">'this is info message'</span>) <span class="comment"># 输出info级消息</span></span><br><span class="line"><span class="comment"># 用法2：自定义logger的名字</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'mylogger'</span>)</span><br><span class="line">logger.info(<span class="string">'this is info message from mylogger'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 2018-07-01 18:49:36,170   INFO   this is a info</span></span><br><span class="line"><span class="comment"># 2018-07-01 18:49:36,170   INFO   this is a info from mylogger</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>通过<code>getLogger</code>指定logger的名称，名称可以在<code>format</code>中用<code>%(name)s</code>格式化输出。</p>
+<p>指定logger名称有一个好处是，在同一个程序的不同文件中引用相同名称的logger对应的是同一个实例，这有利于logging的跨文件调用。</p>
+<h3 id="basicConfig的参数"><a href="#basicConfig的参数" class="headerlink" title="basicConfig的参数"></a>basicConfig的参数</h3><h4 id="level"><a href="#level" class="headerlink" title="level"></a>level</h4><p>指定日志输出的等级</p>
+<p>logging模块中日志等级分为如下几种<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">等级       数值</span><br><span class="line">CRITICAL   50</span><br><span class="line">FATAL      50</span><br><span class="line">ERROR      40</span><br><span class="line">WARNING    30</span><br><span class="line">WARN       30</span><br><span class="line">INFO       20</span><br><span class="line">DEBUG      10</span><br><span class="line">NOTSET      0</span><br></pre></td></tr></table></figure></p>
+<p>logging模块输出日志时只能输出比<code>level</code>参数等级相同或更高的日志，也就是说，如果我的<code>level=logging.INFO</code>，那我调用<code>logging.debug()</code>是不会输出的，因为<code>DEBUG</code>比<code>INFO</code>等级低。</p>
+<h4 id="format"><a href="#format" class="headerlink" title="format"></a>format</h4><p>指定每一条日志的内容，可以用下面的模块随意组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">`%(asctime)s`    表示当前时间，格式为`2018-07-01 19:08:41,050`，逗号后面是毫秒</span><br><span class="line">`%(levelname)s`  表示日志级别名称</span><br><span class="line">`%(message)s`    表示日志内容</span><br><span class="line">`%(name)s`       表示日志名称（未指定则为roots）</span><br><span class="line">`%(lineno)d`     表示输出日志的代码所在行数</span><br><span class="line">`%(levelno)s`    表示数字形式的日志级别</span><br><span class="line">`%(pathname)s`   表示程序执行路径，相当于`sys.argv[0]`</span><br><span class="line">`%(filename)s`   表示所在文件名称</span><br><span class="line">`%(funcName)s`   表示所在函数名称</span><br><span class="line">`%(thread)d`     表示当前线程ID</span><br><span class="line">`%(threadName)s` 表示当前线程名称</span><br><span class="line">`%(process)d`    表示当前进程ID</span><br><span class="line">`%(processName)s`表示当前进程名称</span><br><span class="line">`%(module)s`     表示当前模块名称</span><br><span class="line">`%(created)f`    表示UNIX标准时间浮点数表示</span><br></pre></td></tr></table></figure>
+<h2 id="更多更详细用法请参考"><a href="#更多更详细用法请参考" class="headerlink" title="更多更详细用法请参考"></a>更多更详细用法请参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/38781838" target="_blank" rel="noopener">python中logging模块上篇 - Dwzb的文章 - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/38782314" target="_blank" rel="noopener">python中logging模块下篇 - Dwzb的文章 - 知乎</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/12/19/Python-logging模块使用/">http://xingye.us/2018/12/19/Python-logging模块使用/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/Python/">Python</a>
+            
+              <a href="/tags/日志/">日志</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Mac安装Linux下有但Mac没有的命令</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/12/18/numpy-改变数组的shape/">
+        <span class="next-text nav-default">numpy 改变数组的shape</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:isaacchuh@hotmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/josephzxy" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joseph</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/12/19/Python-logging模块使用/';
+        this.page.identifier = '2018/12/19/Python-logging模块使用/';
+        this.page.title = 'Python logging模块使用';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -110,6 +110,15 @@
         </li>
       </a>
     
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
       <a href="/tags">
         <li class="mobile-menu-item">
           
@@ -159,6 +168,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/tags">
             
             
@@ -193,14 +211,20 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/08/16/MySQL存储过程/">MySQL存储过程</a>
+          <a class="post-link" href="/2018/12/08/MBP/">MBP利用 Time Machine 进行备份记录</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-08-16
+          2018-12-08
         </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Mac/">Mac</a>
+            
+          </div>
         
         
       </div>
@@ -217,13 +241,9 @@
         
 
         
-          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>更多基础知识可参考<a href="https://www.cnblogs.com/mark-chan/p/5384139.html" target="_blank" rel="noopener">MySQL存储过程</a>，很棒很详细的入门文章。</p>
-<blockquote>
-<p>SQL 语句需要先编译然后执行，而存储过程(Stored Procedure)是一组为了完成特定工程的SQL语句集，经编译后存储在数据库中，用户通过制定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。</p>
-</blockquote>
-<p>个人感觉存储过程增强了兼容性。实现相对复杂的功能（比如返回一组数据，然后遍历结果集），之前可能要用python操作mysql来实现。但是利用存储过程可以写成一组代码，使用者可以直接复制粘贴到MySQL shell或者客户端来使用。</p>
+          <p>简单记录几个点，供自己日后参考</p>
           <div class="read-more">
-            <a href="/2018/08/16/MySQL存储过程/" class="read-more-link">Read more..</a>
+            <a href="/2018/12/08/MBP/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -241,13 +261,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/08/15/Python 常用内置库/">Python3 常用内置库</a>
+          <a class="post-link" href="/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/">[CI / CD] Continuous Integration / Continuous Delivery</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-08-15
+          2018-12-04
         </span>
         
         
@@ -261,16 +281,14 @@
       
         
         
+          
+        
 
         
-          <p>在此记录自己遇到的库，以备后续使用时查阅</p>
-<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import chardet </span><br><span class="line">chardet.detect() # 探测bytes类型的具体编码</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Python3中str默认是unicode编码，其他编码一律是bytes类型。</p>
-</blockquote>
-<p>Python3中将<code>str</code>转换为<code>bytes</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = &apos;hello&apos;</span><br><span class="line">s.encode(&apos;utf-8&apos;) # b&apos;hello&apos;</span><br></pre></td></tr></table></figure>
-
+          <p>敏捷软件开发（英语：Agile software development），又称敏捷开发，是一种从1990年代开始逐渐引起广泛关注的一些新型软件开发方法，是一种应对快速变化的需求的一种软件开发能力。它们的具体名称、理念、过程、术语都不尽相同，相对于“非敏捷”，更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发过程中人的作用。</p>
+          <div class="read-more">
+            <a href="/2018/12/04/CI-CD-Continuous-Integration-Continuous-Delivery/" class="read-more-link">Read more..</a>
+          </div>
         
       
     </div>
@@ -287,13 +305,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/08/10/卷积后输出大小计算公式/">卷积后输出大小计算公式</a>
+          <a class="post-link" href="/2018/10/01/pandas-dataframe_usage/">Pandas中 DataFrame的使用</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-08-10
+          2018-10-01
         </span>
         
         
@@ -309,71 +327,22 @@
         
 
         
-          <ul>
-<li>输入图片大小 W×W</li>
-<li>Filter大小 F×F</li>
-<li>步长 S</li>
-<li>Padding的像素数 P</li>
-<li>输出图片大小为 N×N</li>
+          <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
+<ul>
+<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
+<li>行号索引 <code>df.iloc[0]</code></li>
 </ul>
-<p>则有</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N = (W − F + 2P )/S+1</span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/29/正则表达式知识点记录/">正则表达式知识点记录</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-29
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>在这里记录一下最近学习到的Python正则表达是的知识点</p>
-<p>正则表达式是什么？</p>
-<blockquote>
-<p>正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
-</blockquote>
-<p>通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。</p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
-<li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
-<li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
-</li>
+<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
+<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
+<p>列名可以通过<code>df.columns</code>获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
 </ul>
-          <div class="read-more">
-            <a href="/2018/07/29/正则表达式知识点记录/" class="read-more-link">Read more..</a>
-          </div>
+
         
       
     </div>
@@ -390,13 +359,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/07/27/记一次flask单元测试的编写/">记一次flask单元测试的编写</a>
+          <a class="post-link" href="/2018/10/01/requests-basic-usage/">requests 库基本用法</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-07-27
+          2018-10-01
         </span>
         
         
@@ -410,14 +379,36 @@
       
         
         
-          
-        
 
         
-          <p>记录一些自己写单元测试时的点</p>
-          <div class="read-more">
-            <a href="/2018/07/27/记一次flask单元测试的编写/" class="read-more-link">Read more..</a>
-          </div>
+          <p>为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。</p>
+<p>安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install requests</span><br></pre></td></tr></table></figure></p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>首先呈上<a href="http://docs.python-requests.org/en/master/" target="_blank" rel="noopener">官方文档</a>，有中文版，欢迎来啃。<br>下面主要介绍两种方法：get和post</p>
+<ul>
+<li>get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url,**args)<span class="comment">#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.post(url,**args)<span class="comment">#也是返回Response对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><p>get和post方法中有许多参数可以使用，部分参数后面会详解。</p>
+<ul>
+<li>url：就是目标网址，接收完整（带http）的地址字符串。</li>
+<li>headers：请求头，存储本地信息如浏览器版本，是一个字典。</li>
+<li>data：要提交的数据，字典。</li>
+<li>cookies：cookies，字典。</li>
+<li>timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。</li>
+<li>params：为网址添加条件数据，字典。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>, <span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</span><br><span class="line">r = requests.get(<span class="string">"http://httpbin.org/get"</span>, params=payload)</span><br><span class="line"><span class="comment">#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>proxies：ip代理时使用，字典。</li>
+</ul>
+<h2 id="Response对象使用"><a href="#Response对象使用" class="headerlink" title="Response对象使用"></a>Response对象使用</h2><p>从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r.encoding = &apos;ISO-8859-1&apos;    #指定r.text返回的数据类型，写在r.text之前。</span><br><span class="line">r.text    #默认以unicode形式返回网页内容，也就是网页源码的字符串。</span><br><span class="line"></span><br><span class="line">r.content    #以二进制形式返回网页内容，下载图片时专用。</span><br><span class="line">r.json()    #把网页中的json数据转成字典并将其返回。</span><br><span class="line"></span><br><span class="line">#还有一些很少用到的方法。</span><br><span class="line">r.headers    #返回服务器端的headers，字典。</span><br><span class="line">r.status_code    #返回连接状态，200正常。</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://segmentfault.com/a/1190000014383966" target="_blank" rel="noopener">Python 从零开始爬虫(零)——爬虫思路&amp;requests模块使用</a></p>
+
         
       
     </div>
@@ -434,103 +425,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/07/27/Pytest 使用总结/">Pytest 使用总结</a>
+          <a class="post-link" href="/2018/10/01/bs4-basic-usage/">BeautifulSoup 基本使用</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-07-27
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
-<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/07/27/Pytest 使用总结/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/26/Nginx 使用总结/">Nginx 使用总结</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-26
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>花了两天的时间终于用nginx+gunicorn部署好自己的<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">microblog</a>项目，中间遇到了大大小小的坑，在这里做一下记录。</p>
-          <div class="read-more">
-            <a href="/2018/07/26/Nginx 使用总结/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/24/什么是A, B, C类网络？/">什么是A, B, C类网络？</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-24
+          2018-10-01
         </span>
         
         
@@ -546,14 +447,27 @@
         
 
         
-          <p>首先要知道什么是IP地址的<strong>前缀</strong>(prefix)，或者说网络部分。</p>
+          <p>在这里主要记录自己项目中涉及到的用法，供以后参考。</p>
+<h2 id="获取bs实例"><a href="#获取bs实例" class="headerlink" title="获取bs实例"></a>获取bs实例</h2><p>要使用BeautifulSoup，首先就要构建一个<code>BeautifulSoup</code>类实例</p>
+<ul>
+<li>第一个参数：要解析的html文本，可以是<code>str</code>， 也可以是打开的文件句柄</li>
+<li><code>features</code>: 指定html解析器 (关于解析器之间的区别，请戳<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">官方文档</a>， “安装解析器”一节)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> Soup</span><br><span class="line"></span><br><span class="line">soup = Soup(open(sample.html), features=<span class="string">"lxml"</span>)</span><br><span class="line"><span class="comment"># soup = Soup('&lt;h1&gt;my title&lt;/h1&gt;', features="lxml")</span></span><br><span class="line">soup.find_all(<span class="string">'table'</span>) <span class="comment"># 通过实例来使用一系列强大功能</span></span><br></pre></td></tr></table></figure>
+<h2 id="查找所需的Tag"><a href="#查找所需的Tag" class="headerlink" title="查找所需的Tag"></a>查找所需的Tag</h2><p>常用方法如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">soup.table <span class="comment"># 等同于 soup.find('table')</span></span><br><span class="line">soup.find(<span class="string">'table'</span>) <span class="comment"># 第一个出现的table, 类型为&lt;class 'bs4.element.Tag'&gt;</span></span><br><span class="line">soup.find_all(<span class="string">'table'</span>) <span class="comment"># 所有table</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="获取Tag中的文本"><a href="#获取Tag中的文本" class="headerlink" title="获取Tag中的文本"></a>获取Tag中的文本</h3><p>比如说我的html文本是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>， 我想要获得的是<code>&#39;this is sample&#39;</code></p>
+<p>可以通过<code>soup.text</code>或者<code>soup.string</code>属性来获得</p>
+<p>关于<code>text</code>和<code>string</code>的区别可参考<a href="https://zhuanlan.zhihu.com/p/30911642" target="_blank" rel="noopener">Python BeautifulSoup 中.text与.string的区别</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(s.b)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">s</span>.<span class="title">b</span>.<span class="title">text</span></span></span><br><span class="line"><span class="class">'<span class="title">this</span> <span class="title">is</span> <span class="title">sample</span>'</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取包含Tag的文本"><a href="#获取包含Tag的文本" class="headerlink" title="获取包含Tag的文本"></a>获取包含Tag的文本</h3><p>那如果我现在想获得的就是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>呢？</p>
+<p>如果是在iPython环境下，可以直接<code>print()</code>相应的Tag对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)</span><br><span class="line">&gt;&gt;&gt; print(s.b)</span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<p>如果是在脚本里面，则需要用到Python对象的内置方法<code>__repr__()</code></p>
 <blockquote>
-<p>在形如<code>a.b.c.d/x</code>的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。</p>
+<p>在print一个对象的时候实际上调用了其<code>__repr__()</code>方法</p>
 </blockquote>
-<p><code>/x</code>是<a href="http://xingye.us/2018/07/24/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81/">子网掩码</a>的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。</p>
-<p><code>a.b.c.d/x</code>这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。</p>
-<p>在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。<strong>具有8, 16或24比特子网地址的子网被称为A, B, C类网络</strong>。</p>
-<p>A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s.b.__repr__()</span><br><span class="line"><span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">BeautifulSoup 4.2.0文档</a></p>
 
         
       
@@ -571,13 +485,60 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/07/24/子网掩码/">子网掩码</a>
+          <a class="post-link" href="/2018/10/01/pandas-read-html/">Pandas解析html</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-07-24
+          2018-10-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>pandas可以用<code>read_html()</code>函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。</p>
+<p>比如说有table html代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table1"</span>&gt;</span> <span class="tag">&lt;<span class="name">tbody</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"1"</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>Station<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Tiu Keng Leng<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Kwun Tong<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Whampoa<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>Whampoa<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>00:40<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>01:00<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>read_html()</code>解析得到</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为会返回包含df的list</span></span><br><span class="line">df = pd.read_html(html, header=<span class="number">0</span>, encoding=<span class="string">"utf8"</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://segmentfault.com/q/1010000007087889" target="_blank" rel="noopener">python beautifulsoup 如何抓取不规则表格的内容</a></li>
+</ul>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/">MySQL 修改数据库编码为utf8mb4以插入emoj</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-25
         </span>
         
         
@@ -595,11 +556,11 @@
         
 
         
-          <blockquote>
-<p><strong>子网掩码</strong>（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。</p>
-</blockquote>
+          <p>最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column &apos;content&apos; at row 1&quot;)</span><br></pre></td></tr></table></figure>
+<p>现总结自己的解决方案如下</p>
           <div class="read-more">
-            <a href="/2018/07/24/子网掩码/" class="read-more-link">Read more..</a>
+            <a href="/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -617,13 +578,59 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/">如何在Mac上用Script启动quicktime录制？</a>
+          <a class="post-link" href="/2018/08/20/Parameter, Argument, Attribute 的区别/">Parameter, Argument, Attribute 的区别</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-07-23
+          2018-08-20
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<h3 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h3><p>对应中文即<strong>形参</strong>，临时变量，在函数定义中用于接受外部传入变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def foo(name, age): # name, age 即形参</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h3 id="Argument"><a href="#Argument" class="headerlink" title="Argument"></a>Argument</h3><p>对应中文即<strong>实参</strong>，在调用函数时传入的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(&apos;Tom&apos;, 11) # &apos;Tom&apos;, 11即实参</span><br></pre></td></tr></table></figure>
+<h3 id="Atrribute"><a href="#Atrribute" class="headerlink" title="Atrribute"></a>Atrribute</h3><p>对应中文即<strong>属性</strong>，可以是一个类的变量（实例变量或者类变量）或者函数（成员函数）。 <strong>类的每一个实例都可以访问这些属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Color:</span><br><span class="line">    description = &quot;This is a color&quot; # class attributes</span><br><span class="line">    </span><br><span class="line">    def __init__(self, color):</span><br><span class="line">        self.color = color</span><br><span class="line">        </span><br><span class="line">    def do_something(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">c = Color(&apos;blue&apos;)</span><br><span class="line">c.color # instance attribute</span><br><span class="line">Color.description # class attribute</span><br><span class="line">c.do_something() # instance attribute</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/08/17/Django的F和Q查询/">Django的F和Q查询</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-17
         </span>
         
         
@@ -641,16 +648,50 @@
         
 
         
-          <p>1）创建AppleScript文件，输入一下代码并保存。如<code>QTRecord.scpt</code></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span></span><br><span class="line">     <span class="built_in">activate</span></span><br><span class="line">     start (new movie recording)</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
-<p>2)在终端执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript QTRecord.scpt</span><br></pre></td></tr></table></figure>
-<p>3）或者也可以一句话搞定以上两步</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e &apos;tell application &quot;QuickTime Player&quot; to activate&apos; -e &apos;tell application &quot;QuickTime Player&quot; to start (new movie recording)&apos;</span><br></pre></td></tr></table></figure>
-<p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
+          <p>在此记录自己目前对F查询和Q查询的理解，后续继续更新</p>
           <div class="read-more">
-            <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" class="read-more-link">Read more..</a>
+            <a href="/2018/08/17/Django的F和Q查询/" class="read-more-link">Read more..</a>
           </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/08/17/TCP 的三次握手和四次挥手/">TCP 的三次握手和四次挥手</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-17
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>非常棒的文章<br><a href="https://blog.csdn.net/qzcsu/article/details/72861891" target="_blank" rel="noopener">TCP的三次握手与四次挥手（详解+动图）</a></p>
+
         
       
     </div>

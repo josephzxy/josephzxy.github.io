@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Colab 文件操作"/>
+
+
+
+
+  <meta name="keywords" content="colab, Joseph Chu's Blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joseph Chu's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://xingye.us/2018/12/18/Colab-文件操作/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Colab 文件操作 - Joseph Chu's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Joseph Chu's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about/">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Joseph Chu's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Colab 文件操作
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-18
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Tools/">Tools</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#执行shell命令"><span class="toc-text">执行shell命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上传文件"><span class="toc-text">上传文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载文件"><span class="toc-text">下载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Google-Drive上的文件"><span class="toc-text">使用Google Drive上的文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-将Colab记事本和Google-Drive绑定"><span class="toc-text">1. 将Colab记事本和Google Drive绑定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-将Google-Drive映射到当前Colab的drive文件夹下"><span class="toc-text">2. 将Google Drive映射到当前Colab的drive文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-将Colab默认工作目录更改为Google-Drive下某个目录"><span class="toc-text">3.  将Colab默认工作目录更改为Google Drive下某个目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#载入一个Python脚本"><span class="toc-text">载入一个Python脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>Colab常用文件操作</p>
+<blockquote>
+<ul>
+<li>执行shell命令</li>
+<li>上传文件</li>
+<li>下载文件</li>
+<li>使用Google Drive上的文件</li>
+<li>载入一个Python脚本</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h2><p>在常规shell命令前加上<code>!</code><br>注意：命令需要紧跟在<code>!</code>后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!pip install numpy</span><br><span class="line">!ls</span><br></pre></td></tr></table></figure></p>
+<h2 id="上传文件"><a href="#上传文件" class="headerlink" title="上传文件"></a>上传文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> files</span><br><span class="line">uploaded = files.upload() </span><br><span class="line"><span class="comment"># 点击输出结果中的Choose Files会打开浏览器的文件上传窗口</span></span><br></pre></td></tr></table></figure>
+<p>上传完成的文件可以通过<code>!ls</code>来查看</p>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> google.colab <span class="keyword">import</span> files</span><br><span class="line">files.download(<span class="string">'example.txt'</span>)</span><br></pre></td></tr></table></figure>
+<p>运行后会自动下载</p>
+<h2 id="使用Google-Drive上的文件"><a href="#使用Google-Drive上的文件" class="headerlink" title="使用Google Drive上的文件"></a>使用Google Drive上的文件</h2><p>因为Colab完全基于云端运行，每次新建一个记事本后台对应的都是一个新建的虚拟机，所以如果本次运行需要额外文件的话，就需要再次手动上传。</p>
+<p>直接使用Google Drive上的文件可以免去每次都手动上传文件至Colab的麻烦。</p>
+<p>使用Google Drive上的文件共需要三步</p>
+<h3 id="1-将Colab记事本和Google-Drive绑定"><a href="#1-将Colab记事本和Google-Drive绑定" class="headerlink" title="1. 将Colab记事本和Google Drive绑定"></a>1. 将Colab记事本和Google Drive绑定</h3><p>直接复制粘贴下面的代码至Colab记事本中运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!apt-get install -y -qq software-properties-common python-software-properties module-init-tools</span><br><span class="line">!add-apt-repository -y ppa:alessandro-strada/ppa 2&gt;&amp;1 &gt; /dev/null</span><br><span class="line">!apt-get update -qq 2&gt;&amp;1 &gt; /dev/null</span><br><span class="line">!apt-get -y install -qq google-drive-ocamlfuse fuse</span><br><span class="line">from google.colab import auth</span><br><span class="line">auth.authenticate_user()</span><br><span class="line">from oauth2client.client import GoogleCredentials</span><br><span class="line">creds = GoogleCredentials.get_application_default()</span><br><span class="line">import getpass</span><br><span class="line">!google-drive-ocamlfuse -headless -id=&#123;creds.client_id&#125; -secret=&#123;creds.client_secret&#125; &lt; /dev/null 2&gt;&amp;1 | grep URL</span><br><span class="line">vcode = getpass.getpass()</span><br><span class="line">!<span class="built_in">echo</span> &#123;vcode&#125; | google-drive-ocamlfuse -headless -id=&#123;creds.client_id&#125; -secret=&#123;creds.client_secret&#125;</span><br></pre></td></tr></table></figure></p>
+<p>运行过程中会出现两次提示打开链接，登录自己的Google账号授权</p>
+<h3 id="2-将Google-Drive映射到当前Colab的drive文件夹下"><a href="#2-将Google-Drive映射到当前Colab的drive文件夹下" class="headerlink" title="2. 将Google Drive映射到当前Colab的drive文件夹下"></a>2. 将Google Drive映射到当前Colab的drive文件夹下</h3><p>为了好记，将文件夹命名为drive， 也可以命名为其他名字<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">!mkdir -p drive </span><br><span class="line">!google-drive-ocamlfuse drive</span><br></pre></td></tr></table></figure></p>
+<p>此时用<code>!ls</code>命令查看，会发现Colab默认目录下多了一个drive文件夹，drive文件夹内的内容就是我们Google Drive上的所有文件</p>
+<h3 id="3-将Colab默认工作目录更改为Google-Drive下某个目录"><a href="#3-将Colab默认工作目录更改为Google-Drive下某个目录" class="headerlink" title="3.  将Colab默认工作目录更改为Google Drive下某个目录"></a>3.  将Colab默认工作目录更改为Google Drive下某个目录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.chdir(<span class="string">"drive/.../..."</span>) <span class="comment"># 你所需要的目录</span></span><br></pre></td></tr></table></figure>
+<p>此时用<code>!ls</code>命令查看，会发现Colab的默认目录已经变成我们指定的目录了。</p>
+<h2 id="载入一个Python脚本"><a href="#载入一个Python脚本" class="headerlink" title="载入一个Python脚本"></a>载入一个Python脚本</h2><ul>
+<li><a href="https://stackoverflow.com/questions/47345004/in-googles-colab-notebook-how-do-i-call-a-function-from-a-python-file" target="_blank" rel="noopener">In Google’s Colab notebook, How do I call a function from a Python file?</a></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>[Google Colab文件功能的使用] (<a href="https://blog.csdn.net/qq_25987491/article/details/80875034" target="_blank" rel="noopener">https://blog.csdn.net/qq_25987491/article/details/80875034</a>)</li>
+<li><a href="https://www.jianshu.com/p/ce2e63d1c10c" target="_blank" rel="noopener">Colaboratory 指定 Google Drive 文件夹</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/12/18/Colab-文件操作/">http://xingye.us/2018/12/18/Colab-文件操作/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/colab/">colab</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/18/Gensim加载FastText模型/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Gensim加载FastText模型</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/12/08/MBP/">
+        <span class="next-text nav-default">MBP利用 Time Machine 进行备份记录</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:isaacchuh@hotmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/josephzxy" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+    
+    2018
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joseph</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/12/18/Colab-文件操作/';
+        this.page.identifier = '2018/12/18/Colab-文件操作/';
+        this.page.title = 'Colab 文件操作';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

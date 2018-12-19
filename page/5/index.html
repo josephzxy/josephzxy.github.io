@@ -110,6 +110,15 @@
         </li>
       </a>
     
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
       <a href="/tags">
         <li class="mobile-menu-item">
           
@@ -159,6 +168,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/tags">
             
             
@@ -193,13 +211,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/03/23/Hexo + GitHub 搭建博客记录/">Hexo + GitHub 搭建博客记录</a>
+          <a class="post-link" href="/2018/04/03/Python中staticmethod 和classmethod的区别/">Python中staticmethod和classmethod的区别</a>
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-03-23
+          2018-04-03
         </span>
         
         
@@ -217,200 +235,422 @@
         
 
         
-          <p>简要记录自己搭建博客的过程</p>
-          <div class="read-more">
-            <a href="/2018/03/23/Hexo + GitHub 搭建博客记录/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/22/Mac 命令行alias用法记录/">Mac 命令行alias用法记录</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-22
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>alias的用法如下：</p>
-          <div class="read-more">
-            <a href="/2018/03/22/Mac 命令行alias用法记录/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/">Hexo + GitHub 搭建博客打开出现404</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-03-22
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p><img src="https://sfault-image.b0.upaiyun.com/186/957/1869570395-5767fb20b2ad6" width="400" height="400" alt="404" align="center"></p>
-          <div class="read-more">
-            <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/01/22/Ubuntu 16.04 Xen installation guide/">Ubuntu 16.04 Xen 安装流程</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-01-22
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h4 id="1-安装Xen-hypervisor"><a href="#1-安装Xen-hypervisor" class="headerlink" title="1 安装Xen hypervisor"></a>1 安装Xen hypervisor</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install xen-hypervisor-4.4-amd64</span><br></pre></td></tr></table></figure>
-<h4 id="2-安装libvirt和Virtual-Manager"><a href="#2-安装libvirt和Virtual-Manager" class="headerlink" title="2 安装libvirt和Virtual Manager"></a>2 安装libvirt和Virtual Manager</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install virtinst python-libvirt virt-viewer virt-manager</span><br></pre></td></tr></table></figure>
-<h4 id="3-重启"><a href="#3-重启" class="headerlink" title="3 重启"></a>3 重启</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-<h4 id="4-修改Xen配置文件"><a href="#4-修改Xen配置文件" class="headerlink" title="4 修改Xen配置文件"></a>4 修改Xen配置文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/xen</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/josephzxy/pic/master/Screen%20Shot%202018-01-22%20at%202.41.56%20PM.png" alt="Screen Shot 2018-01-22 at 2.41.56 P"></p>
-<h4 id="5-检查是否安装成功"><a href="#5-检查是否安装成功" class="headerlink" title="5 检查是否安装成功"></a>5 检查是否安装成功</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xl list</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/josephzxy/pic/master/Screen%20Shot%202018-01-22%20at%202.44.26%20PM.png" alt="Screen Shot 2018-01-22 at 2.44.26 P"><br>出现如下内容即为安装成功</p>
-<h4 id="References"><a href="#References" class="headerlink" title="References"></a>References</h4><p><a href="http://blog.csdn.net/feverwindlong/article/details/42360233" target="_blank" rel="noopener">ubuntu 14.04安装xen</a></p>
-<p><a href="http://blog.csdn.net/yiqiaoxihui/article/details/53115620" target="_blank" rel="noopener">ubuntu “sudo xm list” 出现ERROR: A different toolstack (xl) have been selected!</a></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2017/11/23/原码、反码、补码/">原码、反码、补码</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-11-23
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <ul>
-<li>原码</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#很直观的，以8位表示一个数</span><br><span class="line">00000001 # 1</span><br><span class="line">10000001 # -1</span><br></pre></td></tr></table></figure>
+          <p>个人理解:</p>
 <ul>
-<li>反码 </li>
+<li><strong>staticmethod:</strong><ul>
+<li>静态方法</li>
+<li>可以没有任何参数</li>
+<li>无法访问<strong>类变量</strong>和<strong>实例变量</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#正数数反码=原码</span><br><span class="line">#负数反码=符号位（最高位）不变，其余各位取反</span><br><span class="line">00000001 # 1</span><br><span class="line">11111110 # -1</span><br></pre></td></tr></table></figure>
-<ul>
-<li>补码</li>
+</li>
+<li><strong>classmethod:</strong><ul>
+<li>类方法</li>
+<li>第一个参数必须是类本身，即<code>cls</code></li>
+<li>可以访问<strong>类变量</strong></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#正数补码=原码</span><br><span class="line">#负数补码=符号位不变，其余各位取反，然后加1</span><br><span class="line">00000001 # 1</span><br><span class="line">11111111 # -1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
           <div class="read-more">
-            <a href="/2017/11/23/原码、反码、补码/" class="read-more-link">Read more..</a>
+            <a href="/2018/04/03/Python中staticmethod 和classmethod的区别/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/关于 C++ typedef 的几点说明/">关于C++ typedef 的几点说明</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>   摘自<a href="http://www.runoob.com/cplusplus/cpp-data-types.html" target="_blank" rel="noopener">knight的笔记</a></p>
+          <div class="read-more">
+            <a href="/2018/03/28/关于 C++ typedef 的几点说明/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/">在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-basic-syntax.html" target="_blank" rel="noopener">eric的笔记</a></p>
+          <div class="read-more">
+            <a href="/2018/03/28/在 C++ 中 main 函数前面为什么要加上数据类型比如 int void ？/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/C++ 中的#if...#endif注释/">C++ 中的#if...#endif注释</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-comments.html" target="_blank" rel="noopener">春风十里的笔记</a></p>
+<p>块注释符（/<em>…</em>/）是不可以嵌套使用的。</p>
+<p>此外，我们还可以使用 <code>#if 0 ... #endif</code> 来实现注释，且可以实现嵌套。</p>
+          <div class="read-more">
+            <a href="/2018/03/28/C++ 中的#if...#endif注释/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/">本地Markdown编辑器编写Hexo博客注意事项总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>具体可参考<br> <a href="https://www.zhihu.com/question/29017171" target="_blank" rel="noopener">hexo 下的分类和表签无法显示，怎么解决？- 知乎</a></p>
+          <div class="read-more">
+            <a href="/2018/03/28/本地Markdown编辑器编写Hexo博客注意事项总结/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/">C++ 中'\n' "\n" 和 &的用法和区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>摘自<a href="http://www.runoob.com/cplusplus/cpp-tutorial.html" target="_blank" rel="noopener">KgdBukn的笔记</a>, 略有改动</p>
+<p><code>&#39;\n&#39;</code> 表示一个换行符<br><code>&quot;\n&quot;</code> 表示内容为一个换行符的字符串。<br><code>std::endl</code> 是流操作子，输出一个换行符，并立即刷新缓冲区。</p>
+          <div class="read-more">
+            <a href="/2018/03/28/C++ 中'\n' "\n" 和 &的用法和区别/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/28/C++ 中单引号和双引号的区别/">C++ 中单引号和双引号的区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>单引号代表<code>char</code>类型，即单个字符<br>双引号是字符串类型</p>
+          <div class="read-more">
+            <a href="/2018/03/28/C++ 中单引号和双引号的区别/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/">战略层，范围层，结构层，框架层，表现层</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>转自<a href="https://www.douban.com/group/topic/85318953/" target="_blank" rel="noopener">豆瓣小组</a></p>
+          <div class="read-more">
+            <a href="/2018/03/27/战略层，范围层，结构层，框架层，表现层/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/26/C++ * 和 &的用法和区别/">C++ * 和 &的用法和区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-26
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在C++里，每一个变量都在内存中对应着一个地址。<br>如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。</p>
+          <div class="read-more">
+            <a href="/2018/03/26/C++ * 和 &的用法和区别/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/">Hexo 博客 Even 主题添加Disqus评论区</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-03-26
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>搭建的博客不同主题添加评论区的方法会略有不同，具体可参考各主题自身的文档。</p>
+          <div class="read-more">
+            <a href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/" class="read-more-link">Read more..</a>
           </div>
         
       
@@ -433,6 +673,11 @@
         <span class="prev-text">Prev</span>
       </a>
     
+    
+      <a class="next" href="/page/6/">
+        <span class="next-text">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 

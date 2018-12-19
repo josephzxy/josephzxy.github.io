@@ -110,6 +110,15 @@
         </li>
       </a>
     
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
       <a href="/tags">
         <li class="mobile-menu-item">
           
@@ -159,6 +168,15 @@
         </li>
       
         <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
           <a class="menu-item-link" href="/tags">
             
             
@@ -193,7 +211,431 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/07/23/Flask调用自己定义的api/">Flask调用自己定义的api</a>
+          <a class="post-link" href="/2018/08/16/MySQL存储过程/">MySQL存储过程</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>更多基础知识可参考<a href="https://www.cnblogs.com/mark-chan/p/5384139.html" target="_blank" rel="noopener">MySQL存储过程</a>，很棒很详细的入门文章。</p>
+<blockquote>
+<p>SQL 语句需要先编译然后执行，而存储过程(Stored Procedure)是一组为了完成特定工程的SQL语句集，经编译后存储在数据库中，用户通过制定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。</p>
+</blockquote>
+<p>个人感觉存储过程增强了兼容性。实现相对复杂的功能（比如返回一组数据，然后遍历结果集），之前可能要用python操作mysql来实现。但是利用存储过程可以写成一组代码，使用者可以直接复制粘贴到MySQL shell或者客户端来使用。</p>
+          <div class="read-more">
+            <a href="/2018/08/16/MySQL存储过程/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/08/15/Python 常用内置库/">Python3 常用内置库</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-15
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>在此记录自己遇到的库，以备后续使用时查阅</p>
+<h3 id="chardet"><a href="#chardet" class="headerlink" title="chardet"></a>chardet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import chardet </span><br><span class="line">chardet.detect() # 探测bytes类型的具体编码</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Python3中str默认是unicode编码，其他编码一律是bytes类型。</p>
+</blockquote>
+<p>Python3中将<code>str</code>转换为<code>bytes</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = &apos;hello&apos;</span><br><span class="line">s.encode(&apos;utf-8&apos;) # b&apos;hello&apos;</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/08/10/卷积后输出大小计算公式/">卷积后输出大小计算公式</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-10
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <ul>
+<li>输入图片大小 W×W</li>
+<li>Filter大小 F×F</li>
+<li>步长 S</li>
+<li>Padding的像素数 P</li>
+<li>输出图片大小为 N×N</li>
+</ul>
+<p>则有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N = (W − F + 2P )/S+1</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/29/正则表达式知识点记录/">正则表达式知识点记录</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-29
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在这里记录一下最近学习到的Python正则表达是的知识点</p>
+<p>正则表达式是什么？</p>
+<blockquote>
+<p>正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。</p>
+</blockquote>
+<p>通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。</p>
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
+<li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+          <div class="read-more">
+            <a href="/2018/07/29/正则表达式知识点记录/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/27/记一次flask单元测试的编写/">记一次flask单元测试的编写</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>记录一些自己写单元测试时的点</p>
+          <div class="read-more">
+            <a href="/2018/07/27/记一次flask单元测试的编写/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/27/Pytest 使用总结/">Pytest 使用总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
+<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
+          <div class="read-more">
+            <a href="/2018/07/27/Pytest 使用总结/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/26/Nginx 使用总结/">Nginx 使用总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-26
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>花了两天的时间终于用nginx+gunicorn部署好自己的<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">microblog</a>项目，中间遇到了大大小小的坑，在这里做一下记录。</p>
+          <div class="read-more">
+            <a href="/2018/07/26/Nginx 使用总结/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/24/什么是A, B, C类网络？/">什么是A, B, C类网络？</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-24
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>首先要知道什么是IP地址的<strong>前缀</strong>(prefix)，或者说网络部分。</p>
+<blockquote>
+<p>在形如<code>a.b.c.d/x</code>的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。</p>
+</blockquote>
+<p><code>/x</code>是<a href="http://xingye.us/2018/07/24/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81/">子网掩码</a>的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。</p>
+<p><code>a.b.c.d/x</code>这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。</p>
+<p>在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。<strong>具有8, 16或24比特子网地址的子网被称为A, B, C类网络</strong>。</p>
+<p>A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/24/子网掩码/">子网掩码</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-07-24
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <blockquote>
+<p><strong>子网掩码</strong>（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。</p>
+</blockquote>
+          <div class="read-more">
+            <a href="/2018/07/24/子网掩码/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/">如何在Mac上用Script启动quicktime录制？</a>
         
       </h1>
 
@@ -217,418 +659,15 @@
         
 
         
-          <p>最近自己的做的一个项目<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">flask_microblog</a>里面有一个需求，就是要以api调用的形式显示用户的头像。</p>
-<p>最初时为了简单，直接调用了Gravatr的api，就像这样。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">avatar</span><span class="params">(self)</span>:</span></span><br><span class="line">   <span class="keyword">return</span> <span class="string">'https://www.gravatar.com/avatar/6b541a0a667f5558208aad7309c22936'</span></span><br></pre></td></tr></table></figure>
-<p>后来为了实现<a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">GitHub风格的默认头像</a>功能，就自己写了个简单的api，就像这样</p>
+          <p>1）创建AppleScript文件，输入一下代码并保存。如<code>QTRecord.scpt</code></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span></span><br><span class="line">     <span class="built_in">activate</span></span><br><span class="line">     start (new movie recording)</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
+<p>2)在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript QTRecord.scpt</span><br></pre></td></tr></table></figure>
+<p>3）或者也可以一句话搞定以上两步</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e &apos;tell application &quot;QuickTime Player&quot; to activate&apos; -e &apos;tell application &quot;QuickTime Player&quot; to start (new movie recording)&apos;</span><br></pre></td></tr></table></figure>
+<p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
           <div class="read-more">
-            <a href="/2018/07/23/Flask调用自己定义的api/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/">Github上无法在Web端解决的conflicts的解决方法</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-22
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>在此记录下师兄教我的方法</p>
-<blockquote>
-<p>你需要基于你的feature branch checkout出一个 integration branch，然后merge staging到你的这个新的integration branch 把conflicts解决 然后从哪个integration branch开一个pr到staging</p>
-<p>integration branch 的名字为</p>
-</blockquote>
-<blockquote>
-<p>integration/feature branch的名字</p>
-</blockquote>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/21/Python和opencv实现仿github默认头像/">Python和opencv实现仿github默认头像</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-21
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先我们需要知道Github默认头像的一些参数。</p>
-<blockquote>
-<ul>
-<li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
-<li>GitHub默认头像是左右对称的</li>
-<li>GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]</li>
-</ul>
-</blockquote>
-<p>知道了这些以后，我们就可以着手开始做了。</p>
-          <div class="read-more">
-            <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/26/Python注释规范/">Python注释规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-26
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h3 id="函数注释"><a href="#函数注释" class="headerlink" title="函数注释"></a>函数注释</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">def function(arg1, arg2...):</span><br><span class="line">    &quot;&quot;&quot; [Brief description of function]</span><br><span class="line">    </span><br><span class="line">    [Detailed description of function]</span><br><span class="line">    </span><br><span class="line">    Args:</span><br><span class="line">        [arg1]: [Description of arg1]</span><br><span class="line">        [arg2]: [Description of arg2]</span><br><span class="line">        ...</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">        [Description of returns]</span><br><span class="line">        For example:</span><br><span class="line">        </span><br><span class="line">        [Example of returns]</span><br><span class="line">        </span><br><span class="line">        [Any supplementary description of returns]</span><br><span class="line">    </span><br><span class="line">    Raises:</span><br><span class="line">        [exception_type]: [description of exception]</span><br><span class="line">    </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
-          <div class="read-more">
-            <a href="/2018/05/26/Python注释规范/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/06/HBase 的启动/">HBase 的启动</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-06
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h1 id="HBase-的启动"><a href="#HBase-的启动" class="headerlink" title="HBase 的启动"></a>HBase 的启动</h1><p><code>start-hbase.sh</code><br>这个会启动整个hbase，包括master, regionserver, zookeeper</p>
-<p>如果要单独启动master和regionserver，可参考以下方式</p>
-<p>在regionServer上 <code>hbase-daemon.sh start regionserver</code></p>
-<p>在master上执行：<code>hbase-daemon.sh start master</code></p>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/06/HBase shell 无法使用/">HBase shell 无法使用</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-06
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息"></a>报错信息</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">hbase(main):001:0&gt; list</span><br><span class="line">TABLE</span><br><span class="line"></span><br><span class="line">ERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing</span><br><span class="line">    at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:1869)</span><br><span class="line">    at org.apache.hadoop.hbase.master.MasterRpcServices.getTableDescriptors(MasterRpcServices.java:775)</span><br><span class="line">    at org.apache.hadoop.hbase.protobuf.generated.MasterProtos$MasterService$2.callBlockingMethod(MasterProtos.java:42402)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:2031)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:107)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor.consumerLoop(RpcExecutor.java:130)</span><br><span class="line">    at org.apache.hadoop.hbase.ipc.RpcExecutor$1.run(RpcExecutor.java:107)</span><br><span class="line">    at java.lang.Thread.run(Thread.java:744)</span><br><span class="line"></span><br><span class="line">Here is some help for this command:</span><br><span class="line">List all tables in hbase. Optional regular expression parameter could</span><br><span class="line">be used to filter the output. Examples:</span><br><span class="line">  hbase&gt; list</span><br><span class="line">  hbase&gt; list &apos;abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:abc.*&apos;</span><br><span class="line">  hbase&gt; list &apos;ns:.*&apos;</span><br></pre></td></tr></table></figure>
-<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>出现这种问题的原因是因为多台节点的时间不同步，导致节点之间的连接时间超时</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
-<li>通过 <code>ntpdate 0.cn.pool.ntp.org</code> 命令使各个节点的时间跟网络时间同步</li>
-<li>通过<code>data -s</code>命令手动调整节点时间</li>
-</ol>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/05/01/Google Python命名规范/">Google Python命名规范</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-05-01
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">module_name, </span><br><span class="line">package_name, </span><br><span class="line">ClassName, </span><br><span class="line">method_name, </span><br><span class="line">ExceptionName, </span><br><span class="line">function_name, </span><br><span class="line">GLOBAL_VAR_NAME, </span><br><span class="line">instance_var_name, </span><br><span class="line">function_parameter_name, </span><br><span class="line">local_var_name.</span><br></pre></td></tr></table></figure>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/04/30/Python 引用上级目录/">Python 引用上级目录</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-04-30
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>最近项目中需要用到与当前脚本所在目录同级的另一个目录下的文件，大概目录结构如下</p>
-          <div class="read-more">
-            <a href="/2018/04/30/Python 引用上级目录/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/">2018年网易PM599产培生-云计算领域 面试总结</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-04-30
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。</p>
-<p>今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。</p>
-<p>今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在的云计算领域大概有40人左右，最后拿到Offer是一位很厉害的南大小姐姐。</p>
-<p>下面大概总结一下自己的面试经过，写的比较松散，还请见谅。</p>
-          <div class="read-more">
-            <a href="/2018/04/30/2018年网易PM599产培生-云计算领域 面试总结/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/04/06/Python中的switch...case实现/">Python中switch...case的实现</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-04-06
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Python与C++不同，并没有提供switch…case语句。</p>
-          <div class="read-more">
-            <a href="/2018/04/06/Python中的switch...case实现/" class="read-more-link">Read more..</a>
+            <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" class="read-more-link">Read more..</a>
           </div>
         
       
