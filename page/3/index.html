@@ -211,6 +211,52 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/20/Parameter, Argument, Attribute 的区别/">Parameter, Argument, Attribute 的区别</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-20
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<h3 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h3><p>对应中文即<strong>形参</strong>，临时变量，在函数定义中用于接受外部传入变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def foo(name, age): # name, age 即形参</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h3 id="Argument"><a href="#Argument" class="headerlink" title="Argument"></a>Argument</h3><p>对应中文即<strong>实参</strong>，在调用函数时传入的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(&apos;Tom&apos;, 11) # &apos;Tom&apos;, 11即实参</span><br></pre></td></tr></table></figure>
+<h3 id="Atrribute"><a href="#Atrribute" class="headerlink" title="Atrribute"></a>Atrribute</h3><p>对应中文即<strong>属性</strong>，可以是一个类的变量（实例变量或者类变量）或者函数（成员函数）。 <strong>类的每一个实例都可以访问这些属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Color:</span><br><span class="line">    description = &quot;This is a color&quot; # class attributes</span><br><span class="line">    </span><br><span class="line">    def __init__(self, color):</span><br><span class="line">        self.color = color</span><br><span class="line">        </span><br><span class="line">    def do_something(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">c = Color(&apos;blue&apos;)</span><br><span class="line">c.color # instance attribute</span><br><span class="line">Color.description # class attribute</span><br><span class="line">c.do_something() # instance attribute</span><br></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/17/Django的F和Q查询/">Django的F和Q查询</a>
         
       </h1>
@@ -610,53 +656,6 @@
           <div class="read-more">
             <a href="/2018/07/26/Nginx 使用总结/" class="read-more-link">Read more..</a>
           </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/24/什么是A, B, C类网络？/">什么是A, B, C类网络？</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-24
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <p>首先要知道什么是IP地址的<strong>前缀</strong>(prefix)，或者说网络部分。</p>
-<blockquote>
-<p>在形如<code>a.b.c.d/x</code>的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。</p>
-</blockquote>
-<p><code>/x</code>是<a href="http://xingye.us/2018/07/24/%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81/">子网掩码</a>的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。</p>
-<p><code>a.b.c.d/x</code>这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。</p>
-<p>在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。<strong>具有8, 16或24比特子网地址的子网被称为A, B, C类网络</strong>。</p>
-<p>A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。</p>
-
         
       
     </div>
