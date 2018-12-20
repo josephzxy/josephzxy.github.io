@@ -364,60 +364,6 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2018/10/01/pandas-dataframe_usage/">Pandas中 DataFrame的使用</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-10-01
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-
-        
-          <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
-<ul>
-<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
-<li>行号索引 <code>df.iloc[0]</code></li>
-</ul>
-<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
-<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
-<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
-<p>列名可以通过<code>df.columns</code>获取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
-</ul>
-
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
           <a class="post-link" href="/2018/10/01/requests-basic-usage/">requests 库基本用法</a>
         
       </h1>
@@ -527,6 +473,60 @@
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s.b.__repr__()</span><br><span class="line"><span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span></span><br></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">BeautifulSoup 4.2.0文档</a></p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/2018/10/01/pandas-dataframe_usage/">Pandas中 DataFrame的使用</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
+<ul>
+<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
+<li>行号索引 <code>df.iloc[0]</code></li>
+</ul>
+<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
+<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
+<p>列名可以通过<code>df.columns</code>获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
+</ul>
 
         
       
