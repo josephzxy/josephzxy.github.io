@@ -211,6 +211,62 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/12/20/Untitled/">我对FastText的理解</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-20
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/NLP-算法/">NLP 算法</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h2 id="总括"><a href="#总括" class="headerlink" title="总括"></a>总括</h2><ul>
+<li>浅层神经网络</li>
+<li>和word2vec中的cbow非常类似，将待预测的中心词换成了label</li>
+<li>在简单文本分类问题上可以达到State-of-art的效果（非常接近或略逊于最优解）</li>
+<li>训练和测试时间比深度神经网络少了几个数量级</li>
+<li>适合对句子中词语顺序不敏感的分类任务</li>
+</ul>
+          <div class="read-more">
+            <a href="/2018/12/20/Untitled/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/">Mac安装Linux下有但Mac没有的命令</a>
         
       </h1>
@@ -632,65 +688,6 @@
           <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gensim.models.wrappers <span class="keyword">import</span> FastText</span><br><span class="line"></span><br><span class="line"><span class="comment"># for *.bin</span></span><br><span class="line">model = FastText.load_fasttext_format(<span class="string">'sample.bin'</span>)</span><br><span class="line"><span class="comment"># for *.vec</span></span><br><span class="line">model = FastText.load_word2vec_format(<span class="string">'sample.vec'</span>)</span><br></pre></td></tr></table></figure>
           <div class="read-more">
             <a href="/2018/12/18/Gensim加载FastText模型/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/18/Colab-文件操作/">Colab 文件操作</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-18
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Tools/">Tools</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>Colab常用文件操作</p>
-<blockquote>
-<ul>
-<li>执行shell命令</li>
-<li>上传文件</li>
-<li>下载文件</li>
-<li>使用Google Drive上的文件</li>
-<li>载入一个Python脚本</li>
-</ul>
-</blockquote>
-          <div class="read-more">
-            <a href="/2018/12/18/Colab-文件操作/" class="read-more-link">Read more..</a>
           </div>
         
       
