@@ -17,8 +17,12 @@
 
 
 
+  <meta name="description" content="shell实用文件操作"/>
 
 
+
+
+  <meta name="keywords" content="Shell, Joseph Chu's Blog" />
 
 
 
@@ -38,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/archives/page/6/"/>
+<link rel="canonical" href="http://xingye.us/2018/12/20/shell实用文件操作/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -75,11 +79,7 @@
 
 
 
-    <title>
-  
-    Archives - Joseph Chu's Blog
-  
-</title>
+    <title> shell实用文件操作 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -209,177 +209,122 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
-    
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          shell实用文件操作
+        
+      </h1>
 
-    
-      
+      <div class="post-meta">
+        <span class="post-time">
+          2018-12-20
+        </span>
         
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2018</h2>
+          <div class="post-category">
+            
+              <a href="/categories/Shell技巧/">Shell技巧</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/26/C++ * 和 &的用法和区别/" class="archive-post-link">
-            C++ * 和 &的用法和区别
-          </a>
-        </span>
+        
       </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#统计文件行数"><span class="toc-text">统计文件行数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#随机打乱文件内部的行"><span class="toc-text">随机打乱文件内部的行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取文件的头-尾若干行"><span class="toc-text">读取文件的头/尾若干行</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>一些较为高级的文件操作（诸如统计行数，打乱内容）都可以利用shell命令快速的完成。这里记录自己用过的shell命令。</p>
+<h2 id="统计文件行数"><a href="#统计文件行数" class="headerlink" title="统计文件行数"></a>统计文件行数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wc -l filename</span><br></pre></td></tr></table></figure>
+<h2 id="随机打乱文件内部的行"><a href="#随机打乱文件内部的行" class="headerlink" title="随机打乱文件内部的行"></a>随机打乱文件内部的行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shuf input_file -o output_file</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat input_file | shuf &gt; output_file</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Mac OS没有<code>shuf</code>命令，可以<code>brew install coreutils</code>，然后用<code>gshuf</code>代替</p>
+</blockquote>
+<h2 id="读取文件的头-尾若干行"><a href="#读取文件的头-尾若干行" class="headerlink" title="读取文件的头/尾若干行"></a>读取文件的头/尾若干行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat filename | head -n 1000 <span class="comment"># 读取头1000行</span></span><br></pre></td></tr></table></figure>
+<p>将<code>head</code>替换为<code>tail</code>即读取最后1000行</p>
+
+      
+    </div>
+
     
       
-        
-        
-
-        
       
 
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-26
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/" class="archive-post-link">
-            Hexo 博客 Even 主题添加Disqus评论区
-          </a>
-        </span>
-      </div>
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2018/12/20/shell实用文件操作/">http://xingye.us/2018/12/20/shell实用文件操作/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
     
-      
-        
-        
 
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/23/Hexo + GitHub 搭建博客记录/" class="archive-post-link">
-            Hexo + GitHub 搭建博客记录
-          </a>
-        </span>
-      </div>
     
-      
+      <footer class="post-footer">
         
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/22/Mac 命令行alias用法记录/" class="archive-post-link">
-            Mac 命令行alias用法记录
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            03-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/03/22/Hexo + GitHub 搭建博客打开出现404/" class="archive-post-link">
-            Hexo + GitHub 搭建博客打开出现404
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            01-22
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2018/01/22/Ubuntu 16.04 Xen installation guide/" class="archive-post-link">
-            Ubuntu 16.04 Xen 安装流程
-          </a>
-        </span>
-      </div>
-    
-      
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2017</h2>
+          <div class="post-tags">
+            
+              <a href="/tags/Shell/">Shell</a>
+            
           </div>
         
-      
-
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            11-23
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2017/11/23/原码、反码、补码/" class="archive-post-link">
-            原码、反码、补码
-          </a>
-        </span>
-      </div>
+        
+        
+  <nav class="post-nav">
     
-  </section>
-
-  
-  <nav class="pagination">
     
-      <a class="prev" href="/archives/page/5/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
+      <a class="next" href="/2018/12/20/Untitled/">
+        <span class="next-text nav-default">我对FastText的理解</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
       </a>
-    
     
   </nav>
 
+      </footer>
+    
+
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
 
         </div>
       </main>
@@ -458,6 +403,27 @@
     </div>
 
     
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2018/12/20/shell实用文件操作/';
+        this.page.identifier = '2018/12/20/shell实用文件操作/';
+        this.page.title = 'shell实用文件操作';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
 
 
     

@@ -250,6 +250,7 @@
 <li>在简单文本分类问题上可以达到State-of-art的效果（非常接近或略逊于最优解）</li>
 <li>训练和测试时间比深度神经网络少了几个数量级</li>
 <li>适合对句子中词语顺序不敏感的分类任务</li>
+<li>适用于分类类别非常大而且数据集足够多的情况，当分类类别比较小或者数据集比较少的话，很容易过拟合。</li>
 </ul>
 <a id="more"></a>
 <h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>fasttext的结构和下图十分类似，不过去掉了中间的Hidden linear layer</p>
@@ -350,6 +351,12 @@
         
         
   <nav class="post-nav">
+    
+      <a class="prev" href="/2018/12/20/shell实用文件操作/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">shell实用文件操作</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
     
     
       <a class="next" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/">
