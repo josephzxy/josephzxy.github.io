@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="Pandas中 DataFrame的使用"/>
+  <meta name="description" content="TensorBoard简单使用"/>
 
 
 
 
-  <meta name="keywords" content="Python Packages, Joseph Chu's Blog" />
+  <meta name="keywords" content="Tensorflow, TensorBoard, Joseph Chu's Blog" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/2018/10/01/pandas-dataframe_usage/"/>
+<link rel="canonical" href="http://xingye.us/2018/12/22/TensorBoard简单使用/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -79,7 +79,7 @@
 
 
 
-    <title> Pandas中 DataFrame的使用 - Joseph Chu's Blog </title>
+    <title> TensorBoard简单使用 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -213,14 +213,20 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Pandas中 DataFrame的使用
+          TensorBoard简单使用
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-10-01
+          2018-12-22
         </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Machine-Learning/">Machine Learning</a>
+            
+          </div>
         
         
       </div>
@@ -231,27 +237,23 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#读取行"><span class="toc-text">读取行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取列"><span class="toc-text">读取列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataFrame转成list"><span class="toc-text">DataFrame转成list</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单来说"><span class="toc-text">简单来说</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-text">如何使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
-<ul>
-<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
-<li>行号索引 <code>df.iloc[0]</code></li>
+        <h2 id="简单来说"><a href="#简单来说" class="headerlink" title="简单来说"></a>简单来说</h2><ul>
+<li>Tensorboard可以对静态的图结构和动态的训练结果（accuracy， loss）等进行可视化</li>
+<li>Tensorboard是通过将数据写入到本地的log文件中，再以本地web的方式呈现</li>
 </ul>
-<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
-<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
-<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
-<p>列名可以通过<code>df.columns</code>获取</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
+<a id="more"></a>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为训练结果等Operation建立summary</span></span><br><span class="line">tf.summary.scalar(<span class="string">"cost"</span>, cross_entropy)</span><br><span class="line">tf.summary.scalar(<span class="string">"accuracy"</span>, accuracy)</span><br><span class="line"><span class="comment"># 合并为一个op，这样sess中只需要运行一次就可以了</span></span><br><span class="line">summary_op = tf.summary.merge_all()</span><br><span class="line"><span class="keyword">with</span> tf.Session()  <span class="keyword">as</span> sess:</span><br><span class="line">	sess.run(tf.initialize_all_variables())</span><br><span class="line">	<span class="comment"># create log writer object with static graph structure</span></span><br><span class="line">	writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph())</span><br><span class="line">	_, summary = sess.run([train_op, summary_op], feed_dict=&#123;x: batch_x, y_: batch_y&#125;)</span><br><span class="line">	<span class="comment"># write log</span></span><br><span class="line">	writer.add_summary(summary, epoch * batch_count + i)</span><br></pre></td></tr></table></figure>
+<p>然后运行命令启动TensorBoard服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=your/<span class="built_in">log</span>/path</span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="http://nooverfit.com/wp/tensorboard%E4%B8%8A%E6%89%8B%EF%BC%8Ctensorboard%E5%8F%AF%E8%A7%86%E5%8C%96%E6%99%AE%E5%8F%8A%E8%B4%B4%EF%BC%88%E4%BB%A3%E7%A0%81%E5%9F%BA%E4%BA%8Etensorflow1-2%E4%BB%A5%E4%B8%8A%EF%BC%89/" target="_blank" rel="noopener">tensorboard快速上手，tensorboard可视化普及贴（代码基于tensorflow1.2以上）</a></li>
 </ul>
 
       
@@ -268,7 +270,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://xingye.us/2018/10/01/pandas-dataframe_usage/">http://xingye.us/2018/10/01/pandas-dataframe_usage/</a>
+      <a href="http://xingye.us/2018/12/22/TensorBoard简单使用/">http://xingye.us/2018/12/22/TensorBoard简单使用/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -288,7 +290,9 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Python-Packages/">Python Packages</a>
+              <a href="/tags/Tensorflow/">Tensorflow</a>
+            
+              <a href="/tags/TensorBoard/">TensorBoard</a>
             
           </div>
         
@@ -296,15 +300,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/10/01/requests-basic-usage/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">requests 库基本用法</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2018/10/01/bs4-basic-usage/">
-        <span class="next-text nav-default">BeautifulSoup 基本使用</span>
+      <a class="next" href="/2018/12/20/写给自己的博客命名规范/">
+        <span class="next-text nav-default">写给自己的博客规范</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -411,9 +409,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://xingye.us/2018/10/01/pandas-dataframe_usage/';
-        this.page.identifier = '2018/10/01/pandas-dataframe_usage/';
-        this.page.title = 'Pandas中 DataFrame的使用';
+        this.page.url = 'http://xingye.us/2018/12/22/TensorBoard简单使用/';
+        this.page.identifier = '2018/12/22/TensorBoard简单使用/';
+        this.page.title = 'TensorBoard简单使用';
     };
     (function() {
     var d = document, s = d.createElement('script');
