@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="Python和opencv实现仿github默认头像"/>
+  <meta name="description" content="Python和OpenCV实现仿Github默认头像"/>
 
 
 
 
-  <meta name="keywords" content="Python, Joseph Chu's Blog" />
+  <meta name="keywords" content="Python, OpenCV, Avatar, Joseph Chu's Blog" />
 
 
 
@@ -79,7 +79,7 @@
 
 
 
-    <title> Python和opencv实现仿github默认头像 - Joseph Chu's Blog </title>
+    <title> Python和OpenCV实现仿Github默认头像 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -213,7 +213,7 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Python和opencv实现仿github默认头像
+          Python和OpenCV实现仿Github默认头像
         
       </h1>
 
@@ -221,6 +221,12 @@
         <span class="post-time">
           2018-07-21
         </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Personal-Projects/">Personal Projects</a>
+            
+          </div>
         
         
       </div>
@@ -231,14 +237,14 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Acknowledgment"><span class="toc-text">Acknowledgment</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#源码"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Acknowledgment"><span class="toc-text">Acknowledgment</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先我们需要知道Github默认头像的一些参数。</p>
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先我们需要知道Github默认头像的一些参数。</p>
 <blockquote>
 <ul>
 <li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
@@ -257,8 +263,8 @@
 <p>0或1的随机数可参考</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import random</span><br><span class="line">random.randint(0,1) # 随机返回[0, 1]区间内的整数</span><br></pre></td></tr></table></figure>
 <p>最后参照这个<code>5*5</code>的二维<code>np.bool</code>数组，在头像图像中，将对应的位置填充为相应的颜色即可。</p>
-<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><p><a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">josephzxy-Github</a></p>
-<h3 id="Acknowledgment"><a href="#Acknowledgment" class="headerlink" title="Acknowledgment"></a>Acknowledgment</h3><p>思路借鉴于<a href="https://www.jianshu.com/p/2c547f7cbe4c" target="_blank" rel="noopener">用Java和OpenCV生成Github默认头像</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">josephzxy-Github</a></p>
+<h2 id="Acknowledgment"><a href="#Acknowledgment" class="headerlink" title="Acknowledgment"></a>Acknowledgment</h2><p>思路借鉴于<a href="https://www.jianshu.com/p/2c547f7cbe4c" target="_blank" rel="noopener">用Java和OpenCV生成Github默认头像</a></p>
 
       
     </div>
@@ -296,21 +302,25 @@
             
               <a href="/tags/Python/">Python</a>
             
+              <a href="/tags/OpenCV/">OpenCV</a>
+            
+              <a href="/tags/Avatar/">Avatar</a>
+            
           </div>
         
         
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/07/22/Github上无法在Web端解决的conflicts的解决方法/">
+      <a class="prev" href="/2018/07/23/Flask调用自己定义的api/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">Github上无法在Web端解决的conflicts的解决方法</span>
+        <span class="prev-text nav-default">Flask调用自己定义的api</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
       <a class="next" href="/2018/05/26/Python注释规范/">
-        <span class="next-text nav-default">Python注释规范</span>
+        <span class="next-text nav-default">[Python] 注释规范</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -419,7 +429,7 @@
     var disqus_config = function () {
         this.page.url = 'http://xingye.us/2018/07/21/Python和opencv实现仿github默认头像/';
         this.page.identifier = '2018/07/21/Python和opencv实现仿github默认头像/';
-        this.page.title = 'Python和opencv实现仿github默认头像';
+        this.page.title = 'Python和OpenCV实现仿Github默认头像';
     };
     (function() {
     var d = document, s = d.createElement('script');
