@@ -254,7 +254,7 @@
 <ul>
 <li>post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.post(url,**args)<span class="comment">#也是返回Response对象</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">args = &#123;</span><br><span class="line">	<span class="string">"a"</span>: <span class="string">"b"</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(url, params=args)<span class="comment">#也是返回Response对象</span></span><br></pre></td></tr></table></figure>
 <h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><p>get和post方法中有许多参数可以使用，部分参数后面会详解。</p>
 <ul>
 <li>url：就是目标网址，接收完整（带http）的地址字符串。</li>
@@ -314,15 +314,15 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/10/01/bs4-basic-usage/">
+      <a class="prev" href="/2018/10/01/pandas-dataframe_usage/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">BeautifulSoup 基本使用</span>
+        <span class="prev-text nav-default">Pandas中 DataFrame的使用</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
     
-      <a class="next" href="/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/">
-        <span class="next-text nav-default">MySQL 修改数据库编码为utf8mb4以插入emoj</span>
+      <a class="next" href="/2018/10/01/bs4-basic-usage/">
+        <span class="next-text nav-default">BeautifulSoup 基本使用</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
