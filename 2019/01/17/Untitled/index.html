@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="推特关键词搜索结果爬虫"/>
+
+
+
+
+  <meta name="keywords" content="爬虫, Selenium, BeautifulSoup, Xpath, Joseph Chu's Blog" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Joseph Chu's Blog">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://xingye.us/2019/01/17/Untitled/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 推特关键词搜索结果爬虫 - Joseph Chu's Blog </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Joseph Chu's Blog</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/categories/">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/about/">
+        <li class="mobile-menu-item">
+          
+          
+            About
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Joseph Chu's Blog</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            
+            
+              About
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          推特关键词搜索结果爬虫
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-01-17
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/爬虫/">爬虫</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#需求"><span class="toc-text">需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思路"><span class="toc-text">思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#讨论"><span class="toc-text">讨论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用到的工具"><span class="toc-text">用到的工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语言"><span class="toc-text">语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包"><span class="toc-text">包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关键代码"><span class="toc-text">关键代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#发起请求-amp-下拉网页"><span class="toc-text">发起请求 &amp; 下拉网页</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位内容-amp-解析网页"><span class="toc-text">定位内容 &amp; 解析网页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#完整代码"><span class="toc-text">完整代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ul>
+<li>根据关键词获取所有的搜索结果</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ul>
+<li>模拟浏览器向<a href="https://twitter.com/search-home?lang=en" target="_blank" rel="noopener">推特搜索网页</a>发送GET请求。</li>
+<li>在显示结果的网页中，模拟浏览器不断下拉网页加载新的推文，直至无法加载更多。</li>
+<li>获取此时网页的源码，定位并解析出推文内容已经其他相关感兴趣信息。</li>
+</ul>
+<a id="more"></a>
+<h2 id="讨论"><a href="#讨论" class="headerlink" title="讨论"></a>讨论</h2><ul>
+<li><p><strong>为何要模拟浏览器而不是直接用相关库（比如requests）发起请求？</strong></p>
+<ol>
+<li>requests库直接发起请求会被推特识别为爬虫，无法返回包含推文的搜索结果页面。（解决方法：可以先用Chrome浏览器发起请求，然后查看请求的headers，并将其设置为requests的GET方法的headers参数）</li>
+<li>requests库无法模拟浏览器的下拉操作，而搜索结果界面一次只显示20条推文。</li>
+</ol>
+</li>
+<li><p><strong>为何不使用官方api，或者是对官方api进行封装的工具（比如twarc）?</strong><br>  官方搜索api限制诸多，且免费版只能搜索七天内的推文，数据量太小，无法满足需求。</p>
+</li>
+<li><p>该方法的优缺点？</p>
+<ul>
+<li>优点：思路直观，实现简单</li>
+<li>缺点：selenium慢，占用资源多。</li>
+</ul>
+</li>
+</ul>
+<h2 id="用到的工具"><a href="#用到的工具" class="headerlink" title="用到的工具"></a>用到的工具</h2><h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>Python 3.6+</p>
+<h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><ul>
+<li>selenium<ul>
+<li>调用浏览器发起请求，并执行js脚本下拉加载网页</li>
+<li>加载完成后保存源码</li>
+</ul>
+</li>
+<li>lxml<ul>
+<li>利用xpath解析源码，定位到推文部分</li>
+</ul>
+</li>
+<li>beautifulsoup<ul>
+<li>解析推文部分网页源码，提取出推文及其他信息。</li>
+</ul>
+</li>
+</ul>
+<h2 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h2><h3 id="发起请求-amp-下拉网页"><a href="#发起请求-amp-下拉网页" class="headerlink" title="发起请求 &amp; 下拉网页"></a>发起请求 &amp; 下拉网页</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">url =  <span class="string">"https://twitter.com/search?q=trump&amp;src=typd&amp;lang=en"</span></span><br><span class="line">options = webdriver.ChromeOptions()</span><br><span class="line">options.add_argument(<span class="string">'headless'</span>)</span><br><span class="line"><span class="comment"># 调用headless webdriver</span></span><br><span class="line">driver = webdriver.Chrome(chrome_options=options)</span><br><span class="line">driver.get(url)</span><br><span class="line"></span><br><span class="line">scroll_bottom_script = <span class="string">"window.scrollTo(0,document.body.scrollHeight);"</span></span><br><span class="line">driver.execute_script(scroll_bottom_script)</span><br></pre></td></tr></table></figure>
+<h3 id="定位内容-amp-解析网页"><a href="#定位内容-amp-解析网页" class="headerlink" title="定位内容 &amp; 解析网页"></a>定位内容 &amp; 解析网页</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> Soup</span><br><span class="line"></span><br><span class="line">tweet_text_xpath =  <span class="string">'//*[@data-item-type="tweet"]/div/div[2]/div[@class="js-tweet-text-container"]/p'</span></span><br><span class="line"></span><br><span class="line">html = etree.HTML(driver.page_source)</span><br><span class="line">text_blocks = html.xpath(tweet_text_xpath)</span><br><span class="line">texts = [] <span class="comment"># All tweets</span></span><br><span class="line"><span class="keyword">for</span> html_block <span class="keyword">in</span> text_blocks:</span><br><span class="line">	tweet_text_html = etree.tostring(html_block).decode(<span class="string">"utf-8"</span>)</span><br><span class="line">	soup =  Soup(tweet_text_html, features=<span class="string">"lxml"</span>)</span><br><span class="line">	[s.extract()  <span class="keyword">for</span> s <span class="keyword">in</span>  soup([<span class="string">'a'</span>])] <span class="comment"># remove link</span></span><br><span class="line">	text = soup.p.text</span><br><span class="line">	text = text.replace(<span class="string">"\n"</span>, <span class="string">" "</span>)</span><br><span class="line">	text =  <span class="string">" "</span>.join(text.split())</span><br><span class="line">	text = text.strip()</span><br><span class="line">	texts.append(text)</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><p><a href="https://github.com/josephzxy/twitter_search_result_crawler" target="_blank" rel="noopener">Github地址</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/34343228" target="_blank" rel="noopener">python+selenium爬取动态网页数据 - PUPPYplayBUBBLE的文章 - 知乎</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/29436838" target="_blank" rel="noopener">学爬虫利器XPath,看这一篇就够了 - Python程序员的文章 - 知乎</a></li>
+<li><a href="https://stackoverflow.com/questions/48537028/selenium-how-to-use-headless-chrome-on-aws" target="_blank" rel="noopener">Selenium: How to use Headless Chrome on AWS?</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://xingye.us">Joseph</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://xingye.us/2019/01/17/Untitled/">http://xingye.us/2019/01/17/Untitled/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/爬虫/">爬虫</a>
+            
+              <a href="/tags/Selenium/">Selenium</a>
+            
+              <a href="/tags/BeautifulSoup/">BeautifulSoup</a>
+            
+              <a href="/tags/Xpath/">Xpath</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2018/12/31/自己领悟的一些道理/">
+        <span class="next-text nav-default">自己领悟的一些道理</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:isaacchuh@hotmail.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/josephzxy" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2018 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Joseph</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://xingye.us/2019/01/17/Untitled/';
+        this.page.identifier = '2019/01/17/Untitled/';
+        this.page.title = '推特关键词搜索结果爬虫';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//xingye-us-1.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
