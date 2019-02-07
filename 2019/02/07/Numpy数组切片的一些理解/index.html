@@ -17,12 +17,12 @@
 
 
 
-  <meta name="description" content="Requests 库基本用法"/>
+  <meta name="description" content="Numpy数组切片的一些理解"/>
 
 
 
 
-  <meta name="keywords" content="Requests, Joseph Chu's Blog" />
+  <meta name="keywords" content="Numpy, Joseph Chu's Blog" />
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://xingye.us/2018/10/01/requests-basic-usage/"/>
+<link rel="canonical" href="http://xingye.us/2019/02/07/Numpy数组切片的一些理解/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -79,7 +79,7 @@
 
 
 
-    <title> Requests 库基本用法 - Joseph Chu's Blog </title>
+    <title> Numpy数组切片的一些理解 - Joseph Chu's Blog </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -213,13 +213,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          Requests 库基本用法
+          Numpy数组切片的一些理解
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2018-10-01
+          2019-02-07
         </span>
         
           <div class="post-category">
@@ -237,40 +237,21 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简单使用"><span class="toc-text">简单使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数详解"><span class="toc-text">参数详解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Response对象使用"><span class="toc-text">Response对象使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#多维数组"><span class="toc-text">多维数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p>为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。</p>
-<p>安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install requests</span><br></pre></td></tr></table></figure></p>
-<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>首先呈上<a href="http://docs.python-requests.org/en/master/" target="_blank" rel="noopener">官方文档</a>，有中文版，欢迎来啃。<br>下面主要介绍两种方法：get和post</p>
-<ul>
-<li>get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。</li>
+        <p>最近在学Pytorch，因切片规则和Numpy相同，特在此记录。</p>
+<a id="more"></a>
+<h2 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h2><p>因为Pytorch中tensor的切片规则和Numpy相同，所以代码中我们用Pytorch来演示</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 随机构建一个三维张量，每个维度有三个元素</span></span><br><span class="line">x = torch.rand(<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">tensor([[[0.7181, 0.7586, 0.0087],</span></span><br><span class="line"><span class="string">         [0.2987, 0.6424, 0.0378],</span></span><br><span class="line"><span class="string">         [0.8481, 0.4940, 0.9429]],</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        [[0.9045, 0.6331, 0.2378],</span></span><br><span class="line"><span class="string">         [0.7245, 0.3930, 0.2547],</span></span><br><span class="line"><span class="string">         [0.7040, 0.7866, 0.5593]],</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        [[0.0584, 0.6290, 0.1482],</span></span><br><span class="line"><span class="string">         [0.6745, 0.9922, 0.1043],</span></span><br><span class="line"><span class="string">         [0.5660, 0.7678, 0.0531]]])</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="comment"># 取第一二三维度上索引均为1的元素</span></span><br><span class="line">x[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]</span><br><span class="line"><span class="comment"># tensor(0.3930)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一个维度取所有的元素，第二个维度取索引为1的元素</span></span><br><span class="line">x[:, <span class="number">1</span>]</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">tensor([[0.2987, 0.6424, 0.0378],</span></span><br><span class="line"><span class="string">        [0.7245, 0.3930, 0.2547],</span></span><br><span class="line"><span class="string">        [0.6745, 0.9922, 0.1043]])</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>总结来说，就是张量x有几个维度，切片操作时x[]方括号里面就可以有几个下标。<code>:</code>代表取所有，后面的下标不写就默认是全选，相当于<code>:</code></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://www.cnblogs.com/sunshinewang/p/6882031.html" target="_blank" rel="noopener">numpy之索引和切片</a></li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url,**args)<span class="comment">#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">args = &#123;</span><br><span class="line">	<span class="string">"a"</span>: <span class="string">"b"</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(url, params=args)<span class="comment">#也是返回Response对象</span></span><br></pre></td></tr></table></figure>
-<h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><p>get和post方法中有许多参数可以使用，部分参数后面会详解。</p>
-<ul>
-<li>url：就是目标网址，接收完整（带http）的地址字符串。</li>
-<li>headers：请求头，存储本地信息如浏览器版本，是一个字典。</li>
-<li>data：要提交的数据，字典。</li>
-<li>cookies：cookies，字典。</li>
-<li>timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。</li>
-<li>params：为网址添加条件数据，字典。</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>, <span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</span><br><span class="line">r = requests.get(<span class="string">"http://httpbin.org/get"</span>, params=payload)</span><br><span class="line"><span class="comment">#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>proxies：ip代理时使用，字典。</li>
-</ul>
-<h2 id="Response对象使用"><a href="#Response对象使用" class="headerlink" title="Response对象使用"></a>Response对象使用</h2><p>从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r.encoding = &apos;ISO-8859-1&apos;    #指定r.text返回的数据类型，写在r.text之前。</span><br><span class="line">r.text    #默认以unicode形式返回网页内容，也就是网页源码的字符串。</span><br><span class="line"></span><br><span class="line">r.content    #以二进制形式返回网页内容，下载图片时专用。</span><br><span class="line">r.json()    #把网页中的json数据转成字典并将其返回。</span><br><span class="line"></span><br><span class="line">#还有一些很少用到的方法。</span><br><span class="line">r.headers    #返回服务器端的headers，字典。</span><br><span class="line">r.status_code    #返回连接状态，200正常。</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://segmentfault.com/a/1190000014383966" target="_blank" rel="noopener">Python 从零开始爬虫(零)——爬虫思路&amp;requests模块使用</a></p>
 
       
     </div>
@@ -286,7 +267,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://xingye.us/2018/10/01/requests-basic-usage/">http://xingye.us/2018/10/01/requests-basic-usage/</a>
+      <a href="http://xingye.us/2019/02/07/Numpy数组切片的一些理解/">http://xingye.us/2019/02/07/Numpy数组切片的一些理解/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -306,7 +287,7 @@
         
           <div class="post-tags">
             
-              <a href="/tags/Requests/">Requests</a>
+              <a href="/tags/Numpy/">Numpy</a>
             
           </div>
         
@@ -314,15 +295,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2018/10/01/bs4-basic-usage/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">BeautifulSoup 基本使用</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2018/10/01/pandas-read-html/">
-        <span class="next-text nav-default">Pandas解析html</span>
+      <a class="next" href="/2019/02/06/Untitled/">
+        <span class="next-text nav-default">【随笔】Don't Count Days, Make Every Day Count</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -431,9 +406,9 @@
   
   <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://xingye.us/2018/10/01/requests-basic-usage/';
-        this.page.identifier = '2018/10/01/requests-basic-usage/';
-        this.page.title = 'Requests 库基本用法';
+        this.page.url = 'http://xingye.us/2019/02/07/Numpy数组切片的一些理解/';
+        this.page.identifier = '2019/02/07/Numpy数组切片的一些理解/';
+        this.page.title = 'Numpy数组切片的一些理解';
     };
     (function() {
     var d = document, s = d.createElement('script');

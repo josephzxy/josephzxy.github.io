@@ -211,6 +211,60 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2018/08/16/MySQL存储过程/">MySQL存储过程</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-16
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/Database/">Database</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>更多基础知识可参考<a href="https://www.cnblogs.com/mark-chan/p/5384139.html" target="_blank" rel="noopener">MySQL存储过程</a>，很棒很详细的入门文章。</p>
+<blockquote>
+<p>SQL 语句需要先编译然后执行，而存储过程(Stored Procedure)是一组为了完成特定工程的SQL语句集，经编译后存储在数据库中，用户通过制定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。</p>
+</blockquote>
+<p>个人感觉存储过程增强了兼容性。实现相对复杂的功能（比如返回一组数据，然后遍历结果集），之前可能要用python操作mysql来实现。但是利用存储过程可以写成一组代码，使用者可以直接复制粘贴到MySQL shell或者客户端来使用。</p>
+          <div class="read-more">
+            <a href="/2018/08/16/MySQL存储过程/" class="read-more-link">Read more..</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2018/08/10/卷积后输出大小计算公式/">卷积后输出大小计算公式</a>
         
       </h1>
@@ -675,64 +729,6 @@
 <p>后来为了实现<a href="https://github.com/josephzxy/github_avatar_python" target="_blank" rel="noopener">GitHub风格的默认头像</a>功能，就自己写了个简单的api，就像这样</p>
           <div class="read-more">
             <a href="/2018/07/23/Flask调用自己定义的api/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/07/21/Python和opencv实现仿github默认头像/">Python和OpenCV实现仿Github默认头像</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-07-21
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Personal-Projects/">Personal Projects</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>首先我们需要知道Github默认头像的一些参数。</p>
-<blockquote>
-<ul>
-<li>GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。</li>
-<li>GitHub默认头像是左右对称的</li>
-<li>GitHub默认头像的背景色是E6E6E6, 或者[230,230,230]</li>
-</ul>
-</blockquote>
-<p>知道了这些以后，我们就可以着手开始做了。</p>
-          <div class="read-more">
-            <a href="/2018/07/21/Python和opencv实现仿github默认头像/" class="read-more-link">Read more..</a>
           </div>
         
       
