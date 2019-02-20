@@ -1,19 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    
-<meta charset="UTF-8"/>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
-<meta name="theme-color" content="#f8f5ec" />
-<meta name="msapplication-navbutton-color" content="#f8f5ec">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
 
@@ -23,25 +32,6 @@
 
 
 
-
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Joseph Chu's Blog">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
-
-
-
-<link rel="canonical" href="http://xingye.us/"/>
-
-
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
 
 
 
@@ -49,301 +39,791 @@
 
 
   
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
-  <script id="baidu_push">
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joseph Chu&#39;s Blog">
+<meta property="og:url" content="http://xingye.us/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
+  };
 </script>
 
 
 
+  <link rel="canonical" href="http://xingye.us/"/>
+
+
+
+
+
+  <title>Joseph Chu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
 
 
 
 
 
 
-    <title> Joseph Chu's Blog </title>
-  </head>
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
-  <div class="mobile-header-logo">
-    <a href="/." class="logo">Joseph Chu's Blog</a>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Joseph Chu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Worry Less, Do More</p>
+      
   </div>
-  <div class="mobile-navbar-icon">
-    <span></span>
-    <span></span>
-    <span></span>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
   </div>
 </div>
 
-<nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list">
-    
-      <a href="/">
-        <li class="mobile-menu-item">
-          
-          
-            Home
-          
-        </li>
-      </a>
-    
-      <a href="/archives/">
-        <li class="mobile-menu-item">
-          
-          
-            Archives
-          
-        </li>
-      </a>
-    
-      <a href="/categories/">
-        <li class="mobile-menu-item">
-          
-          
-            Categories
-          
-        </li>
-      </a>
-    
-      <a href="/tags">
-        <li class="mobile-menu-item">
-          
-          
-            Tags
-          
-        </li>
-      </a>
-    
-      <a href="/about/">
-        <li class="mobile-menu-item">
-          
-          
-            About
-          
-        </li>
-      </a>
-    
-  </ul>
-</nav>
+<nav class="site-nav">
+  
 
-    <div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">Joseph Chu's Blog</a>
-</div>
-
-<nav class="site-navbar">
   
     <ul id="menu" class="menu">
       
-        <li class="menu-item">
-          <a class="menu-item-link" href="/">
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-              Home
-            
+            Home
           </a>
         </li>
       
-        <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-              Archives
-            
+            Archives
           </a>
         </li>
       
-        <li class="menu-item">
-          <a class="menu-item-link" href="/categories/">
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
-              Categories
-            
+            Categories
           </a>
         </li>
       
-        <li class="menu-item">
-          <a class="menu-item-link" href="/tags">
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-              Tags
-            
+            Tags
           </a>
         </li>
       
-        <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-              About
-            
+            About
           </a>
         </li>
+      
+
       
     </ul>
   
+
+  
 </nav>
 
-      </header>
 
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts">
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/07/Numpy数组切片的一些理解/">Numpy数组索引的一些理解</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-07
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Python-Package-Usage/">Python Package Usage</a>
-            
-          </div>
-        
-        
-      </div>
+ </div>
     </header>
 
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/20/神经网络基础概念整理（一）——微分和梯度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" itemprop="url">神经网络基础概念整理（一）—— 微分和梯度</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T11:28:00+08:00">
+                2019-02-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
 
-    <div class="post-content">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
       
         
-        
           
-        
+            <h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><p>简单来讲（可能有失严谨），微分即形如 $\frac{dy}{dx}$ 这样的式子。式子中的 $dy$ 和 $dx$ 是变量，表示 $∆y$ 和 $∆x$ 在 $∆x$ 趋近于0的时候的状态。</p>
+<p>或者更简单粗暴来说，<strong>微分就是导函数</strong>。</p>
+<p>微分的意义最常用的是以下两种：</p>
+<ul>
+<li>函数图像中，某点的切线的斜率</li>
+<li>函数的变化率</li>
+</ul>
+<p>下面是几个微分的例子</p>
+<ul>
+<li>单变量微分：$\frac{d(x^2)}{dx} = 2x$</li>
+<li>多变量微分：$\frac{∂(x^2y^2)}{∂x} = 2xy^2$</li>
+</ul>
+<p>最后附上<strong>可微分</strong>的定义</p>
+<blockquote>
+<p>一个函数可微分即该函数的导数存在，并且导数存在于定义域中的每一个值。</p>
+</blockquote>
+<h2 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h2><p>先来看梯度的定义</p>
+<blockquote>
+<p>梯度：是一个向量，其方向上的方向导数最大，其大小正好是此最大方向导数。方向导数就是某个方向上的导数。</p>
+</blockquote>
+<p>简单来说，梯度这个向量指向了<strong>自变量应该改变的方向</strong>，使得<strong>因变量增长最快</strong>。</p>
+<p>从具体定义上来看，梯度实际上就是多变量微分的一般化。</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
+<p>我们可以看到，梯度向量的每个维度值其实就是目标函数对每个变量的微分，然后用逗号分割开，用&lt;&gt;包括起来。</p>
+<p>下面我们来看一个单变量函数梯度的例子。</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-615ed57981170c81ea40ca35099a8a59_hd.jpg" alt=""></p>
+<p>这是 $y = x^2$ 的图像。在这个例子中只有一个自变量 $x$，那么按照我们上面的定义，梯度就是对该自变量 $x$ 求微分，即 $\frac{d(x^2)}{dx} = 2x$ ，换句话说，梯度向量 $G$ 是一个一维向量 $&lt;2x,&gt;$ ， 具体的值取决于此时 $x$ 的值。假设我们此时在 $(1, 1)$ 点，那么此时的梯度向量 $G = &lt;2,&gt;$。 $2 &gt; 0$ 代表自变量 $x$ 应向 $x$ 轴正方向移动，使得因变量 $y$ 增长最快。</p>
+<p>那么对于多变量函数呢？其实也是一样的。</p>
+<p>比如我们定义中的这个多变量函数<br><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
+<p>这里的梯度 $G = &lt;-5, -2, 12&gt;$该则么理解呢？因为 $-5 &lt; 0, -2 &lt; 0, 12 &gt; 0$， 所以要想使函数值 $J$ 增长最快，$θ_1, θ_2$ 应该向其负方向移动，而 $θ_3$ 应该向正方向移动。但是！$θ_1, θ_2, θ_3$ 移动的幅度必须按照 $ 5: 2: 12$这个比例，以保证三个自变量整体的移动是符合梯度方向的。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/33321183" target="_blank" rel="noopener">深入浅出–梯度下降法及其实现 - chi的文章 - 知乎</a></li>
+<li><a href="https://www.zhihu.com/question/36301367/answer/156102040" target="_blank" rel="noopener">如何直观形象的理解方向导数与梯度以及它们之间的关系？ - 马同学的回答 - 知乎</a></li>
+</ul>
 
-        
-          <p>最近在学Pytorch，因切片规则和Numpy相同，特在此记录。</p>
-          <div class="read-more">
-            <a href="/2019/02/07/Numpy数组切片的一些理解/" class="read-more-link">Read more..</a>
-          </div>
+          
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2019/02/06/Untitled/">【随笔】Don't Count Days, Make Every Day Count</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2019-02-06
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/随笔/">随笔</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/07/Numpy数组切片的一些理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
 
     
-    
+      <header class="post-header">
 
-    <div class="post-content">
-      
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/07/Numpy数组切片的一些理解/" itemprop="url">Numpy数组索引的一些理解</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-07T17:03:00+08:00">
+                2019-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Package Usage</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近在学Pytorch，因切片规则和Numpy相同，特在此记录。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/07/Numpy数组切片的一些理解/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/06/Untitled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/06/Untitled/" itemprop="url">【随笔】Don't Count Days, Make Every Day Count</a></h1>
         
 
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-06T19:24:00+08:00">
+                2019-02-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           <blockquote>
 <p>“把话说好是一种能力”</p>
 </blockquote>
 <p>前段时间看了一点《围城》。对钱钟书先生所言之写作的冲动其实并不等于写作的能力深以为然。那又怎么样呢，试着写写随笔，虽文笔一般，结构松散，但也是对自己一段时期的经历与收获的思考和整理。</p>
 <p>很希望自己可以拥有短小精悍的文风。精练的文字是经过提炼的，不是一堆意识流碎片的堆砌，是一语中的，值得反复阅读的。</p>
-          <div class="read-more">
-            <a href="/2019/02/06/Untitled/" class="read-more-link">Read more..</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/06/Untitled/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/31/自己领悟的一些道理/">自己领悟的一些道理</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-31
-        </span>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/31/自己领悟的一些道理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <div class="post-category">
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/31/自己领悟的一些道理/" itemprop="url">自己领悟的一些道理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
-              <a href="/categories/随笔/">随笔</a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T16:31:00+08:00">
+                2018-12-31
+              </time>
             
-          </div>
-        
-        
-      </div>
-    </header>
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
     
     
+    
+    <div class="post-body" itemprop="articleBody">
 
-    <div class="post-content">
+      
+      
+
       
         
-        
-
-        
-          <ul>
+          
+            <ul>
 <li>不要为改变不了的事情懊恼，伤心，比如已经浪费了的时间，振作起来，及时止损是此时的最优解。</li>
 <li>记得好好说话，这是给自己留余地</li>
 <li>情绪是多变的。不要以顺应情绪为一天的基调，而要专注在自己应该做的事情上。难受了，就歇会，起来走走，喝口水，深呼吸，调整好了再继续。</li>
@@ -352,152 +832,437 @@
 <li>累了就去休息吧，别在这个时候瞎坚持，休息是为了走的更远，做的更好。</li>
 </ul>
 
+          
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/别了2018/">【随笔】别了2018</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/随笔/">随笔</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/别了2018/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
 
     
-    
+      <header class="post-header">
 
-    <div class="post-content">
-      
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/别了2018/" itemprop="url">【随笔】别了2018</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T20:56:00+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/随笔/" itemprop="url" rel="index">
+                    <span itemprop="name">随笔</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           <p>我在想用什么词才能最贴切地形容这一年。</p>
 <p>应该是“归回”吧。</p>
-          <div class="read-more">
-            <a href="/2018/12/30/别了2018/" class="read-more-link">Read more..</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/30/别了2018/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/Python中的switch...case实现/">[Python] switch...case的实现</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Programming-Languages/">Programming Languages</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中的switch...case实现/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
 
     
-    
+      <header class="post-header">
 
-    <div class="post-content">
-      
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/Python中的switch...case实现/" itemprop="url">[Python] switch...case的实现</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T12:16:00+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Languages/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming Languages</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           <p>Python与C++不同，并没有提供switch…case语句。</p>
-          <div class="read-more">
-            <a href="/2018/12/30/Python中的switch...case实现/" class="read-more-link">Read more..</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/30/Python中的switch...case实现/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/Python中staticmethod 和classmethod的区别/">[Python] staticmethod和classmethod的区别</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Programming-Languages/">Programming Languages</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中staticmethod 和classmethod的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
 
     
-    
+      <header class="post-header">
 
-    <div class="post-content">
-      
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/Python中staticmethod 和classmethod的区别/" itemprop="url">[Python] staticmethod和classmethod的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T12:15:00+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Programming-Languages/" itemprop="url" rel="index">
+                    <span itemprop="name">Programming Languages</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           <p>个人理解:</p>
 <ul>
@@ -514,54 +1279,153 @@
 </ul>
 </li>
 </ul>
-          <div class="read-more">
-            <a href="/2018/12/30/Python中staticmethod 和classmethod的区别/" class="read-more-link">Read more..</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/30/Python中staticmethod 和classmethod的区别/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/MAc/">Mac中环境变量配置文件的区别</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/MAc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <div class="post-category">
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/MAc/" itemprop="url">Mac中环境变量配置文件的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
-              <a href="/categories/Mac/">Mac</a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:58:00+08:00">
+                2018-12-30
+              </time>
             
-          </div>
-        
-        
-      </div>
-    </header>
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Mac/" itemprop="url" rel="index">
+                    <span itemprop="name">Mac</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
     
     
+    
+    <div class="post-body" itemprop="articleBody">
 
-    <div class="post-content">
+      
+      
+
       
         
-        
-
-        
-          <p>其配置文件的优先级如下所示：</p>
+          
+            <p>其配置文件的优先级如下所示：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>/etc/profile</code> （建议不修改这个文件 ） 全局（公有）配置，不管是哪个用户，登录时都会读取该文件。</li>
@@ -572,102 +1436,291 @@
 <li><a href="https://blog.csdn.net/u010416101/article/details/54618621" target="_blank" rel="noopener">Mac 中环境变量的配置和理解</a></li>
 </ul>
 
+          
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/【学习资源】深度学习/">[Learning Resource] Deep Learning</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/【学习资源】深度学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-          <div class="post-category">
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/【学习资源】深度学习/" itemprop="url">[Learning Resource] Deep Learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
             
-              <a href="/categories/Learning-Resource/">Learning Resource</a>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:24:00+08:00">
+                2018-12-30
+              </time>
             
-          </div>
-        
-        
-      </div>
-    </header>
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Learning-Resource/" itemprop="url" rel="index">
+                    <span itemprop="name">Learning Resource</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
 
     
     
+    
+    <div class="post-body" itemprop="articleBody">
 
-    <div class="post-content">
+      
+      
+
       
         
-        
-
-        
-          <h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><ul>
+          
+            <h2 id="General"><a href="#General" class="headerlink" title="General"></a>General</h2><ul>
 <li><a href="https://www.fast.ai/" target="_blank" rel="noopener">fast.ai 高质量无广告公开课</a></li>
 </ul>
 <h2 id="NLP"><a href="#NLP" class="headerlink" title="NLP"></a>NLP</h2><ul>
 <li><a href="http://web.stanford.edu/class/cs224n/" target="_blank" rel="noopener">Standford CS224</a></li>
 </ul>
 
+          
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
+
     
       
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/30/神经网络loss不下降/">Train Loss & Validation Loss 反应的神经网络训练趋势</a>
-        
-      </h1>
 
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-30
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Machine-Learning/">Machine Learning</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/神经网络loss不下降/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
 
     
-    
+      <header class="post-header">
 
-    <div class="post-content">
-      
         
         
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/30/神经网络loss不下降/" itemprop="url">Train Loss & Validation Loss 反应的神经网络训练趋势</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:14:00+08:00">
+                2018-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
 
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
           <ul>
 <li>train loss 不断下降，validation loss不断下降，说明网络仍在学习; </li>
@@ -676,189 +1729,357 @@
 <li>train loss 趋于不变，validation loss趋于不变，说明学习遇到瓶颈，需要减小 Learning Rate 或 Batch Size; </li>
 <li>train loss 不断上升，validation loss不断上升，说明网络结构设计不当，训练超参数设置不当，数据集清洗不当等问题。</li>
 </ul>
-          <div class="read-more">
-            <a href="/2018/12/30/神经网络loss不下降/" class="read-more-link">Read more..</a>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/12/30/神经网络loss不下降/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
 
     
 
     
 
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
   </article>
 
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2018/12/22/TensorBoard简单使用/">TensorBoard简单使用</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2018-12-22
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/categories/Machine-Learning/">Machine Learning</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <h2 id="简单来说"><a href="#简单来说" class="headerlink" title="简单来说"></a>简单来说</h2><ul>
-<li>Tensorboard可以对静态的图结构和动态的训练结果（accuracy， loss）等进行可视化</li>
-<li>Tensorboard是通过将数据写入到本地的log文件中，再以本地web的方式呈现</li>
-</ul>
-          <div class="read-more">
-            <a href="/2018/12/22/TensorBoard简单使用/" class="read-more-link">Read more..</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
 
     
   </section>
 
   
   <nav class="pagination">
-    
-    
-      <a class="next" href="/page/2/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
+
 
 
           </div>
           
 
+
+          
+
         </div>
-      </main>
-
-      <footer id="footer" class="footer">
-
-  <div class="social-links">
-    
-      
         
-          <a href="mailto:isaacchuh@hotmail.com" class="iconfont icon-email" title="email"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        
-          <a href="https://github.com/josephzxy" class="iconfont icon-github" title="github"></a>
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-    
-    
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
   </div>
 
-
-<div class="copyright">
-  <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
-  </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
-  </span>
-
-  <span class="copyright-year">
+  <aside id="sidebar" class="sidebar">
     
-    &copy; 
-     
-      2018 - 
-    
-    2019
+    <div class="sidebar-inner">
 
-    <span class="heart">
-      <i class="iconfont icon-heart"></i>
-    </span>
-    <span class="author">Joseph</span>
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Joseph</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
   </span>
+  <span class="author" itemprop="copyrightHolder">Joseph</span>
+
+  
 </div>
 
-      </footer>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
       </div>
-    </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
     
 
+  </div>
 
-    
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
 
 
 
 
   
-    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
   
-    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
   
 
   
 
+  
 
-    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
-<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
 
-  </body>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
 </html>
