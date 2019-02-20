@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next mist use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -93,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -278,7 +278,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" itemprop="url">神经网络基础概念整理（一）—— 微分和梯度</a></h1>
+                <a class="post-title-link" href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" itemprop="url">神经网络基础概念整理(1)-微分和梯度</a></h1>
         
 
         <div class="post-meta">
@@ -351,8 +351,7 @@
 
       
         
-          
-            <h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><p>简单来讲（可能有失严谨），微分即形如 $\frac{dy}{dx}$ 这样的式子。式子中的 $dy$ 和 $dx$ 是变量，表示 $∆y$ 和 $∆x$ 在 $∆x$ 趋近于0的时候的状态。</p>
+          <h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><p>简单来讲（可能有失严谨），微分即形如 $\frac{dy}{dx}$ 这样的式子。式子中的 $dy$ 和 $dx$ 是变量，表示 $∆y$ 和 $∆x$ 在 $∆x$ 趋近于0的时候的状态。</p>
 <p>或者更简单粗暴来说，<strong>微分就是导函数</strong>。</p>
 <p>微分的意义最常用的是以下两种：</p>
 <ul>
@@ -364,30 +363,13 @@
 <li>单变量微分：$\frac{d(x^2)}{dx} = 2x$</li>
 <li>多变量微分：$\frac{∂(x^2y^2)}{∂x} = 2xy^2$</li>
 </ul>
-<p>最后附上<strong>可微分</strong>的定义</p>
-<blockquote>
-<p>一个函数可微分即该函数的导数存在，并且导数存在于定义域中的每一个值。</p>
-</blockquote>
-<h2 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h2><p>先来看梯度的定义</p>
-<blockquote>
-<p>梯度：是一个向量，其方向上的方向导数最大，其大小正好是此最大方向导数。方向导数就是某个方向上的导数。</p>
-</blockquote>
-<p>简单来说，梯度这个向量指向了<strong>自变量应该改变的方向</strong>，使得<strong>因变量增长最快</strong>。</p>
-<p>从具体定义上来看，梯度实际上就是多变量微分的一般化。</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
-<p>我们可以看到，梯度向量的每个维度值其实就是目标函数对每个变量的微分，然后用逗号分割开，用&lt;&gt;包括起来。</p>
-<p>下面我们来看一个单变量函数梯度的例子。</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-615ed57981170c81ea40ca35099a8a59_hd.jpg" alt=""></p>
-<p>这是 $y = x^2$ 的图像。在这个例子中只有一个自变量 $x$，那么按照我们上面的定义，梯度就是对该自变量 $x$ 求微分，即 $\frac{d(x^2)}{dx} = 2x$ ，换句话说，梯度向量 $G$ 是一个一维向量 $&lt;2x,&gt;$ ， 具体的值取决于此时 $x$ 的值。假设我们此时在 $(1, 1)$ 点，那么此时的梯度向量 $G = &lt;2,&gt;$。 $2 &gt; 0$ 代表自变量 $x$ 应向 $x$ 轴正方向移动，使得因变量 $y$ 增长最快。</p>
-<p>那么对于多变量函数呢？其实也是一样的。</p>
-<p>比如我们定义中的这个多变量函数<br><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
-<p>这里的梯度 $G = &lt;-5, -2, 12&gt;$该则么理解呢？因为 $-5 &lt; 0, -2 &lt; 0, 12 &gt; 0$， 所以要想使函数值 $J$ 增长最快，$θ_1, θ_2$ 应该向其负方向移动，而 $θ_3$ 应该向正方向移动。但是！$θ_1, θ_2, θ_3$ 移动的幅度必须按照 $ 5: 2: 12$这个比例，以保证三个自变量整体的移动是符合梯度方向的。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/33321183" target="_blank" rel="noopener">深入浅出–梯度下降法及其实现 - chi的文章 - 知乎</a></li>
-<li><a href="https://www.zhihu.com/question/36301367/answer/156102040" target="_blank" rel="noopener">如何直观形象的理解方向导数与梯度以及它们之间的关系？ - 马同学的回答 - 知乎</a></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1896,7 +1878,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
