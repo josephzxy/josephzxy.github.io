@@ -265,7 +265,7 @@
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/bs4-basic-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph">
+      <meta itemprop="name" content="Joseph Chu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -376,7 +376,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(s.b)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">s</span>.<span class="title">b</span>.<span class="title">text</span></span></span><br><span class="line"><span class="class">'<span class="title">this</span> <span class="title">is</span> <span class="title">sample</span>'</span></span><br></pre></td></tr></table></figure>
 <h3 id="获取包含Tag的文本"><a href="#获取包含Tag的文本" class="headerlink" title="获取包含Tag的文本"></a>获取包含Tag的文本</h3><p>那如果我现在想获得的就是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>呢？</p>
 <p>如果是在iPython环境下，可以直接<code>print()</code>相应的Tag对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)</span><br><span class="line">&gt;&gt;&gt; print(s.b)</span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(s.b)</span></span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
 <p>如果是在脚本里面，则需要用到Python对象的内置方法<code>__repr__()</code></p>
 <blockquote>
 <p>在print一个对象的时候实际上调用了其<code>__repr__()</code>方法</p>
@@ -407,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/" rel="next" title="MySQL 修改数据库编码为utf8mb4以插入emoj">
-                <i class="fa fa-chevron-left"></i> MySQL 修改数据库编码为utf8mb4以插入emoj
+              <a href="/2018/10/01/pandas-read-html/" rel="next" title="Pandas解析html">
+                <i class="fa fa-chevron-left"></i> Pandas解析html
               </a>
             
           </div>
@@ -495,8 +495,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Joseph</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">Joseph Chu</p>
+              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -581,25 +581,19 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Joseph</span>
+  <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 

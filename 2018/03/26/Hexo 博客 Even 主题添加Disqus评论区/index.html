@@ -268,7 +268,7 @@
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/03/26/Hexo 博客 Even 主题添加Disqus评论区/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph">
+      <meta itemprop="name" content="Joseph Chu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -370,9 +370,9 @@
 <p>在这里记录一下<a href="https://github.com/ahonn/hexo-theme-even" target="_blank" rel="noopener">Even</a>主题的评论区添加方法。</p>
 <p>另附：<br><a href="https://blog.smoker.cc/web/add-comments-livere-for-hexo-theme-next.html" target="_blank" rel="noopener">为 Hexo 博客主题 NexT 添加 LiveRe 评论支持</a></p>
 <h2 id="查看Even支持的评论插件"><a href="#查看Even支持的评论插件" class="headerlink" title="查看Even支持的评论插件"></a>查看Even支持的评论插件</h2><p>首先vim打开Even主题目录下的<code>_config.yml</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$&#123;博客目录&#125;/themes/even/</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$&#123;博客目录&#125;</span><span class="regexp">/themes/</span>even<span class="regexp">/</span></span><br></pre></td></tr></table></figure>
 <p>看了一圈发现和评论区相关的配置项有三个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># Disqus</span><br><span class="line">disqus_shortname:</span><br><span class="line"></span><br><span class="line">#Changyan</span><br><span class="line">changyan:</span><br><span class="line">  appid:</span><br><span class="line">  appkey:</span><br><span class="line"></span><br><span class="line">#LiveRe</span><br><span class="line">livere_datauid:</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Disqus</span></span><br><span class="line"><span class="symbol">disqus_shortname:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#Changyan</span></span><br><span class="line"><span class="symbol">changyan:</span></span><br><span class="line"><span class="symbol">  appid:</span></span><br><span class="line"><span class="symbol">  appkey:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#LiveRe</span></span><br><span class="line"><span class="symbol">livere_datauid:</span></span><br></pre></td></tr></table></figure>
 <p>这是三个不同的评论区插件，只安装一个就好，这里我们选择Disqus。</p>
 <h2 id="配置Disqus"><a href="#配置Disqus" class="headerlink" title="配置Disqus"></a>配置Disqus</h2><p>配置Disqus我们需要知道<code>disqus_shortname</code></p>
 <p>首先去Disqus的官网注册一个账号<a href="https://disqus.com/" target="_blank" rel="noopener">https://disqus.com/</a></p>
@@ -497,8 +497,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Joseph</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">Joseph Chu</p>
+              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -583,25 +583,19 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Joseph</span>
+  <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 

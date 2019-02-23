@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &amp;quot;Incorrect string value: &amp;apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&amp;ap">
+<meta name="description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column">
 <meta name="keywords" content="MySQL,utf8mb4">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 修改数据库编码为utf8mb4以插入emoj">
 <meta property="og:url" content="http://xingye.us/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/index.html">
 <meta property="og:site_name" content="Joseph Chu&#39;s Blog">
-<meta property="og:description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &amp;quot;Incorrect string value: &amp;apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&amp;ap">
+<meta property="og:description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-12-31T06:52:46.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL 修改数据库编码为utf8mb4以插入emoj">
-<meta name="twitter:description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &amp;quot;Incorrect string value: &amp;apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&amp;ap">
+<meta name="twitter:description" content="最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column">
 
 
 
@@ -266,7 +266,7 @@
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/08/25/MySQL 修改数据库编码为utf8mb4以插入emoj/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph">
+      <meta itemprop="name" content="Joseph Chu">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
@@ -364,15 +364,15 @@
 
       
         <p>最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column &apos;content&apos; at row 1&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (1366, "Incorrect string value: '<span class="symbol">\\</span>xF0<span class="symbol">\\</span>x9F<span class="symbol">\\</span>x98<span class="symbol">\\</span>x85<span class="symbol">\\</span>xF0<span class="symbol">\\</span>x9F...' for column 'content' at row 1")</span><br></pre></td></tr></table></figure>
 <p>现总结自己的解决方案如下</p>
 <a id="more"></a>
 <h2 id="0x01-修改mysql默认编码"><a href="#0x01-修改mysql默认编码" class="headerlink" title="0x01 修改mysql默认编码"></a>0x01 修改mysql默认编码</h2><p>参照<a href="https://www.cnblogs.com/shihaiming/p/5855616.html" target="_blank" rel="noopener">更改MySQL数据库的编码为utf8mb4</a>一文将数据库默认编码修改为utf8mb4</p>
 <p>特别记录自己的mysql重启命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 关闭mysql</span><br><span class="line">/usr/local/mysql/bin/mysqladmin -uroot -p shutdown</span><br><span class="line"></span><br><span class="line"># 启动mysql</span><br><span class="line">/usr/local/mysql/bin/mysqld_safe —defaults-file=&quot;/etc/my.cnf&quot; &amp;</span><br></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># 关闭mysql</span></span><br><span class="line"><span class="meta-keyword">/usr/</span>local<span class="meta-keyword">/mysql/</span>bin/mysqladmin -uroot -p shutdown</span><br><span class="line"></span><br><span class="line"><span class="meta"># 启动mysql</span></span><br><span class="line"><span class="meta-keyword">/usr/</span>local<span class="meta-keyword">/mysql/</span>bin/mysqld_safe —defaults-file=<span class="string">"/etc/my.cnf"</span> &amp;</span><br></pre></td></tr></table></figure>
 <p>其中<code>/usr/local/mysql/</code>为mysql安装路径。</p>
 <h2 id="0x02-修改-usr-share-mysql-charsets-Index-xml"><a href="#0x02-修改-usr-share-mysql-charsets-Index-xml" class="headerlink" title="0x02 修改/usr/share/mysql/charsets/Index.xml"></a>0x02 修改/usr/share/mysql/charsets/Index.xml</h2><p>修改完mysql默认编码之后登入mysql，发现报如下错误</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql: Character set &apos;utf8mb4&apos; is not a compiled character set and is not specified in the &apos;/usr/share/mysql/charsets/Index.xml&apos; file</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql: Character <span class="keyword">set</span> <span class="string">'utf8mb4'</span> <span class="keyword">is</span> <span class="keyword">not</span> a <span class="keyword">compiled</span> <span class="built_in">character</span> <span class="keyword">set</span> <span class="keyword">and</span> <span class="keyword">is</span> <span class="keyword">not</span> specified <span class="keyword">in</span> the <span class="string">'/usr/share/mysql/charsets/Index.xml'</span> <span class="keyword">file</span></span><br></pre></td></tr></table></figure>
 <p>参照<a href="https://blog.csdn.net/leshami/article/details/42024217" target="_blank" rel="noopener">Character set ‘utf8mb4’ is not a compiled character set</a>解决</p>
 <p><strong>特别注意</strong><code>&lt;charset name=&quot;utf8mb4&quot;&gt;</code>要在<code>&lt;charset name=&quot;utf8&quot;&gt;</code>之前</p>
 <h2 id="0x03-修改数据库，表，字段的编码"><a href="#0x03-修改数据库，表，字段的编码" class="headerlink" title="0x03 修改数据库，表，字段的编码"></a>0x03 修改数据库，表，字段的编码</h2><p>0x02之后已可以成功登入，但pymysql插入仍报之前的错，于是将数据库，表和相应字段的编码都改为utf8mb4，pymysql插入成功。</p>
@@ -424,8 +424,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/01/bs4-basic-usage/" rel="prev" title="BeautifulSoup 基本使用">
-                BeautifulSoup 基本使用 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/01/pandas-read-html/" rel="prev" title="Pandas解析html">
+                Pandas解析html <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -502,8 +502,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">Joseph</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">Joseph Chu</p>
+              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -588,25 +588,19 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Joseph</span>
+  <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
