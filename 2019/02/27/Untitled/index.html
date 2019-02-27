@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Ncell.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-02-26 at 8.46.55 PM.png">
 <meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz11.png">
-<meta property="og:updated_time" content="2019-02-27T04:04:48.660Z">
+<meta property="og:updated_time" content="2019-02-27T04:18:38.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法">
 <meta name="twitter:description" content="本系列笔记文章意在对《神经网络与深度学习》一书中学到的知识点进行浓缩和总结，并加入自己的理解。 《神经网络与深度学习》资源英文版：http://neuralnetworksanddeeplearning.com/中文版：https://pan.baidu.com/s/1mi8YVri 密码：e7do">
@@ -442,9 +442,9 @@
 <h3 id="随机梯度下降的思想"><a href="#随机梯度下降的思想" class="headerlink" title="随机梯度下降的思想"></a>随机梯度下降的思想</h3><p>随机梯度下降(SGD)的思想就类似于统计中的<strong>随机抽样来反映整体</strong>。</p>
 <p>SGD的具体操作为，首先将全部训练数据打散（随机排序），然后将其分成一个个固定大小的片(batch)，然后遍历每个batch，对这个batch内的每一条数据求其 $∇C_x$，然后平均得到整体的 $∇C$ 来更新权重和偏置。</p>
 <p>反应到具体的公式就是</p>
-<p>$$∇C ≈ \frac{1}{m}∑<em>{j=1}^m∇C</em>{X_j}$$</p>
-<p>$$w_k→w_k′= w_k−\frac{η}{m}∑<em>j\frac{∂C</em>{X_j}}{∂w_k}$$</p>
-<p>$$b_l→b_l′= b_l−\frac{η}{m}∑<em>j\frac{∂C</em>{X_j}}{∂b_l}$$</p>
+<p>$$∇C ≈ \frac{1}{m}\Sigma_{j=1}^m∇C_{X_j}$$</p>
+<p>$$w_k→w_k′= w_k−\frac{η}{m}\Sigma_j\frac{∂C_{X_j}}{∂w_k}$$</p>
+<p>$$b_l→b_l′= b_l−\frac{η}{m}\Sigma_j\frac{∂C_{X_j}}{∂b_l}$$</p>
 <p>这里 $m$ 是batch的大小，$j$ 代表 batch中的某一条数据。</p>
 <h3 id="Batch-Iteration-Epoch的定义"><a href="#Batch-Iteration-Epoch的定义" class="headerlink" title="Batch, Iteration, Epoch的定义"></a>Batch, Iteration, Epoch的定义</h3><ul>
 <li>Batch：将训练数据随即打散然后按固定大小分割成的数据片叫做一个batch，其大小就是batch_size</li>
@@ -452,7 +452,7 @@
 <li>Epoch：当全部的batch都被便利了一遍，此时就叫一个epoch。</li>
 </ul>
 <h2 id="零散的知识点"><a href="#零散的知识点" class="headerlink" title="零散的知识点"></a>零散的知识点</h2><ul>
-<li><strong>随机梯度下降</strong>和<strong>误差反向传递***</strong>不适合***直接用来训练深度神经网络</li>
+<li><strong>随机梯度下降</strong>和<strong>误差反向传递</strong>不适合直接用来训练深度神经网络</li>
 <li>复杂的算法 ≤ 简单的算法 + 好的训练数据</li>
 </ul>
 
