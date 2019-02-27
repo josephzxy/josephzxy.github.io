@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Neural Network,Gradient Descent," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本系列笔记文章意在对《神经网络与深度学习》一书中学到的知识点进行浓缩和总结，并加入自己的理解。 《神经网络与深度学习》资源英文版：http://neuralnetworksanddeeplearning.com/中文版：https://pan.baidu.com/s/1mi8YVri 密码：e7do">
+<meta name="keywords" content="Neural Network,Gradient Descent">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法">
+<meta property="og:url" content="http://xingye.us/2019/02/27/Untitled/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:description" content="本系列笔记文章意在对《神经网络与深度学习》一书中学到的知识点进行浓缩和总结，并加入自己的理解。 《神经网络与深度学习》资源英文版：http://neuralnetworksanddeeplearning.com/中文版：https://pan.baidu.com/s/1mi8YVri 密码：e7do">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz9.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Ncell.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-02-26 at 8.46.55 PM.png">
+<meta property="og:image" content="http://neuralnetworksanddeeplearning.com/images/tikz11.png">
+<meta property="og:updated_time" content="2019-02-27T04:04:48.660Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法">
+<meta name="twitter:description" content="本系列笔记文章意在对《神经网络与深度学习》一书中学到的知识点进行浓缩和总结，并加入自己的理解。 《神经网络与深度学习》资源英文版：http://neuralnetworksanddeeplearning.com/中文版：https://pan.baidu.com/s/1mi8YVri 密码：e7do">
+<meta name="twitter:image" content="http://neuralnetworksanddeeplearning.com/images/tikz9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xingye.us/2019/02/27/Untitled/"/>
+
+
+
+
+
+  <title>《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法 | Joseph Chu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Joseph Chu's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Worry Less, Do More</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/27/Untitled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T12:01:00+08:00">
+                2019-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/27/Untitled/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/27/Untitled/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本系列笔记文章意在对<a href="https://book.douban.com/subject/26727997/" target="_blank" rel="noopener">《神经网络与深度学习》</a>一书中学到的知识点进行浓缩和总结，并加入自己的理解。</p>
+<p>《神经网络与深度学习》资源<br>英文版：<a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">http://neuralnetworksanddeeplearning.com/</a><br>中文版：<a href="https://pan.baidu.com/s/1mi8YVri" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi8YVri</a> 密码：e7do</p>
+<a id="more"></a>
+<h2 id="一个人工神经元的结构"><a href="#一个人工神经元的结构" class="headerlink" title="一个人工神经元的结构"></a>一个人工神经元的结构</h2><p><img src="http://neuralnetworksanddeeplearning.com/images/tikz9.png" alt=""><br>如上图所示，一个普通的人工神经元</p>
+<ul>
+<li>有<strong>若干个输入</strong>($x_1, x_2,… x_n$)，</li>
+<li>只有<strong>一个输出值</strong></li>
+</ul>
+<p>从输入到输出的计算可以从下图看出</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Ncell.png" alt=""></p>
+<p>每个输入 $a_n$ 都对应着一个权重 $w_n$ 。每个神经元也都拥有自己的偏置值 $b$ 和一个<strong>非线性</strong>函数 $f$ （通常叫做激活函数 Activation Function）</p>
+<p>具体的计算如下</p>
+<ol>
+<li><p>将权重向量 $W = (w_1, w_2…w_n)$ 输入向量 $A = (a_1, a_2…a_n)^T$ 点乘得到的值加上偏置 $b$ 得到一个值 $z$。为了方便运算，我们也可以<strong>在输入向量 $A$ 后面添加一个1，这样就可以把偏置 $b$ 当做一个权重来看待</strong>。</p>
+<p> $ z = w_1a_1 + w_2a_2 + … + w_na_n + b*1$</p>
+</li>
+<li><p>对 $z$ 套用激活函数 $f$ 得到 $output = f(z)$</p>
+</li>
+</ol>
+<h3 id="S-型神经元"><a href="#S-型神经元" class="headerlink" title="S 型神经元"></a>S 型神经元</h3><p>常用的S型神经元（也叫做<strong>逻辑神经元</strong>）就是使用sigmoid函数（也叫做逻辑函数，用符号 $σ$ 表示 ）作为激活函数的神经元。</p>
+<p>sigmoid函数表达式如下</p>
+<p>$$ f(z) = \frac{1}{1 + e^{-z}} $$</p>
+<p>sigmoid函数有一个非常好的性质就是 </p>
+<p>$$f’(z) = f(z)(1 - f(z))$$</p>
+<p>图像如下</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-02-26 at 8.46.55 PM.png" alt=""></p>
+<h2 id="神经网络的架构及常用符号"><a href="#神经网络的架构及常用符号" class="headerlink" title="神经网络的架构及常用符号"></a>神经网络的架构及常用符号</h2><p><img src="http://neuralnetworksanddeeplearning.com/images/tikz11.png" alt=""></p>
+<p>如上图所示，一个普通的<strong>前馈</strong>、<strong>全连接</strong>神经网络的架构可以分为三层：<strong>输入层，隐藏层和输出层。</strong></p>
+<p><strong>前馈</strong>(feedforward)意味着神经网络中没有回路，信息总是向前传播。<br><strong>全连接</strong>意味着同一层的神经元之间无连接，而层与层之间的神经元之间彼此都有连接。</p>
+<p>特别要提的是</p>
+<ul>
+<li><strong>输入层的输入即输出</strong>，没有权重、偏置和激活函数</li>
+<li>隐藏层层数<strong>大于等于两层</strong>的神经网络称为<strong>深度神经网络</strong></li>
+<li>一般来讲，多分类问题中，<strong>有几个输出类别，输出层就有几个神经元</strong></li>
+<li>按照是否允许网络中存在反馈回路可以将网络分为<strong>前馈神经网络</strong>和<strong>递归神经网络</strong>两类。相对简单，应用也最为广泛的是前馈神经网络。</li>
+</ul>
+<h2 id="神经网络的本质"><a href="#神经网络的本质" class="headerlink" title="神经网络的本质"></a>神经网络的本质</h2><p>神经网络的本质是一个<strong>庞大的多层嵌套复合函数</strong></p>
+<p>比如正如上面提到的，对于一个神经元，我们有</p>
+<p>$$output = f(z)$$</p>
+<p>$$z = w_1a_1 + w_2a_2 + … + w_na_n + b*1$$</p>
+<p>而这个神经元的output可能也是下一层每个神经元的输入，以此类推，那么神经网络最终的输出值 $output$ 可以看做是关于所有输入 $a_1, a_2 .. a_n$的一个函数。</p>
+<p>神经网络的前向传播即我们将已经向量化的数据 $(a_1, a_2 .. a_n)^T$ 输入到输入层，得到函数值 $output$ 的过程。</p>
+<h2 id="神经网络训练的本质"><a href="#神经网络训练的本质" class="headerlink" title="神经网络训练的本质"></a>神经网络训练的本质</h2><p>神经网络训练的本质就是找到合适的权重 $w$ 和偏置 $b$，使对于给定的输入 $x$，网络的输出 $a$ 可以拟合所有我们希望得到的输出 $y(x)$。</p>
+<p>为了量化我们如何实现这个目标，我们定义一个代价函数（又称损失或目标函数）:</p>
+<p>$$C(w, b) ≡ \frac{1}{2n}∑||y(x) - a||^2$$</p>
+<p>这里 $w$ 表示所有的网络中权重的集合，$b$ 是所有的偏置，$n$ 是训练输入数据的个数，$a$ 是表示当输入为 $x$ 时输出的向量，求和则是在总的训练输入 $x$ 上进行的。符号 $∥v∥$ 是指向量 v 的模。 我们把 $C$ 称为<strong>二次</strong>代价函数;有时也称被称为<strong>均方误差</strong>或者 <strong>MSE</strong>。观察二次代价函数的形式我 们可以看到 $C(w, b)$ 是非负的，因为求和公式中的每一项都是非负的。此外，当对于所有的训练输入 $x$，$y(x)$ 接近于输出 $a$ 时, $C(w, b) ≈ 0$。因此如果我们的学习算法能找到合适的权重和偏置，使得 $C(w, b) ≈ 0$，网络就能很好地工作。相反， 当 $C(w, b)$ 很大时就不怎么好了，那意味着对于大量地输入，$y(x)$ 与输出 $a$ 相差很大。因此我们训练神经网络的目的，是要找到一系列能让代价函数 $C$ 尽可能小的权重和偏置。</p>
+<h2 id="梯度下降算法"><a href="#梯度下降算法" class="headerlink" title="梯度下降算法"></a>梯度下降算法</h2><p>从某个意义上来讲，训练神经网络就是找到代价函数 $C(w, b)$ 的最小值点。因为常见的神经网络通常有包含数量庞大的权重的偏置的代价函数，极其复杂，所以用微积分来解析最小值是不可能的。通常我们会用称为<strong>梯度下降</strong>的算法来达成目的，</p>
+<p>设想我们此时的代价函数是一个二元函数 $C(v_1, v_2)$</p>
+<p>那么根据微积分有</p>
+<p>$$∆C ≈ \frac{∂C}{∂v_1}∆v_1 + \frac{∂C}{∂v_2}∆v_2$$</p>
+<p>让我们来定义 $v$ 的变化量向量 $∆v ≡ (∆v_1, ∆v_2)^T$，同时 $C$ 的偏导数向量 $(\frac{∂C}{∂v_1}, \frac{∂C}{∂v_2})^T$，即为 $C$ 的梯度向量，记为 $∇C$：</p>
+<p>$$∇C ≡ (\frac{∂C}{∂v_1}, \frac{∂C}{∂v_2})^T$$</p>
+<blockquote>
+<p>梯度是一个向量，指向函数值增长最快的方向。详细解释可参考<a href="https://www.zhihu.com/question/36301367/answer/156102040" target="_blank" rel="noopener">这里</a></p>
+</blockquote>
+<p>此时，$∆C$ 的表达式可以被重写为：</p>
+<p>$$∆C ≈ ∇C · ∆v$$</p>
+<p>假设我们选取：</p>
+<p>$$∆v = -η∇C$$ </p>
+<p>这里的 $η$ 是个很小的正数(称为<strong>学习速率</strong>，Learning Rate)。那么就有$∆C ≈ −η∇C·∇C = −η∥∇C∥^2$。 由于 $∥∇C∥^2 ≥ 0$，这保证了 $∆C ≤ 0$，即，如果我们按照 $∆v = -η∇C$ 去改变 $v$，那么 $C$ 会 一直减小，不会增加。(当然，要在 $∆C ≈ ∇C · ∆v$ 的近似约束下)。</p>
+<p>最终我们可以得到为了使 $C$ 减小的 $v$ 的改变规则：</p>
+<p>$$v→v′= v−η∇C$$</p>
+<p>用权重和偏置来替换变量 $v_j$， 我们就得到了神经网络中运用梯度下降算法对权重和偏置的更新规则。</p>
+<p>$$w_k→w_k′ =w_k−η\frac{∂C}{∂w_k} $$</p>
+<p>$$b_l →b′_l =b_l −η\frac{∂C}{∂b_l} $$</p>
+<p>重复应用这一规则，就有望能找到代价函数的最小值，即让神经网络学习。</p>
+<p>更多梯度下降的解释和例子可以参考<a href="https://zhuanlan.zhihu.com/p/33321183" target="_blank" rel="noopener">这里</a></p>
+<h2 id="随机梯度下降-Stochastic-Gradient-Descent"><a href="#随机梯度下降-Stochastic-Gradient-Descent" class="headerlink" title="随机梯度下降 (Stochastic Gradient Descent)"></a>随机梯度下降 (Stochastic Gradient Descent)</h2><h3 id="普通梯度下降的问题"><a href="#普通梯度下降的问题" class="headerlink" title="普通梯度下降的问题"></a>普通梯度下降的问题</h3><p>让我们回顾前面提到的二次代价函数形式</p>
+<p>$$C(w, b) ≡ \frac{1}{2n}∑||y(x) - a||^2$$</p>
+<p>注意到这个代价函数有着这样的形式 $C = \frac{1}{n} ∑ Cx$，即它是遍及每个训练样本代价 $Cx ≡ \frac{||y(x) - a||^2}{2}$的平均值。在实践中，为了计算梯度 $∇C$，我们需要为每个训练输入 $x$ 单独地计算梯度值 $∇Cx$，然后求平均值，$∇C = \frac{1}{n} ∑_x∇Cx$。不幸的是，当训练输入的数量过大时会花费很⻓时间，这样会使学习变得相当缓慢。</p>
+<p>换句话说，就是普通梯度下降中，每一次对权重和偏置进行更新，我们都需要把全部的训练输入放到神经网络中，得到对于每一条输入 $x$ 的输出 $a_x$，再结合代价函数求 $∇C_x$，最终得到训练数据整体的 $∇C = \frac{1}{n} ∑_x∇Cx$ 来更新权重和偏置。这样训练集一大就很慢。</p>
+<h3 id="随机梯度下降的思想"><a href="#随机梯度下降的思想" class="headerlink" title="随机梯度下降的思想"></a>随机梯度下降的思想</h3><p>随机梯度下降(SGD)的思想就类似于统计中的<strong>随机抽样来反映整体</strong>。</p>
+<p>SGD的具体操作为，首先将全部训练数据打散（随机排序），然后将其分成一个个固定大小的片(batch)，然后遍历每个batch，对这个batch内的每一条数据求其 $∇C_x$，然后平均得到整体的 $∇C$ 来更新权重和偏置。</p>
+<p>反应到具体的公式就是</p>
+<p>$$∇C ≈ \frac{1}{m}∑<em>{j=1}^m∇C</em>{X_j}$$</p>
+<p>$$w_k→w_k′= w_k−\frac{η}{m}∑<em>j\frac{∂C</em>{X_j}}{∂w_k}$$</p>
+<p>$$b_l→b_l′= b_l−\frac{η}{m}∑<em>j\frac{∂C</em>{X_j}}{∂b_l}$$</p>
+<p>这里 $m$ 是batch的大小，$j$ 代表 batch中的某一条数据。</p>
+<h3 id="Batch-Iteration-Epoch的定义"><a href="#Batch-Iteration-Epoch的定义" class="headerlink" title="Batch, Iteration, Epoch的定义"></a>Batch, Iteration, Epoch的定义</h3><ul>
+<li>Batch：将训练数据随即打散然后按固定大小分割成的数据片叫做一个batch，其大小就是batch_size</li>
+<li>Iteration: 利用一个batch中的数据对权重和偏置的一次更新叫做一个iteration</li>
+<li>Epoch：当全部的batch都被便利了一遍，此时就叫一个epoch。</li>
+</ul>
+<h2 id="零散的知识点"><a href="#零散的知识点" class="headerlink" title="零散的知识点"></a>零散的知识点</h2><ul>
+<li><strong>随机梯度下降</strong>和<strong>误差反向传递***</strong>不适合***直接用来训练深度神经网络</li>
+<li>复杂的算法 ≤ 简单的算法 + 好的训练数据</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Neural-Network/" rel="tag"># Neural Network</a>
+          
+            <a href="/tags/Gradient-Descent/" rel="tag"># Gradient Descent</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" rel="next" title="神经网络基础概念整理(1)-微分和梯度">
+                <i class="fa fa-chevron-left"></i> 神经网络基础概念整理(1)-微分和梯度
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Joseph Chu</p>
+              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一个人工神经元的结构"><span class="nav-number">1.</span> <span class="nav-text">一个人工神经元的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#S-型神经元"><span class="nav-number">1.1.</span> <span class="nav-text">S 型神经元</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的架构及常用符号"><span class="nav-number">2.</span> <span class="nav-text">神经网络的架构及常用符号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的本质"><span class="nav-number">3.</span> <span class="nav-text">神经网络的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络训练的本质"><span class="nav-number">4.</span> <span class="nav-text">神经网络训练的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降算法"><span class="nav-number">5.</span> <span class="nav-text">梯度下降算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降-Stochastic-Gradient-Descent"><span class="nav-number">6.</span> <span class="nav-text">随机梯度下降 (Stochastic Gradient Descent)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通梯度下降的问题"><span class="nav-number">6.1.</span> <span class="nav-text">普通梯度下降的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#随机梯度下降的思想"><span class="nav-number">6.2.</span> <span class="nav-text">随机梯度下降的思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Batch-Iteration-Epoch的定义"><span class="nav-number">6.3.</span> <span class="nav-text">Batch, Iteration, Epoch的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#零散的知识点"><span class="nav-number">7.</span> <span class="nav-text">零散的知识点</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://josephzxy-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://xingye.us/2019/02/27/Untitled/';
+          this.page.identifier = '2019/02/27/Untitled/';
+          this.page.title = '《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://josephzxy-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
