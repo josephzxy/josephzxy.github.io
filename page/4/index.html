@@ -262,6 +262,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/08/20/Parameter, Argument, Attribute 的区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/20/Parameter, Argument, Attribute 的区别/" itemprop="url">Parameter, Argument, Attribute 的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-20T18:33:00+08:00">
+                2018-08-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CS-Basics/" itemprop="url" rel="index">
+                    <span itemprop="name">CS Basics</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/08/20/Parameter, Argument, Attribute 的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/08/20/Parameter, Argument, Attribute 的区别/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h3 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h3><p>对应中文即<strong>形参</strong>，临时变量，在函数定义中用于接受外部传入变量。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def foo(name, age): # name, age 即形参</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+<h3 id="Argument"><a href="#Argument" class="headerlink" title="Argument"></a>Argument</h3><p>对应中文即<strong>实参</strong>，在调用函数时传入的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(&apos;Tom&apos;, 11) # &apos;Tom&apos;, 11即实参</span><br></pre></td></tr></table></figure>
+<h3 id="Atrribute"><a href="#Atrribute" class="headerlink" title="Atrribute"></a>Atrribute</h3><p>对应中文即<strong>属性</strong>，可以是一个类的变量（实例变量或者类变量）或者函数（成员函数）。 <strong>类的每一个实例都可以访问这些属性</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Color:</span><br><span class="line">    description = &quot;This is a color&quot; # class attributes</span><br><span class="line">    </span><br><span class="line">    def __init__(self, color):</span><br><span class="line">        self.color = color</span><br><span class="line">        </span><br><span class="line">    def do_something(self):</span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">c = Color(&apos;blue&apos;)</span><br><span class="line">c.color # instance attribute</span><br><span class="line">Color.description # class attribute</span><br><span class="line">c.do_something() # instance attribute</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/08/17/TCP 的三次握手和四次挥手/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -688,7 +847,7 @@
 <li>输出图片大小为 N×N</li>
 </ul>
 <p>则有</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">N</span> = (W − F + <span class="number">2</span>P )/S+<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">N = (W − F + 2P )/S+1</span><br></pre></td></tr></table></figure>
 
           
         
@@ -849,7 +1008,7 @@
 <h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
 <li>Python 中正则表达式模块是<code>re</code>，只要<code>import re</code>就好</li>
 <li><p>最简单的正则表达式就是我们想要匹配的字符串，比如</p>
-  <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;</span>&gt; import re</span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; key = <span class="string">'javapythonc++'</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; reg = <span class="string">'python'</span></span><br><span class="line"><span class="meta">&gt;&gt;</span>&gt; re.compile(reg).findall(key)</span><br><span class="line">[<span class="string">'python'</span>]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; key = &apos;javapythonc++&apos;</span><br><span class="line">&gt;&gt;&gt; reg = &apos;python&apos;</span><br><span class="line">&gt;&gt;&gt; re.compile(reg).findall(key)</span><br><span class="line">[&apos;python&apos;]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
           <!--noindex-->
@@ -1166,8 +1325,8 @@
       
         
           <p>这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。</p>
-<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 <span class="keyword">install</span> -U pytest</span><br></pre></td></tr></table></figure>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --<span class="keyword">version</span> <span class="comment"># 查看版本</span></span><br></pre></td></tr></table></figure>
+<h2 id="pytest的安装"><a href="#pytest的安装" class="headerlink" title="pytest的安装"></a>pytest的安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -U pytest</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pytest --version # 查看版本</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/27/Pytest 使用总结/#more" rel="contents">
@@ -1684,174 +1843,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/07/23/如何在Mac上用Script启动quicktime录制？/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/" itemprop="url">如何在Mac上用Script启动Quicktime录制？</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-23T19:24:00+08:00">
-                2018-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/07/23/如何在Mac上用Script启动quicktime录制？/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>1）创建AppleScript文件，输入一下代码并保存。如<code>QTRecord.scpt</code></p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span></span><br><span class="line">     <span class="built_in">activate</span></span><br><span class="line">     start (new movie recording)</span><br><span class="line"> <span class="keyword">end</span> <span class="keyword">tell</span></span><br></pre></td></tr></table></figure>
-<p>2)在终端执行</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">osascript</span> <span class="selector-tag">QTRecord</span><span class="selector-class">.scpt</span></span><br></pre></td></tr></table></figure>
-<p>3）或者也可以一句话搞定以上两步</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">osascript -e '<span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span> <span class="keyword">to</span> <span class="built_in">activate</span>' -e '<span class="keyword">tell</span> <span class="built_in">application</span> <span class="string">"QuickTime Player"</span> <span class="keyword">to</span> start (new movie recording)'</span><br></pre></td></tr></table></figure>
-<p>摘自<a href="https://superuser.com/questions/438553/how-to-start-quicktime-recording-at-command-line" target="_blank" rel="noopener">How to start QuickTime recording at command line?</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/23/如何在Mac上用Script启动quicktime录制？/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1897,7 +1893,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1908,7 +1904,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1919,7 +1915,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

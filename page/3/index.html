@@ -262,6 +262,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/18/pandas/" itemprop="url">Pandas 按照某一列的值分割Dataframe</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T11:56:00+08:00">
+                2018-12-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Package Usage</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/18/pandas/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/12/18/pandas/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>设有如下df</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    target</span><br><span class="line">0   1     </span><br><span class="line">1   2     </span><br><span class="line">2   3</span><br></pre></td></tr></table></figure>
+<p>我们希望可以将其根据<code>target</code>的值的不同，分为若干个子df，方法如下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">df_1 = df[df[<span class="string">"target"</span>].isin([<span class="string">"1"</span>])]</span><br><span class="line">print(df[<span class="string">"target"</span>].isin([<span class="string">"1"</span>]))</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">    target</span></span><br><span class="line"><span class="string">0   True    </span></span><br><span class="line"><span class="string">1   False     </span></span><br><span class="line"><span class="string">2   False</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line">print(df_1)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">    target</span></span><br><span class="line"><span class="string">0   1 </span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/tf-control-dependencies/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1045,6 +1200,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/pandas-read-html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/01/pandas-read-html/" itemprop="url">Pandas解析html</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-01T11:35:00+08:00">
+                2018-10-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Package Usage</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/01/pandas-read-html/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/01/pandas-read-html/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>pandas可以用<code>read_html()</code>函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。</p>
+<p>比如说有table html代码如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table1"</span>&gt;</span> <span class="tag">&lt;<span class="name">tbody</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"1"</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>Station<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Tiu Keng Leng<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Kwun Tong<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Whampoa<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>Whampoa<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>00:40<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>01:00<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过<code>read_html()</code>解析得到</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为会返回包含df的list</span></span><br><span class="line">df = pd.read_html(html, header=<span class="number">0</span>, encoding=<span class="string">"utf8"</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://segmentfault.com/q/1010000007087889" target="_blank" rel="noopener">python beautifulsoup 如何抓取不规则表格的内容</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/requests-basic-usage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1174,168 +1489,8 @@
 <li>proxies：ip代理时使用，字典。</li>
 </ul>
 <h2 id="Response对象使用"><a href="#Response对象使用" class="headerlink" title="Response对象使用"></a>Response对象使用</h2><p>从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r<span class="selector-class">.encoding</span> = <span class="string">'ISO-8859-1'</span>    #指定r.text返回的数据类型，写在r.text之前。</span><br><span class="line">r<span class="selector-class">.text</span>    #默认以unicode形式返回网页内容，也就是网页源码的字符串。</span><br><span class="line"></span><br><span class="line">r<span class="selector-class">.content</span>    #以二进制形式返回网页内容，下载图片时专用。</span><br><span class="line">r.json()    #把网页中的json数据转成字典并将其返回。</span><br><span class="line"></span><br><span class="line">#还有一些很少用到的方法。</span><br><span class="line">r<span class="selector-class">.headers</span>    #返回服务器端的headers，字典。</span><br><span class="line">r<span class="selector-class">.status_code</span>    #返回连接状态，<span class="number">200</span>正常。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r.encoding = &apos;ISO-8859-1&apos;    #指定r.text返回的数据类型，写在r.text之前。</span><br><span class="line">r.text    #默认以unicode形式返回网页内容，也就是网页源码的字符串。</span><br><span class="line"></span><br><span class="line">r.content    #以二进制形式返回网页内容，下载图片时专用。</span><br><span class="line">r.json()    #把网页中的json数据转成字典并将其返回。</span><br><span class="line"></span><br><span class="line">#还有一些很少用到的方法。</span><br><span class="line">r.headers    #返回服务器端的headers，字典。</span><br><span class="line">r.status_code    #返回连接状态，200正常。</span><br></pre></td></tr></table></figure>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://segmentfault.com/a/1190000014383966" target="_blank" rel="noopener">Python 从零开始爬虫(零)——爬虫思路&amp;requests模块使用</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/pandas-read-html/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/01/pandas-read-html/" itemprop="url">Pandas解析html</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-01T11:35:00+08:00">
-                2018-10-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/01/pandas-read-html/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/01/pandas-read-html/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>pandas可以用<code>read_html()</code>函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。</p>
-<p>比如说有table html代码如下</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table1"</span>&gt;</span> <span class="tag">&lt;<span class="name">tbody</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"1"</span> <span class="attr">rowspan</span>=<span class="string">"2"</span>&gt;</span>Station<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Tiu Keng Leng<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Kwun Tong<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span> <span class="attr">colspan</span>=<span class="string">"2"</span>&gt;</span>To Whampoa<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>First Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;<span class="name">th</span>&gt;</span>Last Train<span class="tag">&lt;/<span class="name">th</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">tr</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>Whampoa<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>00:40<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>06:10<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>01:00<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;<span class="name">td</span>&gt;</span>N/A<span class="tag">&lt;/<span class="name">td</span>&gt;</span> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>通过<code>read_html()</code>解析得到</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为会返回包含df的list</span></span><br><span class="line">df = pd.read_html(html, header=<span class="number">0</span>, encoding=<span class="string">"utf8"</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a href="https://segmentfault.com/q/1010000007087889" target="_blank" rel="noopener">python beautifulsoup 如何抓取不规则表格的内容</a></li>
-</ul>
 
           
         
@@ -1502,7 +1657,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(s.b)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">s</span>.<span class="title">b</span>.<span class="title">text</span></span></span><br><span class="line"><span class="class">'<span class="title">this</span> <span class="title">is</span> <span class="title">sample</span>'</span></span><br></pre></td></tr></table></figure>
 <h3 id="获取包含Tag的文本"><a href="#获取包含Tag的文本" class="headerlink" title="获取包含Tag的文本"></a>获取包含Tag的文本</h3><p>那如果我现在想获得的就是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>呢？</p>
 <p>如果是在iPython环境下，可以直接<code>print()</code>相应的Tag对象</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">&gt;&gt; <span class="built_in">print</span>(s.b)</span></span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)</span><br><span class="line">&gt;&gt;&gt; print(s.b)</span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
 <p>如果是在脚本里面，则需要用到Python对象的内置方法<code>__repr__()</code></p>
 <blockquote>
 <p>在print一个对象的时候实际上调用了其<code>__repr__()</code>方法</p>
@@ -1661,7 +1816,7 @@
       
         
           <p>最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (1366, "Incorrect string value: '<span class="symbol">\\</span>xF0<span class="symbol">\\</span>x9F<span class="symbol">\\</span>x98<span class="symbol">\\</span>x85<span class="symbol">\\</span>xF0<span class="symbol">\\</span>x9F...' for column 'content' at row 1")</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column &apos;content&apos; at row 1&quot;)</span><br></pre></td></tr></table></figure>
 <p>现总结自己的解决方案如下</p>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1703,170 +1858,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/08/20/Parameter, Argument, Attribute 的区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/20/Parameter, Argument, Attribute 的区别/" itemprop="url">Parameter, Argument, Attribute 的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-20T18:33:00+08:00">
-                2018-08-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CS-Basics/" itemprop="url" rel="index">
-                    <span itemprop="name">CS Basics</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/08/20/Parameter, Argument, Attribute 的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/08/20/Parameter, Argument, Attribute 的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <a id="more"></a>
-<h3 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h3><p>对应中文即<strong>形参</strong>，临时变量，在函数定义中用于接受外部传入变量。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">foo</span><span class="params">(name, age)</span>:</span> <span class="comment"># name, age 即形参</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<h3 id="Argument"><a href="#Argument" class="headerlink" title="Argument"></a>Argument</h3><p>对应中文即<strong>实参</strong>，在调用函数时传入的值</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">foo(<span class="string">'Tom'</span>, <span class="number">11</span>) <span class="meta"># <span class="string">'Tom'</span>, 11即实参</span></span><br></pre></td></tr></table></figure>
-<h3 id="Atrribute"><a href="#Atrribute" class="headerlink" title="Atrribute"></a>Atrribute</h3><p>对应中文即<strong>属性</strong>，可以是一个类的变量（实例变量或者类变量）或者函数（成员函数）。 <strong>类的每一个实例都可以访问这些属性</strong></p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Color</span>:</span></span><br><span class="line">    description = <span class="string">"This is a color"</span> <span class="comment"># class attributes</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>, color)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.color = color</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_something</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        pass</span><br><span class="line"></span><br><span class="line">c = Color(<span class="string">'blue'</span>)</span><br><span class="line">c.color <span class="comment"># instance attribute</span></span><br><span class="line">Color.description <span class="comment"># class attribute</span></span><br><span class="line">c.do_something() <span class="comment"># instance attribute</span></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1912,7 +1908,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1923,7 +1919,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1934,7 +1930,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

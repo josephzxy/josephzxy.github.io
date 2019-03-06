@@ -366,9 +366,9 @@
         <p>花了两天的时间终于用nginx+gunicorn部署好自己的<a href="https://github.com/josephzxy/flask_micro_blog" target="_blank" rel="noopener">microblog</a>项目，中间遇到了大大小小的坑，在这里做一下记录。</p>
 <a id="more"></a>
 <h2 id="nginx的安装"><a href="#nginx的安装" class="headerlink" title="nginx的安装"></a>nginx的安装</h2><p>通过如下命令安装nginx</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install nginx</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
 <p>安装完成后输入如下命令</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> service </span>nginx start</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service nginx start</span><br></pre></td></tr></table></figure>
 <p>在浏览器里面访问localhost，如果能看到welcome to nginx就说明安装成功了。</p>
 <h2 id="nginx目录结构"><a href="#nginx目录结构" class="headerlink" title="nginx目录结构"></a>nginx目录结构</h2><p>安装后的路径是<code>/etc/nginx/</code></p>
 <p>在这个路径下有两个比较重要的文件夹</p>
@@ -385,14 +385,14 @@
 <blockquote>
 <p>/etc/nginx/sites-available 这个文件夹一般在你需要建立和管理多个站点的时候非常有用，可以帮助你更好的组织不同的项目。你需要在这里添加你的nginx配置文件并将他们链接至 sites-enabled 目录下。命令如下：</p>
 </blockquote>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-available/</span>dotcom <span class="regexp">/etc/</span>nginx<span class="regexp">/sites-enabled/</span>dotcom</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /etc/nginx/sites-available/dotcom /etc/nginx/sites-enabled/dotcom</span><br></pre></td></tr></table></figure>
 <h2 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h2><p>nginx 配置文件有自己的一套语法，但是很简单，很像css的语法。先指定变量名，然后在花括号内编写指令。最顶层是 server。</p>
 <p>基本语法可参照<a href="https://blog.csdn.net/david_xtd/article/details/16967837" target="_blank" rel="noopener">写给Web开发人员看的Nginx介绍</a></p>
 <p>常用配置项的用法可参照<a href="http://blog.51cto.com/blief/1739178" target="_blank" rel="noopener">Nginx基础入门之proxy反向代理常用配置项说明</a></p>
 <p>下面列出一个自己配置时可用的方案。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>; <span class="comment"># 要监听的端口号</span></span><br><span class="line">    <span class="attribute">server_name</span> _; <span class="comment"># 服务器的域名，因为我部署时没有注册域名，就用_代替</span></span><br><span class="line">    </span><br><span class="line">    <span class="attribute">location</span> / &#123; <span class="comment"># location代表配置路由</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8000; <span class="comment"># 将请求转发给localhost 8000端口, 即转发给gunicorn处理</span></span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    	<span class="attribute">proxy_set_header</span> X-Real_IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    	<span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> _;</span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:8000;</span><br><span class="line">    <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80; # 要监听的端口号</span><br><span class="line">    server_name _; # 服务器的域名，因为我部署时没有注册域名，就用_代替</span><br><span class="line">    </span><br><span class="line">    location / &#123; # location代表配置路由</span><br><span class="line">        proxy_pass http://localhost:8000; # 将请求转发给localhost 8000端口, 即转发给gunicorn处理</span><br><span class="line">        proxy_redirect off;</span><br><span class="line">        proxy_set_header Host $host;</span><br><span class="line">    	proxy_set_header X-Real_IP $remote_addr;</span><br><span class="line">    	proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name _;</span><br><span class="line">    location / &#123;</span><br><span class="line">    proxy_pass http://localhost:8000;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="完全卸载nginx"><a href="#完全卸载nginx" class="headerlink" title="完全卸载nginx"></a>完全卸载nginx</h2><p>root权限下输入如下命令</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf <span class="meta-keyword">/etc/</span>nginx/</span><br><span class="line">rm -rf <span class="meta-keyword">/usr/</span>sbin/nginx</span><br><span class="line">rm <span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/man/</span>man1/nginx<span class="number">.1</span>.gz</span><br><span class="line">apt-get remove nginx*</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/nginx/</span><br><span class="line">rm -rf /usr/sbin/nginx</span><br><span class="line">rm /usr/share/man/man1/nginx.1.gz</span><br><span class="line">apt-get remove nginx*</span><br></pre></td></tr></table></figure>
 <p>原理就是删除关联文件以及文件夹</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li><a href="https://blog.csdn.net/david_xtd/article/details/16967837" target="_blank" rel="noopener">写给Web开发人员看的Nginx介绍</a></li>
@@ -532,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -543,7 +543,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -554,7 +554,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">50</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
