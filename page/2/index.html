@@ -2,26 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next pisces use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -38,37 +36,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,33 +46,42 @@
 
 
 
-<meta name="description" content="一天能做的很有限，所幸可以积少成多">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joseph Chu&#39;s Blog">
-<meta property="og:url" content="http://xingye.us/page/2/index.html">
-<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
-<meta property="og:description" content="一天能做的很有限，所幸可以积少成多">
-<meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
-<meta name="twitter:description" content="一天能做的很有限，所幸可以积少成多">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -117,14 +93,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="一日之功很有限，不过可以积少成多">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joseph Chu&#39;s Blog">
+<meta property="og:url" content="http://xingye.us/page/2/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:description" content="一日之功很有限，不过可以积少成多">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
+<meta name="twitter:description" content="一日之功很有限，不过可以积少成多">
+
+
+
+
+
 
   <link rel="canonical" href="http://xingye.us/page/2/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Joseph Chu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Joseph Chu's Blog</title>
   
 
 
@@ -133,6 +133,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -149,23 +178,26 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Joseph Chu's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Worry Less, Do More</p>
+        <p class="site-subtitle">Worry Less, Do More lah</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -173,65 +205,103 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -239,12 +309,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -257,21 +338,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/神经网络loss不下降/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/神经网络loss不下降/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -281,11 +364,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/神经网络loss不下降/" itemprop="url">Train Loss & Validation Loss 反应的神经网络训练趋势</a></h1>
+                
+                <a href="/2018/12/30/神经网络loss不下降/" class="post-title-link" itemprop="url">Train Loss & Validation Loss 反应的神经网络训练趋势</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -293,18 +385,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:14:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 11:14:00 / Modified: 11:21:00" itemprop="dateCreated datePublished" datetime="2018-12-30T11:14:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -315,11 +412,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
 
                 
                 
@@ -329,16 +422,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/神经网络loss不下降/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/神经网络loss不下降/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -373,21 +456,29 @@
 <li>train loss 不断上升，validation loss不断上升，说明网络结构设计不当，训练超参数设置不当，数据集清洗不当等问题。</li>
 </ul>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/30/神经网络loss不下降/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/30/神经网络loss不下降/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -420,21 +511,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/22/TensorBoard简单使用/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/22/TensorBoard简单使用/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -444,11 +537,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/22/TensorBoard简单使用/" itemprop="url">TensorBoard简单使用</a></h1>
+                
+                <a href="/2018/12/22/TensorBoard简单使用/" class="post-title-link" itemprop="url">TensorBoard简单使用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -456,18 +558,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-22T12:00:00+08:00">
-                2018-12-22
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-22 12:00:00 / Modified: 12:01:27" itemprop="dateCreated datePublished" datetime="2018-12-22T12:00:00+08:00">2018-12-22</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -478,11 +585,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
 
                 
                 
@@ -492,16 +595,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/22/TensorBoard简单使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/22/TensorBoard简单使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -533,21 +626,29 @@
 <li>Tensorboard是通过将数据写入到本地的log文件中，再以本地web的方式呈现</li>
 </ul>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/22/TensorBoard简单使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/22/TensorBoard简单使用/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -580,21 +681,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/20/写给自己的博客命名规范/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/20/写给自己的博客命名规范/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -604,11 +707,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/20/写给自己的博客命名规范/" itemprop="url">写给自己的博客规范</a></h1>
+                
+                <a href="/2018/12/20/写给自己的博客命名规范/" class="post-title-link" itemprop="url">写给自己的博客规范</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -616,18 +728,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T21:18:00+08:00">
-                2018-12-20
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-20 21:18:00" itemprop="dateCreated datePublished" datetime="2018-12-20T21:18:00+08:00">2018-12-20</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 15:03:34" itemprop="dateModified" datetime="2018-12-31T15:03:34+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -638,11 +767,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/博客配置/" itemprop="url" rel="index">
-                    <span itemprop="name">博客配置</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/博客配置/" itemprop="url" rel="index"><span itemprop="name">博客配置</span></a></span>
 
                 
                 
@@ -652,16 +777,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/20/写给自己的博客命名规范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/20/写给自己的博客命名规范/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -691,21 +806,29 @@
           <p>希望自己能够成为一个坚持写博客的人。慢慢地，博文多了，一套好的命名规范就显得很重要，在这里写下自己的博客命名规范。</p>
 <p>更新日期 2018-12-30</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/20/写给自己的博客命名规范/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/20/写给自己的博客命名规范/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -738,21 +861,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/20/shell实用文件操作/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/20/shell实用文件操作/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -762,11 +887,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/20/shell实用文件操作/" itemprop="url">Shell实用文件操作</a></h1>
+                
+                <a href="/2018/12/20/shell实用文件操作/" class="post-title-link" itemprop="url">Shell实用文件操作</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -774,18 +908,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-20T17:06:00+08:00">
-                2018-12-20
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-20 17:06:00" itemprop="dateCreated datePublished" datetime="2018-12-20T17:06:00+08:00">2018-12-20</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 14:44:53" itemprop="dateModified" datetime="2018-12-31T14:44:53+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -796,11 +947,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shell技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">Shell技巧</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Shell技巧/" itemprop="url" rel="index"><span itemprop="name">Shell技巧</span></a></span>
 
                 
                 
@@ -810,16 +957,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/20/shell实用文件操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/20/shell实用文件操作/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -848,21 +985,29 @@
         
           <p>一些较为高级的文件操作（诸如统计行数，打乱内容）都可以利用shell命令快速的完成。这里记录自己用过的shell命令。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/20/shell实用文件操作/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/20/shell实用文件操作/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -895,21 +1040,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/19/Mac安装Linux下有但Mac没有的命令/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/19/Mac安装Linux下有但Mac没有的命令/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -919,11 +1066,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/" itemprop="url">Mac安装Linux下有但Mac没有的命令</a></h1>
+                
+                <a href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/" class="post-title-link" itemprop="url">Mac安装Linux下有但Mac没有的命令</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -931,18 +1087,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-19T15:41:00+08:00">
-                2018-12-19
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-19 15:41:00 / Modified: 15:45:37" itemprop="dateCreated datePublished" datetime="2018-12-19T15:41:00+08:00">2018-12-19</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -953,11 +1114,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
 
                 
                 
@@ -967,16 +1124,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/19/Mac安装Linux下有但Mac没有的命令/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1007,21 +1154,29 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install coreutils</span><br></pre></td></tr></table></figure>
 <p>安装之后可以用<code>gshuf</code>命令来实现和Linux下<code>shuf</code>相同的功能</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/19/Mac安装Linux下有但Mac没有的命令/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1054,21 +1209,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/19/Python-logging模块使用/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/19/Python-logging模块使用/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1078,11 +1235,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/19/Python-logging模块使用/" itemprop="url">Python logging模块使用</a></h1>
+                
+                <a href="/2018/12/19/Python-logging模块使用/" class="post-title-link" itemprop="url">Python logging模块使用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1090,18 +1256,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-19T10:44:00+08:00">
-                2018-12-19
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-19 10:44:00" itemprop="dateCreated datePublished" datetime="2018-12-19T10:44:00+08:00">2018-12-19</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-30 11:38:05" itemprop="dateModified" datetime="2018-12-30T11:38:05+08:00">2018-12-30</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1112,11 +1295,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
 
                 
                 
@@ -1126,16 +1305,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/19/Python-logging模块使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/19/Python-logging模块使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1164,21 +1333,29 @@
         
           <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging <span class="comment"># 导入logging模块</span></span><br><span class="line">logging.basicConfig( <span class="comment"># 配置logging模块</span></span><br><span class="line">	level=logging.INFO,</span><br><span class="line">	format=<span class="string">'%(asctime)s  %(levelname)s  %(message)s'</span>,</span><br><span class="line">)</span><br><span class="line"><span class="comment"># 用法1：使用默认logger</span></span><br><span class="line">logging.info(<span class="string">'this is info message'</span>) <span class="comment"># 输出info级消息</span></span><br><span class="line"><span class="comment"># 用法2：自定义logger的名字</span></span><br><span class="line">logger = logging.getLogger(<span class="string">'mylogger'</span>)</span><br><span class="line">logger.info(<span class="string">'this is info message from mylogger'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line"><span class="comment"># 2018-07-01 18:49:36,170   INFO   this is a info</span></span><br><span class="line"><span class="comment"># 2018-07-01 18:49:36,170   INFO   this is a info from mylogger</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/19/Python-logging模块使用/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/19/Python-logging模块使用/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1211,21 +1388,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/numpy-改变数组的shape/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/numpy-改变数组的shape/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1235,11 +1414,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/numpy-改变数组的shape/" itemprop="url">Numpy 改变数组的shape</a></h1>
+                
+                <a href="/2018/12/18/numpy-改变数组的shape/" class="post-title-link" itemprop="url">Numpy 改变数组的shape</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1247,18 +1435,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T12:04:00+08:00">
-                2018-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-18 12:04:00" itemprop="dateCreated datePublished" datetime="2018-12-18T12:04:00+08:00">2018-12-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 14:45:22" itemprop="dateModified" datetime="2018-12-31T14:45:22+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1269,11 +1474,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
 
                 
                 
@@ -1283,16 +1484,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/18/numpy-改变数组的shape/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/18/numpy-改变数组的shape/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1329,12 +1520,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1367,21 +1564,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas-遍历Dataframe/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas-遍历Dataframe/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1391,11 +1590,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/pandas-遍历Dataframe/" itemprop="url">Pandas 遍历Dataframe</a></h1>
+                
+                <a href="/2018/12/18/pandas-遍历Dataframe/" class="post-title-link" itemprop="url">Pandas 遍历Dataframe</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1403,18 +1611,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T12:03:00+08:00">
-                2018-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-18 12:03:00" itemprop="dateCreated datePublished" datetime="2018-12-18T12:03:00+08:00">2018-12-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 14:45:31" itemprop="dateModified" datetime="2018-12-31T14:45:31+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1425,11 +1650,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
 
                 
                 
@@ -1439,16 +1660,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/18/pandas-遍历Dataframe/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/18/pandas-遍历Dataframe/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1485,12 +1696,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1523,21 +1740,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas学习资源/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas学习资源/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1547,11 +1766,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/pandas学习资源/" itemprop="url">Pandas学习资源</a></h1>
+                
+                <a href="/2018/12/18/pandas学习资源/" class="post-title-link" itemprop="url">Pandas学习资源</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1559,18 +1787,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T12:01:00+08:00">
-                2018-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-18 12:01:00" itemprop="dateCreated datePublished" datetime="2018-12-18T12:01:00+08:00">2018-12-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 14:45:41" itemprop="dateModified" datetime="2018-12-31T14:45:41+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1581,11 +1826,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning-Resource/" itemprop="url" rel="index">
-                    <span itemprop="name">Learning Resource</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Learning-Resource/" itemprop="url" rel="index"><span itemprop="name">Learning Resource</span></a></span>
 
                 
                 
@@ -1595,16 +1836,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/18/pandas学习资源/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/18/pandas学习资源/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1641,12 +1872,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1679,21 +1916,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas-read-csv-参数/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/18/pandas-read-csv-参数/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1703,11 +1942,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/18/pandas-read-csv-参数/" itemprop="url">Pandas read_csv()参数</a></h1>
+                
+                <a href="/2018/12/18/pandas-read-csv-参数/" class="post-title-link" itemprop="url">Pandas read_csv()参数</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1715,18 +1963,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-18T12:00:00+08:00">
-                2018-12-18
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-18 12:00:00" itemprop="dateCreated datePublished" datetime="2018-12-18T12:00:00+08:00">2018-12-18</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-12-31 14:45:52" itemprop="dateModified" datetime="2018-12-31T14:45:52+08:00">2018-12-31</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1737,11 +2002,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
 
                 
                 
@@ -1751,16 +2012,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/18/pandas-read-csv-参数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/18/pandas-read-csv-参数/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1794,12 +2045,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1828,15 +2085,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1852,72 +2106,219 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Joseph Chu</p>
-              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
+              <div class="site-description motion-element" itemprop="description">一日之功很有限，不过可以积少成多</div>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">61</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">50</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
+            </nav>
           
 
           
 
           
+
           
 
           
           
 
+          
+            
+          
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1925,6 +2326,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1933,24 +2335,33 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
+
+  
 
   
 </div>
 
 
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.6.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
 
 
 
 
         
+
 
 
 
@@ -1971,11 +2382,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1989,7 +2403,6 @@
 
 
 
-  
 
 
 
@@ -2002,99 +2415,96 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+
+
+
+
 
   
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script src="/js/src/utils.js?v=7.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script src="/js/src/motion.js?v=7.0.1"></script>
 
 
 
   
   
 
-  
 
-  
+  <script src="/js/src/affix.js?v=7.0.1"></script>
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
 
 
 
   
 
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
   
 
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
     
-      <script id="dsq-count-scr" src="https://josephzxy-github-io.disqus.com/count.js" async></script>
+      
     
-
+      
     
-
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
 
-
-
-
-	
-
-
-
-
-
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
 
 
   
@@ -2104,31 +2514,12 @@
   
 
   
+
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
-
 
   
 

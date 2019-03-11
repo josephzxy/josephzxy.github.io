@@ -2,26 +2,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next mist use-motion" lang="en">
+<html class="theme-next pisces use-motion" lang="en">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
-
-
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -38,37 +36,6 @@
 
 
 
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,33 +46,42 @@
 
 
 
-<meta name="description" content="一天能做的很有限，所幸可以积少成多">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Joseph Chu&#39;s Blog">
-<meta property="og:url" content="http://xingye.us/index.html">
-<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
-<meta property="og:description" content="一天能做的很有限，所幸可以积少成多">
-<meta property="og:locale" content="en">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
-<meta name="twitter:description" content="一天能做的很有限，所幸可以积少成多">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
 
 
 
-<script type="text/javascript" id="hexo.configurations">
+
+
+
+
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Mist',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
+    scheme: 'Pisces',
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -117,14 +93,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="一日之功很有限，不过可以积少成多">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Joseph Chu&#39;s Blog">
+<meta property="og:url" content="http://xingye.us/index.html">
+<meta property="og:site_name" content="Joseph Chu&#39;s Blog">
+<meta property="og:description" content="一日之功很有限，不过可以积少成多">
+<meta property="og:locale" content="en">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Joseph Chu&#39;s Blog">
+<meta name="twitter:description" content="一日之功很有限，不过可以积少成多">
+
+
+
+
+
 
   <link rel="canonical" href="http://xingye.us/"/>
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>Joseph Chu's Blog</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Joseph Chu's Blog</title>
   
 
 
@@ -133,6 +133,35 @@
 
 
 
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
@@ -149,23 +178,26 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Joseph Chu's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Worry Less, Do More</p>
+        <p class="site-subtitle">Worry Less, Do More lah</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Toggle navigation bar">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -173,65 +205,103 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            Home
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            Archives
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            Categories
-          </a>
-        </li>
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>Home</a>
+
+  </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            Tags
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            About
-          </a>
-        </li>
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
       
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br/>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br/>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br/>About</a>
+
+  </li>
 
       
+      
     </ul>
+  
+
   
 
   
@@ -239,12 +309,23 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -257,21 +338,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/03/06/【机器学习中的数学】梯度/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/03/06/【机器学习中的数学】梯度/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -281,11 +364,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/06/【机器学习中的数学】梯度/" itemprop="url">【机器学习中的数学】梯度</a></h1>
+                
+                <a href="/2019/03/06/【机器学习中的数学】梯度/" class="post-title-link" itemprop="url">【机器学习中的数学】梯度</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -293,18 +385,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-06T15:25:00+08:00">
-                2019-03-06
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2019-03-06 15:25:00 / Modified: 15:29:19" itemprop="dateCreated datePublished" datetime="2019-03-06T15:25:00+08:00">2019-03-06</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -315,22 +412,14 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
 
                 
                 
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index">
-                    <span itemprop="name">Maths</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index"><span itemprop="name">Maths</span></a></span>
 
                 
                 
@@ -340,16 +429,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/03/06/【机器学习中的数学】梯度/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/03/06/【机器学习中的数学】梯度/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -422,12 +501,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -460,21 +545,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/27/nndl-note-1/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/27/nndl-note-1/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -484,11 +571,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/27/nndl-note-1/" itemprop="url">《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法</a></h1>
+                
+                <a href="/2019/02/27/nndl-note-1/" class="post-title-link" itemprop="url">《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -496,18 +592,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-27T12:01:00+08:00">
-                2019-02-27
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-27 12:01:00 / Modified: 12:18:38" itemprop="dateCreated datePublished" datetime="2019-02-27T12:01:00+08:00">2019-02-27</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -518,11 +619,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
 
                 
                 
@@ -532,16 +629,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/27/nndl-note-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/02/27/nndl-note-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -571,21 +658,29 @@
           <p>本系列笔记文章意在对<a href="https://book.douban.com/subject/26727997/" target="_blank" rel="noopener">《神经网络与深度学习》</a>一书中学到的知识点进行浓缩和总结，并加入自己的理解。</p>
 <p>《神经网络与深度学习》资源<br>英文版：<a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">http://neuralnetworksanddeeplearning.com/</a><br>中文版：<a href="https://pan.baidu.com/s/1mi8YVri" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi8YVri</a> 密码：e7do</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/27/nndl-note-1/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/27/nndl-note-1/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -618,21 +713,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/20/神经网络基础概念整理（一）——微分和梯度/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/20/神经网络基础概念整理（一）——微分和梯度/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -642,11 +739,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" itemprop="url">【机器学习中的数学】微分</a></h1>
+                
+                <a href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" class="post-title-link" itemprop="url">【机器学习中的数学】微分</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -654,18 +760,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-20T11:28:00+08:00">
-                2019-02-20
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-20 11:28:00" itemprop="dateCreated datePublished" datetime="2019-02-20T11:28:00+08:00">2019-02-20</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-06 15:30:34" itemprop="dateModified" datetime="2019-03-06T15:30:34+08:00">2019-03-06</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -676,22 +799,14 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
 
                 
                 
                   , 
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index">
-                    <span itemprop="name">Maths</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index"><span itemprop="name">Maths</span></a></span>
 
                 
                 
@@ -701,16 +816,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/02/20/神经网络基础概念整理（一）——微分和梯度/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -759,12 +864,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -797,21 +908,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/07/Numpy数组切片的一些理解/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2019/02/07/Numpy数组切片的一些理解/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -821,11 +934,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/02/07/Numpy数组切片的一些理解/" itemprop="url">Numpy数组索引的一些理解</a></h1>
+                
+                <a href="/2019/02/07/Numpy数组切片的一些理解/" class="post-title-link" itemprop="url">Numpy数组索引的一些理解</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -833,18 +955,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-07T17:03:00+08:00">
-                2019-02-07
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2019-02-07 17:03:00" itemprop="dateCreated datePublished" datetime="2019-02-07T17:03:00+08:00">2019-02-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-08 10:41:48" itemprop="dateModified" datetime="2019-02-08T10:41:48+08:00">2019-02-08</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -855,11 +994,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python-Package-Usage/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Package Usage</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
 
                 
                 
@@ -869,16 +1004,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/02/07/Numpy数组切片的一些理解/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2019/02/07/Numpy数组切片的一些理解/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -907,21 +1032,29 @@
         
           <p>最近在学Pytorch，因切片规则和Numpy相同，特在此记录。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/07/Numpy数组切片的一些理解/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/02/07/Numpy数组切片的一些理解/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -954,21 +1087,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/31/自己领悟的一些道理/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/31/自己领悟的一些道理/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -978,11 +1113,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/31/自己领悟的一些道理/" itemprop="url">自己领悟的一些道理</a></h1>
+                
+                <a href="/2018/12/31/自己领悟的一些道理/" class="post-title-link" itemprop="url">自己领悟的一些道理</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -990,18 +1134,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-31T16:31:00+08:00">
-                2018-12-31
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-31 16:31:00 / Modified: 16:35:00" itemprop="dateCreated datePublished" datetime="2018-12-31T16:31:00+08:00">2018-12-31</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1012,11 +1161,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
 
                 
                 
@@ -1026,16 +1171,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/31/自己领悟的一些道理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/31/自己领悟的一些道理/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1076,12 +1211,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1114,21 +1255,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/别了2018/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/别了2018/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1138,11 +1281,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/别了2018/" itemprop="url">【随笔】别了2018</a></h1>
+                
+                <a href="/2018/12/30/别了2018/" class="post-title-link" itemprop="url">【随笔】别了2018</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1150,18 +1302,35 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T20:56:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 20:56:00" itemprop="dateCreated datePublished" datetime="2018-12-30T20:56:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-02-07 17:02:44" itemprop="dateModified" datetime="2019-02-07T17:02:44+08:00">2019-02-07</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1172,11 +1341,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/随笔/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a></span>
 
                 
                 
@@ -1186,16 +1351,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/别了2018/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/别了2018/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1225,21 +1380,29 @@
           <p>我在想用什么词才能最贴切地形容这一年。</p>
 <p>应该是“归回”吧。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/30/别了2018/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/30/别了2018/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1272,21 +1435,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中的switch...case实现/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中的switch...case实现/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1296,11 +1461,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/Python中的switch...case实现/" itemprop="url">[Python] switch...case的实现</a></h1>
+                
+                <a href="/2018/12/30/Python中的switch...case实现/" class="post-title-link" itemprop="url">[Python] switch...case的实现</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1308,18 +1482,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T12:16:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 12:16:00 / Modified: 12:17:44" itemprop="dateCreated datePublished" datetime="2018-12-30T12:16:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1330,11 +1509,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Languages/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming Languages</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming-Languages/" itemprop="url" rel="index"><span itemprop="name">Programming Languages</span></a></span>
 
                 
                 
@@ -1344,16 +1519,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/Python中的switch...case实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/Python中的switch...case实现/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1382,21 +1547,29 @@
         
           <p>Python与C++不同，并没有提供switch…case语句。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/30/Python中的switch...case实现/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/30/Python中的switch...case实现/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1429,21 +1602,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中staticmethod 和classmethod的区别/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/Python中staticmethod 和classmethod的区别/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1453,11 +1628,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/Python中staticmethod 和classmethod的区别/" itemprop="url">[Python] staticmethod和classmethod的区别</a></h1>
+                
+                <a href="/2018/12/30/Python中staticmethod 和classmethod的区别/" class="post-title-link" itemprop="url">[Python] staticmethod和classmethod的区别</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1465,18 +1649,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T12:15:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 12:15:00 / Modified: 12:17:23" itemprop="dateCreated datePublished" datetime="2018-12-30T12:15:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1487,11 +1676,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Programming-Languages/" itemprop="url" rel="index">
-                    <span itemprop="name">Programming Languages</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming-Languages/" itemprop="url" rel="index"><span itemprop="name">Programming Languages</span></a></span>
 
                 
                 
@@ -1501,16 +1686,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/Python中staticmethod 和classmethod的区别/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/Python中staticmethod 和classmethod的区别/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1553,21 +1728,29 @@
 </li>
 </ul>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/12/30/Python中staticmethod 和classmethod的区别/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/30/Python中staticmethod 和classmethod的区别/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1600,21 +1783,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/MAc/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/MAc/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1624,11 +1809,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/MAc/" itemprop="url">Mac中环境变量配置文件的区别</a></h1>
+                
+                <a href="/2018/12/30/MAc/" class="post-title-link" itemprop="url">Mac中环境变量配置文件的区别</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1636,18 +1830,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:58:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 11:58:00 / Modified: 12:00:18" itemprop="dateCreated datePublished" datetime="2018-12-30T11:58:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1658,11 +1857,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mac/" itemprop="url" rel="index">
-                    <span itemprop="name">Mac</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
 
                 
                 
@@ -1672,16 +1867,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/MAc/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/MAc/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1724,12 +1909,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1762,21 +1953,23 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/【学习资源】深度学习/">
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/12/30/【学习资源】深度学习/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
     </span>
 
     
@@ -1786,11 +1979,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/12/30/【学习资源】深度学习/" itemprop="url">[Learning Resource] Deep Learning</a></h1>
+                
+                <a href="/2018/12/30/【学习资源】深度学习/" class="post-title-link" itemprop="url">[Learning Resource] Deep Learning</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1798,18 +2000,23 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-30T11:24:00+08:00">
-                2018-12-30
-              </time>
+
+              
+                
+              
+
+              <time title="Created: 2018-12-30 11:24:00 / Modified: 11:32:03" itemprop="dateCreated datePublished" datetime="2018-12-30T11:24:00+08:00">2018-12-30</time>
             
 
             
+              
 
+              
             
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -1820,11 +2027,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Learning-Resource/" itemprop="url" rel="index">
-                    <span itemprop="name">Learning Resource</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Learning-Resource/" itemprop="url" rel="index"><span itemprop="name">Learning Resource</span></a></span>
 
                 
                 
@@ -1834,16 +2037,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/30/【学习资源】深度学习/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/12/30/【学习资源】深度学习/" itemprop="commentCount"></span>
-                </a>
-              </span>
             
           
 
@@ -1882,12 +2075,18 @@
         
       
     </div>
+
+    
+
     
     
     
 
     
 
+    
+      
+    
     
 
     
@@ -1916,15 +2115,12 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1940,72 +2136,219 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">Joseph Chu</p>
-              <p class="site-description motion-element" itemprop="description">一天能做的很有限，所幸可以积少成多</p>
+              <div class="site-description motion-element" itemprop="description">一日之功很有限，不过可以积少成多</div>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">61</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-name">categories</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">61</span>
-                  <span class="site-state-item-name">posts</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
-                  <span class="site-state-item-name">categories</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">50</span>
-                  <span class="site-state-item-name">tags</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
+            </nav>
           
 
           
 
           
+
           
 
           
           
 
+          
+            
+          
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -2013,6 +2356,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -2021,24 +2365,33 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Joseph Chu</span>
+
+  
 
   
 </div>
 
 
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> v3.6.0</div>
 
 
 
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.0.1</div>
 
 
 
 
         
+
 
 
 
@@ -2059,11 +2412,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2077,7 +2433,6 @@
 
 
 
-  
 
 
 
@@ -2090,99 +2445,96 @@
 
 
 
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
+
+
+
+
 
   
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script src="/js/src/utils.js?v=7.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+  <script src="/js/src/motion.js?v=7.0.1"></script>
 
 
 
   
   
 
-  
 
-  
+  <script src="/js/src/affix.js?v=7.0.1"></script>
 
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
 
 
 
   
 
+  
+
+
+  <script src="/js/src/next-boot.js?v=7.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
 
   
 
+  
+
+  
+
+  
+
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
     
-      <script id="dsq-count-scr" src="https://josephzxy-github-io.disqus.com/count.js" async></script>
+      
     
-
+      
     
-
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
   
 
-
-
-
-	
-
-
-
-
-
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
 
 
   
@@ -2192,31 +2544,12 @@
   
 
   
+
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
-
 
   
 
