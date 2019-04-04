@@ -98,19 +98,23 @@
 
 
 
-  <meta name="description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Project Workflow">
+  <meta name="description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Dissertation AbstractPublic perception analysis helps improve services and detect issues. This project conducts sentiment anal">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Public Perception Analysis on Social Media">
 <meta property="og:url" content="http://xingye.us/2019/04/02/Dissertation/index.html">
 <meta property="og:site_name" content="Joseph Chu&#39;s Blog">
-<meta property="og:description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Project Workflow">
+<meta property="og:description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Dissertation AbstractPublic perception analysis helps improve services and detect issues. This project conducts sentiment anal">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/overall workflow.png">
+<meta property="og:image" content="https://lh6.googleusercontent.com/cdcZupII1rsNol5Dysz6fVx3mJz2evSr32FMQfDIfXfXszairY1S0P9EaVywEVf38hxs2ECw0dWs5vTMtqwbC6I9AJPQgoLbnUWvVUaBfbNljOfsH2Wtcm_jmsenMPYhsvkdNYNw">
+<meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/20190404142029.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-04-04 at 2.16.26 PM.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-04-04 at 2.16.34 PM.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/joseph-poster.jpg">
-<meta property="og:updated_time" content="2019-04-02T02:54:31.873Z">
+<meta property="og:updated_time" content="2019-04-04T08:10:57.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Public Perception Analysis on Social Media">
-<meta name="twitter:description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Project Workflow">
+<meta name="twitter:description" content="Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Dissertation AbstractPublic perception analysis helps improve services and detect issues. This project conducts sentiment anal">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/overall workflow.png">
 
 
@@ -391,12 +395,24 @@
                 
               
 
-              <time title="Created: 2019-04-02 10:33:00 / Modified: 10:54:31" itemprop="dateCreated datePublished" datetime="2019-04-02T10:33:00+08:00">2019-04-02</time>
+              <time title="Created: 2019-04-02 10:33:00" itemprop="dateCreated datePublished" datetime="2019-04-02T10:33:00+08:00">2019-04-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-04-04 16:10:57" itemprop="dateModified" datetime="2019-04-04T16:10:57+08:00">2019-04-04</time>
               
             
           </span>
@@ -431,10 +447,36 @@
 
       
         <h2 id="Basic-Infos"><a href="#Basic-Infos" class="headerlink" title="Basic Infos"></a>Basic Infos</h2><p>Student: ZHU Xingye (Joseph)<br>Supervisor: Prof. Francis C.M. Lau</p>
-<h2 id="Project-Workflow"><a href="#Project-Workflow" class="headerlink" title="Project Workflow"></a>Project Workflow</h2><p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/overall workflow.png" alt=""></p>
-<a id="more"></a>
 <h2 id="Dissertation-Abstract"><a href="#Dissertation-Abstract" class="headerlink" title="Dissertation Abstract"></a>Dissertation Abstract</h2><p>Public perception analysis helps improve services and detect issues. This project conducts sentiment analysis and topic labelling task on Hong Kong MTR related tweets under Siemens application scene and compares algorithms adopted in each task. For sentiment analysis, we applies traditional deep neural network such as RNN, CNN on public massive sentiment dataset. For topic labelling, we crawled, labeled, augmented our own dataset and adopts latest transfer learning techniques like BERT, ULMFiT. For both tasks, we use FastText which is a light yet powerful and fast text classification algorithm as baseline.</p>
 <p>In our experiments, RNN and ULMFiT achieved the best performance in sentiment analysis and topic labelling task respectively. Our experiments suggest that feature extraction determines model performance while most suitable feature extraction level depends on dataset(size, quality, etc) and label categories. Under extraction like CNN or over extraction like BERT might both lead to worse performance. Also, introducing transfer learning to NLP related tasks in public perception analysis is promising especially when labeled samples are limited.</p>
+<a id="more"></a>
+<h2 id="Project-Workflow"><a href="#Project-Workflow" class="headerlink" title="Project Workflow"></a>Project Workflow</h2><p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/overall workflow.png" alt=""></p>
+<h2 id="Demos"><a href="#Demos" class="headerlink" title="Demos"></a>Demos</h2><p>For demonstration models, we select RNN for Sentiment Analysis task and ULMFiT for Topic Labeling task respectively. They are the models with the best performance in our project on its own task.</p>
+<p>Below we will demonstrate the classification for an example text <strong>“Why the escalator broke again? And the train has major delay!”</strong> to show that our system is workable.</p>
+<p>The ground truths for example text are easy to tell. </p>
+<ul>
+<li>Sentiment: NEGATIVE</li>
+<li>Topic: TRAIN_SERVICE &amp; FACILITIES</li>
+</ul>
+<h4 id="Sentiment-Analysis-Demo"><a href="#Sentiment-Analysis-Demo" class="headerlink" title="Sentiment Analysis Demo"></a>Sentiment Analysis Demo</h4><p><img src="https://lh6.googleusercontent.com/cdcZupII1rsNol5Dysz6fVx3mJz2evSr32FMQfDIfXfXszairY1S0P9EaVywEVf38hxs2ECw0dWs5vTMtqwbC6I9AJPQgoLbnUWvVUaBfbNljOfsH2Wtcm_jmsenMPYhsvkdNYNw" alt=""></p>
+<h4 id="Topic-Labeling-Demo"><a href="#Topic-Labeling-Demo" class="headerlink" title="Topic Labeling Demo"></a>Topic Labeling Demo</h4><p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/20190404142029.png" alt=""></p>
+<h2 id="Experiment-Results"><a href="#Experiment-Results" class="headerlink" title="Experiment Results"></a>Experiment Results</h2><h4 id="Sentiment-Analysis"><a href="#Sentiment-Analysis" class="headerlink" title="Sentiment Analysis"></a>Sentiment Analysis</h4><p>We trained RNN &amp; CNN &amp; FastText sentiment classifier using Tensorflow on <a href="https://www.kaggle.com/kazanova/sentiment140" target="_blank" rel="noopener">Sentiment 140 dataset</a>. Below is comparison results</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-04-04 at 2.16.26 PM.png" alt=""></p>
+<h4 id="Topic-Labeling"><a href="#Topic-Labeling" class="headerlink" title="Topic Labeling"></a>Topic Labeling</h4><p>We trained binary classifier for the following categories,</p>
+<ul>
+<li>TRAIN_SERVICE</li>
+<li>FACILITIES</li>
+<li>PEOPLE</li>
+</ul>
+<p>using the following algorithms</p>
+<ul>
+<li>ULMFiT</li>
+<li>BERT</li>
+<li>FastText</li>
+</ul>
+<p>on our own crawled dataset. (each category has around 450 pieces of tweets)</p>
+<p>Below is comparison results</p>
+<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-04-04 at 2.16.34 PM.png" alt=""></p>
 <h2 id="Dissertation-Poster"><a href="#Dissertation-Poster" class="headerlink" title="Dissertation Poster"></a>Dissertation Poster</h2><p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/joseph-poster.jpg" alt=""></p>
 <h2 id="Video-Demos"><a href="#Video-Demos" class="headerlink" title="Video Demos"></a>Video Demos</h2>
       
@@ -747,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Infos"><span class="nav-number">1.</span> <span class="nav-text">Basic Infos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Project-Workflow"><span class="nav-number">2.</span> <span class="nav-text">Project Workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dissertation-Abstract"><span class="nav-number">3.</span> <span class="nav-text">Dissertation Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dissertation-Poster"><span class="nav-number">4.</span> <span class="nav-text">Dissertation Poster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Video-Demos"><span class="nav-number">5.</span> <span class="nav-text">Video Demos</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Infos"><span class="nav-number">1.</span> <span class="nav-text">Basic Infos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dissertation-Abstract"><span class="nav-number">2.</span> <span class="nav-text">Dissertation Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Project-Workflow"><span class="nav-number">3.</span> <span class="nav-text">Project Workflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demos"><span class="nav-number">4.</span> <span class="nav-text">Demos</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sentiment-Analysis-Demo"><span class="nav-number">4.0.1.</span> <span class="nav-text">Sentiment Analysis Demo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Topic-Labeling-Demo"><span class="nav-number">4.0.2.</span> <span class="nav-text">Topic Labeling Demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment-Results"><span class="nav-number">5.</span> <span class="nav-text">Experiment Results</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sentiment-Analysis"><span class="nav-number">5.0.1.</span> <span class="nav-text">Sentiment Analysis</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Topic-Labeling"><span class="nav-number">5.0.2.</span> <span class="nav-text">Topic Labeling</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dissertation-Poster"><span class="nav-number">6.</span> <span class="nav-text">Dissertation Poster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Video-Demos"><span class="nav-number">7.</span> <span class="nav-text">Video Demos</span></a></li></ol></div>
             
 
           </div>
