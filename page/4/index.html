@@ -345,7 +345,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/bs4-basic-usage/"/>
+    <link itemprop="mainEntityOfPage" href="http://xingye.us/2018/10/01/requests-basic-usage/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Joseph Chu"/>
@@ -365,7 +365,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/10/01/bs4-basic-usage/" class="post-title-link" itemprop="url">BeautifulSoup 基本使用</a>
+                <a href="/2018/10/01/requests-basic-usage/" class="post-title-link" itemprop="url">Requests 库基本用法</a>
               
             
           </h1>
@@ -407,7 +407,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-01-08 14:32:39" itemprop="dateModified" datetime="2019-01-08T14:32:39+08:00">2019-01-08</time>
+                <time title="Modified: 2019-01-08 15:23:27" itemprop="dateModified" datetime="2019-01-08T15:23:27+08:00">2019-01-08</time>
               
             
           </span>
@@ -461,27 +461,33 @@
       
         
           
-            <p>在这里主要记录自己项目中涉及到的用法，供以后参考。</p>
-<h2 id="获取bs实例"><a href="#获取bs实例" class="headerlink" title="获取bs实例"></a>获取bs实例</h2><p>要使用BeautifulSoup，首先就要构建一个<code>BeautifulSoup</code>类实例</p>
+            <p>为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。</p>
+<p>安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install requests</span><br></pre></td></tr></table></figure></p>
+<h2 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h2><p>首先呈上<a href="http://docs.python-requests.org/en/master/" target="_blank" rel="noopener">官方文档</a>，有中文版，欢迎来啃。<br>下面主要介绍两种方法：get和post</p>
 <ul>
-<li>第一个参数：要解析的html文本，可以是<code>str</code>， 也可以是打开的文件句柄</li>
-<li><code>features</code>: 指定html解析器 (关于解析器之间的区别，请戳<a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">官方文档</a>， “安装解析器”一节)</li>
+<li>get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup <span class="keyword">as</span> Soup</span><br><span class="line"></span><br><span class="line">soup = Soup(open(sample.html), features=<span class="string">"lxml"</span>)</span><br><span class="line"><span class="comment"># soup = Soup('&lt;h1&gt;my title&lt;/h1&gt;', features="lxml")</span></span><br><span class="line">soup.find_all(<span class="string">'table'</span>) <span class="comment"># 通过实例来使用一系列强大功能</span></span><br></pre></td></tr></table></figure>
-<h2 id="查找所需的Tag"><a href="#查找所需的Tag" class="headerlink" title="查找所需的Tag"></a>查找所需的Tag</h2><p>常用方法如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">soup.table <span class="comment"># 等同于 soup.find('table')</span></span><br><span class="line">soup.find(<span class="string">'table'</span>) <span class="comment"># 第一个出现的table, 类型为&lt;class 'bs4.element.Tag'&gt;</span></span><br><span class="line">soup.find_all(<span class="string">'table'</span>) <span class="comment"># 所有table</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="获取Tag中的文本"><a href="#获取Tag中的文本" class="headerlink" title="获取Tag中的文本"></a>获取Tag中的文本</h3><p>比如说我的html文本是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>， 我想要获得的是<code>&#39;this is sample&#39;</code></p>
-<p>可以通过<code>soup.text</code>或者<code>soup.string</code>属性来获得</p>
-<p>关于<code>text</code>和<code>string</code>的区别可参考<a href="https://zhuanlan.zhihu.com/p/30911642" target="_blank" rel="noopener">Python BeautifulSoup 中.text与.string的区别</a></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(s.b)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bs4</span>.<span class="title">element</span>.<span class="title">Tag</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">s</span>.<span class="title">b</span>.<span class="title">text</span></span></span><br><span class="line"><span class="class">'<span class="title">this</span> <span class="title">is</span> <span class="title">sample</span>'</span></span><br></pre></td></tr></table></figure>
-<h3 id="获取包含Tag的文本"><a href="#获取包含Tag的文本" class="headerlink" title="获取包含Tag的文本"></a>获取包含Tag的文本</h3><p>那如果我现在想获得的就是<code>&lt;b&gt;this is sample&lt;/b&gt;</code>呢？</p>
-<p>如果是在iPython环境下，可以直接<code>print()</code>相应的Tag对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)</span><br><span class="line">&gt;&gt;&gt; print(s.b)</span><br><span class="line">&lt;b&gt;this is sample&lt;/b&gt;</span><br></pre></td></tr></table></figure>
-<p>如果是在脚本里面，则需要用到Python对象的内置方法<code>__repr__()</code></p>
-<blockquote>
-<p>在print一个对象的时候实际上调用了其<code>__repr__()</code>方法</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>s = Soup(<span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>s.b.__repr__()</span><br><span class="line"><span class="string">'&lt;b&gt;this is sample&lt;/b&gt;'</span></span><br></pre></td></tr></table></figure>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc.zh/" target="_blank" rel="noopener">BeautifulSoup 4.2.0文档</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = requests.get(url,**args)<span class="comment">#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">args = &#123;</span><br><span class="line">	<span class="string">"a"</span>: <span class="string">"b"</span>,</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">r = requests.post(url, params=args)<span class="comment">#也是返回Response对象</span></span><br></pre></td></tr></table></figure>
+<h2 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h2><p>get和post方法中有许多参数可以使用，部分参数后面会详解。</p>
+<ul>
+<li>url：就是目标网址，接收完整（带http）的地址字符串。</li>
+<li>headers：请求头，存储本地信息如浏览器版本，是一个字典。</li>
+<li>data：要提交的数据，字典。</li>
+<li>cookies：cookies，字典。</li>
+<li>timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。</li>
+<li>params：为网址添加条件数据，字典。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">payload = &#123;<span class="string">'key1'</span>: <span class="string">'value1'</span>, <span class="string">'key2'</span>: <span class="string">'value2'</span>&#125;</span><br><span class="line">r = requests.get(<span class="string">"http://httpbin.org/get"</span>, params=payload)</span><br><span class="line"><span class="comment">#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>proxies：ip代理时使用，字典。</li>
+</ul>
+<h2 id="Response对象使用"><a href="#Response对象使用" class="headerlink" title="Response对象使用"></a>Response对象使用</h2><p>从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">r.encoding = &apos;ISO-8859-1&apos;    #指定r.text返回的数据类型，写在r.text之前。</span><br><span class="line">r.text    #默认以unicode形式返回网页内容，也就是网页源码的字符串。</span><br><span class="line"></span><br><span class="line">r.content    #以二进制形式返回网页内容，下载图片时专用。</span><br><span class="line">r.json()    #把网页中的json数据转成字典并将其返回。</span><br><span class="line"></span><br><span class="line">#还有一些很少用到的方法。</span><br><span class="line">r.headers    #返回服务器端的headers，字典。</span><br><span class="line">r.status_code    #返回连接状态，200正常。</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://segmentfault.com/a/1190000014383966" target="_blank" rel="noopener">Python 从零开始爬虫(零)——爬虫思路&amp;requests模块使用</a></p>
 
           
         
