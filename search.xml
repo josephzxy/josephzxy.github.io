@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[爬取Twitter搜索结果]]></title>
+    <url>%2F2019%2F04%2F17%2Fcrawl-twitter-search-result%2F</url>
+    <content type="text"><![CDATA[需求 希望得到大量（几乎全部）符合一定搜索条件的推文 现状 推特自身的API限制诸多，免费API每次请求只能得到100条，只能得到最近7天的推文。付费API虽然能检索full archive，但时间窗口被限定为30天，即只能检索过去所有推文中任意一个30天窗口内的推文… 思路 模拟浏览器向推特搜索网页发送GET请求。 在显示结果的网页中，模拟浏览器不断下拉网页加载新的推文，直至无法加载更多。 获取此时网页的源码，定位并解析出推文内容已经其他相关感兴趣信息。 讨论 为何要模拟浏览器而不是直接用相关库（比如requests）发起请求？ requests库直接发起请求会被推特识别为爬虫，无法返回包含推文的搜索结果页面。（解决方法：可以先用Chrome浏览器发起请求，然后查看请求的headers，并将其设置为requests的GET方法的headers参数） requests库无法模拟浏览器的下拉操作，而搜索结果界面一次只显示20条推文。 为何不使用官方api，或者是对官方api进行封装的工具（比如twarc）? 官方搜索api限制诸多，且免费版只能搜索七天内的推文，数据量太小，无法满足需求。 该方法的优缺点？ 优点：思路直观，实现简单 缺点：selenium慢，占用资源多。 用到的工具语言Python 3.6+ 包 selenium 调用浏览器发起请求，并执行js脚本下拉加载网页 加载完成后保存源码 lxml 利用xpath解析源码，定位到推文部分 beautifulsoup 解析推文部分网页源码，提取出推文及其他信息。 关键代码发起请求 &amp; 下拉网页12345678from selenium import webdriverurl = "https://twitter.com/search?q=trump&amp;src=typd&amp;lang=en"driver = webdriver.Chrome() # 调用chrome driverdriver.get(url)scroll_bottom_script = "window.scrollTo(0,document.body.scrollHeight);"driver.execute_script(scroll_bottom_script) 定位内容 &amp; 解析网页1234567891011121314151617from lxml import etreefrom bs4 import BeautifulSoup as Souptweet_text_xpath = '//*[@data-item-type="tweet"]/div/div[2]/div[@class="js-tweet-text-container"]/p'html = etree.HTML(driver.page_source)text_blocks = html.xpath(tweet_text_xpath)texts = [] # All tweetsfor html_block in text_blocks: tweet_text_html = etree.tostring(html_block).decode("utf-8") soup = Soup(tweet_text_html, features="lxml") [s.extract() for s in soup(['a'])] # remove link text = soup.p.text text = text.replace("\n", " ") text = " ".join(text.split()) text = text.strip() texts.append(text) 参考 python+selenium爬取动态网页数据 - PUPPYplayBUBBLE的文章 - 知乎 学爬虫利器XPath,看这一篇就够了 - Python程序员的文章 - 知乎]]></content>
+      <categories>
+        <category>Personal Projects</category>
+      </categories>
+      <tags>
+        <tag>Crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[类爬虫方式利用Microsoft Bing Tranlator进行翻译]]></title>
+    <url>%2F2019%2F04%2F17%2Fbing-translate-using-crawler%2F</url>
+    <content type="text"><![CDATA[需求最近要处理香港地铁相关的推文。推文中除了英文外还包含中文，日文，泰文等语言，同时一个句子中出现多个语言的情况很常见（比如，I am at 香港站）。 希望可以将其非英文的部分全部转换为英文。 现状 尝试了百度翻译API 优点 免费无限使用 缺点 效果不佳。一些同时包含英文和中文的句子会被识别为英文，然后就没有翻译。 感觉意思翻译的不是很到位。 尝试了微软的Bing Translator API， 优点 翻译效果很好，同时包含英文和其他语言的句子可以只将非英文部分翻译为英文， 意思翻译的很到位。 缺点 官方API免费额度太少，每个月只有两百万的字符(character)的免费翻译额度。（不是很清楚这里的字符是怎么计算的。不过就算是单词，那一条推文50单词左右，一个月只能处理4万条，还是太少了）。 使用官方API需要绑定信用卡，太麻烦了。 思路于是自然瞄上了微软bing的翻译网站。如果说可以模拟浏览器输入内容，进行翻译，然后提取输出内容，不是很好吗？ 初步整体思路还是用selenium模拟浏览器行为，然后获取翻译结果。 当然微软肯定有反爬虫机制的。目前遇到的困难如下 没有翻译按钮，而是输入内容后自动触发翻译 用js直接改变输入框的value来输入值是无法触发翻译的。 不过幸运的是，用selenium第一次打开网页并输入内容的时候是可以触发翻译的。所以目前至少保证可以work的思路就是对每个待翻译的句子，都启动一个浏览器实例，获取到翻译结果后，就立即关闭该浏览器实例。 目前是慢了一些。用百度翻译api每个句子需要0.3秒，而用这个方法每个句子需要3.5秒左右。不过好在需要翻译的句子不是很多，只需要翻译哪些不是纯英文的句子就可以了，所以暂时还可以用，后面有空再钻研。 代码1234567891011121314151617181920212223242526import timefrom selenium import webdriverbing_tokens = &#123; "url": "https://www.bing.com/translator",&#125;def bing_translate(text: str): """目前基于爬虫的方法只支持翻译为英文""" # 启动无头浏览器 options = webdriver.ChromeOptions() options.add_argument('headless') driver = webdriver.Chrome(chrome_options=options) driver.get(bing_tokens["url"]) # 将单双引号都用反斜杠转义，不然带入js语句时会出错 text = text.replace("'", "\\'") text = text.replace('"', '\\"') input_script = """document.getElementById("t_sv").value="&#123;&#125;";""".format(text) driver.execute_script(input_script) time.sleep(0.5) # 太快的话翻译结果还没出来浏览器就关闭了 trans_res = driver.execute_script("return document.getElementById('t_tv').value;") driver.close() # 记得释放资源 return trans_res 参考 Getting the return value of Javascript code in Selenium]]></content>
+      <categories>
+        <category>Personal Projects</category>
+      </categories>
+      <tags>
+        <tag>Crawler</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Public Perception Analysis on Social Media]]></title>
+    <url>%2F2019%2F04%2F02%2FDissertation%2F</url>
+    <content type="text"><![CDATA[Basic InfosStudent: ZHU Xingye (Joseph)Supervisor: Prof. Francis C.M. Lau Dissertation AbstractPublic perception analysis helps improve services and detect issues. This project conducts sentiment analysis and topic labelling task on Hong Kong MTR related tweets under Siemens application scene and compares algorithms adopted in each task. For sentiment analysis, we applies traditional deep neural network such as RNN, CNN on public massive sentiment dataset. For topic labelling, we crawled, labeled, augmented our own dataset and adopts latest transfer learning techniques like BERT, ULMFiT. For both tasks, we use FastText which is a light yet powerful and fast text classification algorithm as baseline. In our experiments, RNN and ULMFiT achieved the best performance in sentiment analysis and topic labelling task respectively. Our experiments suggest that feature extraction determines model performance while most suitable feature extraction level depends on dataset(size, quality, etc) and label categories. Under extraction like CNN or over extraction like BERT might both lead to worse performance. Also, introducing transfer learning to NLP related tasks in public perception analysis is promising especially when labeled samples are limited. Project Workflow DemosFor demonstration models, we select RNN for Sentiment Analysis task and ULMFiT for Topic Labeling task respectively. They are the models with the best performance in our project on its own task. Below we will demonstrate the classification for an example text “Why the escalator broke again? And the train has major delay!” to show that our system is workable. The ground truths for example text are easy to tell. Sentiment: NEGATIVE Topic: TRAIN_SERVICE &amp; FACILITIES Sentiment Analysis Demo Topic Labeling Demo Video DemosHere we will demonstrate the process of mode training and evaluation. For Topic Labeling task, we wil demonstrate binary classifiers of category “TRAIN_SERVICE” only. Other categories are similar. Topic Labeling - ULMFiT - TRAIN_SERVICE Topic Labeling - BERT - PEOPLE Topic Labeling - FastText - FACILITIES Experiment ResultsSentiment AnalysisWe trained RNN &amp; CNN &amp; FastText sentiment classifier using Tensorflow on Sentiment 140 dataset. Below is comparison results Topic LabelingWe trained binary classifier for the following categories, TRAIN_SERVICE FACILITIES PEOPLE using the following algorithms ULMFiT BERT FastText on our own crawled dataset. (each category has around 450 pieces of tweets) Below is comparison results Conclusions Feature extraction determines the performance of models. Deeper extractor helps get more abstract &amp; higher quality feature. For single layer extractor ’s ability, Transformer &gt; RNN &gt; FastText &gt; CNN The level of feature extraction required might depends on the size of the dataset and the level of features required by the categories The lower the level of features required by the categories, the less powerful feature extractor we need. Too much feature extraction might leads to the decline of performance Further modification of structures might be necessary to reach the best performance in our downstream task when using transfer learning techniques FastText could serve as a good baseline and works on small dataset as well Dissertation Poster]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Colab导入Python文件]]></title>
+    <url>%2F2019%2F03%2F21%2Fcolab-run-python-file%2F</url>
+    <content type="text"><![CDATA[分两步走 上传文件 12 from google.colab import filesuploaded = files.upload() 载入文件 1234 # Py3 exec(open('example.py').read())# Py2execfile('example.py')]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Colab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【机器学习中的数学】梯度]]></title>
+    <url>%2F2019%2F03%2F06%2F%E3%80%90%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E6%95%B0%E5%AD%A6%E3%80%91%E6%A2%AF%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[先来看梯度的定义 梯度：是一个向量，其方向上的方向导数最大，其大小正好是此最大方向导数。方向导数就是某个方向上的导数。 简单来说，梯度这个向量指向了自变量应该改变的方向，使得因变量增长最快。 从具体定义上来看，梯度实际上就是多变量微分的一般化。 我们可以看到，梯度向量的每个维度值其实就是目标函数对每个变量的微分，然后用逗号分割开，用&lt;&gt;包括起来。 下面我们来看一个单变量函数梯度的例子。 这是 $y = x^2$ 的图像。在这个例子中只有一个自变量 $x$，那么按照我们上面的定义，梯度就是对该自变量 $x$ 求微分，即 $\frac{d(x^2)}{dx} = 2x$ ，换句话说，梯度向量 $G$ 是一个一维向量 $&lt;2x,&gt;$ ， 具体的值取决于此时 $x$ 的值。假设我们此时在 $(1, 1)$ 点，那么此时的梯度向量 $G = &lt;2,&gt;$。 $2 &gt; 0$ 代表自变量 $x$ 应向 $x$ 轴正方向移动，使得因变量 $y$ 增长最快。 那么对于多变量函数呢？其实也是一样的。 比如我们定义中的这个多变量函数 这里的梯度 $G = &lt;-5, -2, 12&gt;$该则么理解呢？因为 $-5 &lt; 0, -2 &lt; 0, 12 &gt; 0$， 所以要想使函数值 $J$ 增长最快，$θ_1, θ_2$ 应该向其负方向移动，而 $θ_3$ 应该向正方向移动。但是！$θ_1, θ_2, θ_3$ 移动的幅度必须按照 $ 5: 2: 12$这个比例，以保证三个自变量整体的移动是符合梯度方向的。 梯度下降 (Gradient Descent)梯度下降是神经网络中常用的一个算法。 神经网络的本质可以概括为，一个输入列向量，左乘若干个变换矩阵，得到结果即是输出向量， 如下图（p.s. 不是很严谨，因为没有考虑激活函数，但是这里不影响）。 而变换矩阵中的每一个元素就是神经网络中每一条连接的权重值。神经网络训练的目标就是要找到每个合适的权重值，使得输入向量经过一系列变换后，可以得到我们希望的输出向量。 为了达到这个目的，我们构建对于这些权重$θ_1, θ_2…$的损失函数 $J(θ)$，并找到使$J(θ)$取最小值时的自变量值。 在神经网络中，梯度下降的公式如下 在这里，对于自变量向量 $θ$，$θ^0$ 是其更新前的值，而 $θ^1$ 通过一次梯度下降更新后的值。$▽J(θ)$是梯度，表示函数值上升最快的自变量变化方向，前面的负号则表示我们要往梯度的反方向，即函数值下降最快的方向前进。 $α$ 是学习速率(Learning Rate)，与梯度向量相乘，用来调节我们一次要走的步长。（也就是说，梯度向量中单个维度具体的值意义不大，因为我们可以通过学习率$α$调节要走的步长，但是梯度向量中每个维度值之间的顺序和比例关系很重要，因为代表了梯度方向） 最后我们来看一个多变量函数的梯度下降的例子（例子取自深入浅出–梯度下降法及其实现 - chi的文章 - 知乎） 我们假设有一个目标函数 $$J(θ) = θ^2_1 + θ^2_2$$ 现在要通过梯度下降法计算这个函数的最小值。我们通过观察就能发现最小值其实就是 (0，0)点。但是接下来，我们会从梯度下降算法开始一步步计算到这个最小值！我们假设初始的起点为： $$θ^0 = (1, 3)$$ 初始的学习率为： $$ α = 0.1 $$ 函数的梯度为： $$▽J(θ) = &lt;2θ_1, 2θ_2&gt;$$ 进行多次迭代： 我们发现，已经基本靠近函数的最小值点 参考 深入浅出–梯度下降法及其实现 - chi的文章 - 知乎 神经网络中数学知识简易梳理 - Aaron Yang的文章 - 知乎 如何直观形象的理解方向导数与梯度以及它们之间的关系？ - 马同学的回答 - 知乎]]></content>
+      <categories>
+        <category>Machine Learning</category>
+        <category>Maths</category>
+      </categories>
+      <tags>
+        <tag>Maths</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法]]></title>
+    <url>%2F2019%2F02%2F27%2Fnndl-note-1%2F</url>
+    <content type="text"><![CDATA[本系列笔记文章意在对《神经网络与深度学习》一书中学到的知识点进行浓缩和总结，并加入自己的理解。 《神经网络与深度学习》资源英文版：http://neuralnetworksanddeeplearning.com/中文版：https://pan.baidu.com/s/1mi8YVri 密码：e7do 一个人工神经元的结构如上图所示，一个普通的人工神经元 有若干个输入($x_1, x_2,… x_n$)， 只有一个输出值 从输入到输出的计算可以从下图看出 每个输入 $a_n$ 都对应着一个权重 $w_n$ 。每个神经元也都拥有自己的偏置值 $b$ 和一个非线性函数 $f$ （通常叫做激活函数 Activation Function） 具体的计算如下 将权重向量 $W = (w_1, w_2…w_n)$ 输入向量 $A = (a_1, a_2…a_n)^T$ 点乘得到的值加上偏置 $b$ 得到一个值 $z$。为了方便运算，我们也可以在输入向量 $A$ 后面添加一个1，这样就可以把偏置 $b$ 当做一个权重来看待。 $ z = w_1a_1 + w_2a_2 + … + w_na_n + b*1$ 对 $z$ 套用激活函数 $f$ 得到 $output = f(z)$ S 型神经元常用的S型神经元（也叫做逻辑神经元）就是使用sigmoid函数（也叫做逻辑函数，用符号 $σ$ 表示 ）作为激活函数的神经元。 sigmoid函数表达式如下 $$ f(z) = \frac{1}{1 + e^{-z}} $$ sigmoid函数有一个非常好的性质就是 $$f’(z) = f(z)(1 - f(z))$$ 图像如下 神经网络的架构及常用符号 如上图所示，一个普通的前馈、全连接神经网络的架构可以分为三层：输入层，隐藏层和输出层。 前馈(feedforward)意味着神经网络中没有回路，信息总是向前传播。全连接意味着同一层的神经元之间无连接，而层与层之间的神经元之间彼此都有连接。 特别要提的是 输入层的输入即输出，没有权重、偏置和激活函数 隐藏层层数大于等于两层的神经网络称为深度神经网络 一般来讲，多分类问题中，有几个输出类别，输出层就有几个神经元 按照是否允许网络中存在反馈回路可以将网络分为前馈神经网络和递归神经网络两类。相对简单，应用也最为广泛的是前馈神经网络。 神经网络的本质神经网络的本质是一个庞大的多层嵌套复合函数 比如正如上面提到的，对于一个神经元，我们有 $$output = f(z)$$ $$z = w_1a_1 + w_2a_2 + … + w_na_n + b*1$$ 而这个神经元的output可能也是下一层每个神经元的输入，以此类推，那么神经网络最终的输出值 $output$ 可以看做是关于所有输入 $a_1, a_2 .. a_n$的一个函数。 神经网络的前向传播即我们将已经向量化的数据 $(a_1, a_2 .. a_n)^T$ 输入到输入层，得到函数值 $output$ 的过程。 神经网络训练的本质神经网络训练的本质就是找到合适的权重 $w$ 和偏置 $b$，使对于给定的输入 $x$，网络的输出 $a$ 可以拟合所有我们希望得到的输出 $y(x)$。 为了量化我们如何实现这个目标，我们定义一个代价函数（又称损失或目标函数）: $$C(w, b) ≡ \frac{1}{2n}∑||y(x) - a||^2$$ 这里 $w$ 表示所有的网络中权重的集合，$b$ 是所有的偏置，$n$ 是训练输入数据的个数，$a$ 是表示当输入为 $x$ 时输出的向量，求和则是在总的训练输入 $x$ 上进行的。符号 $∥v∥$ 是指向量 v 的模。 我们把 $C$ 称为二次代价函数;有时也称被称为均方误差或者 MSE。观察二次代价函数的形式我 们可以看到 $C(w, b)$ 是非负的，因为求和公式中的每一项都是非负的。此外，当对于所有的训练输入 $x$，$y(x)$ 接近于输出 $a$ 时, $C(w, b) ≈ 0$。因此如果我们的学习算法能找到合适的权重和偏置，使得 $C(w, b) ≈ 0$，网络就能很好地工作。相反， 当 $C(w, b)$ 很大时就不怎么好了，那意味着对于大量地输入，$y(x)$ 与输出 $a$ 相差很大。因此我们训练神经网络的目的，是要找到一系列能让代价函数 $C$ 尽可能小的权重和偏置。 梯度下降算法从某个意义上来讲，训练神经网络就是找到代价函数 $C(w, b)$ 的最小值点。因为常见的神经网络通常有包含数量庞大的权重的偏置的代价函数，极其复杂，所以用微积分来解析最小值是不可能的。通常我们会用称为梯度下降的算法来达成目的， 设想我们此时的代价函数是一个二元函数 $C(v_1, v_2)$ 那么根据微积分有 $$∆C ≈ \frac{∂C}{∂v_1}∆v_1 + \frac{∂C}{∂v_2}∆v_2$$ 让我们来定义 $v$ 的变化量向量 $∆v ≡ (∆v_1, ∆v_2)^T$，同时 $C$ 的偏导数向量 $(\frac{∂C}{∂v_1}, \frac{∂C}{∂v_2})^T$，即为 $C$ 的梯度向量，记为 $∇C$： $$∇C ≡ (\frac{∂C}{∂v_1}, \frac{∂C}{∂v_2})^T$$ 梯度是一个向量，指向函数值增长最快的方向。详细解释可参考这里 此时，$∆C$ 的表达式可以被重写为： $$∆C ≈ ∇C · ∆v$$ 假设我们选取： $$∆v = -η∇C$$ 这里的 $η$ 是个很小的正数(称为学习速率，Learning Rate)。那么就有$∆C ≈ −η∇C·∇C = −η∥∇C∥^2$。 由于 $∥∇C∥^2 ≥ 0$，这保证了 $∆C ≤ 0$，即，如果我们按照 $∆v = -η∇C$ 去改变 $v$，那么 $C$ 会 一直减小，不会增加。(当然，要在 $∆C ≈ ∇C · ∆v$ 的近似约束下)。 最终我们可以得到为了使 $C$ 减小的 $v$ 的改变规则： $$v→v′= v−η∇C$$ 用权重和偏置来替换变量 $v_j$， 我们就得到了神经网络中运用梯度下降算法对权重和偏置的更新规则。 $$w_k→w_k′ =w_k−η\frac{∂C}{∂w_k} $$ $$b_l →b′_l =b_l −η\frac{∂C}{∂b_l} $$ 重复应用这一规则，就有望能找到代价函数的最小值，即让神经网络学习。 更多梯度下降的解释和例子可以参考这里 随机梯度下降 (Stochastic Gradient Descent)普通梯度下降的问题让我们回顾前面提到的二次代价函数形式 $$C(w, b) ≡ \frac{1}{2n}∑||y(x) - a||^2$$ 注意到这个代价函数有着这样的形式 $C = \frac{1}{n} ∑ Cx$，即它是遍及每个训练样本代价 $Cx ≡ \frac{||y(x) - a||^2}{2}$的平均值。在实践中，为了计算梯度 $∇C$，我们需要为每个训练输入 $x$ 单独地计算梯度值 $∇Cx$，然后求平均值，$∇C = \frac{1}{n} ∑_x∇Cx$。不幸的是，当训练输入的数量过大时会花费很⻓时间，这样会使学习变得相当缓慢。 换句话说，就是普通梯度下降中，每一次对权重和偏置进行更新，我们都需要把全部的训练输入放到神经网络中，得到对于每一条输入 $x$ 的输出 $a_x$，再结合代价函数求 $∇C_x$，最终得到训练数据整体的 $∇C = \frac{1}{n} ∑_x∇Cx$ 来更新权重和偏置。这样训练集一大就很慢。 随机梯度下降的思想随机梯度下降(SGD)的思想就类似于统计中的随机抽样来反映整体。 SGD的具体操作为，首先将全部训练数据打散（随机排序），然后将其分成一个个固定大小的片(batch)，然后遍历每个batch，对这个batch内的每一条数据求其 $∇C_x$，然后平均得到整体的 $∇C$ 来更新权重和偏置。 反应到具体的公式就是 $$∇C ≈ \frac{1}{m}\Sigma_{j=1}^m∇C_{X_j}$$ $$w_k→w_k′= w_k−\frac{η}{m}\Sigma_j\frac{∂C_{X_j}}{∂w_k}$$ $$b_l→b_l′= b_l−\frac{η}{m}\Sigma_j\frac{∂C_{X_j}}{∂b_l}$$ 这里 $m$ 是batch的大小，$j$ 代表 batch中的某一条数据。 Batch, Iteration, Epoch的定义 Batch：将训练数据随即打散然后按固定大小分割成的数据片叫做一个batch，其大小就是batch_size Iteration: 利用一个batch中的数据对权重和偏置的一次更新叫做一个iteration Epoch：当全部的batch都被便利了一遍，此时就叫一个epoch。 零散的知识点 随机梯度下降和误差反向传递不适合直接用来训练深度神经网络 复杂的算法 ≤ 简单的算法 + 好的训练数据]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Neural Network</tag>
+        <tag>Gradient Descent</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【机器学习中的数学】微分]]></title>
+    <url>%2F2019%2F02%2F20%2F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5%E6%95%B4%E7%90%86%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%BE%AE%E5%88%86%E5%92%8C%E6%A2%AF%E5%BA%A6%2F</url>
+    <content type="text"><![CDATA[微分简单来讲（可能有失严谨），微分即形如 $\frac{dy}{dx}$ 这样的式子。式子中的 $dy$ 和 $dx$ 是变量，表示 $∆y$ 和 $∆x$ 在 $∆x$ 趋近于0的时候的状态。 或者更简单粗暴来说，微分就是导函数。 微分的意义最常用的是以下两种： 函数图像中，某点的切线的斜率 函数的变化率 下面是几个微分的例子 单变量微分：$\frac{d(x^2)}{dx} = 2x$ 多变量微分：$\frac{∂(x^2y^2)}{∂x} = 2xy^2$ 最后附上可微分的定义 一个函数可微分即该函数的导数存在，并且导数存在于定义域中的每一个值。]]></content>
+      <categories>
+        <category>Machine Learning</category>
+        <category>Maths</category>
+      </categories>
+      <tags>
+        <tag>Maths</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Numpy数组索引的一些理解]]></title>
+    <url>%2F2019%2F02%2F07%2FNumpy%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[最近在学Pytorch，因切片规则和Numpy相同，特在此记录。 多维数组因为Pytorch中tensor的切片规则和Numpy相同，所以代码中我们用Pytorch来演示 1234567891011121314151617181920212223242526# 随机构建一个三维张量，每个维度有三个元素x = torch.rand(3,3,3)'''tensor([[[0.7181, 0.7586, 0.0087], [0.2987, 0.6424, 0.0378], [0.8481, 0.4940, 0.9429]], [[0.9045, 0.6331, 0.2378], [0.7245, 0.3930, 0.2547], [0.7040, 0.7866, 0.5593]], [[0.0584, 0.6290, 0.1482], [0.6745, 0.9922, 0.1043], [0.5660, 0.7678, 0.0531]]])'''# 取第一二三维度上索引均为1的元素x[1,1,1]# tensor(0.3930)# 第一个维度取所有的元素，第二个维度取索引为1的元素x[:, 1]'''tensor([[0.2987, 0.6424, 0.0378], [0.7245, 0.3930, 0.2547], [0.6745, 0.9922, 0.1043]])''' 总结来说，就是张量x有几个维度，切片操作时x[]方括号里面就可以有几个下标。:代表取所有，后面的下标不写就默认是全选，相当于: 参考 numpy之索引和切片]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[自己领悟的一些道理]]></title>
+    <url>%2F2018%2F12%2F31%2F%E8%87%AA%E5%B7%B1%E9%A2%86%E6%82%9F%E7%9A%84%E4%B8%80%E4%BA%9B%E9%81%93%E7%90%86%2F</url>
+    <content type="text"><![CDATA[不要为改变不了的事情懊恼，伤心，比如已经浪费了的时间，振作起来，及时止损是此时的最优解。 记得好好说话，这是给自己留余地 情绪是多变的。不要以顺应情绪为一天的基调，而要专注在自己应该做的事情上。难受了，就歇会，起来走走，喝口水，深呼吸，调整好了再继续。 人在多任务之间的切换代价是比较大的。尽可能一次只做一件事，专注，做好。 重要的不是你在一个任务上砸了多少时间，而是你的效率有多高，你的目标有多明确，以及你的执行力是否够强。 累了就去休息吧，别在这个时候瞎坚持，休息是为了走的更远，做的更好。]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>个人总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[【随笔】别了2018]]></title>
+    <url>%2F2018%2F12%2F30%2F%E5%88%AB%E4%BA%862018%2F</url>
+    <content type="text"><![CDATA[我在想用什么词才能最贴切地形容这一年。 应该是“归回”吧。 这一年经历了很多事情，从秋季学期结束后马上开始的RA工作，到忙到飞起压力山大的春季学期，再到眼睛出了问题的暑假，再到第一次踏入职场的秋天。 一年兜兜转转下来，才发现很多时候上帝安排的早已是最好的。自己硬要按照自己的意思来，天父也没拦着，结果自己兜了一圈又回到了原本的安排。 慢慢地记得学乖了。很多事情不要急，先在神的信实和应许中安静下来，再看神怎么带领，紧紧跟上去。 住在地上，以他的信实为粮；(诗篇 37:3 和合本) 神的信实是不曾改变的。 神曾借着身边的人对我说，只要我相信祂，就会有很多不可思议，我想都不敢想的事情发生在我的身上。我当时只是当做一份很美的祝福记下了，却怎么都没有想到，2018年里我可以在香港赚到一笔约等于我一年生活费的钱。并且在我自己的职业技能上经历了可以用“逆风起飞”来形容的成长。现在的我可以拥有做一位程序员的自信，并真正体会到用专业技能解决一个问题的快乐。 这简直不可思议。 神在兑现着祂的应许，祂永不会失信。那我呢，那些我曾向神做出的承诺，那个我曾献上的自己呢？ 愿自己可以在2019年里，更多的读经祷告，参与到教会的侍奉中，更加贴近天父的心。 你们得救在乎归回安息；你们得力在乎平静安稳；你们竟自不肯。(以赛亚书 30:15 和合本) “安息”对我来说，是一份直到现在都在学的功课。2018年里，我曾超过半年没有给自己放一天假，但是除了不见轻省的担子，忧愁苦闷的心情，进了医院的眼睛，我得到了什么呢？前段时间读旧约，有一句经文很有感触 “你六日要做工，第七日要安息，虽在耕种收割的时候也要安息。”(出埃及记 34:21 和合本) 要我们竭尽全力不难，但要我们进入安息却往往需要竭力。我们的信心、担心、贪心在面对安息时全都显了出来。为什么我会不愿意休息呢，是因为我担心神不会供应吗？还是因为我里面的贪心，我希望比别人多的一点呢？ 据说时至今日，有些以色列农夫仍然会以第七年为安息年，而神也就真的在第六年加倍地赐福给他们，使他们充足有余。真的很感谢天父，借着我的眼睛来管教我，使我知道太push自己是没有用的，真正的丰盛都在耶稣基督的里面，而我则要竭力进入那安息，经历和享受那一切的丰盛。 愿自己可以在2019年里，交托忧虑，系紧信心，学会休息，进入安息。 各人不要单顾自己的事，也要顾别人的事。你们当以基督耶稣的心为心：(腓立比书 2:4-5 和合本) 有人说，当我们定睛在自己身上时，我们的需求会被无限放大。 我觉得这句话是真的。 接近年尾，却突然在这件事上被开启了。原来我过去很长一段时间的不快乐，很大一部分原因就是因为我的中心，都在我自己身上。在平日生活中，在教会生活中，在职业道路上，太多的我我我我我了。 记得之前看过一组印象很深刻的福音漫画。人们排着队去一位神学家那里接受心灵辅导，大家的苦痛都类似：“没有人爱我，没有人关心我，我觉得自己活着没有价值…”。而那位神学家的答复却是：“悔改吧，尝试把你一半对自己的注意力放到别人身上”。 我之前一直刻意得让自己活得和别人不一样。但到头来，我的生命没有什么成长，却越活越疏离，越活越仙儿，越活越不接地气。 其实，过多的自我关注是一种捆绑，施比受更为有福。给出去，你的生命会更丰盛。 愿自己可以在2019年里，把价值放在神那里，更多关心他人的需要，生命里满有基督的丰盛。 感谢爸爸妈妈还有弟弟一如既往的支持。感谢用生命牧养我的小组长Daniel。感谢愿意抽时间陪我扯东扯西的兄弟阿攀。感谢每一位曾经关心我的人。谢谢你们在2018年里的陪伴。 相信2019会有更多突破与惊喜。抓紧上帝不会错。 2019我来了！ Joseph Chu 于香港]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+      <tags>
+        <tag>个人总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python] switch...case的实现]]></title>
+    <url>%2F2018%2F12%2F30%2FPython%E4%B8%AD%E7%9A%84switch...case%E5%AE%9E%E7%8E%B0%2F</url>
+    <content type="text"><![CDATA[Python与C++不同，并没有提供switch…case语句。 Python 官方文档大概的意思是，你可以用if..elif..elif..else来实现同样的功能，所以似乎就没必要加入switch…case了。 参考：官方文档-Why isn’t there a switch or case statement in Python? 如果一定要实现，可以采用如下的方式 1234567891011121314def case1(somearg): passdef case2(somearg): passdef case3(somearg): pass switch = &#123; #dict 1:case1, 2:case2, 3:case3&#125;switch[case](arg) 代码实现参考知乎-徐辰的回答-Python中为什么没有switch语法结构，有什么代替方案吗？ 因为Python中一切皆对象，所以函数名(e.g. case1)其实是一个指向该函数对象的指针, 所以可以直接写入到switch这个dict中。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python] staticmethod和classmethod的区别]]></title>
+    <url>%2F2018%2F12%2F30%2FPython%E4%B8%ADstaticmethod%20%E5%92%8Cclassmethod%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[个人理解: staticmethod: 静态方法 可以没有任何参数 无法访问类变量和实例变量 classmethod: 类方法 第一个参数必须是类本身，即cls 可以访问类变量 英文解释oop - Python @classmethod and @staticmethod for beginner? @classmethod means: when this method is called, we pass the class as the first argument instead of the instance of that class (as we normally do with methods). This means you can use the class and its properties inside that method rather than a particular instance. @staticmethod means: when this method is called, we don’t pass an instance of the class to it (as we normally do with methods). This means you can put a function inside a class but you can’t access the instance of that class (this is useful when your method does not use the instance). 我们来看个小例子 123456789101112131415class kls: class_var = "I am class var" @staticmethod def staticm(): print(class_var)#这里会报错 @classmethod def classm(cls): # 注意这里，第一个参数必须以cls开头 print(cls.class_var) #普通实例方法 def instancem(self): # 注意这里，第一个参数必须以self开头 pass]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac中环境变量配置文件的区别]]></title>
+    <url>%2F2018%2F12%2F30%2FMAc%2F</url>
+    <content type="text"><![CDATA[其配置文件的优先级如下所示： 1/etc/profile /etc/paths ~/.bash_profile ~/.bash_login ~/.profile ~/.bashrc /etc/profile （建议不修改这个文件 ） 全局（公有）配置，不管是哪个用户，登录时都会读取该文件。 /etc/bashrc （一般在这个文件中添加系统级环境变量） 全局（公有）配置，bash shell执行时，不管是何种方式，都会读取此文件。 ~/.bash_profile （一般在这个文件中添加用户级环境变量） 每个用户都可使用该文件输入专用于自己使用的shell信息,当用户登录时,该文件仅仅执行一次! 参考 Mac 中环境变量的配置和理解]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>Environment Variables</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Learning Resource] Deep Learning]]></title>
+    <url>%2F2018%2F12%2F30%2F%E3%80%90%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E3%80%91%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[General fast.ai 高质量无广告公开课 NLP Standford CS224]]></content>
+      <categories>
+        <category>Learning Resource</category>
+      </categories>
+      <tags>
+        <tag>Neural Network</tag>
+        <tag>Deep Learning</tag>
+        <tag>Learning Resource</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Train Loss & Validation Loss 反应的神经网络训练趋势]]></title>
+    <url>%2F2018%2F12%2F30%2F%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9Closs%E4%B8%8D%E4%B8%8B%E9%99%8D%2F</url>
+    <content type="text"><![CDATA[train loss 不断下降，validation loss不断下降，说明网络仍在学习; train loss 不断下降，validation loss趋于不变，说明网络过拟合; train loss 趋于不变，validation loss不断下降，说明数据集100%有问题; train loss 趋于不变，validation loss趋于不变，说明学习遇到瓶颈，需要减小 Learning Rate 或 Batch Size; train loss 不断上升，validation loss不断上升，说明网络结构设计不当，训练超参数设置不当，数据集清洗不当等问题。 参考 神经网络训练loss不下降原因集合]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Neural Network</tag>
+        <tag>Loss Function</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[TensorBoard简单使用]]></title>
+    <url>%2F2018%2F12%2F22%2FTensorBoard%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[简单来说 Tensorboard可以对静态的图结构和动态的训练结果（accuracy， loss）等进行可视化 Tensorboard是通过将数据写入到本地的log文件中，再以本地web的方式呈现 如何使用123456789101112# 为训练结果等Operation建立summarytf.summary.scalar("cost", cross_entropy)tf.summary.scalar("accuracy", accuracy)# 合并为一个op，这样sess中只需要运行一次就可以了summary_op = tf.summary.merge_all()with tf.Session() as sess: sess.run(tf.initialize_all_variables()) # create log writer object with static graph structure writer = tf.summary.FileWriter(logs_path, graph=tf.get_default_graph()) _, summary = sess.run([train_op, summary_op], feed_dict=&#123;x: batch_x, y_: batch_y&#125;) # write log writer.add_summary(summary, epoch * batch_count + i) 然后运行命令启动TensorBoard服务 1tensorboard --logdir=your/log/path 参考 tensorboard快速上手，tensorboard可视化普及贴（代码基于tensorflow1.2以上）]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
+        <tag>TensorBoard</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[写给自己的博客规范]]></title>
+    <url>%2F2018%2F12%2F20%2F%E5%86%99%E7%BB%99%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%2F</url>
+    <content type="text"><![CDATA[希望自己能够成为一个坚持写博客的人。慢慢地，博文多了，一套好的命名规范就显得很重要，在这里写下自己的博客命名规范。 更新日期 2018-12-30 General 不为了写文章而写文章 应定期维护，提纯 Title 如果以英文开头，首字母要大写 中文和英文之间不留空格 尽可能在文章前用中括号[]来注明类别，方便管理，如[C++] 指针的使用 Tags 给文章加标签前先查阅已有标签，尽可能避免冗余标签 标签如果是英文，首字母大写 定期检查清理冗余标签 标签打的尽可能全面，起到索引的作用 Categories 给文章分类前先查阅已有类别，尽可能避免冗余类别 类别名不应太具体，应为高层次，某一大类，如”Machine Learning” 类别如果是英文，首字母大写 定期检查清理冗余类别 Content技术类博客 文字尽可能的简洁，干燥 结构段落要清晰，突出重点 一篇文章不要太长，最多只关注三个点 关于工具使用方法类文章，避免写成详细的文档，简要记录，并附上详细文档的链接即可。 记得加&lt;!--more--&gt;在主页不要显示整篇文章，以节省空间。]]></content>
+      <categories>
+        <category>博客配置</category>
+      </categories>
+      <tags>
+        <tag>博客规范</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Shell实用文件操作]]></title>
+    <url>%2F2018%2F12%2F20%2Fshell%E5%AE%9E%E7%94%A8%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[一些较为高级的文件操作（诸如统计行数，打乱内容）都可以利用shell命令快速的完成。这里记录自己用过的shell命令。 统计文件行数1wc -l filename 随机打乱文件内部的行1shuf input_file -o output_file 或者 1cat input_file | shuf &gt; output_file Mac OS没有shuf命令，可以brew install coreutils，然后用gshuf代替 读取文件的头/尾若干行1cat filename | head -n 1000 # 读取头1000行 将head替换为tail即读取最后1000行]]></content>
+      <categories>
+        <category>Shell技巧</category>
+      </categories>
+      <tags>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac安装Linux下有但Mac没有的命令]]></title>
+    <url>%2F2018%2F12%2F19%2FMac%E5%AE%89%E8%A3%85Linux%E4%B8%8B%E6%9C%89%E4%BD%86Mac%E6%B2%A1%E6%9C%89%E7%9A%84%E5%91%BD%E4%BB%A4%2F</url>
+    <content type="text"><![CDATA[Mac OS 和Linux都是类Unix系统，许多命令都是一样的。但是有一些命令，比如shuf，就只有Linux有，Mac可以通过安装coreutils来解决 1brew install coreutils 安装之后可以用gshuf命令来实现和Linux下shuf相同的功能 参考 Install shuf on OS X?]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python logging模块使用]]></title>
+    <url>%2F2018%2F12%2F19%2FPython-logging%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[基本用法1234567891011121314import logging # 导入logging模块logging.basicConfig( # 配置logging模块 level=logging.INFO, format='%(asctime)s %(levelname)s %(message)s',)# 用法1：使用默认loggerlogging.info('this is info message') # 输出info级消息# 用法2：自定义logger的名字logger = logging.getLogger('mylogger')logger.info('this is info message from mylogger')# 输出# 2018-07-01 18:49:36,170 INFO this is a info# 2018-07-01 18:49:36,170 INFO this is a info from mylogger 通过getLogger指定logger的名称，名称可以在format中用%(name)s格式化输出。 指定logger名称有一个好处是，在同一个程序的不同文件中引用相同名称的logger对应的是同一个实例，这有利于logging的跨文件调用。 basicConfig的参数level指定日志输出的等级 logging模块中日志等级分为如下几种123456789等级 数值CRITICAL 50FATAL 50ERROR 40WARNING 30WARN 30INFO 20DEBUG 10NOTSET 0 logging模块输出日志时只能输出比level参数等级相同或更高的日志，也就是说，如果我的level=logging.INFO，那我调用logging.debug()是不会输出的，因为DEBUG比INFO等级低。 format指定每一条日志的内容，可以用下面的模块随意组合 123456789101112131415`%(asctime)s` 表示当前时间，格式为`2018-07-01 19:08:41,050`，逗号后面是毫秒`%(levelname)s` 表示日志级别名称`%(message)s` 表示日志内容`%(name)s` 表示日志名称（未指定则为roots）`%(lineno)d` 表示输出日志的代码所在行数`%(levelno)s` 表示数字形式的日志级别`%(pathname)s` 表示程序执行路径，相当于`sys.argv[0]``%(filename)s` 表示所在文件名称`%(funcName)s` 表示所在函数名称`%(thread)d` 表示当前线程ID`%(threadName)s` 表示当前线程名称`%(process)d` 表示当前进程ID`%(processName)s`表示当前进程名称`%(module)s` 表示当前模块名称`%(created)f` 表示UNIX标准时间浮点数表示 更多更详细用法请参考 python中logging模块上篇 - Dwzb的文章 - 知乎 python中logging模块下篇 - Dwzb的文章 - 知乎]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Numpy 改变数组的shape]]></title>
+    <url>%2F2018%2F12%2F18%2Fnumpy-%E6%94%B9%E5%8F%98%E6%95%B0%E7%BB%84%E7%9A%84shape%2F</url>
+    <content type="text"><![CDATA[1numpy.array(a).reshape(n,n) 参考 python将一维数组变成二维? - 知乎]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Numpy</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas 遍历Dataframe]]></title>
+    <url>%2F2018%2F12%2F18%2Fpandas-%E9%81%8D%E5%8E%86Dataframe%2F</url>
+    <content type="text"><![CDATA[可以采用df.iterrows()函数 设有如下df 12 target text0 1 &quot;blahblah&quot; 则遍历方式如下 123for index, row in df.iterrows(): print(index) # 0 print(row["target"]) # 1]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas学习资源]]></title>
+    <url>%2F2018%2F12%2F18%2Fpandas%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%2F</url>
+    <content type="text"><![CDATA[hangsz的pandas教程 官方教程]]></content>
+      <categories>
+        <category>Learning Resource</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas read_csv()参数]]></title>
+    <url>%2F2018%2F12%2F18%2Fpandas-read-csv-%E5%8F%82%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[先记录自己目前使用过的用法，后续遇到再补充 123456df = pd.read_csv( path, usecols=[0, 5], # 只选择第1列和第6列 header=None, # None: 不将第一行当做列名，0: 将第一行当做列名， 1: 将第二行当做列名 names=["target", "text"], # 指定df中的列名)]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas 按照某一列的值分割Dataframe]]></title>
+    <url>%2F2018%2F12%2F18%2Fpandas%2F</url>
+    <content type="text"><![CDATA[设有如下df 1234 target0 1 1 2 2 3 我们希望可以将其根据target的值的不同，分为若干个子df，方法如下。 1234567891011121314df_1 = df[df["target"].isin(["1"])]print(df["target"].isin(["1"]))""" target0 True 1 False 2 False"""print(df_1)""" target0 1 """]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[tf.control_dependencies]]></title>
+    <url>%2F2018%2F12%2F18%2Ftf-control-dependencies%2F</url>
+    <content type="text"><![CDATA[简单来说，tf.control_dependencies([,]) 是用来保证with下的op执行之前，先执行传入的op tf.identify() 则是返回一个与传入tensor一模一样新的tensor的op，这会增加一个新节点到gragh中。 123456789101112x = tf.Variable(1.0)y = tf.Variable(0.0)x_plus_1 = tf.assign_add(x, 1) # 一个operation， 简称opwith tf.control_dependencies([x_plus_1]): # 这里传入op的列表 y = tf.identity(x) # 这里必须也是op，否则control无效init = tf.initialize_all_variables()with tf.Session() as session: init.run() for i in xrange(5): print(y.eval()) # 2，3，4，5，6 参考 tensorflow学习笔记（四十一）：control dependencies tf.identity的意义以及用例]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Gensim加载FastText模型]]></title>
+    <url>%2F2018%2F12%2F18%2FGensim%E5%8A%A0%E8%BD%BDFastText%E6%A8%A1%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[123456from gensim.models.wrappers import FastText# for *.binmodel = FastText.load_fasttext_format('sample.bin')# for *.vecmodel = FastText.load_word2vec_format('sample.vec') 参考-How do I load FastText pretrained model with Gensim?]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Gensim</tag>
+        <tag>NLP</tag>
+        <tag>FastText</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Colab 文件操作]]></title>
+    <url>%2F2018%2F12%2F18%2FColab-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[Colab常用文件操作 执行shell命令 上传文件 下载文件 使用Google Drive上的文件 载入一个Python脚本 执行shell命令在常规shell命令前加上!注意：命令需要紧跟在!后12!pip install numpy!ls 上传文件123from google.colab import filesuploaded = files.upload() # 点击输出结果中的Choose Files会打开浏览器的文件上传窗口 上传完成的文件可以通过!ls来查看 下载文件12from google.colab import filesfiles.download('example.txt') 运行后会自动下载 使用Google Drive上的文件因为Colab完全基于云端运行，每次新建一个记事本后台对应的都是一个新建的虚拟机，所以如果本次运行需要额外文件的话，就需要再次手动上传。 直接使用Google Drive上的文件可以免去每次都手动上传文件至Colab的麻烦。 使用Google Drive上的文件共需要三步 1. 将Colab记事本和Google Drive绑定直接复制粘贴下面的代码至Colab记事本中运行123456789101112!apt-get install -y -qq software-properties-common python-software-properties module-init-tools!add-apt-repository -y ppa:alessandro-strada/ppa 2&gt;&amp;1 &gt; /dev/null!apt-get update -qq 2&gt;&amp;1 &gt; /dev/null!apt-get -y install -qq google-drive-ocamlfuse fusefrom google.colab import authauth.authenticate_user()from oauth2client.client import GoogleCredentialscreds = GoogleCredentials.get_application_default()import getpass!google-drive-ocamlfuse -headless -id=&#123;creds.client_id&#125; -secret=&#123;creds.client_secret&#125; &lt; /dev/null 2&gt;&amp;1 | grep URLvcode = getpass.getpass()!echo &#123;vcode&#125; | google-drive-ocamlfuse -headless -id=&#123;creds.client_id&#125; -secret=&#123;creds.client_secret&#125; 运行过程中会出现两次提示打开链接，登录自己的Google账号授权 2. 将Google Drive映射到当前Colab的drive文件夹下为了好记，将文件夹命名为drive， 也可以命名为其他名字12!mkdir -p drive !google-drive-ocamlfuse drive 此时用!ls命令查看，会发现Colab默认目录下多了一个drive文件夹，drive文件夹内的内容就是我们Google Drive上的所有文件 3. 将Colab默认工作目录更改为Google Drive下某个目录12import osos.chdir("drive/.../...") # 你所需要的目录 此时用!ls命令查看，会发现Colab的默认目录已经变成我们指定的目录了。 载入一个Python脚本 In Google’s Colab notebook, How do I call a function from a Python file? 参考 [Google Colab文件功能的使用] (https://blog.csdn.net/qq_25987491/article/details/80875034) Colaboratory 指定 Google Drive 文件夹]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Colab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[CI / CD] Continuous Integration / Continuous Delivery]]></title>
+    <url>%2F2018%2F12%2F04%2FCI-CD-Continuous-Integration-Continuous-Delivery%2F</url>
+    <content type="text"><![CDATA[敏捷软件开发（英语：Agile software development），又称敏捷开发，是一种从1990年代开始逐渐引起广泛关注的一些新型软件开发方法，是一种应对快速变化的需求的一种软件开发能力。它们的具体名称、理念、过程、术语都不尽相同，相对于“非敏捷”，更强调程序员团队与业务专家之间的紧密协作、面对面的沟通（认为比书面的文档更有效）、频繁交付新的软件版本、紧凑而自我组织型的团队、能够很好地适应需求变化的代码编写和团队组织方法，也更注重软件开发过程中人的作用。 1，CI/CD持续集成/持续部署 持续集成(Continuous integration)是一种软件开发实践，即团队开发成员经常集成它们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误。 持续部署（continuous deployment）是通过自动化的构建、测试和部署循环来快速交付高质量的产品。某种程度上代表了一个开发团队工程化的程度，毕竟快速运转的互联网公司人力成本会高于机器，投资机器优化开发流程化相对也提高了人的效率，让 engineering productivity 最大化。 持续交付（英语：Continuous delivery，缩写为 CD），是一种软件工程手法，让软件产品的产出过程在一个短周期内完成，以保证软件可以稳定、持续的保持在随时可以释出的状况。它的目标在于让软件的建置、测试与释出变得更快以及更频繁。这种方式可以减少软件开发的成本与时间，减少风险。 与DevOps的关系持续交付与DevOps的含义很相似，所以经常被混淆。但是它们是不同的两个概念。DevOps的范围更广，它以文化变迁为中心，特别是软件交付过程所涉及的多个团队之间的合作（开发、运维、QA、管理部门等），并且将软件交付的过程自动化。另壹方面，持续交付是壹种自动化交付的手段，关注点在于将不同的过程集中起来，并且更快、更频繁地执行这些过程。因此，DevOps可以是持续交付的壹个产物，持续交付直接汇入DevOps； 与持续部署的关系有时候，持续交付也与持续部署混淆。持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。 2、项目版本迭代控制:、现有的版本控制工具，如 Github、GitLab、SVN、CVS 等主流工具.. 构建及测试:通过 Jenkins 实现自动构建和测试,还有商业软件BAMBOO来持续集成。这个收费的。免费就用Jenkins.. 交付:以Docker镜像形式进行交付，提交至镜像仓库； 2.1 SVN服务器：Subversion是一个版本控制系统，相对于的RCS、CVS，采用了分支管理系统，它的设计目标就是取代CVS。互联网上免费的版本控制服务多基于Subversion。 Subversion的版本库可以通过网络访问，从而使用户可以在不同的电脑上进行操作。从某种程度上来说，允许用户在各自的空间里修改和管理同一组数据可以促进团队协作。因为修改不再是单线进行（单线进行也就是必须一个一个进行），开发进度会进展迅速。此外，由于所有的工作都已版本化，也就不必担心由于错误的更改而影响软件质量—如果出现不正确的更改，只要撤销那一次更改操作即可。某些版本控制系统本身也是软件配置管理系统（SCM），这种系统经过精巧的设计，专门用来管理源代码树，并且具备许多与软件开发有关的特性——比如对编程语言的支持或者提供程序构建工具。不过Subversion并不是这样的系统，它是一个通用系统，可以管理任何类型的文件集。 2.2 CVS服务器：CVS（Concurrent Versions System）版本控制系统是一种GNU软件包，主要用于在多人开发环境下源码的维护。Concurrent有并发的、协作的、一致的等含义。实际上CVS可以维护任意文档的开发和使用，例如共享文件的编辑修改，而不仅仅局限于程序设计。CVS维护的文件类型可以是文本类型也可以是二进制类型。CVS用Copy-Modify-Merge（拷贝、修改、合并）变化表支持对文件的同时访问和修改。它明确地将源文件的存储和用户的工作空间独立开来，并使其并行操作。CVS基于客户端/服务器的行为使其可容纳多个用户。这一特性使得CVS成为位于不同地点的人同时处理数据文件（特别是程序的源代码）时的首选。 所有重要的免费软件项目都使用CVS作为其程序员之间的中心点，以便能够综合各程序员的改进和更改。这些项目包括GNOME、KDE、THE GIMP和Wine等。 2.3 GIt/github：GIT （分布式版本控制系统） Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了 Git 上。 gitHub是一个面向开源及私有软件项目的托管平台，因为只支持git 作为唯一的版本库格式进行托管，故名gitHub。 gitHub于2008年4月10日正式上线，除了git代码仓库托管及基本的 Web管理界面以外，还提供了订阅、讨论组、文本渲染、在线文件编辑器、协作图谱（报表）、代码片段分享（Gist）等功能。目前，其注册用户已经超过350万，托管版本数量也是非常之多，其中不乏知名开源项目 Ruby on Rails、jQuery、python 等。 参考 CI/CD持续集成/持续部署 敏捷开发]]></content>
+      <categories>
+        <category>Software Engineering</category>
+      </categories>
+      <tags>
+        <tag>DevOps</tag>
+        <tag>CI/CD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas中 DataFrame的使用]]></title>
+    <url>%2F2018%2F10%2F01%2Fpandas-dataframe_usage%2F</url>
+    <content type="text"><![CDATA[读取行DataFrame读取行可以通过以下两种索引 行标签索引 df.loc[&quot;one&quot;] 行号索引 df.iloc[0] 行标签索引可以在创建DataFrame的时候指定，如12345import pandas as pdd=[[1,2,3,4],[5,6,7,8]]index=["one","two"]df=pd.DataFrame(d, index=index) print df.loc["one"] 行号索引(index)可以通过df.index来查看123&gt;&gt;&gt; df.indexRangeIndex(start=0, stop=18, step=1) # 0~17&gt;&gt;&gt; df.iloc[0] # 获取第一行 也可以全部都用df.ix[]12df.ix[3] # 读取第三行df.ix["three"] 读取列123# 两个参数，第一个类似切片，指定要获取的行# 第二个是一个list， 指定要获取的列名df.ix[:, ["Stations"]] 列名可以通过df.columns获取 1234&gt;&gt;&gt; df.columnsIndex(['Station', 'To Tiu Keng Leng', 'To Kwun Tong', 'To Whampoa', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6'], dtype='object') DataFrame转成list12import numpy as npl = np.array(df).tolist() Reference pandas读取行和列]]></content>
+      <tags>
+        <tag>Python Packages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pandas解析html]]></title>
+    <url>%2F2018%2F10%2F01%2Fpandas-read-html%2F</url>
+    <content type="text"><![CDATA[pandas可以用read_html()函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。 比如说有table html代码如下 1&lt;table class="table1"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;th colspan="1" rowspan="2"&gt;Station&lt;/th&gt; &lt;th colspan="2"&gt;To Tiu Keng Leng&lt;/th&gt; &lt;th colspan="2"&gt;To Kwun Tong&lt;/th&gt; &lt;th colspan="2"&gt;To Whampoa&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Whampoa&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;00:40&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;01:00&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt; 通过read_html()解析得到 1234import pandas as pd# 因为会返回包含df的listdf = pd.read_html(html, header=0, encoding="utf8")[0] Reference python beautifulsoup 如何抓取不规则表格的内容]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Pandas</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Requests 库基本用法]]></title>
+    <url>%2F2018%2F10%2F01%2Frequests-basic-usage%2F</url>
+    <content type="text"><![CDATA[为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。 安装1pip3 install requests 简单使用首先呈上官方文档，有中文版，欢迎来啃。下面主要介绍两种方法：get和post get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。 1r = requests.get(url,**args)#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息 post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。 12345args = &#123; "a": "b", ...&#125;r = requests.post(url, params=args)#也是返回Response对象 参数详解get和post方法中有许多参数可以使用，部分参数后面会详解。 url：就是目标网址，接收完整（带http）的地址字符串。 headers：请求头，存储本地信息如浏览器版本，是一个字典。 data：要提交的数据，字典。 cookies：cookies，字典。 timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。 params：为网址添加条件数据，字典。 123payload = &#123;'key1': 'value1', 'key2': 'value2'&#125;r = requests.get("http://httpbin.org/get", params=payload)#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1 proxies：ip代理时使用，字典。 Response对象使用从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。 123456789r.encoding = &apos;ISO-8859-1&apos; #指定r.text返回的数据类型，写在r.text之前。r.text #默认以unicode形式返回网页内容，也就是网页源码的字符串。r.content #以二进制形式返回网页内容，下载图片时专用。r.json() #把网页中的json数据转成字典并将其返回。#还有一些很少用到的方法。r.headers #返回服务器端的headers，字典。r.status_code #返回连接状态，200正常。 ReferencePython 从零开始爬虫(零)——爬虫思路&amp;requests模块使用]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Requests</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[BeautifulSoup 基本使用]]></title>
+    <url>%2F2018%2F10%2F01%2Fbs4-basic-usage%2F</url>
+    <content type="text"><![CDATA[在这里主要记录自己项目中涉及到的用法，供以后参考。 获取bs实例要使用BeautifulSoup，首先就要构建一个BeautifulSoup类实例 第一个参数：要解析的html文本，可以是str， 也可以是打开的文件句柄 features: 指定html解析器 (关于解析器之间的区别，请戳官方文档， “安装解析器”一节) 12345from bs4 import BeautifulSoup as Soupsoup = Soup(open(sample.html), features="lxml")# soup = Soup('&lt;h1&gt;my title&lt;/h1&gt;', features="lxml")soup.find_all('table') # 通过实例来使用一系列强大功能 查找所需的Tag常用方法如下123soup.table # 等同于 soup.find('table')soup.find('table') # 第一个出现的table, 类型为&lt;class 'bs4.element.Tag'&gt;soup.find_all('table') # 所有table 获取Tag中的文本比如说我的html文本是&lt;b&gt;this is sample&lt;/b&gt;， 我想要获得的是&#39;this is sample&#39; 可以通过soup.text或者soup.string属性来获得 关于text和string的区别可参考Python BeautifulSoup 中.text与.string的区别 12345&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; type(s.b)&lt;class 'bs4.element.Tag'&gt;&gt;&gt;&gt; s.b.text'this is sample' 获取包含Tag的文本那如果我现在想获得的就是&lt;b&gt;this is sample&lt;/b&gt;呢？ 如果是在iPython环境下，可以直接print()相应的Tag对象 123&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)&gt;&gt;&gt; print(s.b)&lt;b&gt;this is sample&lt;/b&gt; 如果是在脚本里面，则需要用到Python对象的内置方法__repr__() 在print一个对象的时候实际上调用了其__repr__()方法 123&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; s.b.__repr__()'&lt;b&gt;this is sample&lt;/b&gt;' ReferenceBeautifulSoup 4.2.0文档]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL 修改数据库编码为utf8mb4以插入emoj]]></title>
+    <url>%2F2018%2F08%2F25%2FMySQL%20%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%96%E7%A0%81%E4%B8%BAutf8mb4%E4%BB%A5%E6%8F%92%E5%85%A5emoj%2F</url>
+    <content type="text"><![CDATA[最近项目里需要往MySQL里插入emoj，把表的编码改成了utfbmb4之后发现，在mysql shell里面是可以插入emoj的，但是利用pymysql则无法插入emoj，报如下错误 1pymysql.err.InternalError: (1366, &quot;Incorrect string value: &apos;\\xF0\\x9F\\x98\\x85\\xF0\\x9F...&apos; for column &apos;content&apos; at row 1&quot;) 现总结自己的解决方案如下 0x01 修改mysql默认编码参照更改MySQL数据库的编码为utf8mb4一文将数据库默认编码修改为utf8mb4 特别记录自己的mysql重启命令 12345# 关闭mysql/usr/local/mysql/bin/mysqladmin -uroot -p shutdown# 启动mysql/usr/local/mysql/bin/mysqld_safe —defaults-file=&quot;/etc/my.cnf&quot; &amp; 其中/usr/local/mysql/为mysql安装路径。 0x02 修改/usr/share/mysql/charsets/Index.xml修改完mysql默认编码之后登入mysql，发现报如下错误 1mysql: Character set &apos;utf8mb4&apos; is not a compiled character set and is not specified in the &apos;/usr/share/mysql/charsets/Index.xml&apos; file 参照Character set ‘utf8mb4’ is not a compiled character set解决 特别注意&lt;charset name=&quot;utf8mb4&quot;&gt;要在&lt;charset name=&quot;utf8&quot;&gt;之前 0x03 修改数据库，表，字段的编码0x02之后已可以成功登入，但pymysql插入仍报之前的错，于是将数据库，表和相应字段的编码都改为utf8mb4，pymysql插入成功。 数据库，表和字段的编码修改方式如下： 12345678-- databaseALTER DATABASE DB_NAME CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;-- tableALTER TABLE TABLE_NAME CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; -- columnALTER TABLE TABLE_NAME MODIFY COLUMN COLUMN_NAME longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 参考 更改MySQL数据库的编码为utf8mb4 Character set ‘utf8mb4’ is not a compiled character set]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>utf8mb4</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Parameter, Argument, Attribute 的区别]]></title>
+    <url>%2F2018%2F08%2F20%2FParameter%2C%20Argument%2C%20Attribute%20%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[Parameter对应中文即形参，临时变量，在函数定义中用于接受外部传入变量。 12def foo(name, age): # name, age 即形参 pass Argument对应中文即实参，在调用函数时传入的值 1foo(&apos;Tom&apos;, 11) # &apos;Tom&apos;, 11即实参 Atrribute对应中文即属性，可以是一个类的变量（实例变量或者类变量）或者函数（成员函数）。 类的每一个实例都可以访问这些属性 12345678910111213class Color: description = &quot;This is a color&quot; # class attributes def __init__(self, color): self.color = color def do_something(self): passc = Color(&apos;blue&apos;)c.color # instance attributeColor.description # class attributec.do_something() # instance attribute]]></content>
+      <categories>
+        <category>CS Basics</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[TCP 的三次握手和四次挥手]]></title>
+    <url>%2F2018%2F08%2F17%2FTCP%20%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%2F</url>
+    <content type="text"><![CDATA[非常棒的文章TCP的三次握手与四次挥手（详解+动图）]]></content>
+      <categories>
+        <category>CS Basics</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+        <tag>TCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[MySQL存储过程]]></title>
+    <url>%2F2018%2F08%2F16%2FMySQL%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[简介更多基础知识可参考MySQL存储过程，很棒很详细的入门文章。 SQL 语句需要先编译然后执行，而存储过程(Stored Procedure)是一组为了完成特定工程的SQL语句集，经编译后存储在数据库中，用户通过制定存储过程的名字并给定参数（如果该存储过程带有参数）来调用执行它。 个人感觉存储过程增强了兼容性。实现相对复杂的功能（比如返回一组数据，然后遍历结果集），之前可能要用python操作mysql来实现。但是利用存储过程可以写成一组代码，使用者可以直接复制粘贴到MySQL shell或者客户端来使用。 自己写的存储过程123456789101112131415161718192021222324252627282930313233343536373839drop procedure if exists A; --如果存在存储过程A，则删除delimiter // -- 因为存储过程中每条SQL语句都要以分号结尾，所以这里要先将结束符改为 //， 否则存储过程在编译的过程中遇到分号就会结束编译，导致只编译了一部分。create procedure A(IN wiki_id_template varchar(15)) -- 定义存储过程，就像一个函数begin -- 内容写在 begin, end之间declare group_id varchar(50); -- 定义变量，一定要紧跟着begin写！declare revision_count int;declare s int default 0;declare mycur cursor for select distinct wiki_id from Wiki where wiki_id like wiki_id_template; -- 声明游标，mycur是一个多行结果集-- 设置终止标记declare continue handler for sqlstate '02000' set s=1; -- 创建一个临时表，只用于显示结果create temporary table if not exists tmpTable(group_id varchar(50) not null,revision_count integer not null);-- 使用临时表前先清空truncate table tmpTable; open mycur; -- 打开游标 fetch mycur into group_id; -- 将游标当前指向的值赋给变量group_id while s &lt;&gt; 1 do -- 开始while循环 select count(*) into revision_count from Revision where page_id like concat(group_id, '%'); insert into tmpTable values(group_id,revision_count); fetch mycur into group_id; end while; -- 终止while循环 close mycur; -- 关闭游标select * from tmpTable; -- 将临时表中的数据显示出来end// -- 存储过程结束，//是我们自己定义的结尾符delimiter ; -- 把结尾符重新改为 ;call A('2016twgss%'); -- 调用存储过程 存储过程参数 IN 只进不出，即存储过程会接受传入的变量，但是存储过程内部对该变量的修改不会返回 OUT 只出不进，即存储过程接收到的变量的值一定为空，无论传入的值是什么，且内部的修改会返回。 INOUT 有进有出，存储过程接受传入的变量，且内部做的修改会返回。 需要注意的点 形如下面这样的变量定义语句一定要紧跟在存储变量的begin之后写，否则会报错 1declare s int default 0; 参考 MySQL存储过程 简简单单储存过程——循环一个select结果集]]></content>
+      <categories>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Stored Procedure</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[卷积后输出大小计算公式]]></title>
+    <url>%2F2018%2F08%2F10%2F%E5%8D%B7%E7%A7%AF%E5%90%8E%E8%BE%93%E5%87%BA%E5%A4%A7%E5%B0%8F%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[输入图片大小 W×W Filter大小 F×F 步长 S Padding的像素数 P 输出图片大小为 N×N 则有 1N = (W − F + 2P )/S+1]]></content>
+      <categories>
+        <category>Machine Learning</category>
+      </categories>
+      <tags>
+        <tag>CNN</tag>
+        <tag>Image Processing</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[正则表达式(re模块)知识点记录]]></title>
+    <url>%2F2018%2F07%2F29%2F%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%9F%A5%E8%AF%86%E7%82%B9%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[在这里记录一下最近学习到的Python正则表达是的知识点 正则表达式是什么？ 正则表达式(Regular Expression)使用单个字符串来描述、匹配一系列匹配某个句法规则的字符串。 通俗来讲，可以把正则表达式理解为类似于一门计算机语言，不过它是用来描述符合某些规则的字符串的。 基础 Python 中正则表达式模块是re，只要import re就好 最简单的正则表达式就是我们想要匹配的字符串，比如 12345&gt;&gt;&gt; import re&gt;&gt;&gt; key = &apos;javapythonc++&apos;&gt;&gt;&gt; reg = &apos;python&apos;&gt;&gt;&gt; re.compile(reg).findall(key)[&apos;python&apos;] re模块的常用用法 匹配(match) 判断给定的字符串是否符合正则表达式的描述。 如果match，就会返回一个_sre.SRE_Match对象，否则返回空 12345&gt;&gt;&gt; import re&gt;&gt;&gt; key = &apos;python&apos;&gt;&gt;&gt; reg = &apos;python&apos;&gt;&gt;&gt; re.compile(reg).match(key)&lt;_sre.SRE_Match object; span=(0, 6), match=&apos;python&apos;&gt; 查找 在给定字符串中查找符合正则表达式的描述的子字符串。 search判断是否能找到符合标准的子字符串 findall找出所有的符合标准的子字符串 1234567&gt;&gt;&gt; import re&gt;&gt;&gt; key = &apos;javapythonjavapython&apos;&gt;&gt;&gt; reg = &apos;python&apos;&gt;&gt;&gt; re.compile(reg).search(key) # 是否能找到&apos;python&apos;&lt;_sre.SRE_Match object; span=(4, 10), match=&apos;python&apos;&gt;&gt;&gt;&gt; re.compile(reg).findall(key) # 找到所有的 &apos;python&apos;[&apos;python&apos;, &apos;python&apos;] 常用正则表达式的元字符及其作用 元字符 说明 . 代表任意字符 \ 逻辑或操作符 [ ] 匹配内部的任一字符或子表达式 [\^] 对字符集和取非 - 定义一个区间 \ 对下一字符取非（通常是普通变特殊，特殊变普通） * 匹配前面的字符或者子表达式0次或多次 *? 惰性匹配上一个 + 匹配前一个字符或子表达式一次或多次 +? 惰性匹配上一个 ? 匹配前一个字符或子表达式0次或1次重复 {n} 匹配前一个字符或子表达式 {m,n} 匹配前一个字符或子表达式至少m次至多n次 {n,} 匹配前一个字符或者子表达式至少n次 {n,}? 前一个的惰性匹配 ^ 匹配字符串的开头 \A 匹配字符串开头 $ 匹配字符串结束 [\b] 退格字符 \c 匹配一个控制字符 \d 匹配任意数字 \D 匹配数字以外的字符 \t 匹配制表符 \w 匹配任意数字字母下划线 \W 不匹配数字字母下划线 特别的，我们要记住\能够把普通的字符变特殊，特殊字符变普通。 比如.代表匹配所有字符, \.则代表单纯的一个点d代表单纯的d这个字母，\d则代表0-9的数字 小括号()，中括号[]，大括号{}的区别小括号()小括号形成子表达式，比如 1234import rekey = '123456789'reg = '(0-9)'re.compile(reg).match(key) # 什么都匹配不到 什么都匹配不到，因为(0-9)代表的是0-9这个字符串 中括号[]中括号匹配字符组内的字符，比如 1[a-zA-Z0-9] 这个正则表达式实际上只匹配一个字符，但是这个字符可以是大小写字母或者数字。 12345&gt;&gt;&gt; import re&gt;&gt;&gt; key = &apos;123456789&apos;&gt;&gt;&gt; reg = &apos;[a-zA-Z0-9]&apos;&gt;&gt;&gt; re.compile(reg).match(key)&lt;_sre.SRE_Match object; span=(0, 1), match=&apos;1&apos;&gt; 如果加上+号，就代表匹配一个或多个 123&gt;&gt;&gt; reg = &apos;[a-zA-Z0-9]+&apos;&gt;&gt;&gt; re.compile(reg).match(key)&lt;_sre.SRE_Match object; span=(0, 9), match=&apos;123456789&apos;&gt; # 所以这里一直匹配到底 大括号{}大括号代表匹配次数，匹配在它之前表达式匹配出来的元素出现的次数。 {n}出现n次 {n,}匹配最少出现n次 {n,m}匹配最少出现n次，最多出现m次 进阶用法向前向后查找简单来说，就是你要匹配的字符串是XX，但是必须满足形式是AXXB这样的字符串，那么正则表达式就可以写成这样 1p=r&quot;(?&lt;=A)XX(?=B)&quot; ?&lt;=代表字符串前必须要有A， 即前缀要求?=代表字符串后必须要有B，即后缀要求 本质上来说，向前查找和向后查找其实是匹配整个字符串，即AXXB，但返回时仅仅返回一个XX。也就是说，如果你愿意，完全可以避开向前向后查找的方式，直接匹配带有前后缀的字符串，然后做字符串切片处理。 回溯引用比如我们要匹配形如&lt;h1&gt;hello world&lt;/h1&gt;这样的字符串，同时不仅限于&lt;h1&gt;，而是获取&lt;h1&gt;到&lt;h6&gt;的。 那我们就可以写成 1r&quot;&lt;h[1-6]&gt;.*?&lt;/h[1-6]&gt;&quot; 但是如果遇到像这样的特殊情况，就不好玩了 1&lt;h1&gt;hello world&lt;/h3&gt; 为了保证hello world前后都是一样的，我们可以用到回溯引用，就像这样 1r&quot;&lt;h([1-6])&gt;.*?&lt;/h\1&gt;&quot; 看到\1了吗？原本那个位置应该是[1-6]，但是我们写的是\1，我们之前说过，转义符\干的活就是把特殊的字符转成一般的字符，把一般的字符转成特殊字符。普普通通的数字1被转移成什么了呢？在这里1表示第一个子表达式，也就是说，它是动态的，是随着前面第一个子表达式的匹配到的东西而变化的。比方说前面的子表达式内是[1-6]，在实际字符串中找到了1，那么后面的\1就是1，如果前面的子表达式在实际字符串中找到了2，那么后面的\1就是2。 类似的，\2,\3,….就代表第二个第三个子表达式。 所以回溯引用是正则表达式内的一个“动态”的正则表达式，让你根据实际的情况变化进行匹配。 参考 Python 正则表达式入门（初级篇） Python 正则表达式入门（中级篇） 正则表达式：小括号、中括号、大括号的区别]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Regular Expression</tag>
+        <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[记一次flask单元测试的编写]]></title>
+    <url>%2F2018%2F07%2F27%2F%E8%AE%B0%E4%B8%80%E6%AC%A1flask%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E7%9A%84%E7%BC%96%E5%86%99%2F</url>
+    <content type="text"><![CDATA[记录一些自己写单元测试时的点 关键代码1234567891011121314151617181920212223242526272829303132333435363738from datetime import datetime, timedeltaimport pytestfrom app import create_app, dbfrom app.models import User, Postfrom config import Config# 继承自生产Config， 用测试参数覆盖掉其中一部分参数class TestConfig(Config): TESTING = True # IMPORTANT! 一定要用新的测试库，不要用生产库 SQLALCHEMY_DATABASE_URI = &apos;mysql+pymysql://&apos;class TestUserModel(): def set_up(self): self.app = create_app(TestConfig) self.app_context = self.app.app_context() self.app_context.push() db.create_all() def tear_down(self): db.session.remove() db.drop_all() self.app_context.pop() @pytest.fixture(scope=&apos;function&apos;) def env(self): # yield 以及yield之前会执行set_up yield self.set_up() # yield 这里会中断，跳回到调用方执行，待调用方执行完后，则回到yield所在的函数继续执行。 # 所以yield之后执行的相当于teardown. self.tear_down() def test_password_hashing(self, env): # 注意这里要传入fixtures u = User(username=&apos;xiaoming&apos;) u.set_password(&apos;xiao&apos;) assert u.check_password(&apos;xiao&apos;) assert not u.check_password(&apos;da&apos;) 收获的教训 在新建的测试库上进行测试，不要用生产库 因为测试时一般会按照你的Models新建库中所有的表，然后测试完后drop所有的表。 真的误删了生产库的表可以在flask shell 里调用sqlalchemy 对象的create_all()方法新建所有的表。当然，数据还是没了…想要恢复数据的话，建议平时开着binlog。 1234$ flask shell&gt;&gt;&gt; from app import db&gt;&gt;&gt; db.create_all() 每个测试方法记得传入fixtures]]></content>
+      <categories>
+        <category>Backend</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>UnitTest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Pytest 使用总结]]></title>
+    <url>%2F2018%2F07%2F27%2FPytest%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[这里简单记录下自己目前掌握的pytest知识，后续用到更多再来补充。 pytest的安装1pip3 install -U pytest 1pytest --version # 查看版本 pytest基本用法单个测试我们来看一个小例子 123456# func.pydef func(x): return x+1def test_answer(): assert func(3) == 5 在func.py所在目录下启动pytest 1pytest func.py 得到结果 123456789101112131415161718joseph@MacBook-Pro  ~/work/lab/pytesttest  pytest func.py============================= test session starts ==============================platform darwin -- Python 3.6.5, pytest-3.6.3, py-1.5.4, pluggy-0.6.0rootdir: /Users/joseph/work/lab/pytesttest, inifile:collected 1 itemfunc.py F [100%]=================================== FAILURES ===================================_________________________________ test_answer __________________________________ def test_answer():&gt; assert func(3) == 5E assert 4 == 5E + where 4 = func(3)func.py:5: AssertionError=========================== 1 failed in 0.06 seconds =========================== 由此可以看出 单个测试时，可以在命令行直接以pytest 要测试的.py的方式来执行测试。文件名无需test_开头 执行测试时，会自动执行文件中的test_开头的方法 在测试方法中，可以直接使用assert，而无需像unittest一样记住许多类似于assertEquals()之类的方法。 多个测试多个测试时可以直接在当前目录下执行命令 1$ pytest 会自动寻找并执行当前目录及其包含的子目录下所有以test_为前缀或者以_test为后缀的文件。也就是遵循standard test discovery rules 对Exception的assert1234567import pytestdef f(): raise SystemExit(1) def test_mytest(): with pytest.raises(SystemExit): f() 在test_mytest函数中，断言函数f会抛出SystemExit异常。 将多个test整合到一个类里比如这样 class TestClass: def test_one(self): x = &apos;this&apos; assert &apos;h&apos; in x def test_two(self)： x = &apos;hello&apos; assert hasattr(x, &apos;check&apos;) 无需继承任何子类 可以直接在命令行用pytest执行，遵循standard test discovery rules pytest进阶fixtures更多可参考 Pytest高级进阶之Fixture pytest的fixture 这里记录一种常见的用法。 我们在unittest中可以用setUp()和tearDown()来实现测试环境的构造和析构。 比如一个测试数据库中取出的数据是否正确的类，setUp()中可以写连接数据库的代码，tearDown()中可以写释放数据库连接的代码。在执行每个测试方法时，setUp()和tearDown()都会分别在开始和结尾处执行，这样在测试方法中就可以专注于测试逻辑，而无需在每一个测试函数中都写一次连接和释放代码。 那我们在pytest中怎么实现呢？ 答案就是运用fixture 比如我们每个测试方法都需要一个SMTP类的实例。 123456789101112131415161718192021# test_func.pyimport pytest# 这里scope='function'代表每个测试方法都会执行一侧fixture@pytest.fixture(scope='function')def get_instance(): # 每个测试方法执行前都会执行包括yield在内之前的代码，相当于setUp() smtp = smtplib.SMTP("smtp.gmail.com") yield smtp # provide the fixture value # 每次完成当前scope，即在本例中， # 测试方法执行完毕后，会执行下面的代码 # 就相当于tearDown() print("teardown smtp") smtp.close() def test_method_1(get_instance): # 在这里传入的 get_instance 其实就是 get_instance函数的返回值 ins = get_instance assert isinstance(ins, MyClass) ... pytest常用参数1pytest -q test.py # quiet reporting mode. 减少输出信息。 参考 pytest官方文档 pytest的fixture Pytest高级进阶之Fixture]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Pytest</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Nginx 使用总结]]></title>
+    <url>%2F2018%2F07%2F26%2FNginx%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[花了两天的时间终于用nginx+gunicorn部署好自己的microblog项目，中间遇到了大大小小的坑，在这里做一下记录。 nginx的安装通过如下命令安装nginx 1sudo apt-get install nginx 安装完成后输入如下命令 1sudo service nginx start 在浏览器里面访问localhost，如果能看到welcome to nginx就说明安装成功了。 nginx目录结构安装后的路径是/etc/nginx/ 在这个路径下有两个比较重要的文件夹 sites-enabled/ 用于存放现在运行的网站的配置文件 sites-available/ 用于存放其他站点的配置文件。可以通过将该文目录下的配置文件以软链接的形式链接到sites-enabled/进行站点的切换。 /etc/nginx/sites-available 这个文件夹一般在你需要建立和管理多个站点的时候非常有用，可以帮助你更好的组织不同的项目。你需要在这里添加你的nginx配置文件并将他们链接至 sites-enabled 目录下。命令如下： 1ln -s /etc/nginx/sites-available/dotcom /etc/nginx/sites-enabled/dotcom nginx配置文件nginx 配置文件有自己的一套语法，但是很简单，很像css的语法。先指定变量名，然后在花括号内编写指令。最顶层是 server。 基本语法可参照写给Web开发人员看的Nginx介绍 常用配置项的用法可参照Nginx基础入门之proxy反向代理常用配置项说明 下面列出一个自己配置时可用的方案。 12345678910111213141516171819202122server &#123; listen 80; # 要监听的端口号 server_name _; # 服务器的域名，因为我部署时没有注册域名，就用_代替 location / &#123; # location代表配置路由 proxy_pass http://localhost:8000; # 将请求转发给localhost 8000端口, 即转发给gunicorn处理 proxy_redirect off; proxy_set_header Host $host; proxy_set_header X-Real_IP $remote_addr; proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; &#125;&#125;server &#123; listen 80; server_name _; location / &#123; proxy_pass http://localhost:8000; proxy_redirect off; &#125;&#125; 完全卸载nginxroot权限下输入如下命令 1234rm -rf /etc/nginx/rm -rf /usr/sbin/nginxrm /usr/share/man/man1/nginx.1.gzapt-get remove nginx* 原理就是删除关联文件以及文件夹 Reference 写给Web开发人员看的Nginx介绍 Nginx基础入门之proxy反向代理常用配置项说明 linux nginx完全卸载 自学nginx（三）: nginx + gunicorn的反向代理 Python日记——nginx+Gunicorn部署你的Flask项目 写给新手看的Flask+uwsgi+Nginx+Ubuntu部署教程 正向代理与反向代理【总结】]]></content>
+      <categories>
+        <category>Backend</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[什么是A, B, C类网络？]]></title>
+    <url>%2F2018%2F07%2F24%2F%E4%BB%80%E4%B9%88%E6%98%AFA%2C%20B%2C%20C%E7%B1%BB%E7%BD%91%E7%BB%9C%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[首先要知道什么是IP地址的前缀(prefix)，或者说网络部分。 在形如a.b.c.d/x的地址中，x个最高比特（最左边的比特）构成了IP地址的前缀。 /x是子网掩码的一种表示方法。子网掩码就是为了表示该IP地址所在的子网。 a.b.c.d/x这样的表示方法从属于当下因特网的地址分配策略，无类别域间路由选择(Classless Interdomain Routing, CIDR)。 在CIDR被采用之前，IP地址的网络部分被限制为长度为8, 16或24比特，这是一种成为分类编址的编址方案。具有8, 16或24比特子网地址的子网被称为A, B, C类网络。 A, B, C类网络这样的表示方式的主要问题在于，C类(/24)子网仅能容纳2^8 - 2 = 254台主机(2^8 = 256，其中两个地址预留用于特殊用途)，这对于许多组织来说太小了。然而一个B类(/16)子网可支持多达65534台主机，又太大了。在分类编址方法下，比如说一个有2000台主机的组织通常被分给一个B类(/16)地址。这就导致B类地址空间的迅速损耗以及所分配的地址空间的利用率低。]]></content>
+      <categories>
+        <category>CS Basics</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[子网掩码]]></title>
+    <url>%2F2018%2F07%2F24%2F%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[子网掩码（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。 预备知识 IPv4地址一般按照点分十进制记法书写， 193.32.216.9对应的二进制记法是11000001 00100000 11011000 00001001 主机与物理链路之间的边界叫做接口(interface)。路由器与它的任意一条链路之间的边界也叫做接口。路由器有多个接口，每个接口有其链路。 互联若干个主机接口和一个路由器接口的网络形成一个子网（sub-net） 子网掩码是什么？子网掩码（network）即该子网的地址。即规定所有该子网内的IP地址的前若干位应相同。 比如说，IP地址223.1.1.0/24其中的/24就是子网掩码，表示这32比特中最左侧的24比特定义了子网地址。换句话说就是，该子网内的所有IP地址的前24比特都相同。 /24也可以写作255.255.255.0。因为255.255.255.0对应的二进制即11111111 11111111 11111111 00000000。当255.255.255.0和一个IP地址如192.168.1.100进行位与运算时，就得到了该IP地址的前24比特。 所以一台主机会拥有自己的IP地址和子网掩码。IP地址表示他在网络中的地址，子网掩码则表示它所在的子网。 更多网络的知识点 如何形象生动的解释ip地址、子网掩码、网关等概念？ 子网掩码怎么理解？]]></content>
+      <categories>
+        <category>CS Basics</category>
+      </categories>
+      <tags>
+        <tag>Network</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[如何在Mac上用Script启动Quicktime录制？]]></title>
+    <url>%2F2018%2F07%2F23%2F%E5%A6%82%E4%BD%95%E5%9C%A8Mac%E4%B8%8A%E7%94%A8Script%E5%90%AF%E5%8A%A8quicktime%E5%BD%95%E5%88%B6%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[1）创建AppleScript文件，输入一下代码并保存。如QTRecord.scpt 1234tell application "QuickTime Player" activate start (new movie recording) end tell 2)在终端执行 1osascript QTRecord.scpt 3）或者也可以一句话搞定以上两步 1osascript -e &apos;tell application &quot;QuickTime Player&quot; to activate&apos; -e &apos;tell application &quot;QuickTime Player&quot; to start (new movie recording)&apos; 摘自How to start QuickTime recording at command line? ======分割线====== 这几天为了解决录制视频同时记录开始录制的时间戳这个需求，倒腾了不少解决方案，之前也想过用命令行打开QuickTime进行录制，但是忘了还有AppleScript，而且竟然4行就搞定了（捂脸…心痛一下我的时间）。在这里大概记录一下之前试过的方法。 1.OpenCV Python 录制视频 python包装ffmpeg实现视频录制]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>AppleScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flask调用自己定义的api]]></title>
+    <url>%2F2018%2F07%2F23%2FFlask%E8%B0%83%E7%94%A8%E8%87%AA%E5%B7%B1%E5%AE%9A%E4%B9%89%E7%9A%84api%2F</url>
+    <content type="text"><![CDATA[最近自己的做的一个项目flask_microblog里面有一个需求，就是要以api调用的形式显示用户的头像。 最初时为了简单，直接调用了Gravatr的api，就像这样。 12def avatar(self): return 'https://www.gravatar.com/avatar/6b541a0a667f5558208aad7309c22936' 后来为了实现GitHub风格的默认头像功能，就自己写了个简单的api，就像这样 1234567@api_bp.route('/user-avatar/&lt;email_md5&gt;')def user_avatar(email_md5): user_avatar_dir = current_app.config['USER_AVATAR_DIR'] user_avatar_path = user_avatar_dir + email_md5 + '.png' img = open(user_avatar_path, 'rb') resp = Response(img, mimetype="image/png") return resp 然后问题来了…我要怎么调用自己的api呢？ 试了几种方法都没有成功 123def avatar(self): return 'localhost:5000/api/user-avatar/&lt;email md5 here&gt;' # return 'http://127.0.0.1:5000/api/user_avatar/&lt;email md5 here&gt;' 最后发现正确姿势应该是使用url_for 就像这样 123def avatar(self): digest = md5(self.email.lower().encode('utf-8')).hexdigest() return url_for('api.user_avatar', email_md5=digest)]]></content>
+      <categories>
+        <category>Backend</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python和OpenCV实现仿Github默认头像]]></title>
+    <url>%2F2018%2F07%2F21%2FPython%E5%92%8Copencv%E5%AE%9E%E7%8E%B0%E4%BB%BFgithub%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F%2F</url>
+    <content type="text"><![CDATA[思路首先我们需要知道Github默认头像的一些参数。 GitHub默认头像是一个420*420像素的正方形图像，里面有个5*5的方块矩阵，每个方块为70*70像素。方块矩阵距离图像边缘的距离是35像素。 GitHub默认头像是左右对称的 GitHub默认头像的背景色是E6E6E6, 或者[230,230,230] 知道了这些以后，我们就可以着手开始做了。 这里我们用numpy来构建三维数组（宽，高，通道数）来表示一副图像。 首先我们构建一个420*420*3的三维数组。 1avatar_data = np.empty((420, 420, 3), dtype=np.uint8) 然后把图像的每个像素都填充为背景色 1avatar_data[:][:] = [230, 230, 230] 接着我们可以生成一个5*5的二维np.bool数组，并随机赋值为True或False代表头像中方块矩阵的结构。 0或1的随机数可参考 12import randomrandom.randint(0,1) # 随机返回[0, 1]区间内的整数 最后参照这个5*5的二维np.bool数组，在头像图像中，将对应的位置填充为相应的颜色即可。 源码josephzxy-Github Acknowledgment思路借鉴于用Java和OpenCV生成Github默认头像]]></content>
+      <categories>
+        <category>Personal Projects</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>OpenCV</tag>
+        <tag>Avatar</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python] 注释规范]]></title>
+    <url>%2F2018%2F05%2F26%2FPython%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83%2F</url>
+    <content type="text"><![CDATA[函数注释1234567891011121314151617181920212223def function(arg1, arg2...): &quot;&quot;&quot; [Brief description of function] [Detailed description of function] Args: [arg1]: [Description of arg1] [arg2]: [Description of arg2] ... Returns: [Description of returns] For example: [Example of returns] [Any supplementary description of returns] Raises: [exception_type]: [description of exception] &quot;&quot;&quot; pass 以下为示例，摘自Rubick7的博客 123456789101112131415161718192021222324252627282930def fetch_bigtable_rows(big_table, keys, other_silly_variable=None): """Fetches rows from a Bigtable. Retrieves rows pertaining to the given keys from the Table instance represented by big_table. Silly things may happen if other_silly_variable is not None. Args: big_table: An open Bigtable Table instance. keys: A sequence of strings representing the key of each table row to fetch. other_silly_variable: Another optional variable, that has a much longer name than the other args, and which does nothing. Returns: A dict mapping keys to the corresponding table row data fetched. Each row is represented as a tuple of strings. For example: &#123;'Serak': ('Rigel VII', 'Preparer'), 'Zim': ('Irk', 'Invader'), 'Lrrr': ('Omicron Persei 8', 'Emperor')&#125; If a key from the keys argument is missing from the dictionary, then that row was not found in the table. Raises: IOError: An error occurred accessing the bigtable.Table object. """ pass 类注释1234567891011class SampleClass(object): &quot;&quot;&quot;[Summary of class] [More details about class] Attributes: [attr1]: [description of attr1] [attr2]: [description of attr2] ... &quot;&quot;&quot; 以下为示例，摘自Rubick7的博客 123456789101112131415161718class SampleClass(object): &quot;&quot;&quot;Summary of class here. Longer class information.... Longer class information.... Attributes: likes_spam: A boolean indicating if we like SPAM or not. eggs: An integer count of the eggs we have laid. &quot;&quot;&quot; def __init__(self, likes_spam=False): &quot;&quot;&quot;Inits SampleClass with blah.&quot;&quot;&quot; self.likes_spam = likes_spam self.eggs = 0 def public_method(self): &quot;&quot;&quot;Performs operation blah.&quot;&quot;&quot;]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HBase 的启动]]></title>
+    <url>%2F2018%2F05%2F06%2FHBase%20%E7%9A%84%E5%90%AF%E5%8A%A8%2F</url>
+    <content type="text"><![CDATA[HBase 的启动start-hbase.sh这个会启动整个hbase，包括master, regionserver, zookeeper 如果要单独启动master和regionserver，可参考以下方式 在regionServer上 hbase-daemon.sh start regionserver 在master上执行：hbase-daemon.sh start master]]></content>
+      <categories>
+        <category>Distributed Computing</category>
+      </categories>
+      <tags>
+        <tag>HBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[HBase shell 无法使用]]></title>
+    <url>%2F2018%2F05%2F06%2FHBase%20shell%20%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[报错信息1234567891011121314151617181920hbase(main):001:0&gt; listTABLEERROR: org.apache.hadoop.hbase.PleaseHoldException: Master is initializing at org.apache.hadoop.hbase.master.HMaster.checkInitialized(HMaster.java:1869) at org.apache.hadoop.hbase.master.MasterRpcServices.getTableDescriptors(MasterRpcServices.java:775) at org.apache.hadoop.hbase.protobuf.generated.MasterProtos$MasterService$2.callBlockingMethod(MasterProtos.java:42402) at org.apache.hadoop.hbase.ipc.RpcServer.call(RpcServer.java:2031) at org.apache.hadoop.hbase.ipc.CallRunner.run(CallRunner.java:107) at org.apache.hadoop.hbase.ipc.RpcExecutor.consumerLoop(RpcExecutor.java:130) at org.apache.hadoop.hbase.ipc.RpcExecutor$1.run(RpcExecutor.java:107) at java.lang.Thread.run(Thread.java:744)Here is some help for this command:List all tables in hbase. Optional regular expression parameter couldbe used to filter the output. Examples: hbase&gt; list hbase&gt; list &apos;abc.*&apos; hbase&gt; list &apos;ns:abc.*&apos; hbase&gt; list &apos;ns:.*&apos; 原因出现这种问题的原因是因为多台节点的时间不同步，导致节点之间的连接时间超时 解决方案 通过 ntpdate 0.cn.pool.ntp.org 命令使各个节点的时间跟网络时间同步 通过data -s命令手动调整节点时间]]></content>
+      <categories>
+        <category>Distributed Computing</category>
+      </categories>
+      <tags>
+        <tag>HBase</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Google Python命名规范]]></title>
+    <url>%2F2018%2F05%2F01%2FGoogle%20Python%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%2F</url>
+    <content type="text"><![CDATA[12345678910module_name, package_name, ClassName, method_name, ExceptionName, function_name, GLOBAL_VAR_NAME, instance_var_name, function_parameter_name, local_var_name.]]></content>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python] 引用上级目录]]></title>
+    <url>%2F2018%2F04%2F30%2FPython%20%E5%BC%95%E7%94%A8%E4%B8%8A%E7%BA%A7%E7%9B%AE%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[最近项目中需要用到与当前脚本所在目录同级的另一个目录下的文件，大概目录结构如下 12345codes/ |--muodule_a/ |--a.py |--muodule_b/ |--b.py 换句话说就是，a.py希望能调用到b.py 试了一些网上的方法，一个比较有效的方法是在脚本的开头将上级目录添加至sys.path 1234import syssys.path.append('这里写上级目录的绝对路径')from b import B 但是这样会存在一个明显的问题，因为使用了绝对路径，所以每次项目更换路径，就需要改动很多脚本。 最后我自己想到了一个解决方案，即从当前目录中提取出上级目录。虽然不太美观，但是勉强能用。如果有其他思路或者更好的方法欢迎斧正，希望能和大家交流~ 12345678910import osimport sysdef get_parent_dir(cur_dir): cur_dir = cur_dir.split("/") cur_dir.pop() return "/".join(cur_dir_list)sys.path.append(get_parent_dir(os.getcwd()))from b import B]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[2018年网易PM599产培生-云计算领域 面试总结]]></title>
+    <url>%2F2018%2F04%2F30%2F2018%E5%B9%B4%E7%BD%91%E6%98%93PM599%E4%BA%A7%E5%9F%B9%E7%94%9F-%E4%BA%91%E8%AE%A1%E7%AE%97%E9%A2%86%E5%9F%9F%20%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[四月19号去杭州参加了网易产培的面试，作为浙江人，感觉对杭州有种天然的好感。网易园区就在阿里的旁边，显得有些不太起眼，但是园区内的环境很漂亮，休息区的环境也很好。 今年是网易产培的第二年，很幸运地进入到了终面，虽然最终没有拿到Offer，但是也很感恩有这样的一次机会可以近距离地接触网易，接触产品，并且锻炼自己。 今年据我所知网易产培有一个大的微信群，里面差不多有190人，内容领域居多。我所在的云计算领域大概有40人左右，最后拿到Offer是一位很厉害的南大小姐姐。 下面大概总结一下自己的面试经过，写的比较松散，还请见谅。 面试形式： 群面 一面 二面 HR面 个人感觉网易产培的面试似乎与传统技术岗的一面基础面，二面boss面，三面hr面的流程有些不一样，应该是就所有的面试成绩进行综合考量。最后进入hr面的人数还是明显远远最后拿offer的人数。一二面的面试官可能也是交替的，即有可能你二面的面试官同时也是其他人一面的面试官。 群面群面是在一个小房间里，小组内共7个人大家分开坐在一张会议桌边，每个人面前有两张纸，需要自己带笔，大家会把其中一张纸折成三折，做成自己的名牌。 房间的另一头坐着两位面试官，一男一女，都不苟言笑。另外也还有一位年轻的小姐姐负责组织群面的进行。 题目IaaS: (若干IaaS的例子)PaaS: 负载均衡…(若干PaaS的例子) 为网易云设计一套支付系统 要求设计: (大概是这样的) 支付流程 支付形态 流程：（大概是这样的） 5分钟独立审题 35分钟讨论 推举一人进行5分钟的总结 3分钟面试官提问 5分钟各人阐述自己在这次小组讨论中发挥的作用 面试题的底部有写 这次群面不考察群面中的角色，考察每个人的思维和观点。 通过率7进4 个人感受在群面中还是要明确自己的定位是什么，这样才能保证你在整个讨论中发挥的连贯，而且也可以提前准备后面需要阐述的自己的作用。 虽然是第一次群面，但是还好之前也有看过些关于群面的东西，对于角色和流程大概了解些，所以在群面开始时就很明确自己不当leader，而是充当一个概括总结，辅助leader的角色。 我对自己在这次群面中的定位的描述是，尝试把控整体进度，抓住问题的重点，把一些过于发散的讨论做概括和收拢，提示大家我们现在讨论所处的阶段，推进讨论的进行。 重点还是在于你能不能提出比较新且切题的观点，话说的多却杂乱，或者说话太少都不太好。 记得之前看一位去年拿到网易产培Offer的学长的分享，他列出了产品经理很重要的三个特质 谦逊 分析 沟通 如何看待网易今年刚推出的PM599产培生？ - 诺弥的回答 - 知乎 个人理解是产品经理一定不能是一个爱出风头很强势的人，应该是一个谦虚，好相处，好沟通，却又有自己的主见和独立思考，能够成为整个团队的粘合剂，为着整个团队有担当的人。 当然，记得带简历 （我们组有一位小哥哥群面表现还不错，但是没有带简历，很遗憾地没通过群面） 一面我一面的面试官是一位微胖的中年大叔，听口音像湖北人，感觉相处起来还比较轻松。 一面主要集中在对项目经历的考察，聊了简历上的项目是干嘛的，你在里面的角色，给出一个你得到需求后，实现需求的例子，自己对云计算领域的产品经理的理解，是否有云产品的使用经历，如何用的，拿来干嘛，问得很细。 印象较深刻的一个问题是对云计算领域产品经理的理解，然后我就说把现有的云资源进行整合，得到新的解决方案。大叔笑了笑，表示你刚才说的这个需要很深厚的技术功底，实际上云计算产品经理的日常更多是横向的，竞品分析呀…blabla(具体的忘记了) 原来网易云计算领域的产品经理日常不需要写代码 整个面试过程比较轻松，有说有笑，感觉整个过程中我们俩说的话差不多多。就这样通过了一面。 最后我问了面试官两个问题 Q: 网易云在面对如此多的友商的情况下，它的策略是什么？A: 其实一个公司之所以会去做云计算，一个很可能的原因是它的计算资源有剩余。比如亚马逊做黑五，阿里做双十一，这些活动之后多出来的计算资源怎么办呢？就卖出去。这里的市场竞争没有那么激烈，不会说你做大了，我就没市场了，网易仍然有自己的市场份额。 Q: 那作为云计算领域的产品经理，很明显他和内容方向的产品不一样，他最重要的特质应该是什么呢？A: 取舍。（后面说了很多可惜记不太清了） 二面我二面的面试官是一位女面试官，有些严肃，有点小小的压力面的感觉。 二面的考察侧重点就变成了个人在团队中的组织协调能力。 二面遇到的其中几个问题 你认为云计算产品经理应有的特质是什么？然后要求举例说明。 之前是否有云产品的使用经历？ 你在团队中协调队员的例子，发生了什么问题，你做了什么，达到了怎样的效果。 果然沟通和担当对于产品经理来说是很重要的， 二面结束后仍然问了面试官网易云面对友商竞争的策略。 面试官表示，网易云会找准自己的目标用户群体，针对特定的用户群体进行推广。 个人总结首先要有好的心理素质，不需要怕面试官，认真听懂并努力get到面试官想问的点，可以适当放慢语速，给自己一点思考时间，组织好自己的语言。因为有些问题可能不是可以立即回答上来的。 面试官会根据你的经历去问，也会问的很细，实在不会就很坦诚地表示不会好了，一定不要编。 HR面HR面和一二面不太一样的一个地方就是，HR小姐姐让我坐旁边，而不是像一二面那样坐在面试官对面，估计是为了更好地观察我的表情还有其他表现来评估我这个人。 HR主要考察的侧重点在于人的综合素质而不是某一方面的能力 HR主要问了如下几个问题，后面括号里的是我后来反思中对这些问题潜台词的解读 为什么想做产品经理？（是否有目标，对自己的目标是否明确和坚定） 研究生的课题，是否有自己的想法？（创造性思维） 是否有关注什么新技术？ (是否拥抱变化，跟紧时代) 简历上的项目，在其中的角色，项目是干什么的？（是否明确自己在团队中的角色以及自己现在所做的） 个人总结个人感觉HR面的重点在于稳住且认真对待，然后就是实诚，其他只要不犯什么很明显的错误就好了。 - 最后附上一段来自15年拿到阿里产品经理Offer的学长的话吧，共勉。 1.如果你要做产品，一定一定要思考清楚为什么，一定要在决定做那个方向之前尝试多个不同的方向，然后再选。很多人就是啥都不会，啥也不懂，《人人都是产品经理》都还没看完，都没真正做过什么项目就想去应聘产品经理，虽说这个世界需要很多很多的产品经理，但是大家也一定要想清楚再决定，最好是能够加入某个团队或者自己组建团队去做自己喜欢的产品，有了一定的体会做产品这一行才有人要。 2.对技术大家尽量还是要懂一些比较好，至少要了解流行的各种技术他们的特点，他们能做的事情，毕竟产品经理是一个团队里的万金油，如果啥也不懂，也没多少竞争力。 3.保持敏锐的视角和嗅觉，对于最新出现的思想一定不要排斥，而要去深入了解，不要把自己闭塞在一个小圈子里。 4.多读书，多码字]]></content>
+      <categories>
+        <category>Interview</category>
+      </categories>
+      <tags>
+        <tag>个人总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] typedef 的几点说明]]></title>
+    <url>%2F2018%2F03%2F28%2F%E5%85%B3%E4%BA%8E%20C%2B%2B%20typedef%20%E7%9A%84%E5%87%A0%E7%82%B9%E8%AF%B4%E6%98%8E%2F</url>
+    <content type="text"><![CDATA[摘自knight的笔记 typedef 可以声明各种类型名，但不能用来定义变量。用 typedef 可以声明数组类型、字符串类型，使用比较方便。 用typedef只是对已经存在的类型增加一个类型名，而没有创造新的类型。 当在不同源文件中用到同一类型数据（尤其是像数组、指针、结构体、共用体等类型数据）时，常用 typedef 声明一些数据类型，把它们单独放在一个头文件中，然后在需要用到它们的文件中用 ＃include 命令把它们包含进来，以提高编程效率。 使用 typedef 有利于程序的通用与移植。有时程序会依赖于硬件特性，用 typedef 便于移植。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] main 函数前面为什么要加上数据类型比如 int void ？]]></title>
+    <url>%2F2018%2F03%2F28%2F%E5%9C%A8%20C%2B%2B%20%E4%B8%AD%20main%20%E5%87%BD%E6%95%B0%E5%89%8D%E9%9D%A2%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%8A%A0%E4%B8%8A%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E6%AF%94%E5%A6%82%20int%20void%20%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[摘自eric的笔记 main函数的返回值是返回给主调进程，使主调进程得知被调用程序的运行结果。 标准规范中规定main函数的返回值为int，一般约定返回0值时代表程序运行无错误，其它值均为错误号，但该约定并非强制。 如果程序的运行结果不需要返回给主调进程，或程序开发人员确认该状态并不重要，比如所有出错信息均在程序中有明确提示的情况下，可以不写main函数的返回值。在一些检查不是很严格的编译器中，比如VC, VS等，void类型的main是允许的。不过在一些检查严格的编译器下，比如g++, 则要求main函数的返回值必须为int型。 所以在编程时，区分程序运行结果并以int型返回，是一个良好的编程习惯。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] 中的#if...#endif注释]]></title>
+    <url>%2F2018%2F03%2F28%2FC%2B%2B%20%E4%B8%AD%E7%9A%84%23if...%23endif%E6%B3%A8%E9%87%8A%2F</url>
+    <content type="text"><![CDATA[摘自春风十里的笔记 块注释符（/…/）是不可以嵌套使用的。 此外，我们还可以使用 #if 0 ... #endif 来实现注释，且可以实现嵌套。 格式为： 123#if 0 code#endif 你可以把 #if 0 改成 #if 1 来执行 code 的代码。 这种形式对程序调试也可以帮助，测试时使用 #if 1 来执行测试代码，发布后使用 #if 0 来屏蔽测试代码。 #if 后可以是任意的条件语句。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] 中'\n' "\n" 和 &的用法和区别]]></title>
+    <url>%2F2018%2F03%2F28%2FC%2B%2B%20%E4%B8%AD'%5Cn'%20%22%5Cn%22%20%E5%92%8C%20%26%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[摘自KgdBukn的笔记, 略有改动 &#39;\n&#39; 表示一个换行符&quot;\n&quot; 表示内容为一个换行符的字符串。std::endl 是流操作子，输出一个换行符，并立即刷新缓冲区。 由于流操作符 &lt;&lt; 的重载，对于 ‘\n’ 和 “\n”，输出效果相同。 例如: 1std::cout &lt;&lt; std::endl; 相当于: 1std::cout &lt;&lt; &apos;\n&apos; &lt;&lt; std::flush; 或者 12std::cout &lt;&lt; &apos;\n&apos;; std::fflush(stdout); 对于有输出缓冲的流（例如cout、clog），如果不手动进行缓冲区刷新操作，将在缓冲区满后自动刷新输出。不过对于 cout 来说（相对于文件输出流等），缓冲一般体现得并不明显。但是必要情况下使用 endl 代替 ‘\n’ 一般是个好习惯。 对于无缓冲的流（例如标准错误输出流cerr），刷新是不必要的，可以直接使用 ‘\n’。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] 单引号和双引号的区别]]></title>
+    <url>%2F2018%2F03%2F28%2FC%2B%2B%20%E4%B8%AD%E5%8D%95%E5%BC%95%E5%8F%B7%E5%92%8C%E5%8F%8C%E5%BC%95%E5%8F%B7%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[单引号代表char类型，即单个字符双引号是字符串类型 C++ 中字符串又分为 - C风格字符串 - C++ 引入的 string 类类型 关于C++字符串可参考 C++ 字符串-菜鸟教程 1234567891011121314#include &lt;iostream&gt;#include &lt;string&gt;using namespace std;int main()&#123; char c = 'a'; char ca[] = "a"; //C风格字符串 string str = "a"; //C++ 引入的 string 类类型 cout &lt;&lt; sizeof('a') &lt;&lt; endl; cout &lt;&lt; sizeof("a") &lt;&lt; endl; cout &lt;&lt; sizeof(str) &lt;&lt;endl; return 0;&#125; 最终输出的结果为 123128 因为 &#39;a&#39;代表一个字符，只占一个字节 &quot;a&quot;相当于{&#39;a&#39;, &#39;\0&#39;} 占两个字节， 其中\0(null字符)代表字符串的结尾，如果没有&#39;\0&#39;就变成了字符数组 顾名思义，字符数组就是每个元素都是单个字符(char类型）的数组 那为什么string类型的占8个字节呢？查了一下发现g++的版本不同会使得string所占的字节数也不同 在g++ 4.8.4中string占8个字节，在g++5.4.0中string占32个字节]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[[C++] * 和 &的用法和区别]]></title>
+    <url>%2F2018%2F03%2F26%2FC%2B%2B%20*%20%E5%92%8C%20%26%E7%9A%84%E7%94%A8%E6%B3%95%E5%92%8C%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[在C++里，每一个变量都在内存中对应着一个地址。如果使用指针创建的话，那么指针的空间在栈中，指针所指向的值在堆中。 *适用于指针类型，用于取指针所指向的值 12345678910int main() &#123; int *p; *p = 1; std::cout &lt;&lt; *p &lt;&lt; &quot;\n&quot;; std::cout &lt;&lt; p; return 0;&#125;//1//0x7fff5c4afaf8 &amp; 相反，用于取变量的地址 12345678int main() &#123; int v = 1; std::cout &lt;&lt; &amp;v &lt;&lt; &quot;\n&quot;; std::cout &lt;&lt; v; return 0;&#125;//0x7fff56cb9ad8//1]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo 博客 Even 主题添加Disqus评论区]]></title>
+    <url>%2F2018%2F03%2F26%2FHexo%20%E5%8D%9A%E5%AE%A2%20Even%20%E4%B8%BB%E9%A2%98%E6%B7%BB%E5%8A%A0Disqus%E8%AF%84%E8%AE%BA%E5%8C%BA%2F</url>
+    <content type="text"><![CDATA[Hexo搭建的博客不同主题添加评论区的方法会略有不同，具体可参考各主题自身的文档。 在这里记录一下Even主题的评论区添加方法。 另附：为 Hexo 博客主题 NexT 添加 LiveRe 评论支持 查看Even支持的评论插件首先vim打开Even主题目录下的_config.yml 1$&#123;博客目录&#125;/themes/even/ 看了一圈发现和评论区相关的配置项有三个 12345678910# Disqusdisqus_shortname:#Changyanchangyan: appid: appkey:#LiveRelivere_datauid: 这是三个不同的评论区插件，只安装一个就好，这里我们选择Disqus。 配置Disqus配置Disqus我们需要知道disqus_shortname 首先去Disqus的官网注册一个账号https://disqus.com/ 登录之后点击Get Started，选择I want to install Disqus on my site，然后就会跳转到如下界面。 输入你的站点名之后，红色框里的就是shortname， 把它填到我们前面打开的even配置文件相应位置就好了。]]></content>
+      <categories>
+        <category>博客配置</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo + GitHub 搭建博客记录]]></title>
+    <url>%2F2018%2F03%2F23%2FHexo%20%2B%20GitHub%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[简要记录自己搭建博客的过程 Hexo 博客搭建hexo博客的具体搭建步骤参照GitHub+Hexo 搭建个人网站详细教程 关于custom-domain之前本来想用在阿里云买的域名，但是无论怎么设置解析都无法访问到自己的博客，后来网上查了资料才发现，从某一个时刻开始，阿里云未实名认证的域名停止解析了。 注册局设置暂停解析（serverHold），域名解析遇到这个问题如何解决？ 去阿里云的控制台查了下自己的域名，发现的确被停止解析了。随后上传了一下自己的身份资料，但是似乎不能立即恢复解析。 后记：实名后大概24小时之后会恢复解析 在知乎上看了些资料后决定去买国外服务商提供的域名。 现在去哪里买 .com 域名最便宜？ 最终选择了namecheap购买域名，配合CloudFlareDNS解析。 ps. 因为买的是.us域名，看网上说namecheap自带的basicDNS在国内可能会被墙，博主目前在香港，试了下似乎也访问不了，不知道为什么… 配置CloudFlare的时候选择0元的个人套餐，然后按照指示填写主机记录，（如果不太清楚怎么填可以参考吴润老师的教程），最后会生成两条DNS解析服务器的地址，把它们替换掉namecheap控制台那里的DNS就可以了。]]></content>
+      <categories>
+        <category>博客配置</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac 命令行alias用法记录]]></title>
+    <url>%2F2018%2F03%2F22%2FMac%20%E5%91%BD%E4%BB%A4%E8%A1%8Calias%E7%94%A8%E6%B3%95%E8%AE%B0%E5%BD%95%2F</url>
+    <content type="text"><![CDATA[alias的用法如下： 首先打开~/.bash_profile 1sudo vim ~/.bash_profile 加入 1alias your_cmd=&apos;your_cmd()&#123;cmd_1; cmd_2;....&#125;;your_cmd&apos; #记得命令中间以分号隔开 比如下面这个例子（一键发布hexo博客） 1alias post_blog=&apos;post_blog()&#123; cd /Users/joseph/work/blog;hexo clean;hexo g;hexo d;&#125;;post_blog&apos; 最后记得source 1source ~/.bash_profile]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+      <tags>
+        <tag>Mac</tag>
+        <tag>CMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo + GitHub 搭建博客打开出现404]]></title>
+    <url>%2F2018%2F03%2F22%2FHexo%20%2B%20GitHub%20%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%89%93%E5%BC%80%E5%87%BA%E7%8E%B0404%2F</url>
+    <content type="text"><![CDATA[Hexo + GitHub 搭建博客打开出现404的原因可能有以下几种： repo的名字不是“用户名.github.io”。在GitHub上搭建博客实质上是利用了GitHub Pages功能，所以仓库的名称必须遵循以上原则，也就是一个账号只能有一个这样的仓库。 如果你打算使用自己的域名来打开博客且已经设置好域名解析, 则可能是 source目录下没有添加CNAME文件或格式不正确。 正确做法：在hexo项目目录/source/下添加CNAME文件，并且写入自己的域名。保存后重新在hexo项目目录下（必须在这个目录下才能执行hexo命令，否则报错）执行 12hexo g //generatehexo d //deploy - **注意：`CNAME`无后缀名且全部大写** 同时自己博客对应repo的setting-&gt;custom-domain一项，要检查是否有改为自己的域名。（一般执行hexo d后该项会自动填写）]]></content>
+      <categories>
+        <category>博客配置</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github Site</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Ubuntu 16.04 Xen 安装流程]]></title>
+    <url>%2F2018%2F01%2F22%2FUbuntu%2016.04%20Xen%20installation%20guide%2F</url>
+    <content type="text"><![CDATA[1 安装Xen hypervisor1sudo apt-get install xen-hypervisor-4.4-amd64 2 安装libvirt和Virtual Manager1sudo apt-get install virtinst python-libvirt virt-viewer virt-manager 3 重启1sudo reboot 4 修改Xen配置文件1sudo vim /etc/default/xen 5 检查是否安装成功1sudo xl list 出现如下内容即为安装成功 参考 ubuntu 14.04安装xen ubuntu “sudo xm list” 出现ERROR: A different toolstack (xl) have been selected!]]></content>
+      <categories>
+        <category>Distributed Computing</category>
+      </categories>
+      <tags>
+        <tag>Xen</tag>
+        <tag>Virtualization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[原码、反码、补码]]></title>
+    <url>%2F2017%2F11%2F23%2F%E5%8E%9F%E7%A0%81%E3%80%81%E5%8F%8D%E7%A0%81%E3%80%81%E8%A1%A5%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[原码 123#很直观的，以8位表示一个数00000001 # 110000001 # -1 反码 1234#正数数反码=原码#负数反码=符号位（最高位）不变，其余各位取反00000001 # 111111110 # -1 补码 1234#正数补码=原码#负数补码=符号位不变，其余各位取反，然后加100000001 # 111111111 # -1 原理 为了使计算机只有加法运算，所以符号位也要参与运算，就出现了反码。 反码会导致+0，-0, 所以就有了补码，用原来-0的反码来表示-128 表示范围 反码 ： [-127, 127] 补码 ： [-128, 127]]]></content>
+      <categories>
+        <category>CS Basics</category>
+      </categories>
+  </entry>
+</search>
