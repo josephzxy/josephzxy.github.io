@@ -376,6 +376,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2018/10/01/pandas-dataframe_usage/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/01/pandas-dataframe_usage/" class="post-title-link" itemprop="url">Pandas中 DataFrame的使用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-10-01 11:35:19" itemprop="dateCreated datePublished" datetime="2018-10-01T11:35:19+08:00">2018-10-01</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="读取行"><a href="#读取行" class="headerlink" title="读取行"></a>读取行</h2><p>DataFrame读取行可以通过以下两种索引</p>
+<ul>
+<li>行标签索引 <code>df.loc[&quot;one&quot;]</code></li>
+<li>行号索引 <code>df.iloc[0]</code></li>
+</ul>
+<p><strong>行标签索引</strong>可以在创建DataFrame的时候指定，如<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">d=[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]]</span><br><span class="line">index=[<span class="string">"one"</span>,<span class="string">"two"</span>]</span><br><span class="line">df=pd.DataFrame(d, index=index)  </span><br><span class="line"><span class="keyword">print</span> df.loc[<span class="string">"one"</span>]</span><br></pre></td></tr></table></figure></p>
+<p><strong>行号索引</strong>(index)可以通过<code>df.index</code>来查看<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.index</span><br><span class="line">RangeIndex(start=<span class="number">0</span>, stop=<span class="number">18</span>, step=<span class="number">1</span>) <span class="comment"># 0~17</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.iloc[<span class="number">0</span>] <span class="comment"># 获取第一行</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以全部都用<code>df.ix[]</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df.ix[<span class="number">3</span>] <span class="comment"># 读取第三行</span></span><br><span class="line">df.ix[<span class="string">"three"</span>]</span><br></pre></td></tr></table></figure></p>
+<h2 id="读取列"><a href="#读取列" class="headerlink" title="读取列"></a>读取列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 两个参数，第一个类似切片，指定要获取的行</span></span><br><span class="line"><span class="comment"># 第二个是一个list， 指定要获取的列名</span></span><br><span class="line">df.ix[:, [<span class="string">"Stations"</span>]]</span><br></pre></td></tr></table></figure>
+<p>列名可以通过<code>df.columns</code>获取</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>df.columns</span><br><span class="line">Index([<span class="string">'Station'</span>, <span class="string">'To Tiu Keng Leng'</span>, <span class="string">'To Kwun Tong'</span>, <span class="string">'To Whampoa'</span>,</span><br><span class="line">       <span class="string">'Unnamed: 4'</span>, <span class="string">'Unnamed: 5'</span>, <span class="string">'Unnamed: 6'</span>],</span><br><span class="line">      dtype=<span class="string">'object'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="DataFrame转成list"><a href="#DataFrame转成list" class="headerlink" title="DataFrame转成list"></a>DataFrame转成list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">l = np.array(df).tolist()</span><br></pre></td></tr></table></figure>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/31360526" target="_blank" rel="noopener">pandas读取行和列</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2018/10/01/pandas-read-html/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2020,185 +2173,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2018/07/27/记一次flask单元测试的编写/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/07/27/记一次flask单元测试的编写/" class="post-title-link" itemprop="url">记一次flask单元测试的编写</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-07-27 15:14:00" itemprop="dateCreated datePublished" datetime="2018-07-27T15:14:00+08:00">2018-07-27</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-12-31 15:00:19" itemprop="dateModified" datetime="2018-12-31T15:00:19+08:00">2018-12-31</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Backend/" itemprop="url" rel="index"><span itemprop="name">Backend</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>记录一些自己写单元测试时的点</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2018/07/27/记一次flask单元测试的编写/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2245,7 +2219,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-count">66</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -2411,7 +2385,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">49</span>
+                      
+                    
+                    <span class="site-state-item-count">50</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>

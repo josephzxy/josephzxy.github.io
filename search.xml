@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[txtaug: text augmentation command line tool in Python]]></title>
+    <url>%2F2019%2F04%2F23%2Ftext-augmentation-command-line-tool-in-python%2F</url>
+    <content type="text"><![CDATA[Coming soon.]]></content>
+      <categories>
+        <category>Personal Projects</category>
+      </categories>
+      <tags>
+        <tag>Command Line Tool</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[爬取Twitter搜索结果]]></title>
     <url>%2F2019%2F04%2F17%2Fcrawl-twitter-search-result%2F</url>
     <content type="text"><![CDATA[需求 希望得到大量（几乎全部）符合一定搜索条件的推文 现状 推特自身的API限制诸多，免费API每次请求只能得到100条，只能得到最近7天的推文。付费API虽然能检索full archive，但时间窗口被限定为30天，即只能检索过去所有推文中任意一个30天窗口内的推文… 思路 模拟浏览器向推特搜索网页发送GET请求。 在显示结果的网页中，模拟浏览器不断下拉网页加载新的推文，直至无法加载更多。 获取此时网页的源码，定位并解析出推文内容已经其他相关感兴趣信息。 讨论 为何要模拟浏览器而不是直接用相关库（比如requests）发起请求？ requests库直接发起请求会被推特识别为爬虫，无法返回包含推文的搜索结果页面。（解决方法：可以先用Chrome浏览器发起请求，然后查看请求的headers，并将其设置为requests的GET方法的headers参数） requests库无法模拟浏览器的下拉操作，而搜索结果界面一次只显示20条推文。 为何不使用官方api，或者是对官方api进行封装的工具（比如twarc）? 官方搜索api限制诸多，且免费版只能搜索七天内的推文，数据量太小，无法满足需求。 该方法的优缺点？ 优点：思路直观，实现简单 缺点：selenium慢，占用资源多。 用到的工具语言Python 3.6+ 包 selenium 调用浏览器发起请求，并执行js脚本下拉加载网页 加载完成后保存源码 lxml 利用xpath解析源码，定位到推文部分 beautifulsoup 解析推文部分网页源码，提取出推文及其他信息。 关键代码发起请求 &amp; 下拉网页12345678from selenium import webdriverurl = "https://twitter.com/search?q=trump&amp;src=typd&amp;lang=en"driver = webdriver.Chrome() # 调用chrome driverdriver.get(url)scroll_bottom_script = "window.scrollTo(0,document.body.scrollHeight);"driver.execute_script(scroll_bottom_script) 定位内容 &amp; 解析网页1234567891011121314151617from lxml import etreefrom bs4 import BeautifulSoup as Souptweet_text_xpath = '//*[@data-item-type="tweet"]/div/div[2]/div[@class="js-tweet-text-container"]/p'html = etree.HTML(driver.page_source)text_blocks = html.xpath(tweet_text_xpath)texts = [] # All tweetsfor html_block in text_blocks: tweet_text_html = etree.tostring(html_block).decode("utf-8") soup = Soup(tweet_text_html, features="lxml") [s.extract() for s in soup(['a'])] # remove link text = soup.p.text text = text.replace("\n", " ") text = " ".join(text.split()) text = text.strip() texts.append(text) 参考 python+selenium爬取动态网页数据 - PUPPYplayBUBBLE的文章 - 知乎 学爬虫利器XPath,看这一篇就够了 - Python程序员的文章 - 知乎]]></content>
