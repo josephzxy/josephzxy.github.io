@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[【随笔】不要害怕犯错]]></title>
+    <url>%2F2019%2F05%2F14%2F%E4%B8%8D%E8%A6%81%E5%AE%B3%E6%80%95%E7%8A%AF%E9%94%99%2F</url>
+    <content type="text"><![CDATA[如果我们总想要做到完美，一步到位，其实是在逃避成长啊。 我曾非常害怕时间，因为时间真是一个无情的东西，过去就不再回来。并且，如果把时间像一个卷轴一样展开，过去发生的事情就好比已经写在上面的故事，永远存在于那里。这样想想真的很绝望，一旦犯了错，你根本没有办法做任何东西去抵消它，在那里就是在那里。 于是我很害怕犯错，很害怕走弯路。因为走弯路也需要时间啊，错了就是错了，再也无法修正了啊。 但我觉得我需要更深去明白什么是神的赦免与救恩。没错，过去的错与罪都在那里，无法否认，无可抵赖，就像一张信用卡的月结单，上面大大小小地列着我的所欠款项。但赦免的实质却是有人替我结清了这张单子，从此这些错误和罪恶不能再辖制和控诉我，我已经和它们了无关系。 所以我觉得一个真正勇敢的人，不是那些看起来毫无畏惧，什么都敢做的人。而是无论自己经历了什么，犯了什么错，甚至是蹉跎了多少时间，暂时的悔恨之后，愿意领受神接纳来接纳自己，给自己再一次机会，继续向前走的人。哪怕知道自己在将来的路上仍有重蹈覆辙的可能性，但却明白也深信，自己因着耶稣基督的血，已经被神完全接纳，并且神爱的正是现在的我，过去的事情过去了，现在存在的都是新的了。 这并不是一件容易或者一次就能做到的事，所以那些在内心的痛苦再次袭来时愿意抓紧神的手去直面，并再一次凭信心领受神的接纳，向前走的人，是真的勇敢。 成长总是会经历困难与痛苦的，因为就像种子发芽，那股向上的力量必须要冲破旧有的壳子，在看起来没有光明的土壤里凭信心继续向上。而即便是已经冲出了土层，成长难道就风调雨顺了吗？不会的，有风吹，有雨淋，有虫子，还有修剪。但是我们不要忘了啊，我们的园丁是爱我们的天父，我们的成长，我们自己，都在祂手里，都属于祂。 所以还是那句话，“向前走”，遇到问题就祷告，没有过不去的坎的，不要怕走错，有神在带领，Nothing is a waste.]]></content>
+      <categories>
+        <category>随笔</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[txtaug: text augmentation command line tool in Python]]></title>
     <url>%2F2019%2F04%2F23%2Ftext-augmentation-command-line-tool-in-python%2F</url>
     <content type="text"><![CDATA[txtaugtxtaug is a command line tool written in Python3 for text augmentation based on Baidu translation API. Install1pip3 install txtaug Usage1234567891011121314txtaug [-h] [-l LANGUAGE] [-t TIMES] [-s] [-a APPID] [-k KEY] [-T TEXT]optional arguments: -h, --help show this help message and exit -l LANGUAGE, --language LANGUAGE source language code of the input text. reference http://api.fanyi.baidu.com/api/trans/product/apidoc -t TIMES, --times TIMES times to augment -s, --self_including whether to show the input text on output -a APPID, --appid APPID your baidu api app_id -k KEY, --key KEY your baidu api key -T TEXT, --text TEXT text to be augmented SampleBelow is a sample in which we 1 times augmented the Chinese sentence “我爱你” and include the sentence itself in the output. 1txtaug -l zh -t 1 -s -a your_app_id -k your_key -T "我爱你" Output 12我爱你本人喜好你]]></content>
@@ -346,17 +354,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Requests 库基本用法]]></title>
-    <url>%2F2018%2F10%2F01%2Frequests-basic-usage%2F</url>
-    <content type="text"><![CDATA[为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。 安装1pip3 install requests 简单使用首先呈上官方文档，有中文版，欢迎来啃。下面主要介绍两种方法：get和post get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。 1r = requests.get(url,**args)#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息 post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。 12345args = &#123; "a": "b", ...&#125;r = requests.post(url, params=args)#也是返回Response对象 参数详解get和post方法中有许多参数可以使用，部分参数后面会详解。 url：就是目标网址，接收完整（带http）的地址字符串。 headers：请求头，存储本地信息如浏览器版本，是一个字典。 data：要提交的数据，字典。 cookies：cookies，字典。 timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。 params：为网址添加条件数据，字典。 123payload = &#123;'key1': 'value1', 'key2': 'value2'&#125;r = requests.get("http://httpbin.org/get", params=payload)#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1 proxies：ip代理时使用，字典。 Response对象使用从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。 123456789r.encoding = &apos;ISO-8859-1&apos; #指定r.text返回的数据类型，写在r.text之前。r.text #默认以unicode形式返回网页内容，也就是网页源码的字符串。r.content #以二进制形式返回网页内容，下载图片时专用。r.json() #把网页中的json数据转成字典并将其返回。#还有一些很少用到的方法。r.headers #返回服务器端的headers，字典。r.status_code #返回连接状态，200正常。 ReferencePython 从零开始爬虫(零)——爬虫思路&amp;requests模块使用]]></content>
-      <categories>
-        <category>Python Package Usage</category>
-      </categories>
-      <tags>
-        <tag>Requests</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Pandas解析html]]></title>
     <url>%2F2018%2F10%2F01%2Fpandas-read-html%2F</url>
     <content type="text"><![CDATA[pandas可以用read_html()函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。 比如说有table html代码如下 1&lt;table class="table1"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;th colspan="1" rowspan="2"&gt;Station&lt;/th&gt; &lt;th colspan="2"&gt;To Tiu Keng Leng&lt;/th&gt; &lt;th colspan="2"&gt;To Kwun Tong&lt;/th&gt; &lt;th colspan="2"&gt;To Whampoa&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Whampoa&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;00:40&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;01:00&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt; 通过read_html()解析得到 1234import pandas as pd# 因为会返回包含df的listdf = pd.read_html(html, header=0, encoding="utf8")[0] Reference python beautifulsoup 如何抓取不规则表格的内容]]></content>
@@ -374,6 +371,17 @@
       <categories>
         <category>Python Package Usage</category>
       </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Requests 库基本用法]]></title>
+    <url>%2F2018%2F10%2F01%2Frequests-basic-usage%2F</url>
+    <content type="text"><![CDATA[为什么选择requests，因为它能完全胜任python自带的urllib模块，简化了不必要的功能的同时让使用更加简单。 安装1pip3 install requests 简单使用首先呈上官方文档，有中文版，欢迎来啃。下面主要介绍两种方法：get和post get，就是本地向服务器索取的意思，服务器检查请求头（request headers）后，如果觉得没问题，就会返回信息给本地。 1r = requests.get(url,**args)#返回一个Response对象，我们可以从这个对象中获取所有我们想要的信息 post，就是本地要向服务器提交一些数据的意思，服务器还是会检查请求头，如果提交的数据和请求头都没问题，就会返回信息给本地。 12345args = &#123; "a": "b", ...&#125;r = requests.post(url, params=args)#也是返回Response对象 参数详解get和post方法中有许多参数可以使用，部分参数后面会详解。 url：就是目标网址，接收完整（带http）的地址字符串。 headers：请求头，存储本地信息如浏览器版本，是一个字典。 data：要提交的数据，字典。 cookies：cookies，字典。 timeout：超时设置，如果服务器在指定秒数内没有应答，抛出异常，用于避免无响应连接，整形或浮点数。 params：为网址添加条件数据，字典。 123payload = &#123;'key1': 'value1', 'key2': 'value2'&#125;r = requests.get("http://httpbin.org/get", params=payload)#相当于目标网址变成了http://httpbin.org/get?key2=value2&amp;key1=value1 proxies：ip代理时使用，字典。 Response对象使用从这个对象中获取所有我们想要的信息非常简单，毕竟爬虫要的数据主要就三种，html源码，图片二进制数据，json数据，Response对象一次性满足你三个愿望。 123456789r.encoding = &apos;ISO-8859-1&apos; #指定r.text返回的数据类型，写在r.text之前。r.text #默认以unicode形式返回网页内容，也就是网页源码的字符串。r.content #以二进制形式返回网页内容，下载图片时专用。r.json() #把网页中的json数据转成字典并将其返回。#还有一些很少用到的方法。r.headers #返回服务器端的headers，字典。r.status_code #返回连接状态，200正常。 ReferencePython 从零开始爬虫(零)——爬虫思路&amp;requests模块使用]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+      <tags>
+        <tag>Requests</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[MySQL 修改数据库编码为utf8mb4以插入emoj]]></title>
