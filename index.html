@@ -376,6 +376,813 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/python-m-和-python-直接运行的区别/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/14/python-m-和-python-直接运行的区别/" class="post-title-link" itemprop="url">[Python] python -m 和 python 直接运行的区别</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-14 15:06:00 / Modified: 15:08:04" itemprop="dateCreated datePublished" datetime="2019-05-14T15:06:00+08:00">2019-05-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming-Languages/" itemprop="url" rel="index"><span itemprop="name">Programming Languages</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一分钟版本"><a href="#一分钟版本" class="headerlink" title="一分钟版本"></a>一分钟版本</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; python xxx.py  # 直接运行</span><br><span class="line">&gt;&gt;&gt; python -m xxx # 相当于import，叫做当做模块来启动</span><br></pre></td></tr></table></figure>
+<p>主要区别在于<code>sys.path</code>不同</p>
+<p>直接运行会将该脚本所在目录添加至<code>sys.path</code><br>当做模块启动则会将当前运行命令的路径添加至<code>sys.path</code></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/14/python-m-和-python-直接运行的区别/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/Mac-pipenv-install-报错-ValueError-unknown-locale-UTF-8/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/14/Mac-pipenv-install-报错-ValueError-unknown-locale-UTF-8/" class="post-title-link" itemprop="url">Mac pipenv install 报错 ValueError: unknown locale: UTF-8</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-14 14:56:00 / Modified: 14:57:35" itemprop="dateCreated datePublished" datetime="2019-05-14T14:56:00+08:00">2019-05-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Mac/" itemprop="url" rel="index"><span itemprop="name">Mac</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><ul>
+<li>MacOS Sierra</li>
+<li>Python 3.6</li>
+</ul>
+<p>安装参照<a href="https://zhuanlan.zhihu.com/p/32913361" target="_blank" rel="noopener">使用pipenv管理你的项目</a></p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在<code>~/.bash_profile</code>里加上下面两行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export LC_ALL=en_US.UTF-8</span><br><span class="line">export LANG=en_US.UTF-8</span><br></pre></td></tr></table></figure>
+<p>参考<a href="https://github.com/pypa/pipenv/issues/187" target="_blank" rel="noopener">ValueError: unknown locale: UTF-8</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/关于GIL-Python‘s hardest problem阅读笔记/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/14/关于GIL-Python‘s hardest problem阅读笔记/" class="post-title-link" itemprop="url">[Python] 关于GIL-Python‘s hardest problem阅读笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-14 14:20:00 / Modified: 14:25:02" itemprop="dateCreated datePublished" datetime="2019-05-14T14:20:00+08:00">2019-05-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Programming-Languages/" itemprop="url" rel="index"><span itemprop="name">Programming Languages</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://jeffknupp.com/blog/2012/03/31/pythons-hardest-problem/" target="_blank" rel="noopener">原文地址</a></p>
+<p>该文主要讲了GIL，在此记录自己的总结</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/14/关于GIL-Python‘s hardest problem阅读笔记/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/Python3-乱码恢复/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/14/Python3-乱码恢复/" class="post-title-link" itemprop="url">Python3 乱码恢复</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-14 14:05:35 / Modified: 14:05:57" itemprop="dateCreated datePublished" datetime="2019-05-14T14:05:35+08:00">2019-05-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>最近项目中遇到一个问题，就是数据库中某些较早的记录中的中文名字显示为乱码，就像这样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">é™³å½¥ç’‹ # 陳彥璋</span><br></pre></td></tr></table></figure>
+<p>于是就寻思着怎样才能用Python3自动进行乱码恢复。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/14/Python3-乱码恢复/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/[Python]@property的使用/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Joseph Chu"/>
+      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
+      <meta itemprop="image" content="/images/avatar.gif"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Joseph Chu's Blog"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/05/14/[Python]@property的使用/" class="post-title-link" itemprop="url">[Python]@property的使用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-05-14 14:01:00 / Modified: 14:02:50" itemprop="dateCreated datePublished" datetime="2019-05-14T14:01:00+08:00">2019-05-14</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Why-property"><a href="#Why-property" class="headerlink" title="Why @property?"></a>Why @property?</h2><p>如果对于一个类，我们希望用getter和setter来控制成员变量的赋值和取值，又不希望对于每一个成员变量都显式的写出getter和setter， 就可以用@property</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># this is the getter</span></span><br><span class="line"><span class="meta">    @property</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self._score</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># this is the setter</span></span><br><span class="line"><span class="meta">    @score.setter</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">score</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        <span class="comment"># value check here</span></span><br><span class="line">        self._score = value</span><br></pre></td></tr></table></figure>
+<p>When calling</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student().score # get_score</span><br><span class="line"># instead of Student()._score directly</span><br></pre></td></tr></table></figure>
+<p>More details about the func <code>property</code> <a href="https://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work" target="_blank" rel="noopener">here</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li><a href="https://stackoverflow.com/questions/17330160/how-does-the-property-decorator-work" target="_blank" rel="noopener">How does the @property decorator work?</a></li>
+<li><a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/00143186781871161bc8d6497004764b398401a401d4cce000" target="_blank" rel="noopener">使用@property</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/05/14/不要害怕犯错/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1210,928 +2017,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/03/21/colab-run-python-file/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/21/colab-run-python-file/" class="post-title-link" itemprop="url">Colab导入Python文件</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-21 14:10:00 / Modified: 14:13:34" itemprop="dateCreated datePublished" datetime="2019-03-21T14:10:00+08:00">2019-03-21</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>分两步走</p>
-<ol>
-<li><p>上传文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">from</span> google.colab <span class="keyword">import</span> files</span><br><span class="line">uploaded = files.upload()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>载入文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment"># Py3 </span></span><br><span class="line">exec(open(<span class="string">'example.py'</span>).read())</span><br><span class="line"><span class="comment"># Py2</span></span><br><span class="line">execfile(<span class="string">'example.py'</span>)</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/03/06/【机器学习中的数学】梯度/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/06/【机器学习中的数学】梯度/" class="post-title-link" itemprop="url">【机器学习中的数学】梯度</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-06 15:25:00 / Modified: 15:29:19" itemprop="dateCreated datePublished" datetime="2019-03-06T15:25:00+08:00">2019-03-06</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index"><span itemprop="name">Maths</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>先来看梯度的定义</p>
-<blockquote>
-<p>梯度：是一个向量，其方向上的方向导数最大，其大小正好是此最大方向导数。方向导数就是某个方向上的导数。</p>
-</blockquote>
-<p>简单来说，梯度这个向量指向了<strong>自变量应该改变的方向</strong>，使得<strong>因变量增长最快</strong>。</p>
-<p>从具体定义上来看，梯度实际上就是多变量微分的一般化。</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
-<p>我们可以看到，梯度向量的每个维度值其实就是目标函数对每个变量的微分，然后用逗号分割开，用&lt;&gt;包括起来。</p>
-<p>下面我们来看一个单变量函数梯度的例子。</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-615ed57981170c81ea40ca35099a8a59_hd.jpg" alt=""></p>
-<p>这是 $y = x^2$ 的图像。在这个例子中只有一个自变量 $x$，那么按照我们上面的定义，梯度就是对该自变量 $x$ 求微分，即 $\frac{d(x^2)}{dx} = 2x$ ，换句话说，梯度向量 $G$ 是一个一维向量 $&lt;2x,&gt;$ ， 具体的值取决于此时 $x$ 的值。假设我们此时在 $(1, 1)$ 点，那么此时的梯度向量 $G = &lt;2,&gt;$。 $2 &gt; 0$ 代表自变量 $x$ 应向 $x$ 轴正方向移动，使得因变量 $y$ 增长最快。</p>
-<p>那么对于多变量函数呢？其实也是一样的。</p>
-<p>比如我们定义中的这个多变量函数<br><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-741e233f1ca7452ace5382cb18c4a3d2_hd.jpg" alt=""></p>
-<p>这里的梯度 $G = &lt;-5, -2, 12&gt;$该则么理解呢？因为 $-5 &lt; 0, -2 &lt; 0, 12 &gt; 0$， 所以要想使函数值 $J$ 增长最快，$θ_1, θ_2$ 应该向其负方向移动，而 $θ_3$ 应该向正方向移动。但是！$θ_1, θ_2, θ_3$ 移动的幅度必须按照 $ 5: 2: 12$这个比例，以保证三个自变量整体的移动是符合梯度方向的。</p>
-<h2 id="梯度下降-Gradient-Descent"><a href="#梯度下降-Gradient-Descent" class="headerlink" title="梯度下降 (Gradient Descent)"></a>梯度下降 (Gradient Descent)</h2><p>梯度下降是神经网络中常用的一个算法。</p>
-<p><strong>神经网络的本质可以概括为，一个输入列向量，左乘若干个变换矩阵，得到结果即是输出向量</strong>， 如下图（p.s. 不是很严谨，因为没有考虑激活函数，但是这里不影响）。</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/Screenshot 2019-02-20 at 4.23.13 PM.png" alt=""></p>
-<p>而变换矩阵中的每一个元素就是神经网络中每一条连接的权重值。神经网络训练的目标就是要找到每个合适的权重值，使得输入向量经过一系列变换后，可以得到我们希望的输出向量。</p>
-<p>为了达到这个目的，我们构建对于这些权重$θ_1, θ_2…$的损失函数 $J(θ)$，并找到使$J(θ)$取最小值时的自变量值。</p>
-<p>在神经网络中，梯度下降的公式如下</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-6de441349ba85058169a12f228df9d47_hd.jpg" alt=""></p>
-<p>在这里，对于自变量向量 $θ$，$θ^0$ 是其更新前的值，而 $θ^1$ 通过一次梯度下降更新后的值。<br>$▽J(θ)$是梯度，表示函数值上升最快的自变量变化方向，前面的负号则表示我们要往梯度的反方向，即函数值下降最快的方向前进。 $α$ 是学习速率(Learning Rate)，与梯度向量相乘，用来调节我们一次要走的步长。（也就是说，梯度向量中单个维度具体的值意义不大，因为我们可以通过学习率$α$调节要走的步长，但是梯度向量中每个维度值之间的顺序和比例关系很重要，因为代表了梯度方向）</p>
-<p>最后我们来看一个多变量函数的梯度下降的例子（例子取自<a href="https://zhuanlan.zhihu.com/p/33321183" target="_blank" rel="noopener">深入浅出–梯度下降法及其实现 - chi的文章 - 知乎</a>）</p>
-<p>我们假设有一个目标函数</p>
-<p>$$J(θ) = θ^2_1 + θ^2_2$$</p>
-<p>现在要通过梯度下降法计算这个函数的最小值。我们通过观察就能发现最小值其实就是 (0，0)点。但是接下来，我们会从梯度下降算法开始一步步计算到这个最小值！<br>我们假设初始的起点为：</p>
-<p>$$θ^0 = (1, 3)$$</p>
-<p>初始的学习率为：</p>
-<p>$$ α = 0.1 $$</p>
-<p>函数的梯度为：</p>
-<p>$$▽J(θ) = &lt;2θ_1, 2θ_2&gt;$$</p>
-<p>进行多次迭代：</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-5054e4ece7048cf647b8aa3d5a46a3e4_hd.jpg" alt=""></p>
-<p>我们发现，已经基本靠近函数的最小值点</p>
-<p><img src="https://raw.githubusercontent.com/josephzxy/blog_pic/master//img/v2-955bb30aeee0e40e4da055b496d2b528_hd.jpg" alt=""></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/33321183" target="_blank" rel="noopener">深入浅出–梯度下降法及其实现 - chi的文章 - 知乎</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/27664917" target="_blank" rel="noopener">神经网络中数学知识简易梳理 - Aaron Yang的文章 - 知乎</a></li>
-<li><a href="https://www.zhihu.com/question/36301367/answer/156102040" target="_blank" rel="noopener">如何直观形象的理解方向导数与梯度以及它们之间的关系？ - 马同学的回答 - 知乎</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/02/27/nndl-note-1/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/27/nndl-note-1/" class="post-title-link" itemprop="url">《神经网络与深度学习》笔记-第一章-神经网络基础与梯度下降算法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-27 12:01:00 / Modified: 12:18:38" itemprop="dateCreated datePublished" datetime="2019-02-27T12:01:00+08:00">2019-02-27</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本系列笔记文章意在对<a href="https://book.douban.com/subject/26727997/" target="_blank" rel="noopener">《神经网络与深度学习》</a>一书中学到的知识点进行浓缩和总结，并加入自己的理解。</p>
-<p>《神经网络与深度学习》资源<br>英文版：<a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">http://neuralnetworksanddeeplearning.com/</a><br>中文版：<a href="https://pan.baidu.com/s/1mi8YVri" target="_blank" rel="noopener">https://pan.baidu.com/s/1mi8YVri</a> 密码：e7do</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/27/nndl-note-1/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/02/20/神经网络基础概念整理（一）——微分和梯度/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/20/神经网络基础概念整理（一）——微分和梯度/" class="post-title-link" itemprop="url">【机器学习中的数学】微分</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-20 11:28:00" itemprop="dateCreated datePublished" datetime="2019-02-20T11:28:00+08:00">2019-02-20</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-03-06 15:30:34" itemprop="dateModified" datetime="2019-03-06T15:30:34+08:00">2019-03-06</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a></span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Machine-Learning/Maths/" itemprop="url" rel="index"><span itemprop="name">Maths</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><p>简单来讲（可能有失严谨），微分即形如 $\frac{dy}{dx}$ 这样的式子。式子中的 $dy$ 和 $dx$ 是变量，表示 $∆y$ 和 $∆x$ 在 $∆x$ 趋近于0的时候的状态。</p>
-<p>或者更简单粗暴来说，<strong>微分就是导函数</strong>。</p>
-<p>微分的意义最常用的是以下两种：</p>
-<ul>
-<li>函数图像中，某点的切线的斜率</li>
-<li>函数的变化率</li>
-</ul>
-<p>下面是几个微分的例子</p>
-<ul>
-<li>单变量微分：$\frac{d(x^2)}{dx} = 2x$</li>
-<li>多变量微分：$\frac{∂(x^2y^2)}{∂x} = 2xy^2$</li>
-</ul>
-<p>最后附上<strong>可微分</strong>的定义</p>
-<blockquote>
-<p>一个函数可微分即该函数的导数存在，并且导数存在于定义域中的每一个值。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://josephzxy.me/2019/02/07/Numpy数组切片的一些理解/"/>
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Joseph Chu"/>
-      <meta itemprop="description" content="一日之功很有限，不过可以积少成多"/>
-      <meta itemprop="image" content="/images/avatar.gif"/>
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Joseph Chu's Blog"/>
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/02/07/Numpy数组切片的一些理解/" class="post-title-link" itemprop="url">Numpy数组索引的一些理解</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-02-07 17:03:00" itemprop="dateCreated datePublished" datetime="2019-02-07T17:03:00+08:00">2019-02-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-02-08 10:41:48" itemprop="dateModified" datetime="2019-02-08T10:41:48+08:00">2019-02-08</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python-Package-Usage/" itemprop="url" rel="index"><span itemprop="name">Python Package Usage</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近在学Pytorch，因切片规则和Numpy相同，特在此记录。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/02/07/Numpy数组切片的一些理解/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 
@@ -2173,7 +2063,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-count">72</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

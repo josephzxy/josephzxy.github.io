@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[[Python] python -m 和 python 直接运行的区别]]></title>
+    <url>%2F2019%2F05%2F14%2Fpython-m-%E5%92%8C-python-%E7%9B%B4%E6%8E%A5%E8%BF%90%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB%2F</url>
+    <content type="text"><![CDATA[一分钟版本12&gt;&gt;&gt; python xxx.py # 直接运行&gt;&gt;&gt; python -m xxx # 相当于import，叫做当做模块来启动 主要区别在于sys.path不同 直接运行会将该脚本所在目录添加至sys.path当做模块启动则会将当前运行命令的路径添加至sys.path 实际应用假设我们有如下文件结构 123456package1/ |--__init__.py |--mod1.pypackage2/ |--__init__.py |--run.py 在run.py中import了mod1.py 12# run.pyfrom package1 import mod1 则 1234&gt;&gt;&gt; python run.py # 失败，提示找不到package1# 切换到package2 所在目录&gt;&gt;&gt; python -m package2.run # 成功 参考[python]自问自答：python -m参数？]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Mac pipenv install 报错 ValueError: unknown locale: UTF-8]]></title>
+    <url>%2F2019%2F05%2F14%2FMac-pipenv-install-%E6%8A%A5%E9%94%99-ValueError-unknown-locale-UTF-8%2F</url>
+    <content type="text"><![CDATA[环境 MacOS Sierra Python 3.6 安装参照使用pipenv管理你的项目 解决方案在~/.bash_profile里加上下面两行 12export LC_ALL=en_US.UTF-8export LANG=en_US.UTF-8 参考ValueError: unknown locale: UTF-8]]></content>
+      <categories>
+        <category>Mac</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python] 关于GIL-Python‘s hardest problem阅读笔记]]></title>
+    <url>%2F2019%2F05%2F14%2F%E5%85%B3%E4%BA%8EGIL-Python%E2%80%98s%20hardest%20problem%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%2F</url>
+    <content type="text"><![CDATA[原文地址 该文主要讲了GIL，在此记录自己的总结 Python 作为解释型语言，不像C语言这样的编译型语言。编译型语言的代码会通过编译器成为机器码，编译器可以一次看到完整的代码，进而可以做出很多优化。而解释型语言的代码会经过解释器，由解释器逐行解释执行，解释器不能一下子看到完整代码，所以对代码的优化很有限。Python的优化集中在解释器自身，也就是说，不管代码写的怎样，Python程序的运行速度根本上取决于解释器如何。 GIL使得同一时间内只有一个线程运行，导致即使是多核CPU，单个进程无论线程有多少，都只会同时使用一核。 用多进程实现并行处理，尽量不要用多线程 Python多线程可能反倒比单线程要慢（多个线程竞争一个共享资源，不断切换） 有的Python解释器（或者是编译器）是没有GIL的，官方的CPython是有的。 1999年Greg Stein曾尝试去除Python的GIL，但结果是单线程程序比原来慢了40%，多线程的速度增长并不与核心数呈线性关系。最后该补丁未被采纳。 Python3.2之后有了新的GIL，老GIL中每个线程每执行一定数量的字节码（100行？），然后释放GIL。新GIL中每个线程默认执行5ms就要释放GIL。]]></content>
+      <categories>
+        <category>Programming Languages</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[Python3 乱码恢复]]></title>
+    <url>%2F2019%2F05%2F14%2FPython3-%E4%B9%B1%E7%A0%81%E6%81%A2%E5%A4%8D%2F</url>
+    <content type="text"><![CDATA[最近项目中遇到一个问题，就是数据库中某些较早的记录中的中文名字显示为乱码，就像这样。 1é™³å½¥ç’‹ # 陳彥璋 于是就寻思着怎样才能用Python3自动进行乱码恢复。 关键代码先贴关键代码，下面这段函数实现了被错误解码为windows-1252的乱码的恢复。 12345678910111213141516171819def get_correct_value(messy_code, from_coding, to_coding): &apos;&apos;&apos; Get the correct value of messy code. :param messy_code: str, the messy code to recover, e.g. &apos;é™³å½¥ç’‹&apos; :param from_coding: str, the wrongly decoded encoding. e.g. &apos;windows-1252&apos; :param to_coding: str, the correct decoded encoding. e.g. &apos;utf-8&apos; &apos;&apos;&apos; if not messy_code: return None res = messy_code.encode(from_coding, &apos;backslashreplace&apos;) res = str(res) res = res.replace(&apos;\\\\&apos;, &apos;\\&apos;) res = res.replace(&apos;b&apos;, &apos;&apos;, 1) res = res.replace(&quot;&apos;&quot;, &apos;&apos;) res = res.split(&apos;\\x&apos;) res = &apos;&apos;.join(res) return bytes.fromhex(res).decode(&apos;utf-8&apos;) Python3 乱码恢复基本思路首先我们要明白字符编码和解码的概念，对应Python3中的函数即encode()和decode() 可以利用在线工具得到乱码之前被错误地用什么编码来解码，应该用什么编码来解码。比如说在我的例子中，乱码之所以成为乱码是因为被windows-1252解码，但实际上应该用utf-8解码。 参考 Python常见字符编码间的转换 Python常用字符编码]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[[Python]@property的使用]]></title>
+    <url>%2F2019%2F05%2F14%2F%5BPython%5D%40property%E7%9A%84%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Why @property?如果对于一个类，我们希望用getter和setter来控制成员变量的赋值和取值，又不希望对于每一个成员变量都显式的写出getter和setter， 就可以用@property 123456789101112class Student: # this is the getter @property def score(self): return self._score # this is the setter @score.setter def score(self, value): # value check here self._score = value When calling 12Student().score # get_score# instead of Student()._score directly More details about the func property here Reference How does the @property decorator work? 使用@property]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[【随笔】不要害怕犯错]]></title>
     <url>%2F2019%2F05%2F14%2F%E4%B8%8D%E8%A6%81%E5%AE%B3%E6%80%95%E7%8A%AF%E9%94%99%2F</url>
     <content type="text"><![CDATA[如果我们总想要做到完美，一步到位，其实是在逃避成长啊。 我曾非常害怕时间，因为时间真是一个无情的东西，过去就不再回来。并且，如果把时间像一个卷轴一样展开，过去发生的事情就好比已经写在上面的故事，永远存在于那里。这样想想真的很绝望，一旦犯了错，你根本没有办法做任何东西去抵消它，在那里就是在那里。 于是我很害怕犯错，很害怕走弯路。因为走弯路也需要时间啊，错了就是错了，再也无法修正了啊。 但我觉得我需要更深去明白什么是神的赦免与救恩。没错，过去的错与罪都在那里，无法否认，无可抵赖，就像一张信用卡的月结单，上面大大小小地列着我的所欠款项。但赦免的实质却是有人替我结清了这张单子，从此这些错误和罪恶不能再辖制和控诉我，我已经和它们了无关系。 所以我觉得一个真正勇敢的人，不是那些看起来毫无畏惧，什么都敢做的人。而是无论自己经历了什么，犯了什么错，甚至是蹉跎了多少时间，暂时的悔恨之后，愿意领受神接纳来接纳自己，给自己再一次机会，继续向前走的人。哪怕知道自己在将来的路上仍有重蹈覆辙的可能性，但却明白也深信，自己因着耶稣基督的血，已经被神完全接纳，并且神爱的正是现在的我，过去的事情过去了，现在存在的都是新的了。 这并不是一件容易或者一次就能做到的事，所以那些在内心的痛苦再次袭来时愿意抓紧神的手去直面，并再一次凭信心领受神的接纳，向前走的人，是真的勇敢。 成长总是会经历困难与痛苦的，因为就像种子发芽，那股向上的力量必须要冲破旧有的壳子，在看起来没有光明的土壤里凭信心继续向上。而即便是已经冲出了土层，成长难道就风调雨顺了吗？不会的，有风吹，有雨淋，有虫子，还有修剪。但是我们不要忘了啊，我们的园丁是爱我们的天父，我们的成长，我们自己，都在祂手里，都属于祂。 所以还是那句话，“向前走”，遇到问题就祷告，没有过不去的坎的，不要怕走错，有神在带领，Nothing is a waste.]]></content>
