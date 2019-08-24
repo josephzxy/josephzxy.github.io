@@ -388,6 +388,14 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[BeautifulSoup 基本使用]]></title>
+    <url>%2F2018%2F10%2F01%2Fbs4-basic-usage%2F</url>
+    <content type="text"><![CDATA[在这里主要记录自己项目中涉及到的用法，供以后参考。 获取bs实例要使用BeautifulSoup，首先就要构建一个BeautifulSoup类实例 第一个参数：要解析的html文本，可以是str， 也可以是打开的文件句柄 features: 指定html解析器 (关于解析器之间的区别，请戳官方文档， “安装解析器”一节) 12345from bs4 import BeautifulSoup as Soupsoup = Soup(open(sample.html), features="lxml")# soup = Soup('&lt;h1&gt;my title&lt;/h1&gt;', features="lxml")soup.find_all('table') # 通过实例来使用一系列强大功能 查找所需的Tag常用方法如下123soup.table # 等同于 soup.find('table')soup.find('table') # 第一个出现的table, 类型为&lt;class 'bs4.element.Tag'&gt;soup.find_all('table') # 所有table 获取Tag中的文本比如说我的html文本是&lt;b&gt;this is sample&lt;/b&gt;， 我想要获得的是&#39;this is sample&#39; 可以通过soup.text或者soup.string属性来获得 关于text和string的区别可参考Python BeautifulSoup 中.text与.string的区别 12345&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; type(s.b)&lt;class 'bs4.element.Tag'&gt;&gt;&gt;&gt; s.b.text'this is sample' 获取包含Tag的文本那如果我现在想获得的就是&lt;b&gt;this is sample&lt;/b&gt;呢？ 如果是在iPython环境下，可以直接print()相应的Tag对象 123&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)&gt;&gt;&gt; print(s.b)&lt;b&gt;this is sample&lt;/b&gt; 如果是在脚本里面，则需要用到Python对象的内置方法__repr__() 在print一个对象的时候实际上调用了其__repr__()方法 123&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; s.b.__repr__()'&lt;b&gt;this is sample&lt;/b&gt;' ReferenceBeautifulSoup 4.2.0文档]]></content>
+      <categories>
+        <category>Python Package Usage</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Pandas解析html]]></title>
     <url>%2F2018%2F10%2F01%2Fpandas-read-html%2F</url>
     <content type="text"><![CDATA[pandas可以用read_html()函数直接解析html，尤其是可以吧html中的table直接转换为Dataframe，很是方便。 比如说有table html代码如下 1&lt;table class="table1"&gt; &lt;tbody&gt; &lt;tr&gt; &lt;th colspan="1" rowspan="2"&gt;Station&lt;/th&gt; &lt;th colspan="2"&gt;To Tiu Keng Leng&lt;/th&gt; &lt;th colspan="2"&gt;To Kwun Tong&lt;/th&gt; &lt;th colspan="2"&gt;To Whampoa&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;th&gt;First Train&lt;/th&gt; &lt;th&gt;Last Train&lt;/th&gt; &lt;/tr&gt; &lt;tr&gt; &lt;td&gt;Whampoa&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;00:40&lt;/td&gt; &lt;td&gt;06:10&lt;/td&gt; &lt;td&gt;01:00&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;td&gt;N/A&lt;/td&gt; &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt; 通过read_html()解析得到 1234import pandas as pd# 因为会返回包含df的listdf = pd.read_html(html, header=0, encoding="utf8")[0] Reference python beautifulsoup 如何抓取不规则表格的内容]]></content>
@@ -397,14 +405,6 @@
       <tags>
         <tag>Pandas</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[BeautifulSoup 基本使用]]></title>
-    <url>%2F2018%2F10%2F01%2Fbs4-basic-usage%2F</url>
-    <content type="text"><![CDATA[在这里主要记录自己项目中涉及到的用法，供以后参考。 获取bs实例要使用BeautifulSoup，首先就要构建一个BeautifulSoup类实例 第一个参数：要解析的html文本，可以是str， 也可以是打开的文件句柄 features: 指定html解析器 (关于解析器之间的区别，请戳官方文档， “安装解析器”一节) 12345from bs4 import BeautifulSoup as Soupsoup = Soup(open(sample.html), features="lxml")# soup = Soup('&lt;h1&gt;my title&lt;/h1&gt;', features="lxml")soup.find_all('table') # 通过实例来使用一系列强大功能 查找所需的Tag常用方法如下123soup.table # 等同于 soup.find('table')soup.find('table') # 第一个出现的table, 类型为&lt;class 'bs4.element.Tag'&gt;soup.find_all('table') # 所有table 获取Tag中的文本比如说我的html文本是&lt;b&gt;this is sample&lt;/b&gt;， 我想要获得的是&#39;this is sample&#39; 可以通过soup.text或者soup.string属性来获得 关于text和string的区别可参考Python BeautifulSoup 中.text与.string的区别 12345&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; type(s.b)&lt;class 'bs4.element.Tag'&gt;&gt;&gt;&gt; s.b.text'this is sample' 获取包含Tag的文本那如果我现在想获得的就是&lt;b&gt;this is sample&lt;/b&gt;呢？ 如果是在iPython环境下，可以直接print()相应的Tag对象 123&gt;&gt;&gt; s = Soup(&apos;&lt;b&gt;this is sample&lt;/b&gt;&apos;)&gt;&gt;&gt; print(s.b)&lt;b&gt;this is sample&lt;/b&gt; 如果是在脚本里面，则需要用到Python对象的内置方法__repr__() 在print一个对象的时候实际上调用了其__repr__()方法 123&gt;&gt;&gt; s = Soup('&lt;b&gt;this is sample&lt;/b&gt;')&gt;&gt;&gt; s.b.__repr__()'&lt;b&gt;this is sample&lt;/b&gt;' ReferenceBeautifulSoup 4.2.0文档]]></content>
-      <categories>
-        <category>Python Package Usage</category>
-      </categories>
   </entry>
   <entry>
     <title><![CDATA[Requests 库基本用法]]></title>
